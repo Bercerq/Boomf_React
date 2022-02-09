@@ -2,11 +2,12 @@ import React from "react";
 import { changeTopText } from "../../../../utils/functions/boomb";
 import { BoxSide, BoxText, PickerItem } from "./style";
 
-function SelectText({ setTopText, topText }) {
+function SelectText({ setTopText, topText, inputRef }) {
   return (
     <PickerItem>
-      <BoxSide>
+      <BoxSide inputRef={inputRef}>
         <textarea
+          ref={inputRef}
           maxLength={136}
           onChange={(e) => changeTopText(e, setTopText)}
           type="text"

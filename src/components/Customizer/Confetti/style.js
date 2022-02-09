@@ -3,6 +3,8 @@ export const Title = styled.div`
   color: #717171;
   font-size: 16px;
   text-align: end;
+  font-family: "Objectivity";
+
   @media (max-width: 920px) {
     text-align: start;
     margin: 12px 16px;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ModalWindow = styled.div`
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
@@ -18,6 +18,7 @@ export const ModalWindow = styled.div`
   ${({ openSideBar }) => openSideBar && "opacity:1; pointer-events: all;"}
 `;
 export const ModalContent = styled.div`
+  font-family: "Objectivity";
   padding: 40px;
   border-radius: 12px;
   background-color: white;
@@ -36,6 +37,7 @@ export const ModalTitle = styled.div`
 `;
 
 export const Title = styled.div`
+  font-family: "Objectivity";
   font-weight: bold;
   font-size: 28px;
   color: #222222;

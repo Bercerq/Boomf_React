@@ -34,7 +34,8 @@ export const setBoxPosition = (position, setCurrPosition) => () => {
 export const changeTopText = (e, setTopText) => {
   setTopText(e.target.value);
 };
-export const setBoxSide = (position) => {
+// Show side name based position
+export const findBoxSide = (position) => {
   switch (position) {
     case 2:
       return "Front";
@@ -48,7 +49,8 @@ export const setBoxSide = (position) => {
       break;
   }
 };
-
+//
+//Spin cube for mouse hold
 let startX;
 export const onCubeDragStart = () => {
   startX = true;
@@ -71,3 +73,4 @@ export const onCubeDrag = (e, setCubeRotateY, cubeRotateY) => {
     });
   }
 };
+//

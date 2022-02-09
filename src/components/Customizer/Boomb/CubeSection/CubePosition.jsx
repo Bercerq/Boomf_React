@@ -3,7 +3,7 @@ import React from "react";
 import {
   setBoxImage,
   setBoxPosition,
-  setBoxSide,
+  findBoxSide,
 } from "../../../../utils/functions/boomb";
 
 import { CubeItem, CubeSide, NoImage, BoxInfoSide } from "./style";
@@ -14,7 +14,6 @@ export const CubePosition = ({
   position,
   img,
   rotate,
-  textSideRotate,
 }) => {
   return (
     <CubeSide spinParam={rotate}>
@@ -26,7 +25,6 @@ export const CubePosition = ({
         accept=".png, .jpg, .jpeg"
       />
       <CubeItem
-        boxSide={setBoxSide(position)}
         onClick={setBoxPosition(position, setCurrPosition)}
         htmlFor="imageUpload"
         img={img}
@@ -36,13 +34,11 @@ export const CubePosition = ({
             <img src={img} alt={`side ${position}`} />
           </>
         ) : (
-          <NoImage>+ Photo {setBoxSide(position)}</NoImage>
+          <NoImage>+ Photo {findBoxSide(position)}</NoImage>
         )}
       </CubeItem>
 
-      <BoxInfoSide textSideRotate={textSideRotate}>
-        {setBoxSide(position)}
-      </BoxInfoSide>
+      <BoxInfoSide>{findBoxSide(position)}</BoxInfoSide>
     </CubeSide>
   );
 };

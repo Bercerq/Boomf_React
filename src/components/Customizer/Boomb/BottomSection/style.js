@@ -23,21 +23,21 @@ export const BoxSide = styled.div`
   max-height: 120px;
   height: 100%;
   width: 100%;
-  @media (max-width: 1240px) {
-    height: 60%;
-    width: 90%;
-  }
-
   background: #d6d6d6;
   cursor: pointer;
   word-break: break-all;
+  transition: 0.4s;
+
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
       drop-shadow(0px 8px 16px rgba(53, 53, 53, 0.281));
     transition: 0.4s;
   }
-  transition: 0.4s;
-
+  &:focus-within {
+    filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
+      drop-shadow(0px 8px 16px rgba(53, 53, 53, 0.281));
+    transition: 0.4s;
+  }
   textarea {
     padding: 15px 0 0 15px;
     width: 80%;
@@ -47,15 +47,8 @@ export const BoxSide = styled.div`
     resize: none;
     outline: none;
   }
-
-  &:hover {
-    .BoxNoImage {
-      opacity: 1;
-      transition: 0.4s;
-    }
-  }
-
   .BoxNoImage {
+    font-family: "Objectivity";
     opacity: 0;
     padding: 15px;
     color: gray;
@@ -63,6 +56,16 @@ export const BoxSide = styled.div`
     transition: 0.4s;
     max-width: 120px;
     height: 120px;
+  }
+  &:hover {
+    .BoxNoImage {
+      opacity: 1;
+      transition: 0.4s;
+    }
+  }
+  @media (max-width: 1240px) {
+    height: 60%;
+    width: 90%;
   }
 `;
 export const ButtonWrapper = styled.div`
@@ -83,6 +86,7 @@ export const BoxImage = styled.img`
 `;
 export const BoxText = styled.div`
   font-size: 16px;
+  font-family: "Objectivity";
   font-weight: 600;
   text-align: center;
   color: #222222;

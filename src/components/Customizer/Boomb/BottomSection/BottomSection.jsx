@@ -14,6 +14,7 @@ function BottomSection({
   setCurrentImage,
   setCurrPosition,
   handleButtonClick,
+  inputRef,
 }) {
   return (
     <Bottom>
@@ -23,6 +24,7 @@ function BottomSection({
         cubeData={cubeData}
         setCurrentImage={setCurrentImage}
         setCurrPosition={setCurrPosition}
+        inputRef={inputRef}
       />
       <ButtonWrapper>
         <BlueButton handleButtonClick={handleButtonClick}>
