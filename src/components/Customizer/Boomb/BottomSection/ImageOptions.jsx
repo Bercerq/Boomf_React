@@ -1,7 +1,7 @@
 import React from "react";
 import SelectImage from "./SelectImage";
 import SelectText from "./SelectText";
-import { ImagePicker } from './style';
+import { ImagePicker } from "./style";
 
 function ImageOptions({
   setCurrentImage,
@@ -9,6 +9,7 @@ function ImageOptions({
   cubeData,
   topText,
   setTopText,
+  inputRef,
 }) {
   return (
     <ImagePicker>
@@ -17,7 +18,11 @@ function ImageOptions({
         setCurrPosition={setCurrPosition}
         setCurrentImage={setCurrentImage}
       />
-      <SelectText setTopText={setTopText} topText={topText} />
+      <SelectText
+        inputRef={inputRef}
+        setTopText={setTopText}
+        topText={topText}
+      />
     </ImagePicker>
   );
 }

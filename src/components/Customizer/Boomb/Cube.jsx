@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { setBoomb } from "../../../redux/actions/boomb";
-
 import { updateItem } from "../../../utils/functions/boomb";
+
+import { useFocus } from "../../../utils/hooks/useFocus";
 
 import BlueButton from "../../Buttons/BlueButton";
 import BottomSection from "./BottomSection/BottomSection";
@@ -17,6 +18,8 @@ function Cube({ cubeData, setCubeData, selectConfetti }) {
   const [currentImage, setCurrentImage] = useState("");
   const [topText, setTopText] = useState("");
   const [openModal, setOpenModal] = useState({ state: false, title: "" });
+
+  const [inputRef, setInputFocus] = useFocus();
 
   const dispatch = useDispatch();
 
@@ -55,9 +58,11 @@ function Cube({ cubeData, setCubeData, selectConfetti }) {
           setCurrentImage={setCurrentImage}
           currPosition={currPosition}
           cubeData={cubeData}
+          setInputFocus={setInputFocus}
         />
 
         <BottomSection
+          inputRef={inputRef}
           handleButtonClick={handleButtonClick}
           topText={topText}
           setTopText={setTopText}

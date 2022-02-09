@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { CubePosition } from "./CubePosition";
 import { CubeTop } from "./CubeTop";
@@ -11,6 +11,7 @@ import {
 } from "../../../../utils/functions/boomb";
 
 import { CubeBox, CubeContainer, CubeWrapper } from "./style";
+import { useCubePosition } from "../../../../utils/hooks/useCubePosition";
 
 function CubeSection({
   topText,
@@ -19,16 +20,11 @@ function CubeSection({
   setCurrentImage,
   cubeData,
   selectConfetti,
+  setInputFocus,
 }) {
   const [cubeRotateY, setCubeRotateY] = useState(760);
 
-  useEffect(() => {
-    cubeData.map(({ defaultRotate, position }) => {
-      if (position === currPosition) {
-        setCubeRotateY(defaultRotate);
-      }
-    });
-  }, [currPosition, cubeData]);
+  useCubePosition({ cubeData, setCubeRotateY, currPosition });
 
   return (
     <CubeContainer>
@@ -39,8 +35,8 @@ function CubeSection({
           onMouseUp={onCubeDragEnd()}
           cubeRotateY={cubeRotateY}
         >
-          <CubeTop topText={topText} />
-          {cubeData.map(({ position, img, rotate, textSideRotate }) => (
+          <CubeTop setInputFocus={setInputFocus} topText={topText} />
+          {cubeData.map(({ position, img, rotate }) => (
             <CubePosition
               key={position}
               setCurrPosition={setCurrPosition}
@@ -48,7 +44,6 @@ function CubeSection({
               position={position}
               img={img}
               rotate={rotate}
-              textSideRotate={textSideRotate}
             />
           ))}
         </CubeBox>

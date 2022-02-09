@@ -18,6 +18,7 @@ export const SideBarWindow = styled.div`
   ${({ openSideBar }) => openSideBar && "opacity:1; pointer-events: all;"}
 `;
 export const SideBarContent = styled.div`
+  font-family: "Objectivity";
   padding: 20px;
   border-radius: 12px;
   background-color: white;
@@ -38,6 +39,8 @@ export const SideBarTitle = styled.div`
 `;
 
 export const Title = styled.div`
+  font-family: "Objectivity";
+
   font-weight: bold;
   font-size: 28px;
   color: #222222;

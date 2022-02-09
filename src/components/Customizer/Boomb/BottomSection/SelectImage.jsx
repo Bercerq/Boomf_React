@@ -1,9 +1,11 @@
 import React from "react";
+
 import {
+  findBoxSide,
   setBoxImage,
   setBoxPosition,
-  setBoxSide,
 } from "../../../../utils/functions/boomb";
+
 import { BoxImage, BoxSide, BoxText, PickerItem } from "./style";
 
 const SelectImage = ({ cubeData, setCurrentImage, setCurrPosition }) => {
@@ -27,7 +29,7 @@ const SelectImage = ({ cubeData, setCurrentImage, setCurrPosition }) => {
             <div className="BoxNoImage">Click to add image</div>
           )}
         </BoxSide>
-        <BoxText>Image - {setBoxSide(position)}</BoxText>
+        <BoxText>Image - {findBoxSide(position)}</BoxText>
       </PickerItem>
     </React.Fragment>
   ));

@@ -72,6 +72,7 @@ export const OptionText = styled.div`
   padding-bottom: 16px;
   margin-top: -10px;
   font-weight: 600;
+  font-family: "Objectivity";
   @media (max-width: 920px) {
     display: none;
   }
