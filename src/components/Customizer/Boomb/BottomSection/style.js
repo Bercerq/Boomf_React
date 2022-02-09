@@ -1,0 +1,90 @@
+import styled from "styled-components";
+
+//BOTTOM IMAGE PICKER
+
+export const Bottom = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ImagePicker = styled.div`
+  margin-top: 10px;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+`;
+export const PickerItem = styled.label`
+  display: block;
+  margin: 0 12px;
+`;
+export const BoxSide = styled.div`
+  max-width: 120px;
+  max-height: 120px;
+  height: 100%;
+  width: 100%;
+  @media (max-width: 1240px) {
+    height: 60%;
+    width: 90%;
+  }
+
+  background: #d6d6d6;
+  cursor: pointer;
+  word-break: break-all;
+  &:hover {
+    filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
+      drop-shadow(0px 8px 16px rgba(53, 53, 53, 0.281));
+    transition: 0.4s;
+  }
+  transition: 0.4s;
+
+  textarea {
+    padding: 15px 0 0 15px;
+    width: 80%;
+    height: 85%;
+    background: none;
+    border: none;
+    resize: none;
+    outline: none;
+  }
+
+  &:hover {
+    .BoxNoImage {
+      opacity: 1;
+      transition: 0.4s;
+    }
+  }
+
+  .BoxNoImage {
+    opacity: 0;
+    padding: 15px;
+    color: gray;
+    word-break: keep-all;
+    transition: 0.4s;
+    max-width: 120px;
+    height: 120px;
+  }
+`;
+export const ButtonWrapper = styled.div`
+  width: 195px;
+  margin-left: auto;
+  @media (max-width: 1560px) {
+    margin-top: 30px;
+    margin-right: 30px;
+  }
+
+  @media (max-width: 920px) {
+    margin-bottom: 30px;
+  }
+`;
+export const BoxImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+export const BoxText = styled.div`
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #222222;
+  margin-top: 5px;
+`;
