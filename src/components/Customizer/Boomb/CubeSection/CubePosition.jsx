@@ -1,9 +1,11 @@
 import React from "react";
+
 import {
   setBoxImage,
   setBoxPosition,
   setBoxSide,
 } from "../../../../utils/functions/boomb";
+
 import { CubeItem, CubeSide, NoImage, BoxInfoSide } from "./style";
 
 export const CubePosition = ({
