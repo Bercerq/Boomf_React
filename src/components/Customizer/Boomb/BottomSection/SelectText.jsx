@@ -5,7 +5,7 @@ import { BoxSide, BoxText, PickerItem } from "./style";
 function SelectText({ setTopText, topText, inputRef, setOpenTextEditor }) {
   return (
     <PickerItem>
-      <BoxSide onClick={() => setOpenTextEditor(true)}>
+      <BoxSide onClick={() => setOpenTextEditor({ flag: "", state: true })}>
         <textarea
           ref={inputRef}
           maxLength={136}

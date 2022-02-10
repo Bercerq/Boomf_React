@@ -11,7 +11,7 @@ export const SideBarWindow = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
-  z-index: 3;
+  z-index: 5;
   opacity: 0;
   transition: 0.4s;
   pointer-events: none;

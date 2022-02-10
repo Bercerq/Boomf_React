@@ -9,3 +9,11 @@ export const editOptions = [
   { icon: Colour, text: "Colour", component: "" },
   { icon: Alignment, text: "Alignment", component: "" },
 ];
+
+export const font = [
+  { family: "Abril Fatface" },
+  { family: "Futura" },
+  { family: "Great Vibes" },
+  { family: "Henny Penny" },
+  { family: "IBM Plex Mono" },
+];

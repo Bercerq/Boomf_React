@@ -1,8 +1,8 @@
 import React from "react";
 
-import { findPanelOption } from "../../../utils/functions/Panel";
+import { findPanelOption } from "../../utils/functions/panel";
 
-import Logo from "../../../utils/assets/svg/Logo.svg";
+import Logo from "../../utils/assets/svg/Logo.svg";
 
 import { PanelContainer, LogoIcon } from "./style";
 

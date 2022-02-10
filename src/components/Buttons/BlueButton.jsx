@@ -1,11 +1,11 @@
 import React from 'react';
-import { CustomButtonBlue } from './style';
+import { BlueBtn } from './style';
 
 function BlueButton({handleButtonClick, children}) {
   return (
-   <CustomButtonBlue onClick={handleButtonClick}>
+   <BlueBtn onClick={handleButtonClick}>
      {children}
-    </CustomButtonBlue>
+    </BlueBtn>
     )
 
 }

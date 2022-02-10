@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 
-import { drawOption } from "../../utils/functions/Panel";
+import { drawOption } from "../../utils/functions/panel";
 
-import Confetti from "../Customizer/Confetti/Confetti";
-import PanelOptions from "../Customizer/Customiser_Panel/Panel_Options";
 import SideBar from "../SideBar/SideBar";
 
-import { MainWrapper } from "../Customizer/Customiser_Panel/style";
+import { MainWrapper } from "../Customiser_Panel/style";
 import TextEditor from "../TextEditor/TextEditor";
-
+import PanelOptions from "../Customiser_Panel/Panel_Options";
+import Confetti from "../Confetti/Confetti";
 function CustomizerLayout({
   children,
   setSelectConfetti,
