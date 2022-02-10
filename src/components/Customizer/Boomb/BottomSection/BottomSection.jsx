@@ -15,6 +15,7 @@ function BottomSection({
   setCurrPosition,
   handleButtonClick,
   inputRef,
+  setOpenTextEditor,
 }) {
   return (
     <Bottom>
@@ -25,6 +26,7 @@ function BottomSection({
         setCurrentImage={setCurrentImage}
         setCurrPosition={setCurrPosition}
         inputRef={inputRef}
+        setOpenTextEditor={setOpenTextEditor}
       />
       <ButtonWrapper>
         <BlueButton handleButtonClick={handleButtonClick}>

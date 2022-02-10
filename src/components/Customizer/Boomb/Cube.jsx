@@ -13,12 +13,11 @@ import Modal from "../../Modal/Modal";
 
 import { SideContent } from "./CubeSection/style";
 
-function Cube({ cubeData, setCubeData, selectConfetti }) {
+function Cube({ cubeData, setCubeData, selectConfetti, setOpenTextEditor }) {
   const [currPosition, setCurrPosition] = useState(null);
   const [currentImage, setCurrentImage] = useState("");
   const [topText, setTopText] = useState("");
   const [openModal, setOpenModal] = useState({ state: false, title: "" });
-
   const [inputRef, setInputFocus] = useFocus();
 
   const dispatch = useDispatch();
@@ -45,7 +44,10 @@ function Cube({ cubeData, setCubeData, selectConfetti }) {
         confetti: selectConfetti.img,
       })
     );
-    setOpenModal({ title: "Add to cart", state: true });
+    setOpenModal({
+      title: "Add to cart",
+      state: true,
+    });
   };
 
   return (
@@ -69,12 +71,13 @@ function Cube({ cubeData, setCubeData, selectConfetti }) {
           cubeData={cubeData}
           setCurrentImage={setCurrentImage}
           setCurrPosition={setCurrPosition}
+          setOpenTextEditor={setOpenTextEditor}
         />
       </SideContent>
 
       <Modal openModal={openModal} setOpenModal={setOpenModal}>
         <h1 style={{ textAling: "center" }}>Item add</h1>
-        <BlueButton>Checkout</BlueButton>
+        <BlueButton>Checkout</BlueButton>{" "}
       </Modal>
     </>
   );

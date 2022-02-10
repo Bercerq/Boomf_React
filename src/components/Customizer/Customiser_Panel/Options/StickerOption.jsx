@@ -1,7 +1,7 @@
 import React from "react";
 
-function Sticker() {
+function StickerOption() {
   return <div>Sticker</div>;
 }
 
-export default Sticker;
+export default StickerOption;

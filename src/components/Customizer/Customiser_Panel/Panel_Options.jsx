@@ -4,12 +4,12 @@ import { findPanelOption } from "../../../utils/functions/Panel";
 
 import Logo from "../../../utils/assets/svg/Logo.svg";
 
-import { PanelContainer} from "./style";
+import { PanelContainer, LogoIcon } from "./style";
 
 function PanelOptions({ options, setOpenSideBar }) {
   return (
     <PanelContainer>
-      <img src={Logo} alt="Logo" />
+      <LogoIcon src={Logo} alt="Logo" />
       {findPanelOption(options, setOpenSideBar)}
     </PanelContainer>
   );

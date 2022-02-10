@@ -1,26 +1,27 @@
 import { panelData } from "./../constants/PanelData";
 
-import AddPhoto from "../../components/Customizer/Customiser_Panel/Options/AddPhoto";
-import AddText from "../../components/Customizer/Customiser_Panel/Options/AddText";
-import ChouseMessage from "../../components/Customizer/Customiser_Panel/Options/ChouseMessage";
-import Sticker from "../../components/Customizer/Customiser_Panel/Options/Sticker";
+import AddTextOption from "../../components/Customizer/Customiser_Panel/Options/AddTextOption";
+import AddPhotoOption from "../../components/Customizer/Customiser_Panel/Options/AddPhotoOption";
+import StickerOption from "../../components/Customizer/Customiser_Panel/Options/StickerOption";
+import ChouseMessageOption from "../../components/Customizer/Customiser_Panel/Options/ChouseMessageOption";
 
 import {
   Option,
   OptionIcon,
+  Icon,
   OptionText,
 } from "../../components/Customizer/Customiser_Panel/style";
 
-export const drawOption = (openSideBar) => {
-  switch (openSideBar) {
+export const drawOption = (title) => {
+  switch (title) {
     case "+ Add text":
-      return <AddText />;
+      return <AddTextOption />;
     case "+ Add photo":
-      return <AddPhoto />;
+      return <AddPhotoOption />;
     case "+ Sticker":
-      return <Sticker />;
+      return <StickerOption />;
     case "Choose a message":
-      return <ChouseMessage />;
+      return <ChouseMessageOption />;
     default:
       break;
   }
@@ -28,13 +29,13 @@ export const drawOption = (openSideBar) => {
 
 export const findPanelOption = (options, setOpenSideBar) =>
   options?.map((option) =>
-    panelData.map(({ Icon, text, flag }) => {
+    panelData.map(({ icon, text, flag }) => {
       switch (flag) {
         case option:
           return (
             <Option onClick={selectOption(text, setOpenSideBar)} key={flag}>
               <OptionIcon>
-                <img src={Icon} alt={text} />
+                <Icon src={icon} alt={text} />
               </OptionIcon>
               <OptionText>{text}</OptionText>
             </Option>
