@@ -1,16 +1,16 @@
-import { panelData } from "./../constants/PanelData";
+import { panelData } from "../constants/PanelData";
 
-import AddTextOption from "../../components/Customizer/Customiser_Panel/Options/AddTextOption";
-import AddPhotoOption from "../../components/Customizer/Customiser_Panel/Options/AddPhotoOption";
-import StickerOption from "../../components/Customizer/Customiser_Panel/Options/StickerOption";
-import ChouseMessageOption from "../../components/Customizer/Customiser_Panel/Options/ChouseMessageOption";
+import AddTextOption from "../../components/Customiser_Panel/Options/AddTextOption";
+import AddPhotoOption from "../../components/Customiser_Panel/Options/AddPhotoOption";
+import StickerOption from "../../components/Customiser_Panel/Options/StickerOption";
+import ChouseMessageOption from "../../components/Customiser_Panel/Options/ChouseMessageOption";
 
 import {
   Option,
   OptionIcon,
   Icon,
   OptionText,
-} from "../../components/Customizer/Customiser_Panel/style";
+} from "../../components/Customiser_Panel/style";
 
 export const drawOption = (title) => {
   switch (title) {

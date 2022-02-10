@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ConfettiData } from "../../../utils/constants/ConfettiData";
+import { ConfettiData } from "./../../utils/constants/ConfettiData";
 
 import {
   ConfettiWrapper,

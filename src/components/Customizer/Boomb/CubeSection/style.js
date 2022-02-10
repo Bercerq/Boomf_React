@@ -141,17 +141,17 @@ export const BoxInfoSide = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  max-width: 160px;
-  color: #3d3d3d;
+  max-width: 200px;
+  font-size: 36px;
+  color: rgba(250, 250, 250, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 8px;
-  font-size: 12px;
+  font-size: 36px;
   position: absolute;
+  bottom: 0;
+  left: 0;
   font-family: "Objectivity";
-  left: -99px;
-  bottom: 32px;
-  transform: rotate(-90deg);
 
-  font-weight: bold;
   @media (max-width: 1560px) {
     font-size: 13px;
   }

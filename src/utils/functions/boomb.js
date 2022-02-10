@@ -32,7 +32,6 @@ export const setBoxPosition = (position, setCurrPosition) => () => {
   setCurrPosition(position);
 };
 export const changeTopText = (setTopText, e) =>  {
-  console.log(e.target.value);
   setTopText(e.target.value);
 };
 // Show side name based position

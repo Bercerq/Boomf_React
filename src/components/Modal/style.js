@@ -11,7 +11,7 @@ export const ModalWindow = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
+  z-index: 6;
   opacity: 0;
   transition: 0.5s;
   pointer-events: none;

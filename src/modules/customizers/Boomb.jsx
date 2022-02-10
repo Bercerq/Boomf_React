@@ -6,13 +6,10 @@ import Cube from "../../components/Customizer/Boomb/Cube";
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
 
 function Boomb() {
-  const [openTextEditor, setOpenTextEditor] = useState(false);
-  const [textEditorOptions, setTextEditorOptions] = useState({
-    font: "",
-    size: "",
-    colour: "",
-    alignment: "",
-   });
+  const [openTextEditor, setOpenTextEditor] = useState({
+    flag: "",
+    state: false,
+  });
   const [cubeData, setCubeData] = useState(BoombData);
   const [selectConfetti, setSelectConfetti] = useState({
     img: "https://www.pngplay.com/wp-content/uploads/6/Falling-Confetti-PNG-HD-Quality.png",
