@@ -63,9 +63,21 @@ export const BoxSide = styled.div`
       transition: 0.4s;
     }
   }
-  @media (max-width: 1240px) {
+
+  @media (max-width: 1560px) {
     height: 60%;
-    width: 90%;
+    width: 80%;
+    margin: auto;
+  }
+
+  @media (max-width: 1240px) {
+    height: 50%;
+  }
+  @media (max-width: 580px) {
+    width: 100%;
+  }
+  @media (max-width: 455px) {
+    height: 40%;
   }
 `;
 export const ButtonWrapper = styled.div`
@@ -73,6 +85,7 @@ export const ButtonWrapper = styled.div`
   margin-left: auto;
   @media (max-width: 1560px) {
     margin-top: 30px;
+    margin-bottom: 30px;
     margin-right: 30px;
   }
 

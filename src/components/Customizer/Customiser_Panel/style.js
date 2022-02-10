@@ -14,11 +14,10 @@ export const PanelContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  img {
-    margin-top: 15px;
-    @media (max-width: 920px) {
-      display: none;
-    }
+  z-index: 4;
+
+  @media (max-height: 765px) {
+    height: unset;
   }
   @media (max-width: 920px) {
     order: 3;
@@ -29,6 +28,14 @@ export const PanelContainer = styled.div`
     flex-direction: row;
   }
 `;
+
+export const LogoIcon = styled.img`
+  margin-top: 30px;
+  @media (max-width: 920px) {
+    display: none;
+  }
+`;
+
 export const Option = styled.div`
   background: #ffffff;
   width: 119px;
@@ -38,8 +45,8 @@ export const Option = styled.div`
     height: 70px;
   }
   @media (max-width: 600px) {
-    width: unset;
     margin: 0 10px;
+    width: 70px;
   }
 
   cursor: pointer;
@@ -55,14 +62,17 @@ export const OptionIcon = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  img {
-    @media (max-width: 920px) {
-      display: block;
-      margin: 5px;
-    }
+`;
+export const Icon = styled.img`
+  width: 35px;
+  height: 50px;
+  margin: 15px 0;
+  @media (max-width: 920px) {
+    display: block;
+    margin: 5px;
   }
 `;
+
 export const OptionText = styled.div`
   color: #222222;
   font-size: 16px;

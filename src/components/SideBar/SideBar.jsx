@@ -2,6 +2,7 @@ import React from "react";
 import {
   SideBarWindow,
   SideBarContent,
+  SideContent,
   SideBarTitle,
   Title,
   Close,
@@ -25,7 +26,7 @@ function SideBar({ openSideBar, setOpenSideBar, children }) {
             <img src={CloseIcon} alt="close" />
           </Close>
         </SideBarTitle>
-        {children}
+        <SideContent openSideBar={openSideBar}>{children}</SideContent>
       </SideBarContent>
     </SideBarWindow>
   );

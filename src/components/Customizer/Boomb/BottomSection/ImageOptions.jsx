@@ -10,6 +10,7 @@ function ImageOptions({
   topText,
   setTopText,
   inputRef,
+  setOpenTextEditor,
 }) {
   return (
     <ImagePicker>
@@ -22,6 +23,7 @@ function ImageOptions({
         inputRef={inputRef}
         setTopText={setTopText}
         topText={topText}
+        setOpenTextEditor={setOpenTextEditor}
       />
     </ImagePicker>
   );

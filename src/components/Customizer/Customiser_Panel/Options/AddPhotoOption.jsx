@@ -1,7 +1,7 @@
 import React from "react";
 
-function AddPhoto() {
+function AddPhotoOption() {
   return <div>Add Photo</div>;
 }
 
-export default AddPhoto;
+export default AddPhotoOption;

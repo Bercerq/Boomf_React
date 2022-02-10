@@ -4,7 +4,7 @@ import { CustomButtonBlue } from './style';
 function BlueButton({handleButtonClick, children}) {
   return (
    <CustomButtonBlue onClick={handleButtonClick}>
-    {children}
+     {children}
     </CustomButtonBlue>
     )
 

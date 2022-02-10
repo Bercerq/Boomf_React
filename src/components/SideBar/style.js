@@ -13,9 +13,10 @@ export const SideBarWindow = styled.div`
   justify-content: start;
   z-index: 3;
   opacity: 0;
-  transition: 0.5s;
+  transition: 0.4s;
   pointer-events: none;
-  ${({ openSideBar }) => openSideBar && "opacity:1; pointer-events: all;"}
+  ${({ openSideBar }) =>
+    openSideBar && "opacity:1; pointer-events: all;transition: 0.4s;"}
 `;
 export const SideBarContent = styled.div`
   font-family: "Objectivity";
@@ -24,14 +25,22 @@ export const SideBarContent = styled.div`
   background-color: white;
   box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.04),
     0px 16px 24px rgba(96, 97, 112, 0.16);
-  width: 0;
-  transition: 0.5s;
-  ${({ openSideBar }) => openSideBar && "width: 50vw"};
+  width: 0vw;
+  transition: 0.4s;
+  ${({ openSideBar }) => openSideBar && "width: 50vw;transition: 0.4s;"};
   height: 100vh;
-  transition: 0.3s;
+`;
+
+export const SideContent = styled.div`
+  width: 48vw;
+  position: sticky;
+  top: 0;
 `;
 
 export const SideBarTitle = styled.div`
+  width: 48vw;
+  position: sticky;
+  top: 0;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -40,7 +49,6 @@ export const SideBarTitle = styled.div`
 
 export const Title = styled.div`
   font-family: "Objectivity";
-
   font-weight: bold;
   font-size: 28px;
   color: #222222;

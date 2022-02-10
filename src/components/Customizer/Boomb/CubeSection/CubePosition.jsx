@@ -38,7 +38,9 @@ export const CubePosition = ({
         )}
       </CubeItem>
 
-      <BoxInfoSide>{findBoxSide(position)}</BoxInfoSide>
+      <BoxInfoSide position={position}>
+        {findBoxSide(position)} side
+      </BoxInfoSide>
     </CubeSide>
   );
 };
