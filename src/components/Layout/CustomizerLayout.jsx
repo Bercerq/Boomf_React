@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import { drawOption } from "../../utils/functions/panel";
 
 import SideBar from "../SideBar/SideBar";
 
@@ -8,6 +7,7 @@ import { MainWrapper } from "../Customiser_Panel/style";
 import TextEditor from "../TextEditor/TextEditor";
 import PanelOptions from "../Customiser_Panel/Panel_Options";
 import Confetti from "../Confetti/Confetti";
+import { drawOption } from "../../utils/functions/Panel";
 function CustomizerLayout({
   children,
   setSelectConfetti,

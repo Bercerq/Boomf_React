@@ -4,14 +4,14 @@ import { Slider, SliderContainer, CurrentValue } from "../style";
 
 function Size({ option, setOption }) {
   const { editText } = useSelector(({ boomb }) => boomb);
-  console.log(option);
+  console.log(editText.size);
   const setValue = (e) => {
     setOption(e.target.value);
   };
 
   return (
     <SliderContainer>
-      <CurrentValue>{option && editText.size}</CurrentValue>
+      <CurrentValue>{option}</CurrentValue>
       <Slider
         onChange={setValue}
         type="range"
