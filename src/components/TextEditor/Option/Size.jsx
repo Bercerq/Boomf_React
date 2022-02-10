@@ -4,7 +4,7 @@ import { Slider, SliderContainer, CurrentValue } from "../style";
 
 function Size({ option, setOption }) {
   const { editText } = useSelector(({ boomb }) => boomb);
-  console.log(option);
+  console.log(editText.size);
   const setValue = (e) => {
     setOption(e.target.value);
   };
