@@ -1,6 +1,6 @@
 import React from "react";
 
-import { findPanelOption } from "../../utils/functions/panel";
+import { findPanelOption } from "../../utils/functions/Panel";
 
 import Logo from "../../utils/assets/svg/Logo.svg";
 

@@ -11,7 +11,7 @@ function Size({ option, setOption }) {
 
   return (
     <SliderContainer>
-      <CurrentValue>{option && editText.size}</CurrentValue>
+      <CurrentValue>{option}</CurrentValue>
       <Slider
         onChange={setValue}
         type="range"

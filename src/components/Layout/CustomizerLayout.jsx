@@ -7,7 +7,7 @@ import { MainWrapper } from "../Customiser_Panel/style";
 import TextEditor from "../TextEditor/TextEditor";
 import PanelOptions from "../Customiser_Panel/Panel_Options";
 import Confetti from "../Confetti/Confetti";
-import { drawOption } from "../../utils/functions/panel";
+import { drawOption } from "../../utils/functions/Panel";
 function CustomizerLayout({
   children,
   setSelectConfetti,
