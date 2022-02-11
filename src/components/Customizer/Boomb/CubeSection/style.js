@@ -87,6 +87,7 @@ export const CubeBox = styled.div`
     max-width: 160px;
     max-height: 30vh;
   }
+
   @media (max-height: 642px) {
     max-height: 50vh;
   }

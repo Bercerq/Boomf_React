@@ -18,6 +18,7 @@ function Boomb() {
 
   return (
     <CustomizerLayout
+      title="Boomb customizer"
       selectConfetti={selectConfetti}
       setSelectConfetti={setSelectConfetti}
       openTextEditor={openTextEditor}

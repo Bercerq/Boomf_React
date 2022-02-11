@@ -17,3 +17,14 @@ export const font = [
   { family: "Henny Penny" },
   { family: "IBM Plex Mono" },
 ];
+
+export const background = [
+  "#FF4130",
+  "#FFAA00",
+  "#0A74FF",
+  "#1FD160",
+  "#2EDBE3",
+  "#FF328B",
+  "#A3A3A3",
+  "#222222",
+];

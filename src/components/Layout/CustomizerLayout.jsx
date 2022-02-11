@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 import SideBar from "../SideBar/SideBar";
 
 import { MainWrapper } from "../Customiser_Panel/style";
@@ -9,6 +8,7 @@ import PanelOptions from "../Customiser_Panel/Panel_Options";
 import Confetti from "../Confetti/Confetti";
 import { drawOption } from "../../utils/functions/Panel";
 function CustomizerLayout({
+  title,
   children,
   setSelectConfetti,
   selectConfetti,
@@ -19,6 +19,7 @@ function CustomizerLayout({
 
   return (
     <MainWrapper>
+      <title>{title}</title>
       <PanelOptions
         setOpenSideBar={setOpenSideBar}
         options={["text", "photo", "sticker", "chouse"]}
