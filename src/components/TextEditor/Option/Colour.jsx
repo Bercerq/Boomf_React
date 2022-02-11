@@ -1,6 +1,11 @@
 import React from "react";
 import { background } from "../../../utils/constants/TextEditData";
-import { OptionWrapper, ColorItem, ColourPalete } from "../style";
+import {
+  OptionWrapper,
+  ColorItem,
+  ColourPalete,
+  ColorItemPalete,
+} from "../style";
 
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
@@ -30,11 +35,9 @@ function Colour({ option, setOption }) {
           color={color}
         />
       ))}
-      <ColorItem
-        onClick={handleClickPalete}
-      >
+      <ColorItemPalete onClick={handleClickPalete}>
         <span>+</span>
-      </ColorItem>
+      </ColorItemPalete>
       {paleteState && (
         <ColourPalete>
           <ColorPicker

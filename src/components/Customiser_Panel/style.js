@@ -16,9 +16,9 @@ export const PanelContainer = styled.div`
   align-items: center;
   z-index: 4;
 
-  @media (max-height: 900px) {
+  /* @media (max-height: 900px) {
     height: unset;
-  }
+  } */
   @media (max-width: 920px) {
     height: unset;
     order: 3;
@@ -36,6 +36,9 @@ export const LogoIcon = styled.img`
   @media (max-width: 920px) {
     display: none;
   }
+  @media (max-height: 785px) {
+    margin: 15px;
+  }
 `;
 
 export const Option = styled.div`
@@ -43,8 +46,11 @@ export const Option = styled.div`
   width: 119px;
   border-radius: 16px;
   margin: 32px 42px 17px 42px;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
+    0px 0.5px 2px rgba(96, 97, 112, 0.16);
   @media (max-width: 920px) {
-    /* height: 70px; */
+    height: 70px;
+    margin: 42px 10px !important;
   }
   @media (max-width: 600px) {
     margin: 28px 10px;
@@ -52,6 +58,15 @@ export const Option = styled.div`
   }
   @media (max-width: 414px) {
     margin: 42px 10px;
+  }
+  @media (max-width: 375px) {
+    margin: 42px 10px;
+  }
+  @media (max-height: 785px) {
+    margin: 10px 42px 10px 42px;
+  }
+  @media (max-height: 615px) {
+    width: 110px;
   }
 
   cursor: pointer;
@@ -76,6 +91,10 @@ export const Icon = styled.img`
     display: block;
     margin: 5px;
   }
+  @media (max-height: 615px) {
+    width: 30px;
+    margin: 7px 0;
+  }
 `;
 
 export const OptionText = styled.div`
@@ -83,11 +102,19 @@ export const OptionText = styled.div`
   font-size: 16px;
   line-height: 170%;
   text-align: center;
-  font-weight: bold;
+  font-weight: 400;
   padding-bottom: 16px;
   margin-top: -10px;
   font-family: "Objectivity";
   @media (max-width: 920px) {
     display: none;
+  }
+  @media (max-height: 785px) {
+    font-size: 14px;
+  }
+
+  @media (max-height: 615px) {
+    padding-bottom: 10px;
+    font-size: 12px;
   }
 `;

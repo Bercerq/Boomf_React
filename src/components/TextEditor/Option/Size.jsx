@@ -7,13 +7,13 @@ function Size({ option, setOption }) {
   };
   return (
     <SliderContainer>
-      <CurrentValue>{option}</CurrentValue>
+      <CurrentValue>{option ? +option : 16}</CurrentValue>
       <Slider
         onChange={setValue}
         type="range"
         min="5"
         max="60"
-        value={+option}
+        value={option ? +option : 16}
       />
     </SliderContainer>
   );
