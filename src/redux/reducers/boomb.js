@@ -1,7 +1,7 @@
 import { EDIT_TEXT, SET_BOOMB } from "../constants/boomb";
 
 const initialState = {
-  editText: { font: "", size: "", colour: "", alignment: "" },
+  editTextData: { font: "", size: "", colour: "", alignment: "" },
 };
 
 const boomb = (state = initialState, action) => {
@@ -15,8 +15,8 @@ const boomb = (state = initialState, action) => {
       console.log(Object.keys(action.payload)[0]);
       let val = action.payload;
       return {
-        editText: (state.editText[Object.keys(action.payload)[0]] = {
-          ...state.editText,
+        editTextData: (state.editTextData[Object.keys(action.payload)[0]] = {
+          ...state.editTextData,
           ...val,
         }),
       };

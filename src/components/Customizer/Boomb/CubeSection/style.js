@@ -17,6 +17,9 @@ export const CubeContainer = styled.div`
   align-items: center;
   position: relative;
   justify-content: center;
+  @media (max-width: 1420px) {
+    width: 70%;
+  }
   @media (max-width: 920px) {
     justify-content: center;
   }
@@ -26,6 +29,29 @@ export const CubeContainer = styled.div`
 `;
 export const CubeWrapper = styled.div`
   background-image: ${({ selectConfetti }) => `url(${selectConfetti.img})`};
+  background-size: 832px;
+  background-position: center;
+  background-repeat: no-repeat;
+  @media (max-width: 1710px) {
+    background-size: 775px;
+  }
+  @media (max-width: 1560px) {
+    background-size: 630px;
+  }
+  @media (max-width: 1440px) {
+    background-size: 580px;
+  }
+  @media (max-width: 1320px) {
+    background-size: 530px;
+  }
+  @media (max-width: 1240px) {
+    background-size: 480px;
+  }
+  @media (max-width: 920px) {
+    background-size: 300px;
+    background-position-y: top;
+  }
+
   position: relative;
   user-select: none;
   padding: 135px;
@@ -59,7 +85,13 @@ export const CubeBox = styled.div`
   }
   @media (max-width: 920px) {
     max-width: 160px;
-    max-height: 100%;
+    max-height: 30vh;
+  }
+  @media (max-height: 642px) {
+    max-height: 50vh;
+  }
+  @media (max-height: 390px) {
+    max-height: 70vh;
   }
 
   @media (max-width: 480px) {

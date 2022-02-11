@@ -104,4 +104,7 @@ export const BoxText = styled.div`
   text-align: center;
   color: #222222;
   margin-top: 5px;
+  @media (max-width: 675px) {
+    font-size: 12px;
+  }
 `;

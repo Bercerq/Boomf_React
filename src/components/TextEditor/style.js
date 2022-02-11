@@ -15,6 +15,7 @@ export const TextEditorWrapper = styled.div`
     openTextEditor && "opacity:1; pointer-events: all;transition: 0.6s;"}
 `;
 export const TextEditorContent = styled.div`
+  z-index: 3;
   font-family: "Objectivity";
   padding-top: 42px;
   background-color: white;

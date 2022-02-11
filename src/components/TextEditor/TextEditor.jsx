@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { editText } from "../../redux/actions/boomb";
 import { drawOption, selectOptions } from "../../utils/functions/textEditor";
 import WhiteButton from "../Buttons/WhiteButton";
@@ -8,6 +9,7 @@ import { TextEditorWrapper, TextEditorContent, ButtonWrapper } from "./style";
 function TextEditor({ openTextEditor, setOpenTextEditor }) {
   const [option, setOption] = useState("");
   const dispatch = useDispatch();
+  const { editTextData } = useSelector(({ boomb }) => boomb);
   const closeSideBar = () => {
     if (openTextEditor.flag) {
       setOpenTextEditor({ flag: "", state: true });
@@ -21,6 +23,10 @@ function TextEditor({ openTextEditor, setOpenTextEditor }) {
     dispatch(editText({ [openTextEditor.flag.toLowerCase()]: option }));
     setOpenTextEditor({ flag: "", state: true });
   };
+
+  useEffect(() => {
+    setOption(editTextData[openTextEditor.flag.toLowerCase()]);
+  }, [openTextEditor.flag]);
 
   return (
     <TextEditorWrapper
