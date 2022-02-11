@@ -16,6 +16,9 @@ export const PanelContainer = styled.div`
   align-items: center;
   z-index: 4;
 
+  @media (max-height: 900px) {
+    height: unset;
+  }
   @media (max-width: 920px) {
     height: unset;
     order: 3;

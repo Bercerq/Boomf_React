@@ -1,6 +1,6 @@
 import React from "react";
 import { font } from "../../../utils/constants/TextEditData";
-import { FontItem, FontWrapper } from "../style";
+import { FontItem, OptionWrapper } from "../style";
 
 function Font({ option, setOption }) {
 
@@ -8,7 +8,7 @@ function Font({ option, setOption }) {
     setOption(family);
   };
   return (
-    <FontWrapper>
+    <OptionWrapper>
       {font.map(({ family }) => (
         <FontItem
           key={family}
@@ -19,7 +19,7 @@ function Font({ option, setOption }) {
           {family}
         </FontItem>
       ))}
-    </FontWrapper>
+    </OptionWrapper>
   );
 }
 

@@ -24,11 +24,11 @@ export const TextEditorContent = styled.div`
   width: 100vw;
   transition: 0.4s;
   height: 0vh;
-  ${({ openTextEditor }) => openTextEditor && "height: 20vh;transition: 0.4s;"};
+  ${({ openTextEditor }) => openTextEditor && "height: 22vh;transition: 0.4s;"};
 `;
 export const ButtonWrapper = styled.div`
   width: 400px;
-  margin: 24px auto;
+  margin: 36px auto;
   display: flex;
   justify-content: center;
   div {
@@ -69,11 +69,12 @@ export const OptionText = styled.div`
 //Options
 
 //Font
-export const FontWrapper = styled.div`
+export const OptionWrapper = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
   margin-bottom: 50px;
+  position: relative;
 `;
 export const FontItem = styled.div`
   font-weight: normal;
@@ -105,7 +106,6 @@ export const SliderContainer = styled.div`
   width: 30%;
   margin: auto;
 `;
-
 export const CurrentValue = styled.div`
   text-align: center;
   margin-bottom: 23px;
@@ -120,4 +120,32 @@ export const Slider = styled.input`
     opacity: 1; /* Fully shown on mouse-over */
   }
   cursor: pointer;
+`;
+//Colour
+export const ColorItem = styled.div`
+  span {
+    font-size: 50px;
+    color: #2edbe3;
+    display: flex;
+    justify-content: center;
+  }
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
+    0px 2px 4px rgba(96, 97, 112, 0.16);
+
+  background-color: ${({ color }) => `${color}`};
+  border: 2px solid transparent;
+  ${({ option, color }) =>
+    option === color &&
+    `box-shadow: -1px 0px 0px 7px rgba(255, 255, 255, 1) inset; border:2px solid ${color}`};
+  margin: 0px 12px;
+`;
+
+export const ColourPalete = styled.div`
+  position: absolute;
+  right: 24%;
+  bottom: 0;
 `;
