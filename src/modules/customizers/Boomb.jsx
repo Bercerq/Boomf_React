@@ -4,7 +4,7 @@ import { BoombData } from "../../utils/constants/BoombData";
 
 import Cube from "../../components/Customizer/Boomb/Cube";
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
-
+import BcGold1 from "../../utils/assets/png/confetti/BCGold-1.png";
 function Boomb() {
   const [openTextEditor, setOpenTextEditor] = useState({
     flag: "",
@@ -12,8 +12,8 @@ function Boomb() {
   });
   const [cubeData, setCubeData] = useState(BoombData);
   const [selectConfetti, setSelectConfetti] = useState({
-    img: "https://www.pngplay.com/wp-content/uploads/6/Falling-Confetti-PNG-HD-Quality.png",
-    name: "Pink",
+    img: BcGold1,
+    name: "Gold",
   });
 
   return (

@@ -1,22 +1,103 @@
+import BcGold1 from "../assets/png/confetti/BCGold-1.png";
+import BCGold from "../assets/png/confetti/BCGold.png";
+// import BlossomGB from "../assets/png/confetti/Blossom-GB.png";
+// import Blossom from "../assets/png/confetti/Blossom.png";
+// import BlueCircles from "../assets/png/confetti/Blue-Circles.png";
+// import Christmas from "../assets/png/confetti/Christmas.png";
+import Flamingo from "../assets/png/confetti/Flamingo.png";
+import GoldBlush from "../assets/png/confetti/Gold-Blush.png";
+import Hearts from "../assets/png/confetti/Hearts.png";
+import HotLove from "../assets/png/confetti/Hot-Love.png";
+// import ILoveYou from "../assets/png/confetti/I-Love-You.png";
+import OceanBlue from "../assets/png/confetti/Ocean-Blue.png";
+// import PinkCircles from "../assets/png/confetti/Pink-circles.png";
+// import Rainbow from "../assets/png/confetti/Rainbow.png";
+// import BcGoldStars1 from "../assets/png/confetti/Stars.png";
+import Summer1 from "../assets/png/confetti/Summer-2.png";
+import Summer from "../assets/png/confetti/Summer.png";
+import TuttiFruitti from "../assets/png/confetti/Tutti-Fruitti.png";
+import Unicorn from "../assets/png/confetti/Unicorn.png";
+import Watermelon from "../assets/png/confetti/Watermelon.png";
+
 export const ConfettiData = [
   {
-    name: "Pink",
-    img: "https://www.pngplay.com/wp-content/uploads/6/Falling-Confetti-PNG-HD-Quality.png",
+    name: "Gold",
+    img: BcGold1,
   },
   {
-    name: "Blue",
-    img: "https://pngimg.com/uploads/confetti/small/confetti_PNG87068.png",
+    name: "BC Gold",
+    img: BCGold,
+  },
+  // {
+  //   name: "Blossom GB",
+  //   img: BlossomGB,
+  // },
+  // {
+  //   name: "Blossom",
+  //   img: Blossom,
+  // },
+  // {
+  //   name: "Blue Circles",
+  //   img: BlueCircles,
+  // },
+  // {
+  //   name: "Christmas",
+  //   img: Christmas,
+  // },
+  {
+    name: "Flamingo",
+    img: Flamingo,
   },
   {
-    name: "Rainbow",
-    img: "https://pngimg.com/uploads/confetti/confetti_PNG86952.png",
+    name: "Gold Blush",
+    img: GoldBlush,
   },
   {
-    name: "Red",
-    img: "https://www.pngplay.com/wp-content/uploads/6/Falling-Confetti-PNG-HD-Quality.png",
+    name: "Hearts",
+    img: Hearts,
   },
   {
-    name: "Purple",
-    img: "https://i.pinimg.com/originals/68/f7/c3/68f7c347e4b191950951eb7a969293fd.png",
+    name: "Hot Love",
+    img: HotLove,
+  },
+  // {
+  //   name: "I Love You",
+  //   img: ILoveYou,
+  // },
+  {
+    name: "Ocean Blue",
+    img: OceanBlue,
+  },
+  // {
+  //   name: "Pink Circles",
+  //   img: PinkCircles,
+  // },
+  // {
+  //   name: "Rainbow",
+  //   img: Rainbow,
+  // },
+  // {
+  //   name: "Bc Gold Stars",
+  //   img: BcGoldStars1,
+  // },
+  {
+    name: "Summer 1",
+    img: Summer1,
+  },
+  {
+    name: "Summer",
+    img: Summer,
+  },
+  {
+    name: "Tutti Fruitti",
+    img: TuttiFruitti,
+  },
+  {
+    name: "Unicorn",
+    img: Unicorn,
+  },
+  {
+    name: "Watermelon",
+    img: Watermelon,
   },
 ];

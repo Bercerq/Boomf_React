@@ -16,16 +16,15 @@ export const PanelContainer = styled.div`
   align-items: center;
   z-index: 4;
 
-  @media (max-height: 765px) {
-    height: unset;
-  }
   @media (max-width: 920px) {
+    height: unset;
     order: 3;
     width: 100%;
-    height: 15vh;
+    /* height: 15vh; */
     display: flex;
     justify-content: center;
     flex-direction: row;
+    z-index: 2;
   }
 `;
 
@@ -42,11 +41,14 @@ export const Option = styled.div`
   border-radius: 16px;
   margin: 32px 42px 17px 42px;
   @media (max-width: 920px) {
-    height: 70px;
+    /* height: 70px; */
   }
   @media (max-width: 600px) {
-    margin: 0 10px;
+    margin: 28px 10px;
     width: 70px;
+  }
+  @media (max-width: 414px) {
+    margin: 42px 10px;
   }
 
   cursor: pointer;
