@@ -3,7 +3,6 @@ import { font } from "../../../utils/constants/TextEditData";
 import { FontItem, OptionWrapper } from "../style";
 
 function Font({ option, setOption }) {
-
   const handleSetFonts = (family) => () => {
     setOption(family);
   };

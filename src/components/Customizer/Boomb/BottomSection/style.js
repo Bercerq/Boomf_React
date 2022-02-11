@@ -73,6 +73,10 @@ export const BoxSide = styled.div`
   @media (max-width: 1240px) {
     height: 50%;
   }
+  @media (max-height: 690px) {
+    max-width: 105px;
+    max-height: 90px;
+  }
   @media (max-width: 580px) {
     width: 100%;
   }
@@ -83,14 +87,10 @@ export const BoxSide = styled.div`
 export const ButtonWrapper = styled.div`
   width: 195px;
   margin-left: auto;
-  @media (max-width: 1560px) {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-right: 30px;
-  }
 
   @media (max-width: 920px) {
     margin-bottom: 30px;
+    margin-right: 30px;
   }
 `;
 export const BoxImage = styled.img`

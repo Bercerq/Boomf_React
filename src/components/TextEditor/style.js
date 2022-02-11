@@ -25,6 +25,14 @@ export const TextEditorContent = styled.div`
   transition: 0.4s;
   height: 0vh;
   ${({ openTextEditor }) => openTextEditor && "height: 22vh;transition: 0.4s;"};
+
+  @media (max-width: 1470px) {
+    padding-left: 20%;
+  }
+  @media (max-width: 920px) {
+    padding: unset;
+    padding-top: 42px;
+  }
 `;
 export const ButtonWrapper = styled.div`
   width: 400px;
@@ -48,6 +56,8 @@ export const Option = styled.div`
   margin: 0 12px;
   padding: 16px 16px 26px 16px;
   cursor: pointer;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
+    0px 0.5px 2px rgba(96, 97, 112, 0.16);
   &:hover {
     filter: drop-shadow(0px 0px 1px rgba(53, 53, 53, 0.1))
       drop-shadow(0px 8px 8px rgba(53, 53, 53, 0.1));
@@ -81,25 +91,25 @@ export const FontItem = styled.div`
   font-size: 20px;
   width: 180px;
   background: #f5f5f5;
-  box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04),
-    0px 4px 8px rgba(96, 97, 112, 0.16);
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
+    0px 2px 4px rgba(96, 97, 112, 0.16);
   border-radius: 8px;
   margin: 0 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  ${({ family, option }) =>
+    family === option
+      ? `border: 3px solid #0A74FF;`
+      : "border: 3px solid transparent;"};
+  ${({ family }) => `font-family:${family}`};
+  padding: 8px 0;
+  cursor: pointer;
 
-${({ family, option }) =>
-  family === option
-    ? `border: 3px solid #0A74FF;`
-    : "border: 3px solid transparent;"};
-
-${({ family }) => `font-family:${family}`};
-
-padding: 8px 0;
-cursor: pointer;};
-
-
+  @media (max-width: 920px) {
+    font-size: 14px;
+    width: 120px;
+  }
 `;
 //Size
 export const SliderContainer = styled.div`
@@ -123,6 +133,27 @@ export const Slider = styled.input`
 `;
 //Colour
 export const ColorItem = styled.div`
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
+    0px 2px 4px rgba(96, 97, 112, 0.16);
+
+  background-color: ${({ color }) => `${color}`};
+  border: 2px solid transparent;
+  ${({ option, color }) =>
+    option === color &&
+    `box-shadow: 0px 0px 0px 7px rgba(255, 255, 255, 1) inset; border:2px solid ${color}`};
+  margin: 0px 12px;
+
+  @media (max-width: 640px) {
+    width: 24px;
+    height: 24px;
+  }
+`;
+
+export const ColorItemPalete = styled.div`
   span {
     font-size: 50px;
     color: #2edbe3;
@@ -135,12 +166,6 @@ export const ColorItem = styled.div`
   border-radius: 50%;
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
     0px 2px 4px rgba(96, 97, 112, 0.16);
-
-  background-color: ${({ color }) => `${color}`};
-  border: 2px solid transparent;
-  ${({ option, color }) =>
-    option === color &&
-    `box-shadow: -1px 0px 0px 7px rgba(255, 255, 255, 1) inset; border:2px solid ${color}`};
   margin: 0px 12px;
 `;
 
