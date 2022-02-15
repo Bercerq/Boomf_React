@@ -9,3 +9,4 @@ export const panelData = [
   { icon: AddPhoto, text: "+ Sticker", flag: "sticker" },
   { icon: AddChouseMessage, text: "Choose a message", flag: "chouse" },
 ];
+

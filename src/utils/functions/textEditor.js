@@ -1,6 +1,7 @@
-import { editOptions } from "../constants/TextEditData";
+import { alignmentIcon, editOptions } from "../constants/TextEditData";
 
-import Alignment from "../../components/TextEditor/Option/Alignment";
+import { editText, setCurrentEditor } from "../../redux/actions/textEditor";
+
 import Colour from "../../components/TextEditor/Option/Colour";
 import Font from "../../components/TextEditor/Option/Font";
 import Size from "../../components/TextEditor/Option/Size";
@@ -11,7 +12,6 @@ import {
   OptionsWrapper,
   OptionText,
 } from "../../components/TextEditor/style";
-import { editText, setCurrentEditor } from "../../redux/actions/textEditor";
 
 export const selectOptions = (selectEditor, setOption, option) => {
   return (
@@ -22,7 +22,11 @@ export const selectOptions = (selectEditor, setOption, option) => {
           key={text}
         >
           <OptionIcon>
-            <img src={icon} alt={text} />
+            {text === "Alignment" ? (
+              findAlignmentImage(option)
+            ) : (
+              <img src={icon} alt={text} />
+            )}
           </OptionIcon>
           <OptionText>{text}</OptionText>
         </Option>
@@ -50,6 +54,17 @@ const findSide = (option, setOption) => {
   }
 };
 
+const findAlignmentImage = (option) =>
+  !option ? (
+    <img src={alignmentIcon[0].icon} alt="center" />
+  ) : (
+    alignmentIcon.map(({ icon, side }) => {
+      if (option === side) {
+        return <img src={icon} alt={side} />;
+      }
+    })
+  );
+
 export const drawOption = (flag, option, setOption) => {
   switch (flag) {
     case "Font":
@@ -58,21 +73,26 @@ export const drawOption = (flag, option, setOption) => {
       return <Size option={option} setOption={setOption} />;
     case "Colour":
       return <Colour option={option} setOption={setOption} />;
-
     default:
       break;
   }
 };
 
-export const closeSideBar = (dispatch, currentEditor, setOption) => () => {
-  if (currentEditor.flag) {
-    dispatch(setCurrentEditor({ flag: "", state: true }));
-  } else {
-    dispatch(setCurrentEditor({ flag: "", state: false }));
-  }
-  setOption("");
+export const closeSideBar = (dispatch, currentEditor, setOption, textStyles) => () => {
+    if (currentEditor.flag) {
+      dispatch(setCurrentEditor({ flag: "", state: true }));
+    } else {
+      dispatch(setCurrentEditor({ flag: "", state: false }));
+    }
+    setOption("");
 
-  if (currentEditor.flag) {
-    dispatch(editText({ [currentEditor.flag]: "" }));
-  }
-};
+    if (currentEditor.flag[currentEditor.flag]) {
+      if (textStyles) {
+        dispatch(
+          editText({ [currentEditor.flag]: textStyles[currentEditor.flag] })
+        );
+      } else {
+        dispatch(editText({ [currentEditor.flag]: "" }));
+      }
+    }
+  };

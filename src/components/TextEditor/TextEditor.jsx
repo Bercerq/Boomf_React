@@ -55,10 +55,13 @@ function TextEditor() {
               handleButtonClick={closeSideBar(
                 dispatch,
                 currentEditor,
-                setOption
+                setOption,
+                textStyles
               )}
             >
-              {currentEditor.flag ? "Cancel" : "Close"}
+              {currentEditor.flag && currentEditor.flag !== "Alignment"
+                ? "Cancel"
+                : "Close"}
             </WhiteButton>
           </div>
           {option && (

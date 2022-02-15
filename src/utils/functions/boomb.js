@@ -61,7 +61,7 @@ export const onCubeDragEnd = () => {
   startX = false;
 };
 
-export const onCubeDrag = (e, setCubeRotateY, cubeRotateY) => {
+export const onCubeDrag = (e, setCubeRotateY, cubeRotateY) => () => {
   if (startX) {
     media.map(({ width, maxSize, minSize }) => {
       if (window.matchMedia(width).matches) {
