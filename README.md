@@ -18,9 +18,9 @@ npm start
  * react-router-dom
  * react-color-palette
 
-## Project structure
+# Project structure
 
-# Folders
+## Folders
 * Modules - Root pages
 * Components - Pieses for build modules
 * Redux - Global state, contain `Sagas` for queries
@@ -30,7 +30,7 @@ npm start
  3 - `hooks` - project custom helpers hook
  4 - `functions`
 
-# File imports structure 
+## File imports structure 
 
 * 1 - Lybrary
 * 2 - Redux (actions/selectors)
@@ -39,7 +39,7 @@ npm start
 * 5 - Assets
 * 6 - Styles
 
-# Components structure
+## Components structure
 * 1 - Hooks (useState)
 * 2 - Another hooks (useDispatch, useSelector, useRef, ...)
 * 3 - Custom hooks
@@ -47,10 +47,8 @@ npm start
 * 5 - UseEffects
 * 6 - Components
 
-# Styling 
+## Styling 
 In a project, for styling, used only `styled-components`
-
-
 
 ## Github:
  - Branche master - live
