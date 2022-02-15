@@ -33,6 +33,12 @@ export const TextEditorContent = styled.div`
     padding: unset;
     padding-top: 42px;
   }
+  @media (max-height: 605px) {
+    height: 35vh;
+  }
+  @media (max-height: 490px) {
+    height: 45vh;
+  }
 `;
 export const ButtonWrapper = styled.div`
   width: 400px;

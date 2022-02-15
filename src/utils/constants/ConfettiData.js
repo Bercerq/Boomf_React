@@ -1,7 +1,7 @@
 import BcGold1 from "../assets/png/confetti/BCGold-1.png";
 import BCGold from "../assets/png/confetti/BCGold.png";
 import BlossomGB from "../assets/png/confetti/Blossom-GB.png";
-// import Blossom from "../assets/png/confetti/Blossom.png";
+import Blossom from "../assets/png/confetti/Blossom.png";
 // import BlueCircles from "../assets/png/confetti/Blue-Circles.png";
 // import Christmas from "../assets/png/confetti/Christmas.png";
 import Flamingo from "../assets/png/confetti/Flamingo.png";
@@ -32,10 +32,10 @@ export const ConfettiData = [
     name: "Blossom GB",
     img: BlossomGB,
   },
-  // {
-  //   name: "Blossom",
-  //   img: Blossom,
-  // },
+  {
+    name: "Blossom",
+    img: Blossom,
+  },
   // {
   //   name: "Blue Circles",
   //   img: BlueCircles,

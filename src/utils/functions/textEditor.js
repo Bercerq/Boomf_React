@@ -13,12 +13,12 @@ import {
 } from "../../components/TextEditor/style";
 import { editText, setCurrentEditor } from "../../redux/actions/textEditor";
 
-export const selectOptions = (selectEditor, setOption) => {
+export const selectOptions = (selectEditor, setOption, option) => {
   return (
     <OptionsWrapper>
       {editOptions.map(({ icon, text }) => (
         <Option
-          onClick={selectOption(text, selectEditor, setOption)}
+          onClick={selectOption(text, selectEditor, setOption, option)}
           key={text}
         >
           <OptionIcon>
@@ -31,9 +31,23 @@ export const selectOptions = (selectEditor, setOption) => {
   );
 };
 
-const selectOption = (text, selectEditor, setOption) => () => {
+const selectOption = (text, selectEditor, setOption, option) => () => {
+  if (text === "Alignment") {
+    findSide(option, setOption);
+  }
   selectEditor({ state: true, flag: text });
-  setOption("");
+};
+
+const findSide = (option, setOption) => {
+  if (!option) {
+    setOption("left");
+  } else if (option === "left") {
+    setOption("center");
+  } else if (option === "center") {
+    setOption("right");
+  } else if (option === "right") {
+    setOption("left");
+  }
 };
 
 export const drawOption = (flag, option, setOption) => {
@@ -44,8 +58,7 @@ export const drawOption = (flag, option, setOption) => {
       return <Size option={option} setOption={setOption} />;
     case "Colour":
       return <Colour option={option} setOption={setOption} />;
-    case "Aligment":
-      return <Alignment option={option} setOption={setOption} />;
+
     default:
       break;
   }

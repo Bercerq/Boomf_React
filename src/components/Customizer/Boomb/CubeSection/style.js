@@ -71,7 +71,7 @@ export const CubeWrapper = styled.div`
     padding: 100px 100px 60px 100px;
   }
   @media (max-height: 550px) {
-    padding: 50px 138px 40px 100px !important;
+    padding: 50px 138px 90px 100px !important;
   }
 
   @media (max-height: 920px) {
@@ -246,8 +246,14 @@ export const TopText = styled.textarea`
     textStyles.font ? `${textStyles.font}` : "Objectivity"};
   font-size: ${({ textStyles }) =>
     textStyles.size ? `${textStyles.size}px` : "16px"};
-  color: ${({ textStyles }) =>
-    textStyles.colour ? `${textStyles.colour}` : "black"};
+  color: ${({ textStyles, focusState }) =>
+    focusState
+      ? "transparent"
+      : textStyles.colour
+      ? `${textStyles.colour}`
+      : "black"};
+  text-align: ${({ textStyles }) =>
+    textStyles.alignment ? `${textStyles.alignment}` : "center"};
   position: absolute;
   left: -140px;
   width: 110px;
@@ -256,7 +262,6 @@ export const TopText = styled.textarea`
   height: 23vw;
   transform: translateX(12vw) rotate(317deg);
   line-height: 1.2;
-  text-align: center;
   overflow-wrap: break-word;
   background: none;
   border: none;
@@ -304,13 +309,14 @@ export const StaticText = styled.div`
     textStyles.size ? `${textStyles.size}px` : "20px"};
   color: ${({ textStyles }) =>
     textStyles.colour ? `${textStyles.colour}` : "#222222"};
+  text-align: ${({ textStyles }) =>
+    textStyles.alignment ? `${textStyles.alignment}` : "center"};
   position: absolute;
   top: 19%;
   left: 27%;
   font-style: normal;
   font-weight: normal;
   line-height: 150%;
-  text-align: center;
   letter-spacing: 0.01em;
   text-transform: capitalize;
   cursor: pointer;

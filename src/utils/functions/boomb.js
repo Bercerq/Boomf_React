@@ -77,13 +77,7 @@ export const onCubeDrag = (e, setCubeRotateY, cubeRotateY) => {
 //
 
 //check one or double click
-export const openEditor = (dispatch) => (e) => {
-  setTimeout(() => {
-    if (e.detail !== 1) {
-      dispatch(setFocus(true));
-      dispatch(setCurrentEditor({ flag: "", state: false }));
-    } else {
-      dispatch(setCurrentEditor({ flag: "", state: true }));
-    }
-  }, 350);
+export const openEditor = (dispatch) => () => {
+  dispatch(setFocus(true));
+  dispatch(setCurrentEditor({ flag: "", state: true }));
 };

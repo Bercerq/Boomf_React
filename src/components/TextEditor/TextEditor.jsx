@@ -13,13 +13,10 @@ import { TextEditorWrapper, TextEditorContent, ButtonWrapper } from "./style";
 
 function TextEditor() {
   const [option, setOption] = useState();
-
   const dispatch = useDispatch();
-
   const { textStyles, currentEditor } = useSelector(
     ({ textEditorReducer }) => textEditorReducer
   );
-
   const debouncedValue = useDebounce(option, 500);
 
   const submitChanges = () => {
@@ -47,9 +44,9 @@ function TextEditor() {
         currentEditor={currentEditor.state}
         onClick={(e) => e.stopPropagation()}
       >
-        {currentEditor.flag
+        {currentEditor.flag && currentEditor.flag !== "Alignment"
           ? drawOption(currentEditor.flag, option, setOption)
-          : selectOptions(selectEditor, setOption)}
+          : selectOptions(selectEditor, setOption, option)}
         <ButtonWrapper>
           <div>
             <WhiteButton

@@ -49,6 +49,11 @@ export const ConfetiBox = styled.div`
   overflow-y: scroll;
   padding-right: 5px;
   height: 60vh;
+
+  @media (max-width: 1600px) {
+    height: 40vh;
+  }
+
   @media (max-width: 920px) {
     display: flex;
     height: unset;

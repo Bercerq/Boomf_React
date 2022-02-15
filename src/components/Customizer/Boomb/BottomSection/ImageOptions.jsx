@@ -7,7 +7,7 @@ function ImageOptions({
   setCurrentImage,
   setCurrPosition,
   cubeData,
-
+  currPosition,
 }) {
   return (
     <ImagePicker>
@@ -15,6 +15,7 @@ function ImageOptions({
         cubeData={cubeData}
         setCurrPosition={setCurrPosition}
         setCurrentImage={setCurrentImage}
+        currPosition={currPosition}
       />
       <SelectText />
     </ImagePicker>
