@@ -1,2 +1,2 @@
 export const SET_BOOMB = 'SET_BOOMB'
-export const EDIT_TEXT = 'EDIT_TEXT'
+export const SET_TOP_TEXT = 'SET_TOP_TEXT'

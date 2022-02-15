@@ -11,7 +11,7 @@ import HotLove from "../assets/png/confetti/Hot-Love.png";
 // import ILoveYou from "../assets/png/confetti/I-Love-You.png";
 import OceanBlue from "../assets/png/confetti/Ocean-Blue.png";
 // import PinkCircles from "../assets/png/confetti/Pink-circles.png";
-// import Rainbow from "../assets/png/confetti/Rainbow.png";
+import Rainbow from "../assets/png/confetti/Rainbow.png";
 // import BcGoldStars1 from "../assets/png/confetti/Stars.png";
 import Summer1 from "../assets/png/confetti/Summer-2.png";
 import Summer from "../assets/png/confetti/Summer.png";
@@ -72,10 +72,10 @@ export const ConfettiData = [
   //   name: "Pink Circles",
   //   img: PinkCircles,
   // },
-  // {
-  //   name: "Rainbow",
-  //   img: Rainbow,
-  // },
+  {
+    name: "Rainbow",
+    img: Rainbow,
+  },
   // {
   //   name: "Bc Gold Stars",
   //   img: BcGoldStars1,

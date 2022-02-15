@@ -11,13 +11,14 @@ import {
   OptionsWrapper,
   OptionText,
 } from "../../components/TextEditor/style";
+import { editText, setCurrentEditor } from "../../redux/actions/textEditor";
 
-export const selectOptions = (setOpenTextEditor, setOption) => {
+export const selectOptions = (selectEditor, setOption) => {
   return (
     <OptionsWrapper>
       {editOptions.map(({ icon, text }) => (
         <Option
-          onClick={selectOption(text, setOpenTextEditor, setOption)}
+          onClick={selectOption(text, selectEditor, setOption)}
           key={text}
         >
           <OptionIcon>
@@ -30,8 +31,8 @@ export const selectOptions = (setOpenTextEditor, setOption) => {
   );
 };
 
-const selectOption = (text, setOpenTextEditor, setOption) => () => {
-  setOpenTextEditor({ state: true, flag: text });
+const selectOption = (text, selectEditor, setOption) => () => {
+  selectEditor({ state: true, flag: text });
   setOption("");
 };
 
@@ -47,5 +48,18 @@ export const drawOption = (flag, option, setOption) => {
       return <Alignment option={option} setOption={setOption} />;
     default:
       break;
+  }
+};
+
+export const closeSideBar = (dispatch, currentEditor, setOption) => () => {
+  if (currentEditor.flag) {
+    dispatch(setCurrentEditor({ flag: "", state: true }));
+  } else {
+    dispatch(setCurrentEditor({ flag: "", state: false }));
+  }
+  setOption("");
+
+  if (currentEditor.flag) {
+    dispatch(editText({ [currentEditor.flag]: "" }));
   }
 };

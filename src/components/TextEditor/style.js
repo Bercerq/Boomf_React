@@ -11,8 +11,8 @@ export const TextEditorWrapper = styled.div`
   opacity: 0;
   transition: 0.6s;
   pointer-events: none;
-  ${({ openTextEditor }) =>
-    openTextEditor && "opacity:1; pointer-events: all;transition: 0.6s;"}
+  ${({ currentEditor }) =>
+    currentEditor && "opacity:1; pointer-events: all;transition: 0.6s;"}
 `;
 export const TextEditorContent = styled.div`
   z-index: 3;
@@ -24,7 +24,7 @@ export const TextEditorContent = styled.div`
   width: 100vw;
   transition: 0.4s;
   height: 0vh;
-  ${({ openTextEditor }) => openTextEditor && "height: 22vh;transition: 0.4s;"};
+  ${({ currentEditor }) => currentEditor && "height: 22vh;transition: 0.4s;"};
 
   @media (max-width: 1470px) {
     padding-left: 20%;

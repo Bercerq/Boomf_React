@@ -1,22 +1,23 @@
 import React from "react";
-import { changeTopText } from "../../../../utils/functions/boomb";
+import { useDispatch } from "react-redux";
+import {
+  setCurrentEditor,
+  setFocus,
+} from "../../../../redux/actions/textEditor";
 import { BoxSide, BoxText, PickerItem } from "./style";
 
-function SelectText({ setTopText, topText, inputRef, setOpenTextEditor }) {
+function SelectText() {
+  const dispatch = useDispatch();
+  const setFocusToTop = () => {
+    dispatch(setFocus(true));
+    dispatch(setCurrentEditor({ flag: "", state: true }));
+  };
   return (
     <PickerItem>
-      <BoxSide onClick={() => setOpenTextEditor({ flag: "", state: true })}>
-        <textarea
-          ref={inputRef}
-          maxLength={136}
-          onChange={(e) => changeTopText(setTopText, e)}
-          type="text"
-          value={topText}
-          resize="none"
-          placeholder="Click to type your text"
-        />
+      <BoxSide onClick={setFocusToTop}>
+        <div className="BoxNoImage">Click to edit text</div>
       </BoxSide>
-      <BoxText>Text</BoxText>
+      <BoxText>Top</BoxText>
     </PickerItem>
   );
 }

@@ -1,20 +1,17 @@
-import { EDIT_TEXT, SET_BOOMB } from "../constants/boomb";
+import { SET_BOOMB, SET_TOP_TEXT } from "../constants/boomb";
 
-const initialState = {
-  editTextData: {},
-};
+const initialState = {};
 
-const boomb = (state = initialState, action) => {
+const boombReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_BOOMB:
       return {
-        ...state,
         boombData: action.payload,
       };
-    case EDIT_TEXT:
+    case SET_TOP_TEXT:
       return {
         ...state,
-        editTextData: { ...state.editTextData, ...action.payload },
+        topText: action.payload,
       };
     default:
       return {
@@ -23,4 +20,4 @@ const boomb = (state = initialState, action) => {
   }
 };
 
-export default boomb;
+export default boombReducer;

@@ -6,15 +6,14 @@ import {
   findBoxSide,
 } from "../../../../utils/functions/boomb";
 
-import { CubeItem, CubeSide, NoImage, BoxInfoSide } from "./style";
+import { CubeItem, CubeSide, NoImage } from "./style";
 
 export const CubePosition = ({
   setCurrPosition,
   setCurrentImage,
-  position,
-  img,
-  rotate,
+  cubeData,
 }) => {
+  const { rotate, img, position } = cubeData;
   return (
     <CubeSide spinParam={rotate}>
       <input
