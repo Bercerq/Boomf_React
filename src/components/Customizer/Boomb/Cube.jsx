@@ -4,8 +4,6 @@ import { useDispatch } from "react-redux";
 import { setBoomb } from "../../../redux/actions/boomb";
 import { updateItem } from "../../../utils/functions/boomb";
 
-import { useFocus } from "../../../utils/hooks/useFocus";
-
 import BlueButton from "../../Buttons/BlueButton";
 import BottomSection from "./BottomSection/BottomSection";
 import CubeSection from "./CubeSection/CubeSection";
@@ -13,12 +11,11 @@ import Modal from "../../Modal/Modal";
 
 import { SideContent } from "./CubeSection/style";
 
-function Cube({ cubeData, setCubeData, selectConfetti, setOpenTextEditor }) {
+function Cube({ cubeData, setCubeData, confettiState }) {
   const [currPosition, setCurrPosition] = useState(null);
   const [currentImage, setCurrentImage] = useState("");
-  const [topText, setTopText] = useState("");
   const [openModal, setOpenModal] = useState({ state: false, title: "" });
-  const [inputRef, setInputFocus] = useFocus();
+  const [topText, setTopText] = useState("");
 
   const dispatch = useDispatch();
 
@@ -41,7 +38,7 @@ function Cube({ cubeData, setCubeData, selectConfetti, setOpenTextEditor }) {
       setBoomb({
         ...boxArr,
         topText,
-        confetti: selectConfetti.img,
+        confetti: confettiState.img,
       })
     );
     setOpenModal({
@@ -54,24 +51,21 @@ function Cube({ cubeData, setCubeData, selectConfetti, setOpenTextEditor }) {
     <>
       <SideContent>
         <CubeSection
-          selectConfetti={selectConfetti}
+          confettiState={confettiState}
           topText={topText}
           setCurrPosition={setCurrPosition}
           setCurrentImage={setCurrentImage}
           currPosition={currPosition}
           cubeData={cubeData}
-          setInputFocus={setInputFocus}
+          setTopText={setTopText}
         />
 
         <BottomSection
-          inputRef={inputRef}
           handleButtonClick={handleButtonClick}
-          topText={topText}
-          setTopText={setTopText}
           cubeData={cubeData}
           setCurrentImage={setCurrentImage}
           setCurrPosition={setCurrPosition}
-          setOpenTextEditor={setOpenTextEditor}
+          currPosition={currPosition}
         />
       </SideContent>
 

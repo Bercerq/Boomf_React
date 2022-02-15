@@ -1,9 +1,12 @@
 import { combineReducers } from "redux";
-import boomb from './boomb';
-
+import boombReducer from './boomb';
+import textEditorReducer from './textEditor';
+import confettiReducer from './confetti';
 
 const rootReducer = combineReducers({
-  boomb
+  boombReducer,
+  textEditorReducer,
+  confettiReducer,
 });
 
 export default rootReducer;

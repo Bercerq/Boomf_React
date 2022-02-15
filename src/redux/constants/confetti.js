@@ -1,0 +1,1 @@
+export const SET_CONFETTI = 'SET_CONFETTI'

@@ -7,10 +7,7 @@ function ImageOptions({
   setCurrentImage,
   setCurrPosition,
   cubeData,
-  topText,
-  setTopText,
-  inputRef,
-  setOpenTextEditor,
+  currPosition,
 }) {
   return (
     <ImagePicker>
@@ -18,13 +15,9 @@ function ImageOptions({
         cubeData={cubeData}
         setCurrPosition={setCurrPosition}
         setCurrentImage={setCurrentImage}
+        currPosition={currPosition}
       />
-      <SelectText
-        inputRef={inputRef}
-        setTopText={setTopText}
-        topText={topText}
-        setOpenTextEditor={setOpenTextEditor}
-      />
+      <SelectText />
     </ImagePicker>
   );
 }

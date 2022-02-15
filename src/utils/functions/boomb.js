@@ -1,3 +1,4 @@
+import { setCurrentEditor, setFocus } from "../../redux/actions/textEditor";
 import { media } from "../constants/BoombData";
 
 export const changeCubeRotate = (operator, setCubeRotateY, cubeRotateY) => {
@@ -31,7 +32,7 @@ export const setBoxImage = (e, setCurrentImage) => {
 export const setBoxPosition = (position, setCurrPosition) => () => {
   setCurrPosition(position);
 };
-export const changeTopText = (setTopText, e) =>  {
+export const changeTopText = (setTopText, e) => {
   setTopText(e.target.value);
 };
 // Show side name based position
@@ -74,3 +75,9 @@ export const onCubeDrag = (e, setCubeRotateY, cubeRotateY) => {
   }
 };
 //
+
+//check one or double click
+export const openEditor = (dispatch) => () => {
+  dispatch(setFocus(true));
+  dispatch(setCurrentEditor({ flag: "", state: true }));
+};

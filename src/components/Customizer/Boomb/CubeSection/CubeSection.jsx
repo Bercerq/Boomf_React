@@ -1,17 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { CubePosition } from "./CubePosition";
-import { CubeTop } from "./CubeTop";
+import { openEditor } from "../../../../utils/functions/boomb";
+
 import RotateButtons from "./RotateButtons";
+import CubeSide from "./CubeSide";
 
-import {
-  onCubeDrag,
-  onCubeDragEnd,
-  onCubeDragStart,
-} from "../../../../utils/functions/boomb";
-
-import { CubeBox, CubeContainer, CubeWrapper } from "./style";
-import { useCubePosition } from "../../../../utils/hooks/useCubePosition";
+import { CubeContainer, CubeWrapper, StaticText } from "./style";
 
 function CubeSection({
   topText,
@@ -19,34 +14,33 @@ function CubeSection({
   currPosition,
   setCurrentImage,
   cubeData,
-  selectConfetti,
-  setInputFocus,
+  confettiState,
+  setTopText,
 }) {
   const [cubeRotateY, setCubeRotateY] = useState(760);
-
-  useCubePosition({ cubeData, setCubeRotateY, currPosition });
+  const { textStyles, focusState } = useSelector(
+    ({ textEditorReducer }) => textEditorReducer
+  );
+  const dispatch = useDispatch();
 
   return (
     <CubeContainer>
-      <CubeWrapper selectConfetti={selectConfetti}>
-        <CubeBox
-          onMouseMove={(e) => onCubeDrag(e, setCubeRotateY, cubeRotateY)}
-          onMouseDown={onCubeDragStart}
-          onMouseUp={onCubeDragEnd()}
+      <CubeWrapper confettiState={confettiState.img}>
+        <CubeSide
+          setCubeRotateY={setCubeRotateY}
           cubeRotateY={cubeRotateY}
-        >
-          <CubeTop setInputFocus={setInputFocus} topText={topText} />
-          {cubeData.map(({ position, img, rotate }) => (
-            <CubePosition
-              key={position}
-              setCurrPosition={setCurrPosition}
-              setCurrentImage={setCurrentImage}
-              position={position}
-              img={img}
-              rotate={rotate}
-            />
-          ))}
-        </CubeBox>
+          textStyles={textStyles}
+          focusState={focusState}
+          topText={topText}
+          setTopText={setTopText}
+          cubeData={cubeData}
+          setCurrPosition={setCurrPosition}
+          setCurrentImage={setCurrentImage}
+          currPosition={currPosition}
+        />
+        <StaticText textStyles={textStyles} onClick={openEditor(dispatch)}>
+          {!topText ? "Click to type your text" : focusState && topText}
+        </StaticText>
       </CubeWrapper>
       <RotateButtons
         cubeRotateY={cubeRotateY}

@@ -8,7 +8,12 @@ import {
 
 import { BoxImage, BoxSide, BoxText, PickerItem } from "./style";
 
-const SelectImage = ({ cubeData, setCurrentImage, setCurrPosition }) => {
+const SelectImage = ({
+  cubeData,
+  setCurrentImage,
+  setCurrPosition,
+  currPosition,
+}) => {
   return cubeData.map(({ position, img }) => (
     <React.Fragment key={position}>
       <input
@@ -22,7 +27,7 @@ const SelectImage = ({ cubeData, setCurrentImage, setCurrPosition }) => {
         onClick={setBoxPosition(position, setCurrPosition)}
         htmlFor="imageUploader"
       >
-        <BoxSide>
+        <BoxSide currPosition={currPosition} position={position}>
           {img ? (
             <BoxImage src={img} alt={`image ${position}`} />
           ) : (

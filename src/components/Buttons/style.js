@@ -12,6 +12,7 @@ export const BlueBtn = styled.button`
   border: none;
   outline: none;
   font-family: "Objectivity";
+  font-weight: 400;
 
   cursor: pointer;
   svg {
@@ -31,6 +32,6 @@ export const WhiteBtn = styled.button`
   border: none;
   outline: none;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 400;
   font-family: "Objectivity";
 `;

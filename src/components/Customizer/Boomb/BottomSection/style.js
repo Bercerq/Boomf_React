@@ -5,6 +5,18 @@ import styled from "styled-components";
 export const Bottom = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 1600px) {
+    width: 125%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+  }
+  @media (max-width: 920px) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+  }
 `;
 
 export const ImagePicker = styled.div`
@@ -13,12 +25,23 @@ export const ImagePicker = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  @media (max-width: 920px) {
+    margin: auto;
+    width: 95%;
+  }
 `;
 export const PickerItem = styled.label`
   display: block;
   margin: 0 12px;
+  @media (max-width: 920px) {
+    margin: 0 4px;
+  }
 `;
 export const BoxSide = styled.div`
+  border: ${({ currPosition, position }) =>
+    currPosition && currPosition === position
+      ? `3px solid #0A74FF;`
+      : "3px solid transparent"};
   max-width: 120px;
   max-height: 120px;
   height: 100%;
@@ -64,33 +87,28 @@ export const BoxSide = styled.div`
     }
   }
 
-  @media (max-width: 1560px) {
+  @media (max-width: 1120px) {
+    height: 70%;
+  }
+  @media (max-width: 1070px) {
     height: 60%;
-    width: 80%;
-    margin: auto;
   }
-
-  @media (max-width: 1240px) {
-    height: 50%;
+  @media (max-width: 920px) {
+    height: 75%;
   }
-  @media (max-height: 690px) {
-    max-width: 105px;
-    max-height: 90px;
+  @media (max-width: 585px) {
+    height: 60%;
   }
-  @media (max-width: 580px) {
-    width: 100%;
-  }
-  @media (max-width: 455px) {
-    height: 40%;
+  @media (max-width: 425px) {
+    height: 45%;
   }
 `;
 export const ButtonWrapper = styled.div`
   width: 195px;
   margin-left: auto;
-
   @media (max-width: 920px) {
-    margin-bottom: 30px;
-    margin-right: 30px;
+    margin: 30px;
+    width: 200px;
   }
 `;
 export const BoxImage = styled.img`
@@ -100,7 +118,7 @@ export const BoxImage = styled.img`
 export const BoxText = styled.div`
   font-size: 16px;
   font-family: "Objectivity";
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
   color: #222222;
   margin-top: 5px;

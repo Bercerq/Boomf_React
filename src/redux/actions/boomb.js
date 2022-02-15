@@ -1,11 +1,10 @@
-
-import { EDIT_TEXT, SET_BOOMB } from './../constants/boomb';
+import { SET_BOOMB, SET_TOP_TEXT } from "./../constants/boomb";
 export const setBoomb = (payload) => ({
   type: SET_BOOMB,
   payload,
 });
 
-export const editText = (payload) => ({
-  type: EDIT_TEXT,
+export const setTopText = (payload) => ({
+  type: SET_TOP_TEXT,
   payload,
 });
