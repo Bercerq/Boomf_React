@@ -64,7 +64,7 @@ function TextEditor() {
                 : "Close"}
             </WhiteButton>
           </div>
-          {option && (
+          {option && currentEditor.flag !== "Alignment" && (
             <div>
               <WhiteButton
                 color="#FFFFFF"

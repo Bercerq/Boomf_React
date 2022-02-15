@@ -12,6 +12,7 @@ export const CubePosition = ({
   setCurrPosition,
   setCurrentImage,
   cubeData,
+  currPosition,
 }) => {
   const { rotate, img, position } = cubeData;
   return (
@@ -24,6 +25,8 @@ export const CubePosition = ({
         accept=".png, .jpg, .jpeg"
       />
       <CubeItem
+        position={position}
+        currPosition={currPosition}
         onClick={setBoxPosition(position, setCurrPosition)}
         htmlFor="imageUpload"
         img={img}

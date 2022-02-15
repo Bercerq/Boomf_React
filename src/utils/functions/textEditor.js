@@ -84,7 +84,7 @@ export const drawOption = (flag, option, setOption) => {
 
 export const closeSideBar =
   (dispatch, currentEditor, setOption, textStyles) => () => {
-    if (currentEditor.flag) {
+    if (currentEditor.flag && currentEditor.flag !== "Alignment") {
       dispatch(setCurrentEditor({ flag: "", state: true }));
     } else {
       dispatch(setCurrentEditor({ flag: "", state: false }));

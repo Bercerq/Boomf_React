@@ -2,25 +2,25 @@ export const BoombData = [
   {
     position: 1,
     rotate: "rotateY(0deg)",
-    img: "https://klike.net/uploads/posts/2019-05/1556708032_1.jpg",
+    img: "https://boomf.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fboomf-production%2Fstamps_images%2F000%2F002%2F330%2Foriginal.jpg%3F1563188722&w=1920&q=75",
     defaultRotate: 670,
   },
   {
     position: 2,
     rotate: "rotateY(-90deg)",
-    img: "https://i.pinimg.com/originals/1f/32/de/1f32de75ae0a1ac218a902f6f361a6d7.jpg",
+    img: "https://boomf.com/_next/image?url=https%3A%2F%2Fboomf-production.s3.amazonaws.com%2Fdesign-library%2FcKNIWnOvLILf-have_a_pawfect_birthday.jpg&w=1920&q=75",
     defaultRotate: 760,
   },
   {
     position: 3,
     rotate: "rotateY(180deg)",
-    img: "https://st.depositphotos.com/1053646/2003/i/600/depositphotos_20032813-stock-photo-morning-drink-in-paris.jpg",
+    img: "https://boomf.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fboomf-production%2Fstamps_images%2F000%2F002%2F739%2Foriginal.jpg%3F1589972708&w=1920&q=75",
     defaultRotate: 850,
   },
   {
     position: 4,
     rotate: "rotateY(90deg)",
-    img: "https://i.pinimg.com/236x/74/12/08/74120884e170439f30b210ef23dc855e.jpg",
+    img: "https://boomf.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fboomf-production%2Fstamps_images%2F000%2F002%2F769%2Foriginal.jpg%3F1589994348&w=1920&q=75",
     defaultRotate: 940,
   },
 ];

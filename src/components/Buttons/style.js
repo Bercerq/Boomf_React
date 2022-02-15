@@ -14,14 +14,25 @@ export const BlueBtn = styled.button`
   font-family: "Objectivity";
   font-weight: 400;
 
+  &:hover {
+    background: #85ecf1;
+  }
+  &:focus {
+    background: #01aeb7;
+  }
+
   cursor: pointer;
   svg {
     margin-left: 5px;
   }
 `;
+
 export const WhiteBtn = styled.button`
   background: ${({ background }) => `${background}`};
   color: ${({ color }) => `${color}`};
+  &:focus {
+    box-shadow: none;
+  }
 
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
     0px 2px 4px rgba(96, 97, 112, 0.16);
