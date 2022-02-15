@@ -90,8 +90,8 @@ component `<CustomizerLayout/>` and then 'selectConfetti' hook transer to `<Cube
 and transfer to `<`CubeWrapper/>` styled-component and set a background confetti image
 
 * `<TextEditor/>` - takes a hook openTextEditor,setOpenTextEditor from parrent `<Boomb/>` component,
-this hook contain {flag: "", state: false.}. inside `<TextEditor/>` component yo can see 2 functions
-- drawOption and selectOptions if, you not select any option - return `selectOptions` function
+this hook contain {flag: "", state: false.}. inside `<TextEditor/>` component yo can see 2 functions -
+drawOption and selectOptions if, you not select any option - return `selectOptions` function
 this function takes 2 arguments - setOpenTextEditor and setOption. Inside function we iterate array 'editOptions'
 and return this option with 'selectOption` onclick function, and this function takes text setOpenTextEditor setOption
 this function set current option in `setOpenTextEditor` hook and change boolean state, and clear old option ( if be )
