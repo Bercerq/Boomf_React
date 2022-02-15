@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+
 import { BoombData } from "../../utils/constants/BoombData";
+import { ConfettiData } from "../../utils/constants/ConfettiData";
 
 import Cube from "../../components/Customizer/Boomb/Cube";
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
 
-import { useSelector } from "react-redux";
 function Boomb() {
   const [cubeData, setCubeData] = useState(BoombData);
 
@@ -14,7 +16,11 @@ function Boomb() {
   );
 
   return (
-    <CustomizerLayout title="Boomb customizer" confettiState={confettiState}>
+    <CustomizerLayout
+      ConfettiData={ConfettiData}
+      title="Boomb customizer"
+      confettiState={confettiState}
+    >
       <Cube
         setCubeData={setCubeData}
         cubeData={cubeData}

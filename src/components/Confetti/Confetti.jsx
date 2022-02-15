@@ -1,9 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setConfetti } from "../../redux/actions/confetti";
-
-import { ConfettiData } from "./../../utils/constants/ConfettiData";
 
 import {
   ConfettiWrapper,
@@ -13,7 +10,7 @@ import {
   ConfetiBox,
 } from "./style";
 
-function Confetti({ confettiState }) {
+function Confetti({ confettiState, ConfettiData }) {
   const dispatch = useDispatch();
   const handleSelectConfetti = (img, name) => () => {
     dispatch(setConfetti({ img, name }));

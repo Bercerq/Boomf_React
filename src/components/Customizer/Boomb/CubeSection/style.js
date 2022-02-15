@@ -84,6 +84,10 @@ export const CubeWrapper = styled.div`
   @media (max-height: 615px) {
     background-size: 350px;
   }
+
+  @media (min-width: 2000px) {
+    padding: 180px;
+  }
 `;
 export const CubeBox = styled.div`
   margin: auto;
@@ -179,6 +183,20 @@ export const CubeSide = styled.div`
 `;
 
 export const CubeItem = styled.label`
+  ${({ currPosition, position }) =>
+    currPosition &&
+    currPosition === position &&
+    `animation: shadowActive 1s alternate infinite;`};
+
+  @keyframes shadowActive {
+    from {
+      filter: brightness(1);
+    }
+
+    to {
+      filter: brightness(0.8);
+    }
+  }
   position: relative;
   width: 100%;
   padding-bottom: 100%;

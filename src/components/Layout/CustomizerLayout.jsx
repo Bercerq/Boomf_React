@@ -7,7 +7,7 @@ import TextEditor from "../TextEditor/TextEditor";
 import PanelOptions from "../Customiser_Panel/Panel_Options";
 import Confetti from "../Confetti/Confetti";
 import { drawOption } from "../../utils/functions/Panel";
-function CustomizerLayout({ title, children, confettiState }) {
+function CustomizerLayout({ title, children, confettiState, ConfettiData }) {
   const [openSideBar, setOpenSideBar] = useState({ title: "", state: false });
 
   return (
@@ -18,7 +18,7 @@ function CustomizerLayout({ title, children, confettiState }) {
         options={["text", "photo", "sticker", "chouse"]}
       />
       {children}
-      <Confetti confettiState={confettiState} />
+      <Confetti ConfettiData={ConfettiData} confettiState={confettiState} />
       <SideBar openSideBar={openSideBar} setOpenSideBar={setOpenSideBar}>
         {drawOption(openSideBar.title)}
       </SideBar>

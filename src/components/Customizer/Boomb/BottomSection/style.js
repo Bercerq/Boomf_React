@@ -41,7 +41,7 @@ export const BoxSide = styled.div`
   border: ${({ currPosition, position }) =>
     currPosition && currPosition === position
       ? `3px solid #0A74FF;`
-      : "3px solid transparent"};
+      : "3px solid #f5f5f5"};
   max-width: 120px;
   max-height: 120px;
   height: 100%;
@@ -55,6 +55,8 @@ export const BoxSide = styled.div`
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
       drop-shadow(0px 8px 16px rgba(53, 53, 53, 0.281));
     transition: 0.4s;
+    border: ${({ currPosition, position }) =>
+       currPosition !== position && "3px solid transparent"};
   }
   &:focus-within {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
