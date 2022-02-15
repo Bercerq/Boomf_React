@@ -1,6 +1,10 @@
 import { alignmentIcon, editOptions } from "../constants/TextEditData";
 
-import { editText, setCurrentEditor } from "../../redux/actions/textEditor";
+import {
+  editText,
+  setCurrentEditor,
+  setFocus,
+} from "../../redux/actions/textEditor";
 
 import Colour from "../../components/TextEditor/Option/Colour";
 import Font from "../../components/TextEditor/Option/Font";
@@ -78,11 +82,13 @@ export const drawOption = (flag, option, setOption) => {
   }
 };
 
-export const closeSideBar = (dispatch, currentEditor, setOption, textStyles) => () => {
+export const closeSideBar =
+  (dispatch, currentEditor, setOption, textStyles) => () => {
     if (currentEditor.flag) {
       dispatch(setCurrentEditor({ flag: "", state: true }));
     } else {
       dispatch(setCurrentEditor({ flag: "", state: false }));
+      dispatch(setFocus(false));
     }
     setOption("");
 

@@ -29,7 +29,7 @@ export const CubeContainer = styled.div`
 `;
 export const CubeWrapper = styled.div`
   background-image: ${({ confettiState }) => `url(${confettiState})`};
-  background-size: 832px;
+  background-size: 790px;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
