@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { editImage } from "../../redux/actions/boomb";
 import { editText, setCurrentEditor } from "../../redux/actions/textEditor";
 import {
   closeSideBar,
@@ -18,17 +19,27 @@ function TextEditor() {
     ({ textEditorReducer }) => textEditorReducer
   );
   const debouncedValue = useDebounce(option, 500);
-
   const submitChanges = () => {
-    dispatch(setCurrentEditor({ flag: "", state: true }));
+    if (currentEditor.flag === "Image") {
+      dispatch(setCurrentEditor({ flag: "", state: false }));
+    } else {
+      dispatch(setCurrentEditor({ flag: "", state: true }));
+    }
   };
 
   const selectEditor = (editor) => {
     dispatch(setCurrentEditor(editor));
   };
-
   useEffect(() => {
-    dispatch(editText({ [currentEditor.flag.toLowerCase()]: debouncedValue }));
+    if (currentEditor.flag === "Image") {
+      if (debouncedValue) {
+        dispatch(editImage(debouncedValue));
+      }
+    } else {
+      dispatch(
+        editText({ [currentEditor.flag.toLowerCase()]: debouncedValue })
+      );
+    }
   }, [debouncedValue, dispatch]);
 
   useEffect(() => {
@@ -38,7 +49,7 @@ function TextEditor() {
   return (
     <TextEditorWrapper
       currentEditor={currentEditor.state}
-      onClick={closeSideBar(dispatch, currentEditor, setOption)}
+      onClick={closeSideBar(dispatch, currentEditor, setOption, textStyles)}
     >
       <TextEditorContent
         currentEditor={currentEditor.state}
@@ -51,7 +62,7 @@ function TextEditor() {
           <div>
             <WhiteButton
               color="#222222"
-              backgroun="#ffffff"
+              background="#ffffff"
               handleButtonClick={closeSideBar(
                 dispatch,
                 currentEditor,
@@ -59,7 +70,9 @@ function TextEditor() {
                 textStyles
               )}
             >
-              {currentEditor.flag && currentEditor.flag !== "Alignment"
+              {currentEditor.flag &&
+              currentEditor.flag !== "Alignment" &&
+              currentEditor.flag !== "Image"
                 ? "Cancel"
                 : "Close"}
             </WhiteButton>

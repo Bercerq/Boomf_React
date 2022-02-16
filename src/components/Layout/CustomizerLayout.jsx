@@ -1,27 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
-import SideBar from "../SideBar/SideBar";
-
-import { MainWrapper } from "../Customiser_Panel/style";
+import { MainWrapper } from "../Sidebar/style";
 import TextEditor from "../TextEditor/TextEditor";
-import PanelOptions from "../Customiser_Panel/Panel_Options";
+import SideBar from "../Sidebar/Sidebar";
 import Confetti from "../Confetti/Confetti";
-import { drawOption } from "../../utils/functions/Panel";
-function CustomizerLayout({ title, children, confettiState, ConfettiData }) {
-  const [openSideBar, setOpenSideBar] = useState({ title: "", state: false });
 
+function CustomizerLayout({ title, children, сonfettiData }) {
   return (
     <MainWrapper>
       <title>{title}</title>
-      <PanelOptions
-        setOpenSideBar={setOpenSideBar}
-        options={["text", "photo", "sticker", "chouse"]}
-      />
+      <SideBar />
       {children}
-      <Confetti ConfettiData={ConfettiData} confettiState={confettiState} />
-      <SideBar openSideBar={openSideBar} setOpenSideBar={setOpenSideBar}>
-        {drawOption(openSideBar.title)}
-      </SideBar>
+      <Confetti сonfettiData={сonfettiData} />
       <TextEditor />
     </MainWrapper>
   );

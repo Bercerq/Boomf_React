@@ -10,10 +10,6 @@ import { CubeContainer, CubeWrapper, StaticText } from "./style";
 
 function CubeSection({
   topText,
-  setCurrPosition,
-  currPosition,
-  setCurrentImage,
-  cubeData,
   confettiState,
   setTopText,
 }) {
@@ -33,19 +29,18 @@ function CubeSection({
           focusState={focusState}
           topText={topText}
           setTopText={setTopText}
-          cubeData={cubeData}
-          setCurrPosition={setCurrPosition}
-          setCurrentImage={setCurrentImage}
-          currPosition={currPosition}
         />
-        <StaticText textStyles={textStyles} onClick={openEditor(dispatch)}>
-          {!topText ? "Click to type your text" : focusState && topText}
+        <StaticText
+          textStyles={textStyles}
+          id="buttonClick"
+          onClick={openEditor(dispatch, "buttonClick")}
+        >
+          {!topText ? "Double Click to type your text" : focusState && topText}
         </StaticText>
       </CubeWrapper>
       <RotateButtons
         cubeRotateY={cubeRotateY}
         setCubeRotateY={setCubeRotateY}
-        setCurrPosition={setCurrPosition}
       />
     </CubeContainer>
   );

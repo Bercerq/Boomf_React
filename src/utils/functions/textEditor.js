@@ -16,6 +16,7 @@ import {
   OptionsWrapper,
   OptionText,
 } from "../../components/TextEditor/style";
+import Image from "../../components/TextEditor/Option/Image";
 
 export const selectOptions = (selectEditor, setOption, option) => {
   return (
@@ -64,7 +65,7 @@ const findAlignmentImage = (option) =>
   ) : (
     alignmentIcon.map(({ icon, side }) => {
       if (option === side) {
-        return <img src={icon} alt={side} />;
+        return <img key="side" src={icon} alt={side} />;
       }
     })
   );
@@ -77,6 +78,8 @@ export const drawOption = (flag, option, setOption) => {
       return <Size option={option} setOption={setOption} />;
     case "Colour":
       return <Colour option={option} setOption={setOption} />;
+    case "Image":
+      return <Image option={option} setOption={setOption} />;
     default:
       break;
   }
@@ -84,21 +87,24 @@ export const drawOption = (flag, option, setOption) => {
 
 export const closeSideBar =
   (dispatch, currentEditor, setOption, textStyles) => () => {
-    if (currentEditor.flag && currentEditor.flag !== "Alignment") {
+    if (
+      currentEditor.flag &&
+      currentEditor.flag !== "Alignment" &&
+      currentEditor.flag !== "Image"
+    ) {
       dispatch(setCurrentEditor({ flag: "", state: true }));
     } else {
-      dispatch(setCurrentEditor({ flag: "", state: false }));
+      dispatch(setCurrentEditor({ flag: currentEditor.flag, state: false }));
       dispatch(setFocus(false));
     }
+
     setOption("");
 
-    if (currentEditor.flag[currentEditor.flag]) {
-      if (textStyles) {
-        dispatch(
-          editText({ [currentEditor.flag]: textStyles[currentEditor.flag] })
-        );
-      } else {
-        dispatch(editText({ [currentEditor.flag]: "" }));
-      }
+    if (textStyles[currentEditor.flag]) {
+      dispatch(
+        editText({ [currentEditor.flag]: textStyles[currentEditor.flag] })
+      );
+    } else {
+      dispatch(editText({ [currentEditor.flag.toLowerCase()]: "" }));
     }
   };

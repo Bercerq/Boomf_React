@@ -1,37 +1,23 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import {
-  findBoxSide,
-  setBoxImage,
-  setBoxPosition,
-} from "../../../../utils/functions/boomb";
+import { findBoxSide, setBoxPosition } from "../../../../utils/functions/boomb";
 
 import { BoxImage, BoxSide, BoxText, PickerItem } from "./style";
 
-const SelectImage = ({
-  cubeData,
-  setCurrentImage,
-  setCurrPosition,
-  currPosition,
-}) => {
-  return cubeData.map(({ position, img }) => (
+const SelectImage = () => {
+  const dispatch = useDispatch();
+  const { curCubePosition, boombData } = useSelector(
+    ({ boombReducer }) => boombReducer
+  );
+  return boombData?.map(({ position, img }) => (
     <React.Fragment key={position}>
-      <input
-        onChange={(e) => setBoxImage(e, setCurrentImage)}
-        style={{ display: "none" }}
-        type="file"
-        id="imageUploader"
-        accept=".png, .jpg, .jpeg"
-      />
-      <PickerItem
-        onClick={setBoxPosition(position, setCurrPosition)}
-        htmlFor="imageUploader"
-      >
-        <BoxSide currPosition={currPosition} position={position}>
+      <PickerItem onClick={setBoxPosition(position, dispatch)}>
+        <BoxSide curCubePosition={curCubePosition} position={position}>
           {img ? (
             <BoxImage src={img} alt={`image ${position}`} />
           ) : (
-            <div className="BoxNoImage">Click to add image</div>
+            <div className="BoxNoImage"></div>
           )}
         </BoxSide>
         <BoxText>Image - {findBoxSide(position)}</BoxText>

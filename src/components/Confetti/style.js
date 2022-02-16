@@ -12,6 +12,9 @@ export const Title = styled.div`
       display: none;
     }
   }
+  @media (max-width: 920px) {
+    display: none;
+  }
 `;
 export const ConfettiWrapper = styled.div`
   margin-top: 3%;
@@ -70,6 +73,7 @@ export const ConfettiImage = styled.img`
   @media (max-width: 920px) {
     width: 45px;
     height: 45px;
+    margin: 0;
   }
 `;
 export const ConfettiItem = styled.div`
@@ -79,8 +83,8 @@ export const ConfettiItem = styled.div`
   width: 78px;
   height: 78px;
   @media (max-width: 920px) {
-    width: 65px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
   }
   border-radius: 50%;
   ${({ selectConfetti, name }) =>

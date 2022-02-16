@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setFocus } from "../../../../redux/actions/textEditor";
-import { changeTopText } from "../../../../utils/functions/boomb";
+import { changeTopText, openEditor } from "../../../../utils/functions/boomb";
 import { useOnClickOutside } from "../../../../utils/hooks/useOnClickOutside";
 import { CubeItem, TopText, CubeSide } from "./style";
 
@@ -11,7 +11,6 @@ export const CubeTop = ({
   topText,
   setTopText,
   textStyles,
-  openEditor,
   inputRef,
   focusState,
 }) => {
@@ -28,7 +27,11 @@ export const CubeTop = ({
 
   return (
     <>
-      <CubeSide onClick={openEditor} spinParam="rotateX(90deg)">
+      <CubeSide
+        id="buttonClickTop"
+        onClick={openEditor(dispatch, "buttonClickTop")}
+        spinParam="rotateX(90deg)"
+      >
         <CubeItem ref={ref} topText={topText}>
           <TopText
             focusState={focusState}
@@ -38,6 +41,7 @@ export const CubeTop = ({
             type="text"
             value={topText}
             resize="none"
+            readOnly={focusState ? false : true}
           />
         </CubeItem>
       </CubeSide>

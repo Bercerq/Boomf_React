@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import {
-  onCubeDrag,
-  onCubeDragEnd,
-  onCubeDragStart,
-  openEditor,
-} from "../../../../utils/functions/boomb";
+import { useSelector } from "react-redux";
 
 import { useCubePosition } from "../../../../utils/hooks/useCubePosition";
 import { useFocus } from "../../../../utils/hooks/useFocus";
@@ -21,42 +15,31 @@ function CubeSide({
   focusState,
   topText,
   setTopText,
-  cubeData,
-  setCurrentImage,
-  currPosition,
-  setCurrPosition,
 }) {
-  const dispatch = useDispatch();
   const [inputRef, setInputRef] = useFocus();
 
-  useCubePosition({ cubeData, setCubeRotateY, currPosition });
+  const { curCubePosition, boombData } = useSelector(
+    ({ boombReducer }) => boombReducer
+  );
+  useCubePosition({ boombData, setCubeRotateY, curCubePosition });
 
   useEffect(() => {
     if (focusState) setInputRef();
   }, [focusState]);
-
   return (
-    <CubeBox
-      onMouseMove={(e) => onCubeDrag(e, setCubeRotateY, cubeRotateY)}
-      onMouseDown={onCubeDragStart}
-      onMouseUp={onCubeDragEnd()}
-      cubeRotateY={cubeRotateY}
-    >
+    <CubeBox cubeRotateY={cubeRotateY}>
       <CubeTop
         textStyles={textStyles}
         focusState={focusState}
         topText={topText}
         setTopText={setTopText}
         inputRef={inputRef}
-        openEditor={openEditor(dispatch)}
       />
-      {cubeData.map((cubeData) => (
+      {boombData?.map((boombData) => (
         <CubePosition
-          key={cubeData.position}
-          setCurrPosition={setCurrPosition}
-          setCurrentImage={setCurrentImage}
-          currPosition={currPosition}
-          cubeData={cubeData}
+          key={boombData.position}
+          curCubePosition={curCubePosition}
+          boombData={boombData}
         />
       ))}
     </CubeBox>

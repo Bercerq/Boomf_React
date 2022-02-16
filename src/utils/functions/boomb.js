@@ -1,5 +1,9 @@
+import {
+  setBoomb,
+  setCurImage,
+  setCurPosition,
+} from "../../redux/actions/boomb";
 import { setCurrentEditor, setFocus } from "../../redux/actions/textEditor";
-import { media } from "../constants/BoombData";
 
 export const changeCubeRotate = (operator, setCubeRotateY, cubeRotateY) => {
   if (operator === "right") {
@@ -9,28 +13,27 @@ export const changeCubeRotate = (operator, setCubeRotateY, cubeRotateY) => {
   }
 };
 export const updateItem = (
-  id,
+  curCubePosition,
   itemAttributes,
-  cubeData,
-  setCubeData,
-  setCurrentImage
+  boombData,
+  dispatch
 ) => {
-  let index = cubeData.findIndex((x) => x.position === id);
+  let index = boombData.findIndex((x) => x.position === curCubePosition);
   if (index !== -1) {
-    setCubeData([
-      ...cubeData.slice(0, index),
-      Object.assign({}, cubeData[index], itemAttributes),
-      ...cubeData.slice(index + 1),
-    ]);
-    //uncomment when connect server
-    // setCurrentImage("");
+    dispatch(
+      setBoomb([
+        ...boombData.slice(0, index),
+        Object.assign({}, boombData[index], itemAttributes),
+        ...boombData.slice(index + 1),
+      ])
+    );
   }
 };
-export const setBoxImage = (e, setCurrentImage) => {
-  setCurrentImage(e.target.value);
+export const setBoxImage = (e, dispatch) => {
+  dispatch(setCurImage(e.target.value));
 };
-export const setBoxPosition = (position, setCurrPosition) => () => {
-  setCurrPosition(position);
+export const setBoxPosition = (position, dispatch) => () => {
+  dispatch(setCurPosition(position));
 };
 export const changeTopText = (setTopText, e) => {
   setTopText(e.target.value);
@@ -51,33 +54,21 @@ export const findBoxSide = (position) => {
   }
 };
 //
-//Spin cube for mouse hold
-let startX;
-export const onCubeDragStart = () => {
-  startX = true;
-};
-
-export const onCubeDragEnd = () => {
-  startX = false;
-};
-
-export const onCubeDrag = (e, setCubeRotateY, cubeRotateY) => () => {
-  if (startX) {
-    media.map(({ width, maxSize, minSize }) => {
-      if (window.matchMedia(width).matches) {
-        if (e.pageX > minSize && e.pageX < maxSize) {
-          setCubeRotateY(cubeRotateY - 90);
-        } else {
-          setCubeRotateY(cubeRotateY + 90);
-        }
-      }
-    });
-  }
-};
-//
-
 //check one or double click
-export const openEditor = (dispatch) => () => {
-  dispatch(setFocus(true));
-  dispatch(setCurrentEditor({ flag: "", state: true }));
+export const openEditor = (dispatch, buttonflag) => () => {
+  const button = document.getElementById(buttonflag);
+  let timer;
+  button.addEventListener("click", (event) => {
+    if (event.detail === 1) {
+      timer = setTimeout(() => {
+        console.log("click");
+        dispatch(setCurrentEditor({ flag: "", state: true }));
+      }, 200);
+    }
+  });
+  button.addEventListener("dblclick", (event) => {
+    clearTimeout(timer);
+    dispatch(setFocus(true));
+    console.log("dblclick");
+  });
 };

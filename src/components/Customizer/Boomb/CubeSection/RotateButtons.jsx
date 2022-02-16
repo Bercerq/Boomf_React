@@ -6,10 +6,9 @@ import Arrow from "../../../../utils/assets/svg/Arrow.svg";
 
 import { ArrowRight, ArrowLeft } from "./style";
 
-function RotateButtons({ setCubeRotateY, cubeRotateY, setCurrPosition }) {
+function RotateButtons({ setCubeRotateY, cubeRotateY }) {
   const handleChangeRotate = (side) => () => {
     changeCubeRotate(side, setCubeRotateY, cubeRotateY);
-    setCurrPosition(null);
   };
 
   return (
