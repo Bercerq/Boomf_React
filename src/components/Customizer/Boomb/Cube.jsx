@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { setBoomb } from "../../../redux/actions/boomb";
+import { sendBoomb } from "../../../redux/actions/boomb";
 import { updateItem } from "../../../utils/functions/boomb";
 
 import BlueButton from "../../Buttons/BlueButton";
@@ -11,36 +11,31 @@ import Modal from "../../Modal/Modal";
 
 import { SideContent } from "./CubeSection/style";
 
-function Cube({ cubeData, setCubeData, confettiState }) {
-  const [currPosition, setCurrPosition] = useState(null);
-  const [currentImage, setCurrentImage] = useState("");
+function Cube() {
   const [openModal, setOpenModal] = useState({ state: false, title: "" });
   const [topText, setTopText] = useState("");
-
   const dispatch = useDispatch();
 
+  const { editCrop, curCubePosition, boombData, curCubeImage } = useSelector(
+    ({ boombReducer }) => boombReducer
+  );
+  const { confettiState } = useSelector(
+    ({ confettiReducer }) => confettiReducer
+  );
   useEffect(() => {
-    updateItem(
-      currPosition,
-      { img: currentImage },
-      cubeData,
-      setCubeData,
-      setCurrentImage
-    );
-  }, [currentImage]);
+    if (curCubeImage) {
+      updateItem(curCubePosition, { img: curCubeImage }, boombData, dispatch);
+    } else if (editCrop) {
+      updateItem(curCubePosition, { editCrop }, boombData, dispatch);
+    }
+  }, [curCubeImage, editCrop]);
 
   const handleButtonClick = () => {
     let boxArr = [];
-    cubeData.map(({ img, position }) => {
-      boxArr.push({ img, position });
+    boombData?.map((data) => {
+      boxArr.push(data);
     });
-    dispatch(
-      setBoomb({
-        ...boxArr,
-        topText,
-        confetti: confettiState.img,
-      })
-    );
+    dispatch(sendBoomb([...boxArr, topText, { confetti: confettiState.img }]));
     setOpenModal({
       title: "Add to cart",
       state: true,
@@ -53,20 +48,10 @@ function Cube({ cubeData, setCubeData, confettiState }) {
         <CubeSection
           confettiState={confettiState}
           topText={topText}
-          setCurrPosition={setCurrPosition}
-          setCurrentImage={setCurrentImage}
-          currPosition={currPosition}
-          cubeData={cubeData}
           setTopText={setTopText}
         />
 
-        <BottomSection
-          handleButtonClick={handleButtonClick}
-          cubeData={cubeData}
-          setCurrentImage={setCurrentImage}
-          setCurrPosition={setCurrPosition}
-          currPosition={currPosition}
-        />
+        <BottomSection handleButtonClick={handleButtonClick} />
       </SideContent>
 
       <Modal openModal={openModal} setOpenModal={setOpenModal}>

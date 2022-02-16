@@ -3,20 +3,10 @@ import SelectImage from "./SelectImage";
 import SelectText from "./SelectText";
 import { ImagePicker } from "./style";
 
-function ImageOptions({
-  setCurrentImage,
-  setCurrPosition,
-  cubeData,
-  currPosition,
-}) {
+function ImageOptions() {
   return (
     <ImagePicker>
-      <SelectImage
-        cubeData={cubeData}
-        setCurrPosition={setCurrPosition}
-        setCurrentImage={setCurrentImage}
-        currPosition={currPosition}
-      />
+      <SelectImage />
       <SelectText />
     </ImagePicker>
   );

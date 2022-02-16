@@ -7,21 +7,10 @@ import ImageOptions from "./ImageOptions";
 
 import { Bottom, ButtonWrapper } from "./style";
 
-function BottomSection({
-  cubeData,
-  setCurrentImage,
-  setCurrPosition,
-  currPosition,
-  handleButtonClick,
-}) {
+function BottomSection({ handleButtonClick }) {
   return (
     <Bottom>
-      <ImageOptions
-        cubeData={cubeData}
-        setCurrentImage={setCurrentImage}
-        setCurrPosition={setCurrPosition}
-        currPosition={currPosition}
-      />
+      <ImageOptions />
       <ButtonWrapper>
         <BlueButton handleButtonClick={handleButtonClick}>
           Add to cart <img src={ArrowRightIcon} alt="add" />

@@ -30,7 +30,7 @@ export const ImagePicker = styled.div`
     width: 95%;
   }
 `;
-export const PickerItem = styled.label`
+export const PickerItem = styled.div`
   display: block;
   margin: 0 12px;
   @media (max-width: 920px) {
@@ -38,9 +38,9 @@ export const PickerItem = styled.label`
   }
 `;
 export const BoxSide = styled.div`
-  border: ${({ currPosition, position }) =>
-    currPosition && currPosition === position
-      ? `3px solid #0A74FF;`
+  border: ${({ curCubePosition, position }) =>
+    curCubePosition && curCubePosition === position
+      ? `3px solid #2EDBE3;`
       : "3px solid #f5f5f5"};
   max-width: 120px;
   max-height: 120px;
@@ -55,8 +55,8 @@ export const BoxSide = styled.div`
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
       drop-shadow(0px 8px 16px rgba(53, 53, 53, 0.281));
     transition: 0.4s;
-    border: ${({ currPosition, position }) =>
-       currPosition !== position && "3px solid transparent"};
+    border: ${({ curCubePosition, position }) =>
+      curCubePosition !== position && "3px solid transparent"};
   }
   &:focus-within {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
@@ -72,6 +72,7 @@ export const BoxSide = styled.div`
     resize: none;
     outline: none;
   }
+
   .BoxNoImage {
     font-family: "Objectivity";
     opacity: 0;

@@ -57,8 +57,8 @@ export const CubeWrapper = styled.div`
   }
   @media (max-width: 920px) {
     background-size: 320px !important;
-    background-position-y: top !important;
-    padding: 65px !important;
+    background-position-y: -37px !important;
+    padding: 35px 65px !important;
   }
   @media (max-width: 375px) {
     padding: 95px 91px 95px 54px;
@@ -183,9 +183,9 @@ export const CubeSide = styled.div`
 `;
 
 export const CubeItem = styled.label`
-  ${({ currPosition, position }) =>
-    currPosition &&
-    currPosition === position &&
+  ${({ curCubePosition, position }) =>
+    curCubePosition &&
+    curCubePosition === position &&
     `animation: shadowActive 1s alternate infinite;`};
 
   @keyframes shadowActive {
@@ -197,6 +197,8 @@ export const CubeItem = styled.label`
       filter: brightness(0.8);
     }
   }
+  ${({ img }) => (!img || img === "noImage") && "background-color:#f1f1ef;"}
+
   position: relative;
   width: 100%;
   padding-bottom: 100%;
@@ -207,31 +209,17 @@ export const CubeItem = styled.label`
     transition: 0.4s;
   }
   transition: 0.4s;
+`;
 
-  ${({ img }) => !img && "background-color:#f1f1ef;"}
-  img {
-    -webkit-user-drag: none;
-    user-select: none;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 100%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-  }
-  /* span {
-    position: absolute;
-    left: -113px;
-    width: 110px;
-    top: 113px;
-    transform-origin: left top;
-    height: 23vw;
-    transform: translateX(12vw) rotate(317deg);
-    line-height: 1.2;
-    font-family: Mitr, sans-serif;
-    text-align: center;
-    overflow-wrap: break-word;
-  } */
+export const SideImage = styled.img`
+  -webkit-user-drag: none;
+  user-select: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%) ${({ editCrop }) => `scale(${editCrop})`};
 `;
 export const BoxInfoSide = styled.div`
   display: flex;
@@ -349,7 +337,7 @@ export const StaticText = styled.div`
   }
   @media (max-width: 920px) {
     font-size: 12px !important;
-    top: 15% !important;
+    top: 10% !important;
     width: 40%;
     left: 31%;
   }
@@ -370,6 +358,34 @@ export const StaticText = styled.div`
     width: 30%;
   }
 `;
+export const EditButton = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 12px;
+  @media (max-width: 920px) {
+    padding: 6px;
+  }
+  margin: 15px;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
+    0px 2px 4px rgba(96, 97, 112, 0.16);
+  transition: 0.3s;
+  &:hover {
+    padding: 15px;
+    transition: 0.3s;
+    @media (max-width: 920px) {
+      padding: 8px;
+    }
+  }
+`;
+export const EditIcon = styled.img``;
 
 //ROTATE BUTONS
 export const ArrowLeft = styled.div`

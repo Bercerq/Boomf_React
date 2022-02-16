@@ -1,35 +1,29 @@
 import React from "react";
-import {
-  SideBarWindow,
-  SideBarContent,
-  SideContent,
-  SideBarTitle,
-  Title,
-  Close,
-} from "./style";
-import CloseIcon from "./../../utils/assets/svg/CloseIcon.svg";
+import { useDispatch, useSelector } from "react-redux";
 
-function SideBar({ openSideBar, setOpenSideBar, children }) {
-  const closeSideBar = () => {
-    setOpenSideBar({ ...openSideBar, state: false });
-  };
+import { drawOption, findPanelOption } from "../../utils/functions/Panel";
 
+import Logo from "../../utils/assets/svg/Logo.svg";
+
+import { PanelContainer, LogoIcon } from "./style";
+import SideBarOpen from "./SidebarOpen";
+
+function Sidebar() {
+  const { currentSidebar } = useSelector(
+    ({ sidebarReducer }) => sidebarReducer
+  );
+  const dispatch = useDispatch();
   return (
-    <SideBarWindow openSideBar={openSideBar.state} onClick={closeSideBar}>
-      <SideBarContent
-        openSideBar={openSideBar.state}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <SideBarTitle>
-          <Title>{openSideBar.title}</Title>
-          <Close onClick={closeSideBar}>
-            <img src={CloseIcon} alt="close" />
-          </Close>
-        </SideBarTitle>
-        <SideContent openSideBar={openSideBar}>{children}</SideContent>
-      </SideBarContent>
-    </SideBarWindow>
+    <>
+      <PanelContainer>
+        <LogoIcon src={Logo} alt="Logo" />
+        {findPanelOption(dispatch)}
+      </PanelContainer>
+      <SideBarOpen currentSidebar={currentSidebar}>
+        {drawOption(currentSidebar.flag)}
+      </SideBarOpen>
+    </>
   );
 }
 
-export default SideBar;
+export default Sidebar;

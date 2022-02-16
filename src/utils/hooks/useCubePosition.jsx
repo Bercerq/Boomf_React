@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 
-export const useCubePosition = ({ cubeData, setCubeRotateY, currPosition }) =>
+export const useCubePosition = ({ boombData, setCubeRotateY, curCubePosition }) =>
   useEffect(() => {
-    cubeData.map(({ defaultRotate, position }) => {
-      if (position === currPosition) {
+    boombData.map(({ defaultRotate, position }) => {
+      if (position === curCubePosition) {
         return setCubeRotateY(defaultRotate);
       }
     });
-  }, [currPosition, cubeData]);
+  }, [curCubePosition, boombData]);

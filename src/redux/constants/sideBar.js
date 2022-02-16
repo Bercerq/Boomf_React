@@ -1,0 +1,1 @@
+export const CURRENT_SIDEBAR = "CURRENT_SIDEBAR";

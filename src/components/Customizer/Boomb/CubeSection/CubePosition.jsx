@@ -1,46 +1,27 @@
 import React from "react";
 
-import {
-  setBoxImage,
-  setBoxPosition,
-  findBoxSide,
-} from "../../../../utils/functions/boomb";
+import { setBoxPosition } from "../../../../utils/functions/boomb";
 
-import { CubeItem, CubeSide, NoImage } from "./style";
+import { CubeItem, CubeSide } from "./style";
+import CubeImage from "./CubeImage";
+import { useDispatch } from "react-redux";
 
-export const CubePosition = ({
-  setCurrPosition,
-  setCurrentImage,
-  cubeData,
-  currPosition,
-}) => {
-  const { rotate, img, position } = cubeData;
+export const CubePosition = ({ boombData, curCubePosition }) => {
+  const { rotate, img, position, editCrop } = boombData;
+  const dispatch = useDispatch();
+
   return (
     <CubeSide spinParam={rotate}>
-      <input
-        onChange={(e) => setBoxImage(e, setCurrentImage)}
-        style={{ display: "none" }}
-        type="file"
-        id="imageUpload"
-        accept=".png, .jpg, .jpeg"
-      />
       <CubeItem
         position={position}
-        currPosition={currPosition}
-        onClick={setBoxPosition(position, setCurrPosition)}
-        htmlFor="imageUpload"
+        curCubePosition={curCubePosition}
+        onClick={setBoxPosition(position, dispatch)}
         img={img}
       >
-        {img ? (
-          <>
-            <img src={img} alt={`side ${position}`} />
-          </>
-        ) : (
-          <NoImage>+ Photo {findBoxSide(position)}</NoImage>
-        )}
+        <CubeImage img={img} position={position} editCrop={editCrop} />
       </CubeItem>
-
-      {/* <BoxInfoSide position={position}>
+      {/* 
+      <BoxInfoSide position={position}>
         {findBoxSide(position)} side
       </BoxInfoSide> */}
     </CubeSide>

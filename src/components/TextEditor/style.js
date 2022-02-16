@@ -33,7 +33,7 @@ export const TextEditorContent = styled.div`
     padding: unset;
     padding-top: 42px;
   }
-  @media (max-height: 605px) {
+  @media (max-height: 845px) {
     height: 35vh;
   }
   @media (max-height: 490px) {
@@ -179,4 +179,57 @@ export const ColourPalete = styled.div`
   position: absolute;
   right: 24%;
   bottom: 0;
+`;
+
+// Image
+
+export const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+`;
+
+export const SliderContainerImage = styled.div`
+  min-width: 420px;
+`;
+
+export const EditActions = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const ActionItem = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 50px;
+  cursor: pointer;
+`;
+export const Icon = styled.div`
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 6px;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
+    0px 2px 4px rgba(96, 97, 112, 0.16);
+  transition: 0.3s;
+  &:hover {
+    box-shadow: none;
+  }
+`;
+export const ImageItem = styled.img``;
+export const Text = styled.div`
+  font-family: Objectivity;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  text-align: center;
+  color: #3d3d3d;
 `;

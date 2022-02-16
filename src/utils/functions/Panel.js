@@ -1,16 +1,18 @@
+import { setCurrentSidebar } from "../../redux/actions/sideBar";
+
 import { panelData } from "../constants/PanelData";
 
-import AddTextOption from "../../components/Customiser_Panel/Options/AddTextOption";
-import AddPhotoOption from "../../components/Customiser_Panel/Options/AddPhotoOption";
-import StickerOption from "../../components/Customiser_Panel/Options/StickerOption";
-import ChouseMessageOption from "../../components/Customiser_Panel/Options/ChouseMessageOption";
+import AddTextOption from "../../components/Sidebar/Options/AddTextOption";
+import AddPhotoOption from "../../components/Sidebar/Options/AddPhotoOption";
+import StickerOption from "../../components/Sidebar/Options/StickerOption";
+import ChouseMessageOption from "../../components/Sidebar/Options/ChouseMessageOption";
 
 import {
   Option,
   OptionIcon,
   Icon,
   OptionText,
-} from "../../components/Customiser_Panel/style";
+} from "../../components/Sidebar/style";
 
 export const drawOption = (title) => {
   switch (title) {
@@ -27,25 +29,17 @@ export const drawOption = (title) => {
   }
 };
 
-export const findPanelOption = (options, setOpenSideBar) =>
-  options?.map((option) =>
-    panelData.map(({ icon, text, flag }) => {
-      switch (flag) {
-        case option:
-          return (
-            <Option onClick={selectOption(text, setOpenSideBar)} key={flag}>
-              <OptionIcon>
-                <Icon src={icon} alt={text} />
-              </OptionIcon>
-              <OptionText>{text}</OptionText>
-            </Option>
-          );
-        default:
-          break;
-      }
-    })
-  );
-
-const selectOption = (text, setOpenSideBar) => () => {
-  setOpenSideBar({ state: true, title: text });
-};
+export const findPanelOption = (dispatch) =>
+  panelData.map(({ icon, text, flag }) => {
+    return (
+      <Option
+        onClick={() => dispatch(setCurrentSidebar({ state: true, flag: text }))}
+        key={flag}
+      >
+        <OptionIcon>
+          <Icon src={icon} alt={text} />
+        </OptionIcon>
+        <OptionText>{text}</OptionText>
+      </Option>
+    );
+  });
