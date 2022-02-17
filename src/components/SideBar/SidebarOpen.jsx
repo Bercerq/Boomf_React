@@ -1,4 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import { setCurrentSidebar } from "../../redux/actions/sideBar";
+
+import CloseIcon from "./../../utils/assets/svg/CloseIcon.svg";
+
 import {
   SideBarWindow,
   SideBarContent,
@@ -7,9 +13,6 @@ import {
   Title,
   Close,
 } from "./style";
-import CloseIcon from "./../../utils/assets/svg/CloseIcon.svg";
-import { useDispatch } from "react-redux";
-import { setCurrentSidebar } from "../../redux/actions/sideBar";
 
 function SidebarOpen({ children, currentSidebar }) {
   const dispatch = useDispatch();
