@@ -1,12 +1,6 @@
 import styled from "styled-components";
 
-export const MainWrapper = styled.div`
-  display: flex;
-  user-select: none;
-  @media (max-width: 920px) {
-    flex-direction: column;
-  }
-`;
+
 export const PanelContainer = styled.div`
   width: 198px;
   height: 100vh;

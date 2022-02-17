@@ -1,9 +1,10 @@
 import React from "react";
 
-import { MainWrapper } from "../Sidebar/style";
 import TextEditor from "../TextEditor/TextEditor";
 import Confetti from "../Confetti/Confetti";
 import Sidebar from "../Sidebar/Sidebar";
+
+import { MainWrapper } from "./style";
 
 function CustomizerLayout({ title, children, сonfettiData }) {
   return (
