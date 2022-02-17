@@ -1,18 +1,18 @@
-import { setCurrentSidebar } from "../../redux/actions/sideBar";
+import { setCurrentSidebar } from "./../../redux/actions/sideBar";
 
 import { panelData } from "../constants/PanelData";
 
-import AddTextOption from "../../components/Sidebar/Options/AddTextOption";
-import AddPhotoOption from "../../components/Sidebar/Options/AddPhotoOption";
-import StickerOption from "../../components/Sidebar/Options/StickerOption";
-import ChouseMessageOption from "../../components/Sidebar/Options/ChouseMessageOption";
+import AddTextOption from "../../components/SideBar/Options/AddPhotoOption";
+import AddPhotoOption from "../../components/SideBar/Options/AddPhotoOption";
+import StickerOption from "../../components/SideBar/Options/StickerOption";
+import ChouseMessageOption from "../../components/SideBar/Options/ChouseMessageOption";
 
 import {
+  Icon,
   Option,
   OptionIcon,
-  Icon,
   OptionText,
-} from "../../components/Sidebar/style";
+} from "../../components/SideBar/style";
 
 export const drawOption = (title) => {
   switch (title) {
