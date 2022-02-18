@@ -86,7 +86,7 @@ export const BoxSide = styled.div`
   }
 
   .BoxNoImage {
-    font-family: "Objectivity";
+    font-family: "objectivity-regular-11", sans-serif;
     opacity: 0;
     padding: 15px;
     color: gray;
@@ -139,7 +139,7 @@ export const BoxImage = styled.img`
 `;
 export const BoxText = styled.div`
   font-size: 16px;
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   font-weight: 400;
   text-align: center;
   color: #222222;
