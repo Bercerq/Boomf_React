@@ -11,6 +11,7 @@ import {
 const initialState = {
   boombData: BoombData,
   editCrop: "1",
+  curCubeImage: [],
 };
 
 const boombReducer = (state = initialState, action) => {
@@ -43,7 +44,7 @@ const boombReducer = (state = initialState, action) => {
     case CURRENT_CUBE_IMAGE:
       return {
         ...state,
-        curCubeImage: action.payload,
+        curCubeImage: [{ img: action.payload }, ...state.curCubeImage],
       };
     default:
       return {

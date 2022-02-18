@@ -45,4 +45,47 @@ export const WhiteBtn = styled.button`
   font-size: 16px;
   font-weight: 400;
   font-family: "Objectivity";
+  @media (max-width: 415px) {
+    padding: 14px 30px;
+  }
+`;
+
+export const SideBarBtn = styled.button`
+  width: 100%;
+  padding: 12px 61px 12px 0;
+  @media (max-width: 920px) {
+    padding: 8px 20px 8px 0;
+    font-size: 13px;
+  }
+
+  display: flex;
+  cursor: pointer;
+  outline: none;
+  font-family: "Objectivity";
+
+  font-size: 16px;
+  text-align: center;
+  font-weight: 400;
+  color: #222222;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #222222;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
+    0px 2px 4px rgba(96, 97, 112, 0.16);
+  border-radius: 4px;
+  img {
+    margin: 0 16px;
+  }
+  &:nth-child(2) {
+    margin: 24px 0;
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 4px rgba(40, 41, 61, 0.04),
+      0px 8px 16px rgba(96, 97, 112, 0.16);
+  }
+  &:focus {
+    box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
+      0px 0.5px 2px rgba(96, 97, 112, 0.16);
+  }
 `;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const PanelContainer = styled.div`
   width: 198px;
   height: 100vh;
@@ -39,22 +38,20 @@ export const LogoIcon = styled.img`
 
 export const Option = styled.div`
   background: #ffffff;
-  width: 119px;
+  width: 120px;
+
   border-radius: 16px;
   margin: 32px 42px 17px 42px;
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
     0px 0.5px 2px rgba(96, 97, 112, 0.16);
   @media (max-width: 920px) {
     margin: 20px 20px !important;
+    width: 80px;
   }
 
   @media (max-height: 785px) {
     margin: 10px 42px 10px 42px;
   }
-  @media (max-height: 615px) {
-    width: 110px;
-  }
-
   cursor: pointer;
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
@@ -76,6 +73,7 @@ export const Icon = styled.img`
   @media (max-width: 920px) {
     display: block;
     margin: 5px;
+    width: 25px;
   }
   @media (max-height: 615px) {
     width: 30px;
@@ -122,35 +120,40 @@ export const SideBarWindow = styled.div`
   transition: 0.4s;
   pointer-events: none;
   ${({ currentSidebar }) =>
-    currentSidebar && "opacity:1; pointer-events: all;transition: 0.4s;"}
+    currentSidebar && "opacity:1; pointer-events: all;transition: 0.4s;"};
+  @media (max-width: 920px) {
+    overflow: auto;
+  }
 `;
 export const SideBarContent = styled.div`
   font-family: "Objectivity";
-  padding: 20px;
+  padding: 42px;
   border-radius: 12px;
   background-color: white;
   box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.04),
     0px 16px 24px rgba(96, 97, 112, 0.16);
   width: 0vw;
   transition: 0.4s;
-  ${({ currentSidebar }) => currentSidebar && "width: 50vw;transition: 0.4s;"};
+  ${({ currentSidebar }) =>
+    currentSidebar &&
+    "width: 45vw;transition: 0.4s;@media(max-width:920px){width:100%};"};
   height: 100vh;
 `;
 
 export const SideContent = styled.div`
-  width: 48vw;
+  width: 45vw;
   position: sticky;
   top: 0;
 `;
 
 export const SideBarTitle = styled.div`
-  width: 48vw;
-  position: sticky;
-  top: 0;
+  padding: 42px 0;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 42px;
+  @media (max-height: 605px) {
+    padding: unset;
+  }
 `;
 
 export const Title = styled.div`

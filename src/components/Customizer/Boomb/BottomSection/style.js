@@ -4,18 +4,20 @@ import styled from "styled-components";
 
 export const Bottom = styled.div`
   display: flex;
-  flex-direction: column;
-  @media (max-width: 1600px) {
-    width: 125%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: right;
-  }
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
   @media (max-width: 920px) {
-    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: end;
+    height: 30vh;
+  }
+
+  @media (max-height: 720px) {
+    height: 20vh;
   }
 `;
 
@@ -35,6 +37,16 @@ export const PickerItem = styled.div`
   margin: 0 12px;
   @media (max-width: 920px) {
     margin: 0 4px;
+  }
+`;
+
+export const PickerItemText = styled.div`
+  display: block;
+  margin: 0 12px;
+  @media (max-width: 920px) {
+    margin: 0 4px;
+    width: 20%;
+    font-size: 11px;
   }
 `;
 export const BoxSide = styled.div`
@@ -107,9 +119,16 @@ export const BoxSide = styled.div`
   }
 `;
 export const ButtonWrapper = styled.div`
-  width: 195px;
-  margin-left: auto;
+  position: absolute;
+  right: 45px;
+  @media (max-width: 1190px) {
+    right: 15px;
+    width: 140px;
+  }
+
   @media (max-width: 920px) {
+    position: static;
+    right: unset;
     margin: 30px;
     width: 200px;
   }

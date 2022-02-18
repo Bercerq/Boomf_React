@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setCurrentEditor } from "../../../../redux/actions/textEditor";
-import { BoxSide, BoxText, PickerItem } from "./style";
+import { BoxSide, BoxText, PickerItem, PickerItemText } from "./style";
 
 function SelectText() {
   const dispatch = useDispatch();
@@ -9,12 +9,12 @@ function SelectText() {
     dispatch(setCurrentEditor({ flag: "", state: true }));
   };
   return (
-    <PickerItem>
+    <PickerItemText>
       <BoxSide onClick={setFocusToTop}>
         <div className="BoxNoImage">Click to edit text</div>
       </BoxSide>
       <BoxText>Top</BoxText>
-    </PickerItem>
+    </PickerItemText>
   );
 }
 
