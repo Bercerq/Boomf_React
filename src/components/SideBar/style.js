@@ -127,6 +127,7 @@ export const SideBarWindow = styled.div`
 `;
 export const SideBarContent = styled.div`
   font-family: "Objectivity";
+  overflow: scroll;
   padding: 42px;
   border-radius: 12px;
   background-color: white;
