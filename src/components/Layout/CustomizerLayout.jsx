@@ -2,7 +2,6 @@ import React from "react";
 
 import TextEditor from "../TextEditor/TextEditor";
 import Confetti from "../Confetti/Confetti";
-
 import { MainWrapper } from "./style";
 import Sidebar from "../SideBar/SideBar";
 

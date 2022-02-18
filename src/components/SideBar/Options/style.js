@@ -18,13 +18,23 @@ export const UploadedImagesWrapper = styled.div`
 `;
 
 export const UploadedImage = styled.img`
+  border: ${({ curCubePosition, position }) =>
+    curCubePosition && curCubePosition === position
+      ? `3px solid #2EDBE3;`
+      : "3px solid transparent"};
   width: 150px;
   height: 150px;
-  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
-    drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
   border-radius: 16px;
   margin: 12px;
+  transition: 0.3s;
   cursor: pointer;
+  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
+    drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
   @media (max-width: 920px) {
     width: 120px;
     height: 120px;

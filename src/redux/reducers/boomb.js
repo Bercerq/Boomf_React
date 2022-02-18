@@ -11,7 +11,8 @@ import {
 const initialState = {
   boombData: BoombData,
   editCrop: "1",
-  curCubeImage: [],
+  cubeImabeLibrary: [],
+  curCubePosition: 1,
 };
 
 const boombReducer = (state = initialState, action) => {

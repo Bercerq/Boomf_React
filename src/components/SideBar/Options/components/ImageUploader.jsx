@@ -1,7 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { setBoxImage } from "../../../../utils/functions/boomb";
+import {
+  setBoxImage,
+  setLibraryImage,
+} from "../../../../utils/functions/boomb";
 
 import { Icon, ImageItem } from "../../../TextEditor/style";
 import { ImageCide, Uploader } from "../style";
@@ -13,7 +16,7 @@ function ImageUploader() {
   return (
     <>
       <Uploader
-        onChange={(e) => setBoxImage(e.target.value, dispatch)}
+        onChange={(e) => setLibraryImage(e.target.value, dispatch)}
         type="file"
         id="imageUpload"
         accept=".png, .jpg, .jpeg"
