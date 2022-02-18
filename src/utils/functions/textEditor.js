@@ -97,7 +97,7 @@ export const closeSideBar =
       dispatch(setCurrentEditor({ flag: currentEditor.flag, state: false }));
       dispatch(setFocus(false));
     }
-
+    setOption("");
 
     findSavedStyles(dispatch, textStyles, currentEditor.flag);
   };
