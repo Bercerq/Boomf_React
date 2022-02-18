@@ -42,11 +42,13 @@ const boombReducer = (state = initialState, action) => {
         ...state,
         curCubePosition: action.payload,
       };
+
     case CURRENT_CUBE_IMAGE:
       return {
         ...state,
-        curCubeImage: [{ img: action.payload }, ...state.curCubeImage],
+        curCubeImage: action.payload,
       };
+
     default:
       return {
         ...state,

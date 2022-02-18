@@ -9,7 +9,7 @@ function CustomizerLayout({ title, children, сonfettiData }) {
   return (
     <MainWrapper>
       <title>{title}</title>
-      <Sidebar/>
+      <Sidebar />
       {children}
       <Confetti сonfettiData={сonfettiData} />
       <TextEditor />
