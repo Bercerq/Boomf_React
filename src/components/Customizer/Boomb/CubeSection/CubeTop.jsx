@@ -17,14 +17,10 @@ export const CubeTop = ({
   const ref = useRef();
   const dispatch = useDispatch();
 
-  const { currentEditor } = useSelector(
-    ({ textEditorReducer }) => textEditorReducer
-  );
-  useOnClickOutside(
-    ref,
-    () => !currentEditor.state && dispatch(setFocus(false))
-  );
-
+  // const { currentEditor } = useSelector(
+  //   ({ textEditorReducer }) => textEditorReducer
+  // );
+  // useOnClickOutside(ref, () => dispatch(setFocus(false)));
   return (
     <>
       <CubeSide
