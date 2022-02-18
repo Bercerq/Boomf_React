@@ -11,7 +11,7 @@ export const BlueBtn = styled.button`
   font-size: 16px;
   border: none;
   outline: none;
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   font-weight: 400;
 
   &:hover {
@@ -44,7 +44,7 @@ export const WhiteBtn = styled.button`
   outline: none;
   font-size: 16px;
   font-weight: 400;
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   @media (max-width: 415px) {
     padding: 14px 30px;
   }
@@ -61,7 +61,7 @@ export const SideBarBtn = styled.button`
   display: flex;
   cursor: pointer;
   outline: none;
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
 
   font-size: 16px;
   text-align: center;
