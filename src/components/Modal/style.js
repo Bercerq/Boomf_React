@@ -18,7 +18,7 @@ export const ModalWindow = styled.div`
   ${({ openSideBar }) => openSideBar && "opacity:1; pointer-events: all;"}
 `;
 export const ModalContent = styled.div`
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   padding: 40px;
   border-radius: 12px;
   background-color: white;
@@ -37,7 +37,7 @@ export const ModalTitle = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   font-weight: bold;
   font-size: 28px;
   color: #222222;
