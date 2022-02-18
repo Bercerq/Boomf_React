@@ -132,7 +132,9 @@ export const SideBarContent = styled.div`
     0px 16px 24px rgba(96, 97, 112, 0.16);
   width: 0vw;
   transition: 0.4s;
-  ${({ currentSidebar }) => currentSidebar && "width: 50vw;transition: 0.4s;"};
+  ${({ currentSidebar }) =>
+    currentSidebar &&
+    "width: 45vw;transition: 0.4s;@media(max-width:920px){width:100%};"};
   height: 100vh;
 `;
 
