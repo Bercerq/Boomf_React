@@ -2,7 +2,7 @@ import { setCurrentSidebar } from "./../../redux/actions/sideBar";
 
 import { panelData } from "../constants/PanelData";
 
-import AddTextOption from "../../components/SideBar/Options/AddPhotoOption";
+import AddTextOption from "../../components/SideBar/Options/AddTextOption";
 import AddPhotoOption from "../../components/SideBar/Options/AddPhotoOption";
 import StickerOption from "../../components/SideBar/Options/StickerOption";
 import ChouseMessageOption from "../../components/SideBar/Options/ChouseMessageOption";

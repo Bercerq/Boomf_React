@@ -29,8 +29,8 @@ export const updateItem = (
     );
   }
 };
-export const setBoxImage = (e, dispatch) => {
-  dispatch(setCurImage(e.target.value));
+export const setBoxImage = (image, dispatch) => {
+  dispatch(setCurImage(image));
 };
 export const setBoxPosition = (position, dispatch) => () => {
   dispatch(setCurPosition(position));
