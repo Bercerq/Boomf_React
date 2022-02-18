@@ -98,13 +98,24 @@ export const closeSideBar =
       dispatch(setFocus(false));
     }
 
-    setOption("");
 
-    if (textStyles[currentEditor.flag]) {
-      dispatch(
-        editText({ [currentEditor.flag]: textStyles[currentEditor.flag] })
-      );
-    } else {
-      dispatch(editText({ [currentEditor.flag.toLowerCase()]: "" }));
-    }
+    findSavedStyles(dispatch, textStyles, currentEditor.flag);
   };
+
+const findSavedStyles = (dispatch, textStyles, flag) => {
+  if (textStyles[flag]) {
+    dispatch(editText({ [flag]: textStyles[flag] }));
+  } else {
+    dispatch(editText({ [flag.toLowerCase()]: "" }));
+  }
+};
+
+export const findButtonName = (flag) => {
+  if (flag) {
+    if (flag !== "Alignment" && flag !== "Image") {
+      return "Cancel";
+    }
+  } else {
+    return "Close";
+  }
+};

@@ -10,6 +10,7 @@ import {
 } from "../../utils/functions/textEditor";
 import useDebounce from "../../utils/hooks/useDebounce";
 import WhiteButton from "../Buttons/WhiteButton";
+import Buttons from "./components/Buttons";
 import { TextEditorWrapper, TextEditorContent, ButtonWrapper } from "./style";
 
 function TextEditor() {
@@ -19,13 +20,6 @@ function TextEditor() {
     ({ textEditorReducer }) => textEditorReducer
   );
   const debouncedValue = useDebounce(option, 500);
-  const submitChanges = () => {
-    if (currentEditor.flag === "Image") {
-      dispatch(setCurrentEditor({ flag: "", state: false }));
-    } else {
-      dispatch(setCurrentEditor({ flag: "", state: true }));
-    }
-  };
 
   const selectEditor = (editor) => {
     dispatch(setCurrentEditor(editor));
@@ -58,37 +52,12 @@ function TextEditor() {
         {currentEditor.flag && currentEditor.flag !== "Alignment"
           ? drawOption(currentEditor.flag, option, setOption)
           : selectOptions(selectEditor, setOption, option)}
-        <ButtonWrapper>
-          <div>
-            <WhiteButton
-              color="#222222"
-              background="#ffffff"
-              handleButtonClick={closeSideBar(
-                dispatch,
-                currentEditor,
-                setOption,
-                textStyles
-              )}
-            >
-              {currentEditor.flag &&
-              currentEditor.flag !== "Alignment" &&
-              currentEditor.flag !== "Image"
-                ? "Cancel"
-                : "Close"}
-            </WhiteButton>
-          </div>
-          {option && currentEditor.flag !== "Alignment" && (
-            <div>
-              <WhiteButton
-                color="#FFFFFF"
-                background="#2EDBE3"
-                handleButtonClick={submitChanges}
-              >
-                Done
-              </WhiteButton>
-            </div>
-          )}
-        </ButtonWrapper>
+        <Buttons
+          currentEditor={currentEditor}
+          textStyles={textStyles}
+          option={option}
+          setOption={setOption}
+        />
       </TextEditorContent>
     </TextEditorWrapper>
   );
