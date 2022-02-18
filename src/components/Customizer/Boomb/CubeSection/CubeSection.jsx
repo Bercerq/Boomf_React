@@ -8,17 +8,12 @@ import CubeSide from "./CubeSide";
 
 import { CubeContainer, CubeWrapper, StaticText } from "./style";
 
-function CubeSection({
-  topText,
-  confettiState,
-  setTopText,
-}) {
+function CubeSection({ topText, confettiState, setTopText }) {
   const [cubeRotateY, setCubeRotateY] = useState(760);
   const { textStyles, focusState } = useSelector(
     ({ textEditorReducer }) => textEditorReducer
   );
   const dispatch = useDispatch();
-
   return (
     <CubeContainer>
       <CubeWrapper confettiState={confettiState.img}>

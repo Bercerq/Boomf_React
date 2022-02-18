@@ -1,1 +1,2 @@
 export const CURRENT_SIDEBAR = "CURRENT_SIDEBAR";
+export const IMAGE_LIBRARY = "IMAGE_LIBRARY";

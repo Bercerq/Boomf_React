@@ -3,15 +3,59 @@ import {
   setCurImage,
   setCurPosition,
 } from "../../redux/actions/boomb";
+import { setImageLibrary } from "../../redux/actions/sideBar";
 import { setCurrentEditor, setFocus } from "../../redux/actions/textEditor";
 
-export const changeCubeRotate = (operator, setCubeRotateY, cubeRotateY) => {
+export const changeCubeRotate = (
+  operator,
+  setCubeRotateY,
+  cubeRotateY,
+  curCubePosition,
+  dispatch
+) => {
   if (operator === "right") {
     setCubeRotateY(cubeRotateY + 90);
+    switch (curCubePosition) {
+      case 1:
+        changeCubePosition(2, dispatch);
+        break;
+      case 2:
+        changeCubePosition(3, dispatch);
+        break;
+      case 3:
+        changeCubePosition(4, dispatch);
+        break;
+      case 4:
+        changeCubePosition(1, dispatch);
+        break;
+      default:
+        break;
+    }
   } else if (operator === "left") {
     setCubeRotateY(cubeRotateY - 90);
+    switch (curCubePosition) {
+      case 4:
+        changeCubePosition(3, dispatch);
+        break;
+      case 3:
+        changeCubePosition(2, dispatch);
+        break;
+      case 2:
+        changeCubePosition(1, dispatch);
+        break;
+      case 1:
+        changeCubePosition(4, dispatch);
+        break;
+      default:
+        break;
+    }
   }
 };
+
+const changeCubePosition = (position, dispatch) => {
+  dispatch(setCurPosition(position));
+};
+
 export const updateItem = (
   curCubePosition,
   itemAttributes,
@@ -29,8 +73,11 @@ export const updateItem = (
     );
   }
 };
-export const setBoxImage = (e, dispatch) => {
-  dispatch(setCurImage(e.target.value));
+export const setBoxImage = (image, dispatch) => {
+  dispatch(setCurImage(image));
+};
+export const setLibraryImage = (image, dispatch) => {
+  dispatch(setImageLibrary(image));
 };
 export const setBoxPosition = (position, dispatch) => () => {
   dispatch(setCurPosition(position));
@@ -61,14 +108,13 @@ export const openEditor = (dispatch, buttonflag) => () => {
   button.addEventListener("click", (event) => {
     if (event.detail === 1) {
       timer = setTimeout(() => {
-        console.log("click");
         dispatch(setCurrentEditor({ flag: "", state: true }));
+        dispatch(setFocus(true));
       }, 200);
     }
   });
   button.addEventListener("dblclick", (event) => {
     clearTimeout(timer);
     dispatch(setFocus(true));
-    console.log("dblclick");
   });
 };

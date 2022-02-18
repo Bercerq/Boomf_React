@@ -1,4 +1,4 @@
-import { setCurrentSidebar } from "../../redux/actions/sideBar";
+import { setCurrentSidebar } from "./../../redux/actions/sideBar";
 
 import { panelData } from "../constants/PanelData";
 
@@ -8,9 +8,9 @@ import StickerOption from "../../components/SideBar/Options/StickerOption";
 import ChouseMessageOption from "../../components/SideBar/Options/ChouseMessageOption";
 
 import {
+  Icon,
   Option,
   OptionIcon,
-  Icon,
   OptionText,
 } from "../../components/SideBar/style";
 

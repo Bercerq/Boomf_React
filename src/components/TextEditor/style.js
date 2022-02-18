@@ -70,6 +70,10 @@ export const Option = styled.div`
     transition: 0.4s;
   }
   transition: 0.4s;
+  @media (max-width: 520px) {
+    padding: 8px 8px 16px 8px;
+    margin: 0 4px;
+  }
 `;
 export const OptionIcon = styled.div`
   width: 60px;
@@ -91,6 +95,9 @@ export const OptionWrapper = styled.div`
   width: 100%;
   margin-bottom: 50px;
   position: relative;
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+  }
 `;
 export const FontItem = styled.div`
   font-weight: normal;
@@ -115,6 +122,10 @@ export const FontItem = styled.div`
   @media (max-width: 920px) {
     font-size: 14px;
     width: 120px;
+    margin: 6px;
+  }
+  @media (max-width: 520px) {
+    font-size: 12px;
   }
 `;
 //Size
@@ -157,6 +168,9 @@ export const ColorItem = styled.div`
     width: 24px;
     height: 24px;
   }
+  @media (max-width: 420px) {
+    margin: 0px 4px;
+  }
 `;
 
 export const ColorItemPalete = styled.div`
@@ -165,6 +179,9 @@ export const ColorItemPalete = styled.div`
     color: #2edbe3;
     display: flex;
     justify-content: center;
+    @media (max-width: 640px) {
+      font-size: 35px;
+    }
   }
   cursor: pointer;
   width: 48px;
@@ -173,6 +190,13 @@ export const ColorItemPalete = styled.div`
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
     0px 2px 4px rgba(96, 97, 112, 0.16);
   margin: 0px 12px;
+  @media (max-width: 640px) {
+    width: 24px;
+    height: 24px;
+  }
+  @media (max-width: 420px) {
+    margin: 0px 4px;
+  }
 `;
 
 export const ColourPalete = styled.div`
@@ -188,10 +212,23 @@ export const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 90%;
+  @media (max-width: 1470px) {
+    width: 83%;
+  }
+
+  @media (max-width: 920px) {
+    width: 100%;
+  }
 `;
 
 export const SliderContainerImage = styled.div`
   min-width: 420px;
+  @media (max-width: 920px) {
+    min-width: 280px;
+  }
+  @media (max-width: 520px) {
+    min-width: 200px;
+  }
 `;
 
 export const EditActions = styled.div`
@@ -199,13 +236,16 @@ export const EditActions = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const ActionItem = styled.label`
+export const ActionItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-right: 50px;
   cursor: pointer;
+  @media (max-width: 480px) {
+    margin-right: 20px;
+  }
 `;
 export const Icon = styled.div`
   width: 30px;

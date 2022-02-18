@@ -41,13 +41,6 @@ function Image({ option, setOption }) {
   return (
     <ImageWrapper>
       <EditActions>
-        {/* <input
-          onChange={(e) => setBoxImage(e, dispatch)}
-          style={{ display: "none" }}
-          type="file"
-          id="imageUpload"
-          accept=".png, .jpg, .jpeg"
-        /> */}
         <ActionItem onClick={deleteCurrentImage}>
           <Icon>
             <ImageItem src={TrashCan} alt="Remoove" />
