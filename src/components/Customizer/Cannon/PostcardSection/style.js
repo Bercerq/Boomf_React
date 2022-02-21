@@ -61,6 +61,7 @@ export const ImageNotContent = styled(ImageDiv)`
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 `
 
 export const AddButton = styled.button`
@@ -69,7 +70,7 @@ export const AddButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 8px 16px;
-
+  pointer-events: all;
   width: 135px;
   height: 32px;
 
@@ -79,6 +80,7 @@ export const AddButton = styled.button`
   border-radius: 4px;
   border-color: #FF328B;
   color: #FFFFFF;
+  cursor: pointer;
 `
 
 
