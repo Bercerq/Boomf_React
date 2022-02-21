@@ -234,7 +234,7 @@ export const BoxInfoSide = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
 
   @media (max-width: 1560px) {
     font-size: 13px;
@@ -274,7 +274,7 @@ export const TopText = styled.textarea`
   outline: none;
 `;
 export const NoImage = styled.div`
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   position: absolute;
   top: 50%;
   left: 15%;

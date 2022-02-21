@@ -38,20 +38,22 @@ export const LogoIcon = styled.img`
 
 export const Option = styled.div`
   background: #ffffff;
-  width: 120px;
-
+  width: 119px;
   border-radius: 16px;
   margin: 32px 42px 17px 42px;
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
     0px 0.5px 2px rgba(96, 97, 112, 0.16);
   @media (max-width: 920px) {
     margin: 20px 20px !important;
-    width: 80px;
   }
 
   @media (max-height: 785px) {
     margin: 10px 42px 10px 42px;
   }
+  @media (max-height: 615px) {
+    width: 110px;
+  }
+
   cursor: pointer;
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
@@ -73,7 +75,6 @@ export const Icon = styled.img`
   @media (max-width: 920px) {
     display: block;
     margin: 5px;
-    width: 25px;
   }
   @media (max-height: 615px) {
     width: 30px;
@@ -89,7 +90,7 @@ export const OptionText = styled.div`
   font-weight: 400;
   padding-bottom: 16px;
   margin-top: -10px;
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   @media (max-width: 920px) {
     display: none;
   }
@@ -120,15 +121,11 @@ export const SideBarWindow = styled.div`
   transition: 0.4s;
   pointer-events: none;
   ${({ currentSidebar }) =>
-    currentSidebar && "opacity:1; pointer-events: all;transition: 0.4s;"};
-  @media (max-width: 920px) {
-    overflow: auto;
-  }
+    currentSidebar && "opacity:1; pointer-events: all;transition: 0.4s;"}
 `;
 export const SideBarContent = styled.div`
-  font-family: "Objectivity";
-  overflow: scroll;
-  padding: 42px;
+  font-family: "objectivity-regular-11", sans-serif;
+  padding: 20px;
   border-radius: 12px;
   background-color: white;
   box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.04),
@@ -142,23 +139,23 @@ export const SideBarContent = styled.div`
 `;
 
 export const SideContent = styled.div`
-  width: 45vw;
+  width: 48vw;
   position: sticky;
   top: 0;
 `;
 
 export const SideBarTitle = styled.div`
-  padding: 42px 0;
+  width: 48vw;
+  position: sticky;
+  top: 0;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  @media (max-height: 605px) {
-    padding: unset;
-  }
+  padding: 42px;
 `;
 
 export const Title = styled.div`
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   font-weight: bold;
   font-size: 28px;
   color: #222222;

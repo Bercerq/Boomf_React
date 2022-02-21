@@ -55,7 +55,7 @@ export const ImageCide = styled.label`
   border-radius: 16px;
   margin-right: 28px;
   span {
-    font-family: Objectivity;
+    font-family: "objectivity-regular-11", sans-serif;
     font-weight: 400;
     font-size: 16px;
     text-align: center;

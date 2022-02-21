@@ -16,7 +16,7 @@ export const TextEditorWrapper = styled.div`
 `;
 export const TextEditorContent = styled.div`
   z-index: 3;
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   padding-top: 42px;
   background-color: white;
   box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.04),
@@ -81,7 +81,7 @@ export const OptionIcon = styled.div`
 `;
 export const OptionText = styled.div`
   padding-top: 14px;
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   color: #222222;
   font-weight: 600;
 `;
@@ -136,7 +136,7 @@ export const SliderContainer = styled.div`
 export const CurrentValue = styled.div`
   text-align: center;
   margin-bottom: 23px;
-  font-family: "Objectivity";
+  font-family: "objectivity-regular-11", sans-serif;
   font-size: 20px;
 `;
 export const Slider = styled.input`
@@ -266,7 +266,7 @@ export const Icon = styled.div`
 `;
 export const ImageItem = styled.img``;
 export const Text = styled.div`
-  font-family: Objectivity;
+  font-family: "objectivity-regular-11", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
