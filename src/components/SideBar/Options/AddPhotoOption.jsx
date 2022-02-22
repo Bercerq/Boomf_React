@@ -13,6 +13,8 @@ import { useSelector } from "react-redux";
 import { setBoxImage } from "../../../utils/functions/boomb";
 import { useDispatch } from "react-redux";
 import { setCurrentSidebar } from "../../../redux/actions/sideBar";
+import {setImageCannon} from "../../../redux/actions/cannon";
+import {setCannonImage} from "../../../utils/functions/cannon";
 
 function AddPhotoOption() {
   const { boombData, curCubePosition } = useSelector(
@@ -23,6 +25,7 @@ function AddPhotoOption() {
   const dispatch = useDispatch();
   const setImage = (img) => () => {
     setBoxImage(img, dispatch);
+    setCannonImage(img, dispatch)
     dispatch(setCurrentSidebar({ flag: "", state: false }));
   };
   return (
