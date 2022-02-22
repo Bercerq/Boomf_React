@@ -9,6 +9,7 @@ import {
   ConfettiImage,
   ConfetiBox,
 } from "./style";
+import {setConfettiCannon} from "../../redux/actions/cannon";
 
 function Confetti({ сonfettiData }) {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function Confetti({ сonfettiData }) {
 
   const handleSelectConfetti = (img, name) => () => {
     dispatch(setConfetti({ img, name }));
+    dispatch(setConfettiCannon(img))
   };
   return (
     <ConfettiWrapper>
