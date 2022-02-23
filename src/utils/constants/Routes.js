@@ -11,5 +11,5 @@ export const routes = [
     path: '/cannon',
     exact: true,
     component: Cannon
-  }
+  },
 ];

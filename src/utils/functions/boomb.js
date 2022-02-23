@@ -4,7 +4,7 @@ import {
   setCurPosition,
 } from "../../redux/actions/boomb";
 import { setImageLibrary } from "../../redux/actions/sideBar";
-import { setCurrentEditor, setFocus } from "../../redux/actions/textEditor";
+import {setCurrentEditor, setDblClick, setFocus} from "../../redux/actions/textEditor";
 
 export const changeCubeRotate = (
   operator,
@@ -108,13 +108,15 @@ export const openEditor = (dispatch, buttonflag) => () => {
   button.addEventListener("click", (event) => {
     if (event.detail === 1) {
       timer = setTimeout(() => {
-        dispatch(setCurrentEditor({ flag: "", state: true }));
+        dispatch(setCurrentEditor({flag: "", state: true}));
         dispatch(setFocus(true));
+        dispatch(setDblClick(false));
       }, 200);
     }
   });
   button.addEventListener("dblclick", (event) => {
     clearTimeout(timer);
     dispatch(setFocus(true));
+    dispatch(setDblClick(true));
   });
 };
