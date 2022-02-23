@@ -1,14 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {PostcardText, TextContentBlock} from "./style";
-import {useDispatch, useSelector} from "react-redux";
-import {changeTopText, openEditor} from "../../../../utils/functions/boomb";
+import {PostcardText} from "./style";
+import {useSelector} from "react-redux";
+import {changeTopText} from "../../../../utils/functions/boomb";
 import {useFocus} from "../../../../utils/hooks/useFocus";
+import TextDoubleClick from "../../../TextDoubleClick";
 
 const PostcardTextComponent = () => {
   const [inputRef, setInputRef] = useFocus();
   const [textState, setTextState] = useState("");
 
-  const {textStyles, focusState} = useSelector(
+  const {textStyles, focusState, dblClickState} = useSelector(
     ({textEditorReducer}) => textEditorReducer
   );
 
@@ -16,7 +17,6 @@ const PostcardTextComponent = () => {
     if (focusState) setInputRef();
   }, [focusState]);
 
-  const dispatch = useDispatch();
   return (
     <>
       {focusState && (
@@ -31,15 +31,11 @@ const PostcardTextComponent = () => {
           readOnly={!focusState}
         />
       )}
-      <TextContentBlock
-        textStyles={textStyles}
-        id="buttonClickCannon"
-        onClick={openEditor(dispatch, "buttonClickCannon")}
-      >
-        {!textState ? (
-          "Double Click to type your text"
-        ) : (textState)}
-      </TextContentBlock>
+        <TextDoubleClick
+          textState={textState}
+          textStyles={textStyles}
+          activeState={dblClickState}
+        />
     </>
 
   );
