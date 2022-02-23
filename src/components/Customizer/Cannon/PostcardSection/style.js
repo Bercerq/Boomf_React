@@ -12,6 +12,7 @@ export const PostcardBlock = styled(SideContent)``
 export const PostcardContainer = styled(CubeContainer)`
   width: 100%;
   height: 100%;
+  align-items: flex-start;
 `
 
 export const PostcardWrapper = styled.img`
@@ -22,12 +23,16 @@ export const PostcardWrapper = styled.img`
   @media (max-width: 1240px) {
     width: 80%;
   }
+  @media (max-width: 920px) {
+    width: 100%;
+  }
 `
 
 export const BackgroundCard = styled.div`
   display: flex;
   height: 575px;
   width: 383px;
+  margin-top: 40px;
   position: relative;
   user-select: none;
   overflow: hidden;
@@ -35,6 +40,12 @@ export const BackgroundCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  
+  @media (max-width: 920px) {
+    max-width: 70%;
+    min-width: 200px;
+    height: 480px
+  }
 `
 
 export const BackgroundImage = styled.img`
@@ -55,6 +66,12 @@ export const ImageDiv = styled(CubeItem)`
   padding: initial;
   margin-top: 45px;
   background: white;
+
+  @media (max-width: 920px) {
+    height: 40%;
+    width: 80%;
+    margin: 30px 30px 0 30px;
+  }
 `
 
 export const ImageNotContent = styled(ImageDiv)`
@@ -78,7 +95,7 @@ export const AddButton = styled.button`
 
   box-shadow: 0 0 1px rgba(40, 41, 61, 0.04), 0 2px 4px rgba(96, 97, 112, 0.16);
   border-radius: 4px;
-  border-color: #FF328B;
+  border-color: transparent;
   color: #FFFFFF;
   cursor: pointer;
 `

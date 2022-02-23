@@ -2,12 +2,14 @@ import {
   CURRENT_EDITOR,
   EDIT_TEXT,
   FOCUS_STATE,
+  DBL_CLICK_STATE
 } from "../constants/textEditor";
 
 const initialState = {
   textStyles: {},
   currentEditor: { state: false, flag: "" },
   focusState: false,
+  dblClickState: false
 };
 
 const textEditorReducer = (state = initialState, action) => {
@@ -27,6 +29,11 @@ const textEditorReducer = (state = initialState, action) => {
         ...state,
         focusState: action.payload,
       };
+    case DBL_CLICK_STATE:
+      return {
+        ...state,
+        dblClickState: action.payload
+      }
     default:
       return {
         ...state,

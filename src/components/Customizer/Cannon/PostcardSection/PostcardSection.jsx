@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {
   BackgroundCard, BackgroundImage,
   PostcardContainer,
@@ -12,24 +12,15 @@ import {useSelector} from "react-redux";
 const PostcardSection = () => {
   const {confettiState} = useSelector(({confettiReducer}) => confettiReducer);
   const {backgroundState} = useSelector(({cannonReducer}) => cannonReducer);
-  const PostcardWrapperMemo = useMemo(() => {
-    return <PostcardWrapper src={confettiState.img} alt={confettiState.name}/>
-  }, [confettiState]);
 
-  const BackgroundCardMemo = useMemo(() => {
-    return (
+  return (
+    <PostcardContainer>
+      <PostcardWrapper src={confettiState.img} alt={confettiState.name}/>
       <BackgroundCard>
         <BackgroundImage src={backgroundState}/>
         <PostcardImage/>
         <PostcardText/>
       </BackgroundCard>
-    )
-  }, [backgroundState])
-
-  return (
-    <PostcardContainer>
-      {PostcardWrapperMemo}
-      {BackgroundCardMemo}
     </PostcardContainer>
   );
 };
