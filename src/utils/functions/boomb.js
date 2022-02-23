@@ -4,7 +4,7 @@ import {
   setCurPosition,
 } from "../../redux/actions/boomb";
 import { setImageLibrary } from "../../redux/actions/sideBar";
-import { setCurrentEditor, setFocus } from "../../redux/actions/textEditor";
+import {setCurrentEditor, setDblClick, setFocus} from "../../redux/actions/textEditor";
 
 export const changeCubeRotate = (
   operator,
