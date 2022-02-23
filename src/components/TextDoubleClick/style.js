@@ -14,7 +14,7 @@ export const FormTextContent = styled.div`
   width: 292px;
   height: 133px;
   margin-bottom: 45px;
-  border: 3px dashed aqua;
+  border: 1px dashed #F5F5F5;
   box-sizing: border-box;
   border-radius: 8px;
 
@@ -22,34 +22,6 @@ export const FormTextContent = styled.div`
 
   word-break: break-word;
   z-index: 1;
-`
-
-export const ImageDivBlock = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #0A74FF;
-  padding: 8px;
-  border-radius: 50%;
-  margin-bottom: 2px;
-`
-
-export const DivTextContent = styled.div`
-  padding: 8px;
-  border: 2px solid #0A74FF;
-  cursor: all-scroll;
-  min-width: 195px;
-  min-height: 18px;
-`
-
-export const DivOne = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
-
-export const DivTwo = styled.div`
-  display: flex;
 `
 
 export const DivThree = styled.div`
@@ -62,4 +34,21 @@ export const CenterRotate = styled.div`
   position: absolute;
   height: 1px;
   width: 1px;
+`
+
+export const DivTextContent = styled.div`
+  font-family: ${({ textStyles }) =>
+          textStyles.font ? `${textStyles.font}` : "Objectivity"};
+  font-size: ${({ textStyles }) =>
+          textStyles.size ? `${textStyles.size}px` : "20px"};
+  color: ${({ textStyles }) =>
+          textStyles.colour ? `${textStyles.colour}` : "#222222"};
+  text-align: ${({ textStyles }) =>
+          textStyles.alignment ? `${textStyles.alignment}` : "center"};
+
+  padding: 8px;
+
+  cursor: pointer;
+  min-width: 195px;
+  min-height: 18px;
 `

@@ -1,67 +1,53 @@
-import React, {useState} from 'react';
-import Draggable from "react-draggable";
-import RebootSvg from "../../utils/assets/svg/Reboot.svg";
-import TrashCan from "../../utils/assets/svg/TrashCan.svg";
+import React, {useCallback, useEffect, useState} from 'react';
+import {getCenterBox, rotateDegree} from "../../utils/functions/textRotate";
+import DraggableText from "./Draggable";
+import {openEditor} from "../../utils/functions/boomb";
+import {useDispatch} from "react-redux";
+import {CenterRotate, FormTextContent} from "./style.js";
 
-import './style.css';
-import {onMouseDownText, onMouseUpText, onTestGlob} from "../../utils/functions/textRotate";
+const TextDoubleClick = ({textState, textStyles, activeState}) => {
+  const [enableRotate, setEnableRotate] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState(null);
+  const [rotateState, setRotateState] = useState(0);
 
-const TextDoubleClick = ({textState, setEnableRotate, enableRotate}) => {
-  const [rotateState, setRotateState] = useState(10);
-  const [activeDrags, setActiveDrags] = useState(0);
+  const handleCardMove = useCallback((e) => {
+    if (!enableRotate) {
+      return;
+    }
 
-  const onStart = () => {
-    setActiveDrags(e => ++e)
-  };
+    setRotateState(rotateDegree(e, getCenterBox(document.getElementById("center-rotate"))))
+    setCursorPosition(e.clientX)
+  }, [cursorPosition, enableRotate]);
 
-  const onStop = () => {
-    setActiveDrags(e => --e);
-  };
+  useEffect(() => {
+    if (enableRotate) {
+      window.addEventListener("mousemove", handleCardMove);
+    } else {
+      window.removeEventListener("mousemove", handleCardMove);
+    }
+    return () => window.removeEventListener("mousemove", handleCardMove);
+  }, [enableRotate, handleCardMove]);
 
-  const dragHandlers = {
-    onStart,
-    onStop,
-    axis: "both",
-    scale: 1,
-    grid: [15, 15],
-    position: null,
-    defaultPosition: {x: 0, y: 0}
-  };
-
-  console.log('enableRotate', enableRotate)
+  const dispatch = useDispatch();
 
   return (
-    <Draggable cancel="strong" {...dragHandlers}>
-      <div className="box">
-        <div className='text-editor-form' style={{transform: `rotate(${rotateState}deg)`}}>
-          <div className='div-reboot-pos'>
-            <strong className="no-cursor">
-              <div className='image-div-block' id='text-rotate'
-                   onMouseDown={() => {
-
-                     // onTestGlob(drag, d, con)
-                     setEnableRotate(true)
-                   }}
-              >
-                <img src={RebootSvg} height={10} width={10} alt='Reboot'/>
-              </div>
-            </strong>
-          </div>
-          <div className='div-flex'>
-            <div className='div-trash-pos'>
-              <strong className="no-cursor">
-                <div className='image-div-block'>
-                  <img src={TrashCan} height={10} width={10} alt='TrashCan'/>
-                </div>
-              </strong>
-            </div>
-            <div className='div-text-content'>
-              {!textState ? ('Double Click to type your text') : (textState)}
-            </div>
-          </div>
-        </div>
-      </div>
-    </Draggable>
+    <FormTextContent
+      id="buttonClickCannon"
+      onClick={openEditor(dispatch, "buttonClickCannon")}
+      onMouseUp={() => {
+        setEnableRotate(false)
+      }}
+    >
+        <DraggableText
+          setEnableRotate={setEnableRotate}
+          enableRotate={enableRotate}
+          rotateState={rotateState}
+          activeState={activeState}
+          textState={textState}
+          textStyles={textStyles}
+        />
+      <CenterRotate id='center-rotate'/>
+    </FormTextContent>
   )
 };
 
