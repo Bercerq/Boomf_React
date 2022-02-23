@@ -18,12 +18,17 @@ import {
 } from "../../components/TextEditor/style";
 import Image from "../../components/TextEditor/Option/Image";
 
-export const selectOptions = (selectEditor, setOption, option) => {
+export const drawEditorContent = (flag, option, setOption, dispatch) =>
+  flag && flag !== "Alignment"
+    ? drawOption(flag, option, setOption)
+    : selectOptions(setOption, option, dispatch);
+
+ const selectOptions = (setOption, option, dispatch) => {
   return (
     <OptionsWrapper>
       {editOptions.map(({ icon, text }) => (
         <Option
-          onClick={selectOption(text, selectEditor, setOption, option)}
+          onClick={selectEditorOption(text, setOption, option, dispatch)}
           key={text}
         >
           <OptionIcon>
@@ -40,14 +45,14 @@ export const selectOptions = (selectEditor, setOption, option) => {
   );
 };
 
-const selectOption = (text, selectEditor, setOption, option) => () => {
+const selectEditorOption = (text, setOption, option, dispatch) => () => {
   if (text === "Alignment") {
-    findSide(option, setOption);
+    findAlignment(option, setOption);
   }
-  selectEditor({ state: true, flag: text });
+  dispatch(setCurrentEditor({ state: true, flag: text }));
 };
 
-const findSide = (option, setOption) => {
+const findAlignment = (option, setOption) => {
   if (!option) {
     setOption("left");
   } else if (option === "left") {
@@ -70,7 +75,7 @@ const findAlignmentImage = (option) =>
     })
   );
 
-export const drawOption = (flag, option, setOption) => {
+ const drawOption = (flag, option, setOption) => {
   switch (flag) {
     case "Font":
       return <Font option={option} setOption={setOption} />;
@@ -86,7 +91,7 @@ export const drawOption = (flag, option, setOption) => {
 };
 
 export const closeSideBar =
-  (dispatch, currentEditor, setOption, textStyles) => () => {
+  (dispatch, currentEditor, textStyles, setOption) => () => {
     if (
       currentEditor.flag &&
       currentEditor.flag !== "Alignment" &&
@@ -114,6 +119,8 @@ export const findButtonName = (flag) => {
   if (flag) {
     if (flag !== "Alignment" && flag !== "Image") {
       return "Cancel";
+    } else {
+      return "Close";
     }
   } else {
     return "Close";

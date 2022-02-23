@@ -1,19 +1,26 @@
 import React from "react";
 import { ModalWindow, ModalContent, ModalTitle, Title, Close } from "./style";
 import CloseIcon from "./../../utils/assets/svg/CloseIcon.svg";
+import { useSelector } from "react-redux";
+import { setCurrentModal } from "../../redux/actions/modal";
+import { useDispatch } from "react-redux";
 
-function Modal({ openModal, setOpenModal, children }) {
+function Modal({ children }) {
+  const { currentModal } = useSelector(({ modalReducer }) => modalReducer);
+
+  const dispatch = useDispatch();
+
   const closeSideBar = () => {
-    setOpenModal({ ...openModal, state: false });
+    dispatch(setCurrentModal({ title: "", state: false }));
   };
   return (
-    <ModalWindow openSideBar={openModal.state} onClick={closeSideBar}>
+    <ModalWindow openSideBar={currentModal.state} onClick={closeSideBar}>
       <ModalContent
-        openSideBar={openModal.state}
+        openSideBar={currentModal.state}
         onClick={(e) => e.stopPropagation()}
       >
         <ModalTitle>
-          <Title>{openModal.title}</Title>
+          <Title>{currentModal.title}</Title>
           <Close onClick={closeSideBar}>
             <img src={CloseIcon} alt="close" />
           </Close>

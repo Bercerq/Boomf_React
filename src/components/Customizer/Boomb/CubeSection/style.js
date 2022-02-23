@@ -4,132 +4,94 @@ import styled from "styled-components";
 export const SideContent = styled.div`
   display: block;
   width: 100%;
+  height: 100vh;
   @media (max-width: 920px) {
     order: 2;
-    width: 100%;
+  }
+  @media (max-width: 920px) {
+    height: unset;
+  }
+  @media (min-height: 773px) {
+    height: 100vh;
   }
 `;
 
 export const CubeContainer = styled.div`
-  width: 60%;
+  width: 60vw;
   margin: auto;
   display: flex;
   align-items: center;
   position: relative;
   justify-content: center;
-  @media (max-width: 1420px) {
-    width: 70%;
+  @media (max-width: 1200px) {
+    width: 55vw;
   }
   @media (max-width: 920px) {
-    justify-content: center;
+    width: 80vw;
   }
-  @media (max-width: 480px) {
-    width: 80%;
+  @media (max-width: 640px) {
+    width: 80vw;
+  }
+  @media (max-width: 340px) {
+    width: 85vw;
   }
 `;
 export const CubeWrapper = styled.div`
   background-image: ${({ confettiState }) => `url(${confettiState})`};
-  background-size: 790px;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   user-select: none;
-  padding: 135px;
+  padding: 160px 200px;
   overflow: hidden;
   filter: drop-shadow(0px 2px 4px rgba(40, 41, 61, 0.04))
     drop-shadow(0px 8px 16px rgba(96, 97, 112, 0.16));
-
-  @media (max-width: 1710px) {
-    background-size: 775px;
+  @media (max-width: 1200px) {
+    padding: 150px;
   }
-  @media (max-width: 1560px) {
-    background-size: 630px;
-  }
-
-  @media (max-width: 1440px) {
-    background-size: 580px;
-  }
-  @media (max-width: 1320px) {
-    background-size: 530px;
-  }
-  @media (max-width: 1240px) {
-    background-size: 480px !important;
+  @media (max-width: 1010px) {
+    padding: 120px;
   }
   @media (max-width: 920px) {
-    background-size: 320px !important;
-    background-position-y: -37px !important;
-    padding: 35px 65px !important;
+    padding: 80px 130px;
   }
-  @media (max-width: 375px) {
-    padding: 95px 91px 95px 54px;
-  }
-
-  @media (max-height: 780px) {
-    padding: 85px 135px;
-  }
-  @media (max-height: 660px) {
-    padding: 100px 100px 60px 100px;
-  }
-  @media (max-height: 550px) {
-    padding: 50px 138px 90px 100px !important;
+  @media (max-width: 500px) {
+    padding: 80px 60px;
+    background-size: 360px;
   }
 
-  @media (max-height: 920px) {
-    background-size: 630px;
-  }
-  @media (max-height: 785px) {
-    background-size: 440px;
-    padding: 95px 135px;
-  }
-  @media (max-height: 615px) {
-    background-size: 350px;
-  }
-
-  @media (min-width: 2000px) {
-    padding: 180px;
+  @media (max-width: 340px) {
+    padding: 80px 35px;
   }
 `;
 export const CubeBox = styled.div`
   margin: auto;
   position: relative;
-  height: 50vw;
-  width: 50vw;
-  max-width: 430px;
-  max-height: 430px;
+  height: 20vw;
+  width: 60vw;
+  max-height: 420px;
+  max-width: 420px;
   transform-style: preserve-3d;
   animation: rotate 6s ease infinite;
   transform: translateZ(-200px) rotateX(-20deg)
     ${({ cubeRotateY }) => `rotateY(${cubeRotateY}deg)`};
   transition: transform 0.4s ease-out 0s;
-  @media (max-width: 1560px) {
-    max-width: 310px;
-    max-height: 310px;
-  }
-  @media (max-width: 1240px) {
-    max-width: 160px !important;
-    max-height: 220px !important;
+  @media (max-width: 1200px) {
+    max-width: 320px;
+    max-height: 320px;
+    height: 50vw;
+    width: 50vw;
+    min-width: 320px;
+    min-height: 320px;
   }
   @media (max-width: 920px) {
-    max-width: 160px !important;
-    max-height: 30vh !important;
-  }
-  @media (max-width: 480px) {
-    max-width: 140px;
-    max-height: 100%;
-    padding-bottom: 50px;
-  }
-
-  @media (max-height: 920px) {
-    max-width: 310px;
-    max-height: 310px;
-  }
-  @media (max-height: 785px) {
-    max-width: 160px;
-    max-height: 220px;
-  }
-  @media (max-height: 615px) {
-    max-width: 160px;
-    max-height: 30vh;
+    max-width: 200px;
+    max-height: 200px;
+    height: 20vw;
+    width: 20vw;
+    min-width: 200px;
+    min-height: 200px;
   }
 `;
 
@@ -145,40 +107,12 @@ export const CubeSide = styled.div`
   letter-spacing: 2px;
   background: rgba(0, 0, 0, 0.2);
   border: 2px solid #fff;
-  transform: ${({ spinParam }) => `${spinParam}`} translateZ(216px);
-
-  @media (max-width: 1560px) {
-    transform: ${({ spinParam }) => `${spinParam}`} translateZ(150px);
-    width: 300px;
-    height: 300px;
+  transform: ${({ spinParam }) => `${spinParam}`} translateZ(210px);
+  @media (max-width: 1200px) {
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
-
-  @media (max-width: 1240px) {
-    transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px) !important;
-    width: 200px !important;
-    height: 200px !important;
-  }
-
   @media (max-width: 920px) {
-    transform: ${({ spinParam }) => `${spinParam}`} translateZ(75px) !important;
-    width: 150px !important;
-    height: 150px !important;
-  }
-
-  @media (max-height: 920px) {
-    transform: ${({ spinParam }) => `${spinParam}`} translateZ(150px);
-    width: 300px;
-    height: 300px;
-  }
-  @media (max-height: 785px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px);
-    width: 200px;
-    height: 200px;
-  }
-  @media (max-height: 615px) {
-    transform: ${({ spinParam }) => `${spinParam}`} translateZ(75px);
-    width: 150px;
-    height: 150px;
   }
 `;
 
@@ -329,34 +263,6 @@ export const StaticText = styled.div`
   width: 50%;
   word-break: break-all;
 
-  @media (max-width: 1240px) {
-    font-size: 14px !important;
-    top: 24% !important;
-    width: 30%;
-    left: 39%;
-  }
-  @media (max-width: 920px) {
-    font-size: 12px !important;
-    top: 10% !important;
-    width: 40%;
-    left: 31%;
-  }
-
-  @media (max-height: 920px) {
-    font-size: 17px;
-    top: 22%;
-  }
-  @media (max-height: 785px) {
-    font-size: 12px;
-    top: 22%;
-    left: 32%;
-  }
-  @media (max-height: 615px) {
-    font-size: 10px;
-    top: 24%;
-    left: 32%;
-    width: 30%;
-  }
 `;
 export const EditButton = styled.div`
   position: absolute;

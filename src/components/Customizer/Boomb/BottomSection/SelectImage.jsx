@@ -10,9 +10,10 @@ const SelectImage = () => {
   const { curCubePosition, boombData } = useSelector(
     ({ boombReducer }) => boombReducer
   );
-  return boombData?.map(({ position, img }) => (
+
+  return boombData?.map(({ position, img, defaultRotate }) => (
     <React.Fragment key={position}>
-      <PickerItem onClick={setBoxPosition(position, dispatch)}>
+      <PickerItem onClick={setBoxPosition(dispatch, position, defaultRotate)}>
         <BoxSide curCubePosition={curCubePosition} position={position}>
           {img ? (
             <BoxImage src={img} alt={`image ${position}`} />

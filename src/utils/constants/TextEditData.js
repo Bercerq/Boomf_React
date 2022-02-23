@@ -6,10 +6,10 @@ import AlignmentLeft from "./../assets/svg/AlignmentLeft.svg";
 import AlignmentRight from "./../assets/svg/AlignmentRight.svg";
 
 export const editOptions = [
-  { icon: FontIcon, text: "Font", component: "" },
-  { icon: AddText, text: "Size", component: "" },
-  { icon: Colour, text: "Colour", component: "" },
-  { icon: AlignmentCenter, text: "Alignment", component: "" },
+  { icon: FontIcon, text: "Font"},
+  { icon: AddText, text: "Size"},
+  { icon: Colour, text: "Colour" },
+  { icon: AlignmentCenter, text: "Alignment"},
 ];
 
 export const font = [

@@ -4,7 +4,6 @@ export const Title = styled.div`
   font-size: 16px;
   text-align: end;
   font-family: "objectivity-regular-11", sans-serif;
-
   @media (max-width: 920px) {
     text-align: start;
     margin: 12px 16px;
@@ -19,7 +18,6 @@ export const Title = styled.div`
 export const ConfettiWrapper = styled.div`
   margin-top: 3%;
   padding-right: 50px;
-
   @media (max-width: 920px) {
     order: 1;
     margin-top: 0;
@@ -33,34 +31,27 @@ export const ConfetiBox = styled.div`
     scrollbar-width: auto;
     scrollbar-color: #666666 #ffffff;
   }
-
   /* Chrome, Edge, and Safari */
   &::-webkit-scrollbar {
     width: 8px;
   }
-
   &::-webkit-scrollbar-track {
     background: #f5f5f5;
   }
-
   &::-webkit-scrollbar-thumb {
     background-color: #666666;
     border-radius: 10px;
     border: 3px solid #ffffff;
   }
-
   overflow-y: scroll;
   padding-right: 5px;
   height: 58vh;
-
   @media (max-width: 1600px) {
     height: 40vh;
   }
-
   @media (max-height: 785px) {
     height: 35vh;
   }
-
   @media (max-width: 920px) {
     display: flex;
     height: unset;

@@ -8,17 +8,13 @@ import Arrow from "../../../../utils/assets/svg/Arrow.svg";
 
 import { ArrowRight, ArrowLeft } from "./style";
 
-function RotateButtons({ setCubeRotateY, cubeRotateY }) {
+function RotateButtons() {
   const dispatch = useDispatch();
-  const { curCubePosition } = useSelector(({ boombReducer }) => boombReducer);
+  const { curCubePosition, curCubeRotate } = useSelector(
+    ({ boombReducer }) => boombReducer
+  );
   const handleChangeRotate = (side) => () => {
-    changeCubeRotate(
-      side,
-      setCubeRotateY,
-      cubeRotateY,
-      curCubePosition,
-      dispatch
-    );
+    changeCubeRotate(side, curCubeRotate, curCubePosition, dispatch);
   };
 
   return (

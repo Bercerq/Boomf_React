@@ -37,7 +37,7 @@ export const findPanelOption = (dispatch) =>
         key={flag}
       >
         <OptionIcon>
-          <Icon src={icon} alt={text} />
+          <Icon text={text} src={icon} alt={text} />
         </OptionIcon>
         <OptionText>{text}</OptionText>
       </Option>

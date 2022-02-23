@@ -1,13 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import { setBoxPosition } from "../../../../utils/functions/boomb";
 
-import { CubeItem, CubeSide } from "./style";
 import CubeImage from "./CubeImage";
-import { useDispatch } from "react-redux";
+
+import { CubeItem, CubeSide } from "./style";
 
 export const CubePosition = ({ boombData, curCubePosition }) => {
-  const { rotate, img, position, editCrop } = boombData;
+  const { rotate, img, position, editCrop, defaultRotate } = boombData;
+
   const dispatch = useDispatch();
 
   return (
@@ -15,7 +17,7 @@ export const CubePosition = ({ boombData, curCubePosition }) => {
       <CubeItem
         position={position}
         curCubePosition={curCubePosition}
-        onClick={setBoxPosition(position, dispatch)}
+        onClick={setBoxPosition(dispatch, position, defaultRotate)}
         img={img}
       >
         <CubeImage img={img} position={position} editCrop={editCrop} />

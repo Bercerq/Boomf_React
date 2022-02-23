@@ -1,11 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+
 import { setCurrentEditor } from "../../../redux/actions/textEditor";
 import {
   closeSideBar,
   findButtonName,
 } from "../../../utils/functions/textEditor";
+
 import WhiteButton from "../../Buttons/WhiteButton";
+
 import { ButtonWrapper } from "../style";
 
 function Buttons({ currentEditor, textStyles, option, setOption }) {
@@ -25,7 +28,12 @@ function Buttons({ currentEditor, textStyles, option, setOption }) {
         <WhiteButton
           color="#222222"
           background="#ffffff"
-          handleButtonClick={closeSideBar(dispatch, currentEditor, textStyles)}
+          handleButtonClick={closeSideBar(
+            dispatch,
+            currentEditor,
+            textStyles,
+            setOption
+          )}
         >
           {findButtonName(currentEditor.flag)}
         </WhiteButton>
