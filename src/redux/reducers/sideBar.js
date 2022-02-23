@@ -1,4 +1,8 @@
-import { CURRENT_SIDEBAR, IMAGE_LIBRARY } from "../constants/sideBar";
+import {
+  CURRENT_SIDEBAR,
+  IMAGE_LIBRARY,
+  SELECT_UPLOADED,
+} from "../constants/sideBar";
 
 const initialState = {
   currentSidebar: { state: false, flag: "" },
@@ -17,6 +21,12 @@ const sidebarReducer = (state = initialState, action) => {
         ...state,
         imageLibrary: [{ img: action.payload }, ...state.imageLibrary],
       };
+    case SELECT_UPLOADED:
+      return {
+        ...state,
+        curCubeImage: action.payload,
+      };
+
     default:
       return {
         ...state,

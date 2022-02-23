@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { openEditor } from "../../../../utils/functions/boomb";
@@ -9,17 +9,16 @@ import CubeSide from "./CubeSide";
 import { CubeContainer, CubeWrapper, StaticText } from "./style";
 
 function CubeSection({ topText, confettiState, setTopText }) {
-  const [cubeRotateY, setCubeRotateY] = useState(760);
   const { textStyles, focusState } = useSelector(
     ({ textEditorReducer }) => textEditorReducer
   );
+
   const dispatch = useDispatch();
+
   return (
     <CubeContainer>
       <CubeWrapper confettiState={confettiState.img}>
         <CubeSide
-          setCubeRotateY={setCubeRotateY}
-          cubeRotateY={cubeRotateY}
           textStyles={textStyles}
           focusState={focusState}
           topText={topText}
@@ -33,10 +32,7 @@ function CubeSection({ topText, confettiState, setTopText }) {
           {!topText ? "Double Click to type your text" : focusState && topText}
         </StaticText>
       </CubeWrapper>
-      <RotateButtons
-        cubeRotateY={cubeRotateY}
-        setCubeRotateY={setCubeRotateY}
-      />
+      <RotateButtons />
     </CubeContainer>
   );
 }

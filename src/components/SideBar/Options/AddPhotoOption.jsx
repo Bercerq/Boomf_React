@@ -1,4 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+
+import {
+  selectUploadedImage,
+  setCurrentSidebar,
+} from "../../../redux/actions/sideBar";
+import { setImageCannon } from "../../../redux/actions/cannon";
+
+import { selectImage } from "../../../utils/functions/boomb";
+import { setCannonImage } from "../../../utils/functions/cannon";
+
+import Buttons from "./components/Buttons";
+import ImageUploader from "./components/ImageUploader";
 
 import {
   MainWrapper,
@@ -6,15 +20,6 @@ import {
   UploadedImagesWrapper,
   UploadedImage,
 } from "./style";
-
-import Buttons from "./components/Buttons";
-import ImageUploader from "./components/ImageUploader";
-import { useSelector } from "react-redux";
-import { setBoxImage } from "../../../utils/functions/boomb";
-import { useDispatch } from "react-redux";
-import { setCurrentSidebar } from "../../../redux/actions/sideBar";
-import {setImageCannon} from "../../../redux/actions/cannon";
-import {setCannonImage} from "../../../utils/functions/cannon";
 
 function AddPhotoOption() {
   const { boombData, curCubePosition } = useSelector(
@@ -24,8 +29,8 @@ function AddPhotoOption() {
 
   const dispatch = useDispatch();
   const setImage = (img) => () => {
-    setBoxImage(img, dispatch);
-    setCannonImage(img, dispatch)
+    dispatch(selectUploadedImage(img));
+    setCannonImage(img, dispatch);
     dispatch(setCurrentSidebar({ flag: "", state: false }));
   };
   return (

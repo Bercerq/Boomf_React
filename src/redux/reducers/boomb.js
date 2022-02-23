@@ -1,7 +1,7 @@
 import { BoombData } from "../../utils/constants/BoombData";
 import {
-  CURRENT_CUBE_IMAGE,
   CURRENT_CUBE_POSITION,
+  CURRENT_CUBE_ROTATE,
   EDIT_IMAGE,
   SEND_BOOMB,
   SET_BOOMB,
@@ -12,7 +12,8 @@ const initialState = {
   boombData: BoombData,
   editCrop: "1",
   cubeImabeLibrary: [],
-  curCubePosition: 1,
+  curCubePosition: 2,
+  curCubeRotate: 760,
 };
 
 const boombReducer = (state = initialState, action) => {
@@ -42,13 +43,11 @@ const boombReducer = (state = initialState, action) => {
         ...state,
         curCubePosition: action.payload,
       };
-
-    case CURRENT_CUBE_IMAGE:
+    case CURRENT_CUBE_ROTATE:
       return {
         ...state,
-        curCubeImage: action.payload,
+        curCubeRotate: action.payload,
       };
-
     default:
       return {
         ...state,

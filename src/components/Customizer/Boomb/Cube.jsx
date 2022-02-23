@@ -10,24 +10,30 @@ import CubeSection from "./CubeSection/CubeSection";
 import Modal from "../../Modal/Modal";
 
 import { SideContent } from "./CubeSection/style";
+import { setCurrentModal } from "../../../redux/actions/modal";
+import { selectUploadedImage } from "../../../redux/actions/sideBar";
 
 function Cube() {
-  const [openModal, setOpenModal] = useState({ state: false, title: "" });
   const [topText, setTopText] = useState("");
+
   const dispatch = useDispatch();
 
-  const { editCrop, curCubePosition, boombData, curCubeImage } = useSelector(
+  const { editCrop, curCubePosition, boombData } = useSelector(
     ({ boombReducer }) => boombReducer
   );
+  const { curCubeImage } = useSelector(({ sidebarReducer }) => sidebarReducer);
+
   const { confettiState } = useSelector(
     ({ confettiReducer }) => confettiReducer
   );
+
   useEffect(() => {
     if (curCubeImage) {
       updateItem(curCubePosition, { img: curCubeImage }, boombData, dispatch);
     } else if (editCrop) {
       updateItem(curCubePosition, { editCrop }, boombData, dispatch);
     }
+    dispatch(selectUploadedImage(""));
   }, [curCubeImage, editCrop]);
 
   const handleButtonClick = () => {
@@ -36,10 +42,12 @@ function Cube() {
       boxArr.push(data);
     });
     dispatch(sendBoomb([...boxArr, topText, { confetti: confettiState.img }]));
-    setOpenModal({
-      title: "Add to cart",
-      state: true,
-    });
+    dispatch(
+      setCurrentModal({
+        title: "Add to cart",
+        state: true,
+      })
+    );
   };
 
   return (
@@ -50,11 +58,9 @@ function Cube() {
           topText={topText}
           setTopText={setTopText}
         />
-
         <BottomSection handleButtonClick={handleButtonClick} />
       </SideContent>
-
-      <Modal openModal={openModal} setOpenModal={setOpenModal}>
+      <Modal>
         <h1 style={{ textAling: "center" }}>Item add</h1>
         <BlueButton>Checkout</BlueButton>{" "}
       </Modal>

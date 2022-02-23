@@ -4,13 +4,15 @@ import textEditorReducer from "./textEditor";
 import confettiReducer from "./confetti";
 import sidebarReducer from "./sideBar";
 import cannonReducer from "./cannon";
+import modalReducer from "./modal";
 
 const rootReducer = combineReducers({
   boombReducer,
   textEditorReducer,
   confettiReducer,
   sidebarReducer,
-  cannonReducer
+  modalReducer,
+  cannonReducer,
 });
 
 export default rootReducer;

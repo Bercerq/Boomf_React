@@ -2,19 +2,22 @@ import {
   setBoomb,
   setCurImage,
   setCurPosition,
+  setCurRotate,
 } from "../../redux/actions/boomb";
-import { setImageLibrary } from "../../redux/actions/sideBar";
 import {setCurrentEditor, setDblClick, setFocus} from "../../redux/actions/textEditor";
+import {
+  selectUploadedImage,
+  setImageLibrary,
+} from "../../redux/actions/sideBar";
 
 export const changeCubeRotate = (
   operator,
-  setCubeRotateY,
-  cubeRotateY,
+  curCubeRotate,
   curCubePosition,
   dispatch
 ) => {
   if (operator === "right") {
-    setCubeRotateY(cubeRotateY + 90);
+    dispatch(setCurRotate(curCubeRotate + 90));
     switch (curCubePosition) {
       case 1:
         changeCubePosition(2, dispatch);
@@ -32,7 +35,7 @@ export const changeCubeRotate = (
         break;
     }
   } else if (operator === "left") {
-    setCubeRotateY(cubeRotateY - 90);
+    dispatch(setCurRotate(curCubeRotate - 90));
     switch (curCubePosition) {
       case 4:
         changeCubePosition(3, dispatch);
@@ -73,14 +76,12 @@ export const updateItem = (
     );
   }
 };
-export const setBoxImage = (image, dispatch) => {
-  dispatch(setCurImage(image));
-};
 export const setLibraryImage = (image, dispatch) => {
   dispatch(setImageLibrary(image));
 };
-export const setBoxPosition = (position, dispatch) => () => {
+export const setBoxPosition = (dispatch, position, defaultRotate) => () => {
   dispatch(setCurPosition(position));
+  dispatch(setCurRotate(defaultRotate));
 };
 export const changeTopText = (setTopText, e) => {
   setTopText(e.target.value);
@@ -91,11 +92,12 @@ export const findBoxSide = (position) => {
     case 2:
       return "Front";
     case 1:
-      return "Left";
+      return "Right";
     case 4:
       return "Back";
     case 3:
-      return "Right";
+      return "Left";
+
     default:
       break;
   }

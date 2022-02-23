@@ -8,7 +8,6 @@ export const PanelContainer = styled.div`
   flex-direction: column;
   align-items: center;
   z-index: 4;
-
   /* @media (max-height: 900px) {
     height: unset;
   } */
@@ -21,7 +20,6 @@ export const PanelContainer = styled.div`
     justify-content: center;
     flex-direction: row;
     z-index: 2;
-    position: fixed;
     bottom: 0;
   }
 `;
@@ -44,16 +42,10 @@ export const Option = styled.div`
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
     0px 0.5px 2px rgba(96, 97, 112, 0.16);
   @media (max-width: 920px) {
-    margin: 20px 20px !important;
+    margin: 20px 6px;
+    width: 70px;
+    min-width: 65px;
   }
-
-  @media (max-height: 785px) {
-    margin: 10px 42px 10px 42px;
-  }
-  @media (max-height: 615px) {
-    width: 110px;
-  }
-
   cursor: pointer;
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
@@ -75,10 +67,7 @@ export const Icon = styled.img`
   @media (max-width: 920px) {
     display: block;
     margin: 5px;
-  }
-  @media (max-height: 615px) {
-    width: 30px;
-    margin: 7px 0;
+    width: 20px;
   }
 `;
 
@@ -97,7 +86,6 @@ export const OptionText = styled.div`
   @media (max-height: 785px) {
     font-size: 14px;
   }
-
   @media (max-height: 615px) {
     padding-bottom: 10px;
     font-size: 12px;
@@ -145,13 +133,16 @@ export const SideContent = styled.div`
 `;
 
 export const SideBarTitle = styled.div`
-  width: 48vw;
+  width: 40vw;
   position: sticky;
   top: 0;
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 42px;
+  @media (max-width: 920px) {
+    width: 80vw;
+  }
 `;
 
 export const Title = styled.div`
