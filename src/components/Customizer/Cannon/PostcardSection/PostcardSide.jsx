@@ -1,8 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {useFocus} from "../../../../utils/hooks/useFocus";
-import {changeTopText, openEditor} from "../../../../utils/functions/boomb";
+import {changeTopText} from "../../../../utils/functions/boomb";
 import {CubeItem, TopText} from "../../Boomb/CubeSection/style";
-import {useDispatch} from "react-redux";
 import {PostcardSide} from "./style";
 
 const PostcardSideComponent = ({
@@ -19,15 +18,12 @@ const PostcardSideComponent = ({
     }
   }, [focusState]);
 
+
   const ref = useRef();
-  const dispatch = useDispatch();
 
   return (
     <>
-      <PostcardSide
-        id="buttonClickCannon"
-        onClick={openEditor(dispatch, "buttonClickCannon")}
-      >
+      <PostcardSide>
         <CubeItem ref={ref} topText={topText}>
           <TopText
             focusState={focusState}

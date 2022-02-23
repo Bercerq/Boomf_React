@@ -1,0 +1,47 @@
+
+.div-flex {
+  display: flex;
+}
+
+.text-editor-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-div-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0A74FF;
+  padding: 8px;
+  border-radius: 50%;
+  margin-bottom: 2px;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.image-div-block img {
+  pointer-events: none;
+}
+
+.div-trash-pos {
+  position: absolute;
+  left: -12px;
+  top: -12px;
+}
+
+.div-text-content {
+  padding: 8px;
+
+  cursor: pointer;
+  min-width: 195px;
+  min-height: 18px;
+}
+
+.div-reboot-pos {
+  position: absolute;
+  top: -30px;
+}
