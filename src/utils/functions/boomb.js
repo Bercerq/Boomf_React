@@ -108,13 +108,15 @@ export const openEditor = (dispatch, buttonflag) => () => {
   button.addEventListener("click", (event) => {
     if (event.detail === 1) {
       timer = setTimeout(() => {
-        dispatch(setCurrentEditor({ flag: "", state: true }));
+        dispatch(setCurrentEditor({flag: "", state: true}));
         dispatch(setFocus(true));
+        dispatch(setDblClick(false));
       }, 200);
     }
   });
   button.addEventListener("dblclick", (event) => {
     clearTimeout(timer);
     dispatch(setFocus(true));
+    dispatch(setDblClick(true));
   });
 };

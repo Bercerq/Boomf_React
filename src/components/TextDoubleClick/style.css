@@ -22,6 +22,7 @@
   -webkit-user-select: none;
   user-select: none;
 }
+
 .image-div-block img {
   pointer-events: none;
 }
@@ -33,11 +34,11 @@
 }
 
 .div-text-content {
-    padding: 8px;
-    border: 2px solid #0A74FF;
-    cursor: all-scroll;
-    min-width: 195px;
-    min-height: 18px;
+  padding: 8px;
+
+  cursor: pointer;
+  min-width: 195px;
+  min-height: 18px;
 }
 
 .div-reboot-pos {

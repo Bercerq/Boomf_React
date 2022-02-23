@@ -5,7 +5,7 @@ import CustomizerLayout from "../../components/Layout/CustomizerLayout";
 
 const Cannon = () => {
     return (
-        <CustomizerLayout сonfettiData={сonfettiData} title="Boomb customizer">
+        <CustomizerLayout сonfettiData={сonfettiData} title="Boomf cannon card">
             <Postcard />
         </CustomizerLayout>
     );
