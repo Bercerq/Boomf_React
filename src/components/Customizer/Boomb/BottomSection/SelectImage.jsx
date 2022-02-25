@@ -14,7 +14,11 @@ const SelectImage = () => {
   return boombData?.map(({ position, img, defaultRotate }) => (
     <React.Fragment key={position}>
       <PickerItem onClick={setBoxPosition(dispatch, position, defaultRotate)}>
-        <BoxSide curCubePosition={curCubePosition} position={position}>
+        <BoxSide
+          img={img}
+          curCubePosition={curCubePosition}
+          position={position}
+        >
           {img ? (
             <BoxImage src={img} alt={`image ${position}`} />
           ) : (

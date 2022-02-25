@@ -8,14 +8,11 @@ export const PanelContainer = styled.div`
   flex-direction: column;
   align-items: center;
   z-index: 4;
-  /* @media (max-height: 900px) {
-    height: unset;
-  } */
+
   @media (max-width: 920px) {
     height: unset;
     order: 3;
     width: 100%;
-    /* height: 15vh; */
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -42,10 +39,14 @@ export const Option = styled.div`
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
     0px 0.5px 2px rgba(96, 97, 112, 0.16);
   @media (max-width: 920px) {
-    margin: 20px 6px;
-    width: 70px;
-    min-width: 65px;
+    margin: 20px 6px !important;
+    width: 70px !important;
+    min-width: 65px !important;
   }
+  @media (max-height: 695px) {
+    margin: 4px 6px !important;
+  }
+
   cursor: pointer;
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))

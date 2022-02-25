@@ -11,8 +11,8 @@ export const SideContent = styled.div`
   @media (max-width: 920px) {
     height: unset;
   }
-  @media (min-height: 773px) {
-    height: 100vh;
+  @media (min-height: 780px) {
+    height: 77vh;
   }
 `;
 
@@ -64,6 +64,14 @@ export const CubeWrapper = styled.div`
   @media (max-width: 340px) {
     padding: 80px 35px;
   }
+
+  @media (max-height: 780px) {
+    padding: 80px 60px;
+    background-size: 360px;
+  }
+  @media (max-width: 390px) {
+    padding: 80px 35px !important;
+  }
 `;
 export const CubeBox = styled.div`
   margin: auto;
@@ -93,6 +101,14 @@ export const CubeBox = styled.div`
     min-width: 200px;
     min-height: 200px;
   }
+  @media (max-height: 780px) {
+    max-width: 200px;
+    max-height: 200px;
+    height: 20vw;
+    width: 20vw;
+    min-width: 200px;
+    min-height: 200px;
+  }
 `;
 
 //CUBE TOP/CUBE SIDE
@@ -112,6 +128,9 @@ export const CubeSide = styled.div`
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
   @media (max-width: 920px) {
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px);
+  }
+  @media (max-height: 780px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px);
   }
 `;
@@ -262,7 +281,6 @@ export const StaticText = styled.div`
   cursor: pointer;
   width: 50%;
   word-break: break-all;
-
 `;
 export const EditButton = styled.div`
   position: absolute;
