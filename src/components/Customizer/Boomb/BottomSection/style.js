@@ -8,16 +8,10 @@ export const Bottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
   @media (max-width: 920px) {
     flex-direction: column;
     justify-content: center;
     align-items: end;
-    height: 30vh;
-  }
-
-  @media (max-height: 720px) {
-    height: 20vh;
   }
 `;
 
@@ -35,6 +29,8 @@ export const ImagePicker = styled.div`
 export const PickerItem = styled.div`
   display: block;
   margin: 0 12px;
+  height: fit-content;
+
   @media (max-width: 920px) {
     margin: 0 4px;
   }
@@ -45,8 +41,10 @@ export const PickerItemText = styled.div`
   margin: 0 12px;
   @media (max-width: 920px) {
     margin: 0 4px;
-    width: 20%;
     font-size: 11px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
   }
 `;
 export const BoxSide = styled.div`
@@ -58,11 +56,10 @@ export const BoxSide = styled.div`
   max-height: 120px;
   height: 100%;
   width: 100%;
-  background: #d6d6d6;
+  ${({ img }) => !img && "background: #d6d6d6;"};
   cursor: pointer;
   word-break: break-all;
   transition: 0.4s;
-
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
       drop-shadow(0px 8px 16px rgba(53, 53, 53, 0.281));
@@ -84,7 +81,6 @@ export const BoxSide = styled.div`
     resize: none;
     outline: none;
   }
-
   .BoxNoImage {
     font-family: "objectivity-regular-11", sans-serif;
     opacity: 0;
@@ -101,21 +97,13 @@ export const BoxSide = styled.div`
       transition: 0.4s;
     }
   }
-
-  @media (max-width: 1120px) {
-    height: 70%;
-  }
-  @media (max-width: 1070px) {
-    height: 60%;
-  }
   @media (max-width: 920px) {
-    height: 75%;
+    max-width: 90px;
+    max-height: 85px;
   }
-  @media (max-width: 585px) {
-    height: 60%;
-  }
-  @media (max-width: 425px) {
-    height: 45%;
+  @media (max-height: 615px) {
+    max-width: 90px;
+    max-height: 85px;
   }
 `;
 export const ButtonWrapper = styled.div`
@@ -125,17 +113,21 @@ export const ButtonWrapper = styled.div`
     right: 15px;
     width: 140px;
   }
-
   @media (max-width: 920px) {
     position: static;
     right: unset;
     margin: 30px;
     width: 200px;
   }
+  @media (max-height: 760px) {
+    margin: 10px;
+  }
 `;
 export const BoxImage = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: flex;
 `;
 export const BoxText = styled.div`
   font-size: 16px;

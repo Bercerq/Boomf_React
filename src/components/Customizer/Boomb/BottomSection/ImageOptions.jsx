@@ -6,7 +6,7 @@ import { ImagePicker } from "./style";
 function ImageOptions() {
   return (
     <ImagePicker>
-      <SelectImage />
+      <SelectImage  />
       <SelectText />
     </ImagePicker>
   );

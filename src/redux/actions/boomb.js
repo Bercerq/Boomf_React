@@ -1,6 +1,6 @@
 import {
-  CURRENT_CUBE_IMAGE,
   CURRENT_CUBE_POSITION,
+  CURRENT_CUBE_ROTATE,
   EDIT_IMAGE,
   SEND_BOOMB,
   SET_BOOMB,
@@ -23,8 +23,9 @@ export const setCurPosition = (payload) => ({
   type: CURRENT_CUBE_POSITION,
   payload,
 });
-export const setCurImage = (payload) => ({
-  type: CURRENT_CUBE_IMAGE,
+
+export const setCurRotate = (payload) => ({
+  type: CURRENT_CUBE_ROTATE,
   payload,
 });
 export const sendBoomb = (payload) => ({
