@@ -56,7 +56,7 @@ export const BoxSide = styled.div`
   max-height: 120px;
   height: 100%;
   width: 100%;
-  background: #d6d6d6;
+  ${({ img }) => !img && "background: #d6d6d6;"};
   cursor: pointer;
   word-break: break-all;
   transition: 0.4s;
@@ -98,7 +98,11 @@ export const BoxSide = styled.div`
     }
   }
   @media (max-width: 920px) {
-    max-width: 80px;
+    max-width: 90px;
+    max-height: 85px;
+  }
+  @media (max-height: 615px) {
+    max-width: 90px;
     max-height: 85px;
   }
 `;
@@ -115,11 +119,15 @@ export const ButtonWrapper = styled.div`
     margin: 30px;
     width: 200px;
   }
+  @media (max-height: 760px) {
+    margin: 10px;
+  }
 `;
 export const BoxImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: flex;
 `;
 export const BoxText = styled.div`
   font-size: 16px;

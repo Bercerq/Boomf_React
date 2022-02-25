@@ -11,9 +11,6 @@ export const Title = styled.div`
       display: none;
     }
   }
-  @media (max-width: 920px) {
-    display: none;
-  }
 `;
 export const ConfettiWrapper = styled.div`
   margin-top: 3%;
@@ -22,16 +19,15 @@ export const ConfettiWrapper = styled.div`
     order: 1;
     margin-top: 0;
     padding-right: 0;
+    margin-left: 30px;
+    margin-top: 10px;
   }
 `;
 export const ConfetiBox = styled.div`
-  /* ===== Scrollbar CSS ===== */
-  /* Firefox */
   * {
     scrollbar-width: auto;
     scrollbar-color: #666666 #ffffff;
   }
-  /* Chrome, Edge, and Safari */
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -45,7 +41,7 @@ export const ConfetiBox = styled.div`
   }
   overflow-y: scroll;
   padding-right: 5px;
-  height: 58vh;
+  height: 550px;
   @media (max-width: 1600px) {
     height: 40vh;
   }
@@ -55,8 +51,13 @@ export const ConfetiBox = styled.div`
   @media (max-width: 920px) {
     display: flex;
     height: unset;
-    &::-webkit-scrollbar {
-      height: 8px;
+    width: 80vw;
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      border: 3px solid transparent;
     }
   }
 `;
@@ -66,8 +67,8 @@ export const ConfettiImage = styled.img`
   border-radius: 50%;
   margin: 6px;
   @media (max-width: 920px) {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 30px;
     margin: 0;
   }
 `;
@@ -78,8 +79,8 @@ export const ConfettiItem = styled.div`
   width: 78px;
   height: 78px;
   @media (max-width: 920px) {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 35px;
   }
   border-radius: 50%;
   ${({ selectConfetti, name }) =>
@@ -90,9 +91,9 @@ export const ConfettiItem = styled.div`
   background-color: white;
   margin: 24px 0 24px auto;
   @media (max-width: 920px) {
-    margin: 12px 4%;
+    margin: 0 10px 12px 10px;
   }
   @media (max-width: 520px) {
-    margin: 12px 1%;
+    margin: 0 1%;
   }
 `;
