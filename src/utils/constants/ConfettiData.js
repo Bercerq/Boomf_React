@@ -19,7 +19,7 @@ import TuttiFruitti from "../assets/png/confetti/Tutti-Fruitti.png";
 import Unicorn from "../assets/png/confetti/Unicorn.png";
 import Watermelon from "../assets/png/confetti/Watermelon.png";
 
-export const сonfettiData = [
+export const confettiDataBoomb = [
   {
     name: "Gold",
     img: BcGold1,
@@ -101,3 +101,26 @@ export const сonfettiData = [
     img: Watermelon,
   },
 ];
+
+export const confettiDataCannon = [
+  {
+    name: "Gold",
+    img: BcGold1,
+  },
+  {
+    name: "BC Gold",
+    img: BCGold,
+  },
+  {
+    name: "Blossom GB",
+    img: BlossomGB,
+  },
+  {
+    name: "Blossom",
+    img: Blossom,
+  },
+  {
+    name: "Summer 1",
+    img: Summer1,
+  },
+]

@@ -11,13 +11,13 @@ import {useSelector} from "react-redux";
 
 const PostcardSection = () => {
   const {confettiState} = useSelector(({confettiReducer}) => confettiReducer);
-  const {backgroundState} = useSelector(({cannonReducer}) => cannonReducer);
+  const {backgroundState} = useSelector(({backgroundReducer}) => backgroundReducer);
 
   return (
     <PostcardContainer>
       <PostcardWrapper src={confettiState.img} alt={confettiState.name}/>
       <BackgroundCard>
-        <BackgroundImage src={backgroundState}/>
+        <BackgroundImage src={backgroundState.img} alt={backgroundState.name}/>
         <PostcardImage/>
         <PostcardText/>
       </BackgroundCard>

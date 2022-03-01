@@ -85,7 +85,7 @@ export const ConfettiItem = styled.div`
   border-radius: 50%;
   ${({ selectConfetti, name }) =>
     `border: 4px solid ${
-      selectConfetti.name === name ? "#2EDBE3" : "transparent"
+      selectConfetti.id === name ? "#2EDBE3" : "transparent"
     };  transition: 0.4s;`}
   transition: 0.4s;
   background-color: white;
