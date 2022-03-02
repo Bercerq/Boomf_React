@@ -8,7 +8,7 @@ import {setCurrentEditor} from "../../../../redux/actions/textEditor";
 
 const PostcardImage = () => {
   const dispatch = useDispatch();
-  const {imageState} = useSelector(({cannonReducer}) => cannonReducer);
+  const {imageState} = useSelector(({imageReducer}) => imageReducer);
 
   const openEditor = () => {
     dispatch(setCurrentEditor({flag: "Image", state: true}));
@@ -16,9 +16,9 @@ const PostcardImage = () => {
 
   return (
     <>
-      {imageState ? (
+      {imageState.img ? (
         <ImageDiv>
-          <BackgroundImage src={imageState}/>
+          <BackgroundImage src={imageState.img} alt={imageState.alt}/>
           <EditButton onClick={openEditor}>
             <EditIcon src={EditPencil} alt="edit"/>
           </EditButton>

@@ -11,8 +11,8 @@ export const FormTextContent = styled.div`
   right: auto;
   bottom: auto;
 
-  width: 292px;
-  height: 133px;
+  width: 76%;
+  height: 23%;
   margin-bottom: 45px;
   border: 1px dashed #F5F5F5;
   box-sizing: border-box;

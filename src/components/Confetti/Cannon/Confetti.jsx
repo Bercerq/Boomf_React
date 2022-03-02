@@ -1,8 +1,14 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {setConfetti} from "../../../redux/actions/confetti";
-import {ConfettiImage} from "../style";
-import {ConfettiBoxCannon, ConfettiItemCannon, ConfettiWrapperCannon, TitleCannon} from "./style";
+
+import {
+  ConfettiBoxCannon,
+  ConfettiImageCannon,
+  ConfettiItemCannon,
+  ConfettiWrapperCannon,
+  TitleCannon
+} from "./style";
 
 const Confetti = () => {
   const dispatch = useDispatch();
@@ -25,7 +31,7 @@ const Confetti = () => {
             name={confetti.name}
             onClick={handleSelectConfetti(confetti)}
           >
-            <ConfettiImage src={confetti.img} alt={confetti.name}/>
+            <ConfettiImageCannon src={confetti.img} alt={confetti.name}/>
           </ConfettiItemCannon>
         ))}
       </ConfettiBoxCannon>

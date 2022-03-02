@@ -1,25 +1,43 @@
 import {SET_BACKGROUND, SET_BACKGROUND_DATA} from "../constants/background";
 
 const initialState = {
+  backgroundData: [],
   backgroundState: {
-    img: 'https://boomf.com/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Fboomf-production%2Fstamps_images%2F000%2F002%2F330%2Foriginal.jpg%3F1563188722&w=1920&q=75',
-    name: "Hot-Love",
+    img: '',
+    name: 'Image',
+    action: false,
     id: 0
   },
 };
 
 const backgroundReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_BACKGROUND:
+    case SET_BACKGROUND: {
+      const data = state.backgroundData.map((e, idx) => ({
+        img: e.img,
+        name: e.name,
+        active: idx === action.payload.id,
+        id: idx
+      }))
+
       return {
-        ...state,
-        backgroundState: state.backgroundData[action.payload],
+        backgroundData: data,
+        backgroundState: state.backgroundData[action.payload.id],
       };
-    case SET_BACKGROUND_DATA:
+    }
+    case SET_BACKGROUND_DATA: {
+      const data = action.payload.map((e, idx) => ({
+        img: e.img,
+        name: e.name,
+        active: e?.active || idx === 0,
+        id: idx
+      }));
+
       return {
-        backgroundData: action.payload,
-        backgroundState: action.payload[0]
+        backgroundData: data,
+        backgroundState: data.filter((e) => e?.active)[0] || data[0]
       }
+    }
     default:
       return {
         ...state,

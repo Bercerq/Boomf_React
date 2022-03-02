@@ -14,7 +14,7 @@ const CannonRightColumn = () => {
   return (
     <ConfettiWrapperCannonColumn>
       <Background />
-      <Confetti confettiData={confettiData}/>
+      <Confetti/>
     </ConfettiWrapperCannonColumn>
   );
 };

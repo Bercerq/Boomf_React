@@ -1,22 +1,41 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {setConfetti} from "../../../redux/actions/confetti";
+import {
+  BackgroundImageCannon,
+  BackgroundItemCannon,
+  ConfettiBoxCannon,
+  ConfettiWrapperCannon,
+  TitleCannon
+} from "./style";
+import {setBackground} from "../../../redux/actions/background";
 
 const Background = () => {
   const dispatch = useDispatch();
 
-  const { backgroundState } = useSelector(
+  const { backgroundState, backgroundData } = useSelector(
     ({ backgroundReducer }) => backgroundReducer
   );
 
-  const handleSelectBackground = (img, name) => () => {
-    dispatch(setConfetti({ img, name }));
+  const handleSelectBackground = (background) => () => {
+    dispatch(setBackground(background));
   };
 
   return (
-    <div>
-432
-    </div>
+    <ConfettiWrapperCannon>
+      <TitleCannon>Background: {backgroundState.name}</TitleCannon>
+      <ConfettiBoxCannon>
+        {backgroundData.map((confetti, idx) => (
+          <BackgroundItemCannon
+            key={idx}
+            selectConfetti={backgroundState}
+            name={confetti.name}
+            onClick={handleSelectBackground(confetti)}
+          >
+            <BackgroundImageCannon src={confetti.img} alt={confetti.name}/>
+          </BackgroundItemCannon>
+        ))}
+      </ConfettiBoxCannon>
+    </ConfettiWrapperCannon>
   );
 };
 

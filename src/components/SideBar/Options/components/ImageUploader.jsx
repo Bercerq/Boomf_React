@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import {
-  setBoxImage,
   setLibraryImage,
 } from "../../../../utils/functions/boomb";
 
@@ -10,13 +9,17 @@ import { Icon, ImageItem } from "../../../TextEditor/style";
 import { ImageCide, Uploader } from "../style";
 
 import UploadIcon from "../../../../utils/assets/svg/UploadIcon.svg";
+import {setUploadImage} from "../../../../utils/functions/cannon";
 
 function ImageUploader() {
   const dispatch = useDispatch();
   return (
     <>
       <Uploader
-        onChange={(e) => setLibraryImage(e.target.value, dispatch)}
+        onChange={(e) => {
+          // setLibraryImage(e.target.value, dispatch)
+          setUploadImage(e.target.files, dispatch)
+        }}
         type="file"
         id="imageUpload"
         accept=".png, .jpg, .jpeg"

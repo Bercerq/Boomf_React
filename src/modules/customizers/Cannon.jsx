@@ -1,20 +1,21 @@
 import React, {useEffect} from 'react';
-import {confettiDataCannon} from "../../utils/constants/ConfettiData";
+import {confettiDataCannon, backgroundDataCannon} from "../../utils/constants/ConfettiData";
 import Postcard from "../../components/Customizer/Cannon/Postcard";
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setConfettiData} from "../../redux/actions/confetti";
+import {setBackgroundData} from "../../redux/actions/background";
 
 const Cannon = () => {
   const dispatch = useDispatch();
-  const {confettiState, confettiData} = useSelector(({confettiReducer}) => confettiReducer)
 
   useEffect(() => {
-    dispatch(setConfettiData(confettiDataCannon))
+    dispatch(setConfettiData(confettiDataCannon));
+    dispatch(setBackgroundData(backgroundDataCannon))
   }, []);
 
   return (
-    <CustomizerLayout confettiData={confettiData} title="Boomf cannon card" dataName='cannon'>
+    <CustomizerLayout title="Boomf cannon card" dataName='cannon'>
       <Postcard/>
     </CustomizerLayout>
   );

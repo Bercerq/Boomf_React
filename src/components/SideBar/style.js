@@ -128,7 +128,7 @@ export const SideBarContent = styled.div`
 `;
 
 export const SideContent = styled.div`
-  width: 48vw;
+  width: 100%;
   position: sticky;
   top: 0;
 `;

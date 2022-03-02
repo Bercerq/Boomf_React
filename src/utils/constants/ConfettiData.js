@@ -19,6 +19,11 @@ import TuttiFruitti from "../assets/png/confetti/Tutti-Fruitti.png";
 import Unicorn from "../assets/png/confetti/Unicorn.png";
 import Watermelon from "../assets/png/confetti/Watermelon.png";
 
+import Colorful from '../assets/jpg/background/colorful-2468874__340.jpg'
+import Nature from '../assets/jpg/background/nature-3082832__480.jpg'
+import Textile from '../assets/jpg/background/textile-2918844__340.jpg'
+
+
 export const confettiDataBoomb = [
   {
     name: "Gold",
@@ -123,4 +128,12 @@ export const confettiDataCannon = [
     name: "Summer 1",
     img: Summer1,
   },
+]
+
+export const backgroundDataCannon = [
+  {name: 'Colorful', img: Colorful}, {name: 'Nature', img: Nature}, {name: 'Textile', img: Textile},
+  {name: 'Colorful', img: Colorful}, {name: 'Nature', img: Nature}, {name: 'Textile', img: Textile},
+  {name: 'Colorful', img: Colorful}, {name: 'Nature', img: Nature}, {name: 'Textile', img: Textile},
+  {name: 'Colorful', img: Colorful}, {name: 'Nature', img: Nature}, {name: 'Textile', img: Textile},
+  {name: 'Colorful', img: Colorful}, {name: 'Nature', img: Nature}
 ]
