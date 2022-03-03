@@ -3,7 +3,7 @@ import { alignmentIcon, editOptions } from "../constants/TextEditData";
 import {
   editText,
   setCurrentEditor,
-  setFocus,
+  setEditTextFocus,
 } from "../../redux/actions/textEditor";
 
 import Colour from "../../components/TextEditor/Option/Colour";
@@ -100,7 +100,7 @@ export const closeSideBar =
       dispatch(setCurrentEditor({ flag: "", state: true }));
     } else {
       dispatch(setCurrentEditor({ flag: currentEditor.flag, state: false }));
-      dispatch(setFocus(false));
+      dispatch(setEditTextFocus(false));
     }
     setOption("");
 

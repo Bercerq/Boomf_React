@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Draggable from "react-draggable";
 import RebootSvg from "../../utils/assets/svg/Reboot.svg";
 import TrashCan from "../../utils/assets/svg/TrashCan.svg";
@@ -9,14 +9,14 @@ import './style.css';
 const DraggableText = ({textState, setEnableRotate, rotateState, activeState, textStyles}) => {
   const [, setActiveDrags] = useState(0);
 
-  const onStart = () => {
+  const onStart = (e) => {
     if (!activeState) {
       return false
     }
     setActiveDrags(e => ++e)
   };
 
-  const onStop = () => {
+  const onStop = (e) => {
     setActiveDrags(e => --e);
   };
 
@@ -40,16 +40,19 @@ const DraggableText = ({textState, setEnableRotate, rotateState, activeState, te
                 <div className='image-div-block'
                      style={{cursor: 'col-resize'}}
                      onMouseDown={() => {
-                       setEnableRotate(true)
+                       setEnableRotate(true);
+                     }}
+                     onTouchStart={() => {
+                       setEnableRotate(true);
+                       document.body.style.overflow = 'hidden';
                      }}
                 >
                   <img src={RebootSvg} height={10} width={10} alt='Reboot'/>
                 </div>
               )}
-
             </strong>
           </div>
-          <div className='div-flex'>
+          <div className='div-flex' id='center-rotate'>
             <div className='div-trash-pos'>
               <strong className="no-cursor">
                 {activeState && (

@@ -15,17 +15,28 @@ const TextDoubleClick = ({textState, textStyles, activeState}) => {
       return;
     }
 
-    setRotateState(rotateDegree(e, getCenterBox(document.getElementById("center-rotate"))))
-    setCursorPosition(e.clientX)
+    if (e.type === 'touchmove') {
+      setRotateState(rotateDegree(e.touches[0], getCenterBox(document.getElementById("center-rotate"))))
+
+      setCursorPosition(e.touches[0].clientX); //todo
+    } else {
+      setRotateState(rotateDegree(e, getCenterBox(document.getElementById("center-rotate"))))
+      setCursorPosition(e.clientX)
+    }
   }, [cursorPosition, enableRotate]);
 
   useEffect(() => {
     if (enableRotate) {
       window.addEventListener("mousemove", handleCardMove);
+      window.addEventListener("touchmove", handleCardMove);
     } else {
       window.removeEventListener("mousemove", handleCardMove);
+      window.removeEventListener("touchmove", handleCardMove);
     }
-    return () => window.removeEventListener("mousemove", handleCardMove);
+    return () => {
+      window.removeEventListener("mousemove", handleCardMove);
+      window.removeEventListener("touchmove", handleCardMove);
+    }
   }, [enableRotate, handleCardMove]);
 
   const dispatch = useDispatch();
@@ -35,18 +46,21 @@ const TextDoubleClick = ({textState, textStyles, activeState}) => {
       id="buttonClickCannon"
       onClick={openEditor(dispatch, "buttonClickCannon")}
       onMouseUp={() => {
-        setEnableRotate(false)
+        setEnableRotate(false);
+      }}
+      onTouchEnd={() => {
+        setEnableRotate(false);
+        document.body.style.overflow = 'auto';
       }}
     >
-        <DraggableText
-          setEnableRotate={setEnableRotate}
-          enableRotate={enableRotate}
-          rotateState={rotateState}
-          activeState={activeState}
-          textState={textState}
-          textStyles={textStyles}
-        />
-      <CenterRotate id='center-rotate'/>
+      <DraggableText
+        setEnableRotate={setEnableRotate}
+        enableRotate={enableRotate}
+        rotateState={rotateState}
+        activeState={activeState}
+        textState={textState}
+        textStyles={textStyles}
+      />
     </FormTextContent>
   )
 };

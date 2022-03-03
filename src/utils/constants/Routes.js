@@ -3,12 +3,12 @@ import Cannon from "../../modules/customizers/Cannon"
 
 export const routes = [
   {
-    path: "/",
+    path: "/b",
     exact: true,
     component: Boomb,
   },
   {
-    path: '/Cannon',
+    path: '/',
     exact: true,
     component: Cannon
   },

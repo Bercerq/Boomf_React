@@ -34,6 +34,7 @@ export const CenterRotate = styled.div`
   position: absolute;
   height: 1px;
   width: 1px;
+  right: 50%;
 `
 
 export const DivTextContent = styled.div`

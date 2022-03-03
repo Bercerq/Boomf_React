@@ -6,10 +6,17 @@ import {useFocus} from "../../../../utils/hooks/useFocus";
 import TextDoubleClick from "../../../TextDoubleClick";
 
 const PostcardTextComponent = () => {
+  // const [textEditor, setTextEditorState] = useState();
+
   const [inputRef, setInputRef] = useFocus();
   const [textState, setTextState] = useState("");
 
-  const {textStyles, focusState, dblClickState} = useSelector(
+  const {
+    textStyles,
+    focusState,
+    dblClickState,
+    // textEditorState
+  } = useSelector(
     ({textEditorReducer}) => textEditorReducer
   );
 

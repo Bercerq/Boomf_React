@@ -4,7 +4,7 @@ import {
   setCurPosition,
   setCurRotate,
 } from "../../redux/actions/boomb";
-import {setCurrentEditor, setDblClick, setFocus} from "../../redux/actions/textEditor";
+import {setCurrentEditor, setEditTextDblClick, setEditTextFocus} from "../../redux/actions/textEditor";
 import {
   selectUploadedImage,
   setImageLibrary,
@@ -111,14 +111,18 @@ export const openEditor = (dispatch, buttonflag) => () => {
     if (event.detail === 1) {
       timer = setTimeout(() => {
         dispatch(setCurrentEditor({flag: "", state: true}));
-        dispatch(setFocus(true));
-        dispatch(setDblClick(false));
+        dispatch(setEditTextFocus(true));
+        dispatch(setEditTextDblClick(false));
       }, 200);
     }
   });
   button.addEventListener("dblclick", (event) => {
     clearTimeout(timer);
-    dispatch(setFocus(true));
-    dispatch(setDblClick(true));
+    dispatch(setEditTextFocus(true));
+    dispatch(setEditTextDblClick(true));
   });
+  button.addEventListener('touchend', () => {
+    dispatch(setEditTextFocus(true));
+    dispatch(setEditTextDblClick(true));
+  })
 };
