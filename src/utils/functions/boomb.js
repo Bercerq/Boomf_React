@@ -4,7 +4,8 @@ import {
   setCurPosition,
   setCurRotate,
 } from "../../redux/actions/boomb";
-import {setCurrentEditor, setEditTextDblClick, setEditTextFocus} from "../../redux/actions/textEditor";
+import {setCurrentEditor, setFocus} from "../../redux/actions/textEditor";
+import {setUpdateTextData} from "../../redux/actions/textData";
 import {
   selectUploadedImage,
   setImageLibrary,
@@ -102,7 +103,6 @@ export const findBoxSide = (position) => {
       break;
   }
 };
-//
 //check one or double click
 export const openEditor = (dispatch, buttonflag) => () => {
   const button = document.getElementById(buttonflag);
@@ -111,18 +111,27 @@ export const openEditor = (dispatch, buttonflag) => () => {
     if (event.detail === 1) {
       timer = setTimeout(() => {
         dispatch(setCurrentEditor({flag: "", state: true}));
-        dispatch(setEditTextFocus(true));
-        dispatch(setEditTextDblClick(false));
+        dispatch(setFocus(true));
+
+        // todo cannon
+        dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
+        dispatch(setUpdateTextData({key: 'focusState', value: true}));
+        dispatch(setUpdateTextData({key: 'dblClickState', value: false}));
       }, 200);
     }
   });
   button.addEventListener("dblclick", (event) => {
     clearTimeout(timer);
-    dispatch(setEditTextFocus(true));
-    dispatch(setEditTextDblClick(true));
+    dispatch(setFocus(true));
+    // todo cannon
+    dispatch(setUpdateTextData({key: 'focusState', value: true}));
+    dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
   });
+
   button.addEventListener('touchend', () => {
-    dispatch(setEditTextFocus(true));
-    dispatch(setEditTextDblClick(true));
+    dispatch(setFocus(true));
+    // todo cannon
+    dispatch(setUpdateTextData({key: 'focusState', value: true}));
+    dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
   })
 };

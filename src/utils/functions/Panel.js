@@ -13,7 +13,7 @@ import {
   OptionIcon,
   OptionText,
 } from "../../components/SideBar/style";
-import {addEditText} from "../../redux/actions/textEditor";
+import {setAddTextData} from "../../redux/actions/textData";
 
 export const drawOption = (title) => {
   switch (title) {
@@ -34,7 +34,7 @@ export const findPanelOption = (dispatch) =>
   panelData.map(({icon, text, flag}) => {
     return (
       <Option
-        onClick={() => text === '+ Add text' ? dispatch(addEditText()) : dispatch(setCurrentSidebar({state: true, flag: text}))}
+        onClick={() => text === '+ Add text' ? dispatch(setAddTextData()) : dispatch(setCurrentSidebar({state: true, flag: text}))}
         key={flag}
       >
         <OptionIcon>

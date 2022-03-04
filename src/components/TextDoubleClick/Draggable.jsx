@@ -4,7 +4,7 @@ import Draggable from "react-draggable";
 import Reboot from '../../utils/assets/svg/Reboot.svg';
 import TrashCan from '../../utils/assets/svg/TrashCan.svg';
 
-import {textPosition} from "../../utils/functions/textPosition";
+import {textPosition} from "../../utils/functions/textData";
 
 import {CenterRotate, DivTextContent} from "./style.js";
 import './style.css';

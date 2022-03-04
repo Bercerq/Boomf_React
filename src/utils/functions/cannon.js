@@ -1,6 +1,6 @@
 import {setCurrentSidebar} from "../../redux/actions/sideBar";
 import {setImageCannon} from "../../redux/actions/cannon";
-import {setImage} from "../../redux/actions/image";
+import {setAddImageLibrary} from "../../redux/actions/imageLibrary";
 
 export const setImageContent = (dispatch) => {
   dispatch(setCurrentSidebar({flag: "+ Add photo", state: true}))
@@ -15,5 +15,5 @@ export const setUploadImage = (img, dispatch) => {
     return null;
   }
 
-  dispatch(setImage({img: URL.createObjectURL(img[0]), alt: img[0].name}))
+  dispatch(setAddImageLibrary({img: URL.createObjectURL(img[0]), alt: img[0].name}))
 }

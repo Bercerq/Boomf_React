@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import {useEffect} from "react";
 
-import { editImage } from "../../redux/actions/boomb";
-import {editText, setTextStyle} from "../../redux/actions/textEditor";
+import {editImage} from "../../redux/actions/boomb";
+import {editText} from "../../redux/actions/textEditor";
+import {setUpdateTextData} from "../../redux/actions/textData";
 
 function useCreateEditorValue(flag, debouncedValue, dispatch) {
   useEffect(() => {
@@ -10,8 +11,8 @@ function useCreateEditorValue(flag, debouncedValue, dispatch) {
         dispatch(editImage(debouncedValue));
       }
     } else {
-      // dispatch(editText({ [flag?.toLowerCase()]: debouncedValue }));
-      dispatch(setTextStyle({ [flag?.toLowerCase()]: debouncedValue }))
+      dispatch(editText({[flag?.toLowerCase()]: debouncedValue}));
+      dispatch(setUpdateTextData({key: 'textStyles', value: {[flag?.toLowerCase()]: debouncedValue}}));
     }
   }, [debouncedValue, dispatch]);
 }

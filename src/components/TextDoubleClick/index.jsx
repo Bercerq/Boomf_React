@@ -1,15 +1,17 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {getCenterBox, rotateDegree} from "../../utils/functions/textRotate";
+import {useDispatch, useSelector} from "react-redux";
+
+import {getCenterBox, rotateDegree} from "../../utils/functions/textData";
 import DraggableText from "./Draggable";
 import {openEditor} from "../../utils/functions/boomb";
-import {useDispatch, useSelector} from "react-redux";
-import {CenterRotate, DivItemText, FormTextContent} from "./style.js";
-import {editText, deleteEditText} from "../../redux/actions/textEditor";
+import {setActionTextData, setDeleteTextData} from "../../redux/actions/textData";
+
+import {FormTextContent} from "./style.js";
 
 const TextDoubleClick = ({textState, rotateState, setRotateState, positionState, setPositionState}) => {
   const [enableRotate, setEnableRotate] = useState(false);
   const [cursorPosition, setCursorPosition] = useState(null);
-  const {textEditorData, textEditorState} = useSelector(({textEditorReducer}) => textEditorReducer)
+  const {textData, textDataState} = useSelector(({textDataReducer}) => textDataReducer)
 
   const refs = useRef({});
 
@@ -18,16 +20,16 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
       return;
     }
     if (e.type === 'touchmove') {
-      setRotateState(rotateDegree(e.touches[0], getCenterBox(refs.current[textEditorState.id])))
+      setRotateState(rotateDegree(e.touches[0], getCenterBox(refs.current[textDataState.id])))
       setCursorPosition(e.touches[0].clientX);
     } else {
-      setRotateState(rotateDegree(e, getCenterBox(refs.current[textEditorState.id])))
+      setRotateState(rotateDegree(e, getCenterBox(refs.current[textDataState.id])))
       setCursorPosition(e.clientX)
     }
   }, [cursorPosition, enableRotate]);
 
   const deleteText = () => {
-    dispatch(deleteEditText())
+    dispatch(setDeleteTextData())
   }
 
   useEffect(() => {
@@ -58,18 +60,18 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
         document.body.style.overflow = 'auto';
       }}
     >
-      {textEditorData.map((e, idx) => (
+      {textData.map((e, idx) => (
         <React.Fragment key={'DraggableText' + idx}>
           <DraggableText
-            textState={textEditorState.id === e.id ? textState : e.value}
-            position={textEditorState.id === e.id ? positionState : e.position}
-            rotateState={textEditorState.id === e.id ? rotateState : e.rotate}
+            textState={textDataState.id === e.id ? textState : e.value}
+            position={textDataState.id === e.id ? positionState : e.position}
+            rotateState={textDataState.id === e.id ? rotateState : e.rotate}
             textStyles={e.textStyles}
             activeState={e.dblClickState}
             setEnableRotate={setEnableRotate}
             setPositionState={setPositionState}
             deleteText={() => deleteText}
-            handleSelectCard={() => dispatch(editText(e.id))}
+            handleSelectCard={() => dispatch(setActionTextData(e.id))}
 
             uid={e.id}
             refs={refs}
