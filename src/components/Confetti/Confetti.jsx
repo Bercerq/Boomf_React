@@ -10,28 +10,28 @@ import {
   ConfetiBox,
 } from "./style";
 
-function Confetti({ сonfettiData }) {
+function Confetti() {
   const dispatch = useDispatch();
 
-  const { confettiState } = useSelector(
+  const { confettiState, confettiData } = useSelector(
     ({ confettiReducer }) => confettiReducer
   );
 
-  const handleSelectConfetti = (img, name) => () => {
-    dispatch(setConfetti({ img, name }));
+  const handleSelectConfetti = (confetti) => () => {
+    dispatch(setConfetti(confetti));
   };
   return (
     <ConfettiWrapper>
       <Title>Confetti: {confettiState.name}</Title>
       <ConfetiBox>
-        {сonfettiData.map(({ img, name }) => (
+        {confettiData.map((confetti, idx) => (
           <ConfettiItem
-            key={name}
+            key={idx}
             selectConfetti={confettiState}
-            name={name}
-            onClick={handleSelectConfetti(img, name)}
+            name={confetti.id}
+            onClick={handleSelectConfetti(confetti)}
           >
-            <ConfettiImage src={img} alt={name} />
+            <ConfettiImage src={confetti.img} alt={confetti.name} />
           </ConfettiItem>
         ))}
       </ConfetiBox>

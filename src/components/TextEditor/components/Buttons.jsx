@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 
-import { setCurrentEditor } from "../../../redux/actions/textEditor";
+import {setCurrentEditor} from "../../../redux/actions/textEditor";
 import {
   closeSideBar,
   findButtonName,
@@ -9,16 +9,21 @@ import {
 
 import WhiteButton from "../../Buttons/WhiteButton";
 
-import { ButtonWrapper } from "../style";
+import {ButtonWrapper} from "../style";
+import {setUpdateTextData} from "../../../redux/actions/textData";
 
-function Buttons({ currentEditor, textStyles, option, setOption }) {
+function Buttons({currentEditor, textStyles, option, setOption}) {
   const dispatch = useDispatch();
 
   const submitChanges = () => {
     if (currentEditor.flag === "Image") {
-      dispatch(setCurrentEditor({ flag: "", state: false }));
+      dispatch(setCurrentEditor({flag: "", state: false}));
+      //todo cannon
+      dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: false}}));
     } else {
-      dispatch(setCurrentEditor({ flag: "", state: true }));
+      dispatch(setCurrentEditor({flag: "", state: true}));
+      //todo cannon
+      dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
     }
   };
 

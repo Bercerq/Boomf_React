@@ -1,1 +1,2 @@
-export const SET_CONFETTI = 'SET_CONFETTI'
+export const SET_CONFETTI = 'SET_CONFETTI';
+export const SET_CONFETTI_DATA = 'SET_CONFETTI_DATA';
