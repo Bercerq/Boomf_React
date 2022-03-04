@@ -8,7 +8,7 @@ export const routes = [
     component: Boomb,
   },
   {
-    path: '/Cannon',
+    path: '/cannon',
     exact: true,
     component: Cannon
   },

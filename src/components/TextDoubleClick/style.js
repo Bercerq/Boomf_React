@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FormTextContent = styled.div`
-  position: static;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,21 +22,27 @@ export const FormTextContent = styled.div`
 
   word-break: break-word;
   z-index: 1;
-`
+`;
 
 export const DivThree = styled.div`
   position: absolute;
   left: -12px;
   top: 20px;
-`
+`;
 
 export const CenterRotate = styled.div`
   position: absolute;
   height: 1px;
   width: 1px;
-`
+  right: 50%;
+`;
 
 export const DivTextContent = styled.div`
+  cursor: pointer;
+  min-width: 195px;
+  min-height: 18px;
+  padding: 8px;
+  
   font-family: ${({ textStyles }) =>
           textStyles.font ? `${textStyles.font}` : "Objectivity"};
   font-size: ${({ textStyles }) =>
@@ -45,10 +51,10 @@ export const DivTextContent = styled.div`
           textStyles.colour ? `${textStyles.colour}` : "#222222"};
   text-align: ${({ textStyles }) =>
           textStyles.alignment ? `${textStyles.alignment}` : "center"};
+`;
 
-  padding: 8px;
-
-  cursor: pointer;
-  min-width: 195px;
-  min-height: 18px;
-`
+export const DivItemText = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+`;

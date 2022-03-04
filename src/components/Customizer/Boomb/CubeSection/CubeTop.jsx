@@ -2,7 +2,7 @@ import React from "react";
 import { useRef } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setFocus } from "../../../../redux/actions/textEditor";
+import { setEditTextFocus } from "../../../../redux/actions/textEditor";
 import { changeTopText, openEditor } from "../../../../utils/functions/boomb";
 import { useOnClickOutside } from "../../../../utils/hooks/useOnClickOutside";
 import { CubeItem, TopText, CubeSide } from "./style";
@@ -20,7 +20,7 @@ export const CubeTop = ({
   // const { currentEditor } = useSelector(
   //   ({ textEditorReducer }) => textEditorReducer
   // );
-  // useOnClickOutside(ref, () => dispatch(setFocus(false)));
+  // useOnClickOutside(ref, () => dispatch(setEditTextFocus(false)));
   return (
     <>
       <CubeSide

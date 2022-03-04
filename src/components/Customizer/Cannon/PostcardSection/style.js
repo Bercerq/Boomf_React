@@ -3,11 +3,14 @@ import {
   CubeContainer,
   CubeItem,
   SideContent,
-  StaticText,
   TopText
 } from "../../Boomb/CubeSection/style";
 
-export const PostcardBlock = styled(SideContent)``
+export const PostcardBlock = styled(SideContent)`
+  @media (max-width: 920px) {
+    margin-bottom: 30px;
+  }
+`
 
 export const PostcardContainer = styled(CubeContainer)`
   width: 100%;
@@ -34,12 +37,15 @@ export const BackgroundCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  
+
   @media (max-width: 920px) {
-    max-width: 70%;
-    width: auto;
-    min-width: 200px;
-    height: 480px
+    height: 630px;
+    width: 390px;
+  }
+
+  @media (max-width: 520px) {
+    height: 525px;
+    width: 335px;
   }
 `
 

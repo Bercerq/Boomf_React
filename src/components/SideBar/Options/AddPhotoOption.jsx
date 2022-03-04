@@ -9,7 +9,7 @@ import {
 import { setImageCannon } from "../../../redux/actions/cannon";
 
 import { selectImage } from "../../../utils/functions/boomb";
-import {setCannonImage, setUploadImage} from "../../../utils/functions/cannon";
+import { setCannonImage } from "../../../utils/functions/cannon";
 
 import Buttons from "./components/Buttons";
 import ImageUploader from "./components/ImageUploader";

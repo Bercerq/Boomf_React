@@ -1,6 +1,6 @@
-import { setCurrentSidebar } from "./../../redux/actions/sideBar";
+import {setCurrentSidebar} from "./../../redux/actions/sideBar";
 
-import { panelData } from "../constants/PanelData";
+import {panelData} from "../constants/PanelData";
 
 import AddTextOption from "../../components/SideBar/Options/AddTextOption";
 import AddPhotoOption from "../../components/SideBar/Options/AddPhotoOption";
@@ -13,31 +13,32 @@ import {
   OptionIcon,
   OptionText,
 } from "../../components/SideBar/style";
+import {addEditText} from "../../redux/actions/textEditor";
 
 export const drawOption = (title) => {
   switch (title) {
     case "+ Add text":
-      return <AddTextOption />;
+      return <AddTextOption/>;
     case "+ Add photo":
-      return <AddPhotoOption />;
+      return <AddPhotoOption/>;
     case "+ Sticker":
-      return <StickerOption />;
+      return <StickerOption/>;
     case "Choose a message":
-      return <ChouseMessageOption />;
+      return <ChouseMessageOption/>;
     default:
       break;
   }
 };
 
 export const findPanelOption = (dispatch) =>
-  panelData.map(({ icon, text, flag }) => {
+  panelData.map(({icon, text, flag}) => {
     return (
       <Option
-        onClick={() => dispatch(setCurrentSidebar({ state: true, flag: text }))}
+        onClick={() => text === '+ Add text' ? dispatch(addEditText()) : dispatch(setCurrentSidebar({state: true, flag: text}))}
         key={flag}
       >
         <OptionIcon>
-          <Icon text={text} src={icon} alt={text} />
+          <Icon text={text} src={icon} alt={text}/>
         </OptionIcon>
         <OptionText>{text}</OptionText>
       </Option>
