@@ -1,10 +1,8 @@
-import { alignmentIcon, editOptions } from "../constants/TextEditData";
+import {alignmentIcon, editOptions} from "../constants/TextEditData";
 
-import {
-  editText,
-  setCurrentEditor,
-  setFocus,
-} from "../../redux/actions/textEditor";
+import {editText, setCurrentEditor, setFocus,} from "../../redux/actions/textEditor";
+
+import {setUpdateTextData} from "../../redux/actions/textData";
 
 import Colour from "../../components/TextEditor/Option/Colour";
 import Font from "../../components/TextEditor/Option/Font";
@@ -23,10 +21,10 @@ export const drawEditorContent = (flag, option, setOption, dispatch) =>
     ? drawOption(flag, option, setOption)
     : selectOptions(setOption, option, dispatch);
 
- const selectOptions = (setOption, option, dispatch) => {
+const selectOptions = (setOption, option, dispatch) => {
   return (
     <OptionsWrapper>
-      {editOptions.map(({ icon, text }) => (
+      {editOptions.map(({icon, text}) => (
         <Option
           onClick={selectEditorOption(text, setOption, option, dispatch)}
           key={text}
@@ -35,7 +33,7 @@ export const drawEditorContent = (flag, option, setOption, dispatch) =>
             {text === "Alignment" ? (
               findAlignmentImage(option)
             ) : (
-              <img src={icon} alt={text} />
+              <img src={icon} alt={text}/>
             )}
           </OptionIcon>
           <OptionText>{text}</OptionText>
@@ -49,7 +47,10 @@ const selectEditorOption = (text, setOption, option, dispatch) => () => {
   if (text === "Alignment") {
     findAlignment(option, setOption);
   }
-  dispatch(setCurrentEditor({ state: true, flag: text }));
+  dispatch(setCurrentEditor({state: true, flag: text}));
+
+  //todo cannon
+  dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: text, state: true}}));
 };
 
 const findAlignment = (option, setOption) => {
@@ -66,25 +67,25 @@ const findAlignment = (option, setOption) => {
 
 const findAlignmentImage = (option) =>
   !option ? (
-    <img src={alignmentIcon[0].icon} alt="center" />
+    <img src={alignmentIcon[0].icon} alt="center"/>
   ) : (
-    alignmentIcon.map(({ icon, side }) => {
+    alignmentIcon.map(({icon, side}) => {
       if (option === side) {
-        return <img key="side" src={icon} alt={side} />;
+        return <img key="side" src={icon} alt={side}/>;
       }
     })
   );
 
- const drawOption = (flag, option, setOption) => {
+const drawOption = (flag, option, setOption) => {
   switch (flag) {
     case "Font":
-      return <Font option={option} setOption={setOption} />;
+      return <Font option={option} setOption={setOption}/>;
     case "Size":
-      return <Size option={option} setOption={setOption} />;
+      return <Size option={option} setOption={setOption}/>;
     case "Colour":
-      return <Colour option={option} setOption={setOption} />;
+      return <Colour option={option} setOption={setOption}/>;
     case "Image":
-      return <Image option={option} setOption={setOption} />;
+      return <Image option={option} setOption={setOption}/>;
     default:
       break;
   }
@@ -97,10 +98,15 @@ export const closeSideBar =
       currentEditor.flag !== "Alignment" &&
       currentEditor.flag !== "Image"
     ) {
-      dispatch(setCurrentEditor({ flag: "", state: true }));
+      dispatch(setCurrentEditor({flag: "", state: true}));
+      // todo cannon
+      dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
     } else {
-      dispatch(setCurrentEditor({ flag: currentEditor.flag, state: false }));
+      dispatch(setCurrentEditor({flag: currentEditor.flag, state: {flag: "", state: true}}));
       dispatch(setFocus(false));
+      // todo cannon
+      dispatch(setUpdateTextData({key: 'focusState', value: false}));
+      dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: false}}));
     }
     setOption("");
 
@@ -109,9 +115,13 @@ export const closeSideBar =
 
 const findSavedStyles = (dispatch, textStyles, flag) => {
   if (textStyles[flag]) {
-    dispatch(editText({ [flag]: textStyles[flag] }));
+    dispatch(editText({[flag]: textStyles[flag]}));
+    // todo cannon
+    dispatch(setUpdateTextData({key: 'textStyles', value: {[flag]: textStyles[flag]}}));
   } else {
-    dispatch(editText({ [flag.toLowerCase()]: "" }));
+    dispatch(editText({[flag.toLowerCase()]: ""}));
+    // todo cannon
+    dispatch(setUpdateTextData({key: 'textStyles', value: {[flag.toLowerCase()]: ""}}));
   }
 };
 

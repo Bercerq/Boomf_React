@@ -125,17 +125,18 @@ export const SideBarContent = styled.div`
     currentSidebar &&
     "width: 45vw;transition: 0.4s;@media(max-width:920px){width:100%};"};
   height: 100vh;
+  overflow: auto;
 `;
 
 export const SideContent = styled.div`
-  width: 48vw;
+  width: 100%;
   position: sticky;
   top: 0;
 `;
 
 export const SideBarTitle = styled.div`
   width: 40vw;
-  position: sticky;
+  //position: sticky;
   top: 0;
   align-items: center;
   display: flex;

@@ -23,7 +23,7 @@ function TextEditor() {
   const debouncedValue = useDebounce(option, 500);
 
   useCreateEditorValue(currentEditor.flag, debouncedValue, dispatch);
-  
+
   useEffect(() => {
     setOption(textStyles[currentEditor?.flag.toLowerCase()]);
   }, [currentEditor.flag]);

@@ -3,11 +3,14 @@ import {
   CubeContainer,
   CubeItem,
   SideContent,
-  StaticText,
   TopText
 } from "../../Boomb/CubeSection/style";
 
-export const PostcardBlock = styled(SideContent)``
+export const PostcardBlock = styled(SideContent)`
+  @media (max-width: 920px) {
+    margin-bottom: 30px;
+  }
+`
 
 export const PostcardContainer = styled(CubeContainer)`
   width: 100%;
@@ -18,20 +21,14 @@ export const PostcardContainer = styled(CubeContainer)`
 export const PostcardWrapper = styled.img`
   position: absolute;
   width: 100%;
-  height: 80%;
+  height: 90%;
   object-fit: cover;
-  @media (max-width: 1240px) {
-    width: 80%;
-  }
-  @media (max-width: 920px) {
-    width: 100%;
-  }
 `
 
 export const BackgroundCard = styled.div`
   display: flex;
-  height: 575px;
-  width: 383px;
+  height: ${({sizeCard: {height}}) => height ? `${height}px` : 'auto'};
+  width: ${({sizeCard: {width}}) => width ? `${width}px` : 'auto'};;
   margin-top: 40px;
   position: relative;
   user-select: none;
@@ -40,11 +37,15 @@ export const BackgroundCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  
+
   @media (max-width: 920px) {
-    max-width: 70%;
-    min-width: 200px;
-    height: 480px
+    height: 630px;
+    width: 390px;
+  }
+
+  @media (max-width: 520px) {
+    height: 525px;
+    width: 335px;
   }
 `
 
@@ -61,8 +62,8 @@ export const BackgroundImage = styled.img`
 `
 
 export const ImageDiv = styled(CubeItem)`
-  width: 292px;
-  height: 291px;
+  width: 76%;
+  height: 50%;
   padding: initial;
   margin-top: 45px;
   background: white;
@@ -102,30 +103,6 @@ export const AddButton = styled.button`
 
 
 export const ImageContent = styled(ImageDiv)``
-
-export const TextContentBlock = styled(StaticText)`
-  position: static;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  top: auto;
-  left: auto;
-  right: auto;
-  bottom: auto;
-
-  width: 292px;
-  height: 133px;
-  margin-bottom: 45px;
-  border: 1px dashed #F5F5F5;
-  box-sizing: border-box;
-  border-radius: 8px;
-
-  overflow: auto;
-
-  word-break: break-word;
-  z-index: 1;
-`
 
 export const PostcardSide = styled.div`
   width: 100%;
