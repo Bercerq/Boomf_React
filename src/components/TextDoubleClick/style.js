@@ -52,9 +52,3 @@ export const DivTextContent = styled.div`
   text-align: ${({ textStyles }) =>
           textStyles.alignment ? `${textStyles.alignment}` : "center"};
 `;
-
-export const DivItemText = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-`;

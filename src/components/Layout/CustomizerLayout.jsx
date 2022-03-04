@@ -5,6 +5,7 @@ import Confetti from "../Confetti/Confetti";
 import { MainWrapper } from "./style";
 import Sidebar from "../SideBar/SideBar";
 import CannonRightColumn from "../Confetti/Cannon";
+import TextEditorCannon from "../TextEditor/TextEditorCannon";
 
 function CustomizerLayout({ title, children, dataName }) {
   return (
@@ -13,12 +14,18 @@ function CustomizerLayout({ title, children, dataName }) {
       <Sidebar />
       {children}
       {dataName === 'cannon' ? (
-        <CannonRightColumn/>
-      ) : (
-        <Confetti/>
-      )}
+        <>
+          <CannonRightColumn/>
+          <TextEditorCannon/>
+        </>
 
-      <TextEditor />
+      ) : (
+        <>
+          <Confetti/>
+          <TextEditor />
+        </>
+
+      )}
     </MainWrapper>
   );
 }

@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   closeSideBar,
@@ -12,35 +12,35 @@ import useDebounce from "../../utils/hooks/useDebounce";
 
 import Buttons from "./components/Buttons";
 
-import {TextEditorWrapper, TextEditorContent} from "./style";
+import { TextEditorWrapper, TextEditorContent } from "./style";
 
 function TextEditor() {
   const [option, setOption] = useState();
   const dispatch = useDispatch();
-  const {textEditorState} = useSelector(
-    ({textEditorReducer}) => textEditorReducer
+  const { textStyles, currentEditor } = useSelector(
+    ({ textEditorReducer }) => textEditorReducer
   );
   const debouncedValue = useDebounce(option, 500);
 
-  useCreateEditorValue(textEditorState.currentEditor.flag, debouncedValue, dispatch);
+  useCreateEditorValue(currentEditor.flag, debouncedValue, dispatch);
 
   useEffect(() => {
-    setOption(textEditorState.textStyles[textEditorState.currentEditor.flag.toLowerCase()]);
-  }, [textEditorState.currentEditor.flag]);
+    setOption(textStyles[currentEditor?.flag.toLowerCase()]);
+  }, [currentEditor.flag]);
 
   return (
     <TextEditorWrapper
-      currentEditor={textEditorState.currentEditor.state}
-      onClick={closeSideBar(dispatch, textEditorState.currentEditor, textEditorState.textStyles, setOption)}
+      currentEditor={currentEditor.state}
+      onClick={closeSideBar(dispatch, currentEditor, textStyles, setOption)}
     >
       <TextEditorContent
-        currentEditor={textEditorState.currentEditor.state}
+        currentEditor={currentEditor.state}
         onClick={(e) => e.stopPropagation()}
       >
-        {drawEditorContent(textEditorState.currentEditor.flag, option, setOption, dispatch)}
+        {drawEditorContent(currentEditor.flag, option, setOption, dispatch)}
         <Buttons
-          currentEditor={textEditorState.currentEditor}
-          textStyles={textEditorState.textStyles}
+          currentEditor={currentEditor}
+          textStyles={textStyles}
           option={option}
           setOption={setOption}
         />

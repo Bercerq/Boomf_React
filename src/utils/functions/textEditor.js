@@ -1,11 +1,8 @@
 import {alignmentIcon, editOptions} from "../constants/TextEditData";
 
-import {
-  editText,
-  setCurrentEditor,
-  setEditTextFocus,
-  setTextStyle,
-} from "../../redux/actions/textEditor";
+import {editText, setCurrentEditor, setFocus,} from "../../redux/actions/textEditor";
+
+import {setUpdateTextData} from "../../redux/actions/textData";
 
 import Colour from "../../components/TextEditor/Option/Colour";
 import Font from "../../components/TextEditor/Option/Font";
@@ -51,6 +48,9 @@ const selectEditorOption = (text, setOption, option, dispatch) => () => {
     findAlignment(option, setOption);
   }
   dispatch(setCurrentEditor({state: true, flag: text}));
+
+  //todo cannon
+  dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: text, state: true}}));
 };
 
 const findAlignment = (option, setOption) => {
@@ -99,9 +99,14 @@ export const closeSideBar =
       currentEditor.flag !== "Image"
     ) {
       dispatch(setCurrentEditor({flag: "", state: true}));
+      // todo cannon
+      dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
     } else {
-      dispatch(setCurrentEditor({flag: currentEditor.flag, state: false}));
-      dispatch(setEditTextFocus(false));
+      dispatch(setCurrentEditor({flag: currentEditor.flag, state: {flag: "", state: true}}));
+      dispatch(setFocus(false));
+      // todo cannon
+      dispatch(setUpdateTextData({key: 'focusState', value: false}));
+      dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: false}}));
     }
     setOption("");
 
@@ -110,11 +115,13 @@ export const closeSideBar =
 
 const findSavedStyles = (dispatch, textStyles, flag) => {
   if (textStyles[flag]) {
-    // dispatch(editText({[flag]: textStyles[flag]})); // todo bomb style
-    dispatch(setTextStyle({[flag]: textStyles[flag]}))
+    dispatch(editText({[flag]: textStyles[flag]}));
+    // todo cannon
+    dispatch(setUpdateTextData({key: 'textStyles', value: {[flag]: textStyles[flag]}}));
   } else {
-    // dispatch(editText({[flag.toLowerCase()]: ""})); // todo bomb style
-    dispatch(setTextStyle({[flag.toLowerCase()]: ""}));
+    dispatch(editText({[flag.toLowerCase()]: ""}));
+    // todo cannon
+    dispatch(setUpdateTextData({key: 'textStyles', value: {[flag.toLowerCase()]: ""}}));
   }
 };
 
@@ -129,67 +136,3 @@ export const findButtonName = (flag) => {
     return "Close";
   }
 };
-
-export const updateStateEditText = (state, key, value) => {
-  const textState = {
-    ...state.textEditorState,
-    [key]: key === 'textStyles' ? {
-      ...state.textEditorState.textStyles,
-      ...value
-    } : value
-  }
-
-  return {
-    ...state,
-    textEditorData: state.textEditorData.map(e => (
-      e.id === state.textEditorState.id ? textState : {...e, dblClickState: false}
-    )),
-    textEditorState: textState,
-  }
-}
-
-export const addStateEditText = (state, initialState) => {
-  const data = state.textEditorData.map(e => ({...e, dblClickState: false}))
-  const textState = {
-    ...initialState.textEditorState,
-    dblClickState: true,
-    id: uid()
-  }
-  if(data.length > 10) {
-    data[0] = {...data[0], dblClickState: true}
-    return  {
-      ...state,
-      textEditorData: [...data],
-      textEditorState: data[0]
-    }
-  }
-  return {
-    ...state,
-    textEditorData: [...data, textState],
-    textEditorState: textState
-  }
-}
-
-export const deleteStateEditText = (state, initialState) => {
-  const data = state.textEditorData.filter(e => e.id !== state.textEditorState.id);
-
-  if (!data.length) {
-    return initialState
-  }
-
-  return {
-    ...state,
-    textEditorData: data,
-    textEditorState: data[0]
-  }
-}
-
-export const uid = () => {
-  const array = new Uint32Array(8)
-  window.crypto.getRandomValues(array)
-  let str = '';
-  for (let i = 0; i < array.length; i++) {
-    str += (i < 2 || i > 5 ? '' : '-') + array[i].toString(16).slice(-4)
-  }
-  return str
-}

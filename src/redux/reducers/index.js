@@ -6,7 +6,8 @@ import sidebarReducer from "./sideBar";
 import cannonReducer from "./cannon";
 import modalReducer from "./modal";
 import backgroundReducer from "./background";
-import imageReducer from "./image";
+import imageLibraryReducer from "./imageLibrary";
+import textDataReducer from "./textData";
 
 const rootReducer = combineReducers({
   boombReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   modalReducer,
   cannonReducer,
   backgroundReducer,
-  imageReducer
+  imageLibraryReducer,
+  textDataReducer
 });
 
 export default rootReducer;
