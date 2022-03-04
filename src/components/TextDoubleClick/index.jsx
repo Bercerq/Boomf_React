@@ -28,8 +28,8 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
     }
   }, [cursorPosition, enableRotate]);
 
-  const deleteText = () => {
-    dispatch(setDeleteTextData())
+  const deleteText = (id) => {
+    dispatch(setDeleteTextData(id))
   }
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
             activeState={e.dblClickState}
             setEnableRotate={setEnableRotate}
             setPositionState={setPositionState}
-            deleteText={() => deleteText}
+            deleteText={() => deleteText(e.id)}
             handleSelectCard={() => dispatch(setActionTextData(e.id))}
 
             uid={e.id}
