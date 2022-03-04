@@ -1,48 +1,71 @@
 import React, {useEffect, useState} from 'react';
 import {PostcardText} from "./style";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {changeTopText} from "../../../../utils/functions/boomb";
 import {useFocus} from "../../../../utils/hooks/useFocus";
 import TextDoubleClick from "../../../TextDoubleClick";
+import useDebounce from "../../../../utils/hooks/useDebounce";
+import {setEditTextPosition, setEditTextRotate, setEditTextValue} from "../../../../redux/actions/textEditor";
 
 const PostcardTextComponent = () => {
-  // const [textEditor, setTextEditorState] = useState();
-
   const [inputRef, setInputRef] = useFocus();
   const [textState, setTextState] = useState("");
+  const [rotateState, setRotateState] = useState(0);
+  const [positionState, setPositionState] = useState({ x:0, y:0 });
 
-  const {
-    textStyles,
-    focusState,
-    dblClickState,
-    // textEditorState
-  } = useSelector(
+  const dispatch = useDispatch();
+  const {textEditorState} = useSelector(
     ({textEditorReducer}) => textEditorReducer
   );
 
+  const debouncedValue = useDebounce(textState, 500);
+  const debouncedRotate = useDebounce(rotateState, 500);
+  const debouncedPosition = useDebounce(positionState, 500);
+
   useEffect(() => {
-    if (focusState) setInputRef();
-  }, [focusState]);
+    if (textEditorState.focusState) setInputRef();
+  }, [textEditorState.focusState]);
+
+  useEffect(() => {
+    dispatch(setEditTextValue(debouncedValue));
+  }, [debouncedValue]);
+
+  useEffect(() => {
+    dispatch(setEditTextRotate(debouncedRotate));
+  }, [debouncedRotate]);
+
+  useEffect(() => {
+    dispatch(setEditTextPosition(debouncedPosition));
+  }, [debouncedPosition]);
+
+  useEffect(() => {
+    setTextState(textEditorState.value);
+    setRotateState(textEditorState.rotate);
+    setPositionState(textEditorState.position);
+  }, [textEditorState.id]);
 
   return (
     <>
-      {focusState && (
+      {textEditorState.focusState && (
         <PostcardText
-          focusState={focusState}
+          focusState={textEditorState.focusState}
           ref={inputRef}
-          textStyles={textStyles}
+          textStyles={textEditorState.textStyles}
           onChange={(e) => changeTopText(setTextState, e)}
           type="text"
           value={textState}
+          defaultValue={textEditorState.value}
           resize="none"
-          readOnly={!focusState}
+          readOnly={!textEditorState.focusState}
         />
       )}
-        <TextDoubleClick
-          textState={textState}
-          textStyles={textStyles}
-          activeState={dblClickState}
-        />
+      <TextDoubleClick
+        textState={textState}
+        rotateState={rotateState}
+        setRotateState={setRotateState}
+        positionState={positionState}
+        setPositionState={setPositionState}
+      />
     </>
 
   );

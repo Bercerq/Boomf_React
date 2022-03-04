@@ -23,16 +23,20 @@ const PostcardSection = () => {
     //     height: window.innerWidth / 100 * 40,
     //     width: window.innerWidth / 100 * 40 / 1.5
     //   }));
-    // });
+    // });  TODO
   }, [])
 
   return (
     <PostcardContainer>
-      <PostcardWrapper src={confettiState.img} alt={confettiState.name}/>
-      <BackgroundCard
-        sizeCard={sizeCard}
-      >
-        <BackgroundImage src={backgroundState.img} alt={backgroundState.name}/>
+      <PostcardWrapper
+        src={confettiState.img}
+        alt={confettiState.name}
+      />
+      <BackgroundCard sizeCard={sizeCard}>
+        <BackgroundImage
+          src={backgroundState.img}
+          alt={backgroundState.name}
+        />
         <PostcardImage/>
         <PostcardText/>
       </BackgroundCard>

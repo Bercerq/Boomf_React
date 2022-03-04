@@ -1,9 +1,11 @@
 import React from 'react';
-import {AddButton, BackgroundImage, ImageDiv, ImageNotContent} from "./style";
 import {useDispatch, useSelector} from "react-redux";
-import {setImageContent} from "../../../../utils/functions/cannon";
-import {EditButton, EditIcon} from "../../Boomb/CubeSection/style";
+
 import EditPencil from "../../../../utils/assets/svg/EditPencil.svg";
+
+import {AddButton, BackgroundImage, ImageDiv, ImageNotContent} from "./style";
+import {EditButton, EditIcon} from "../../Boomb/CubeSection/style";
+import {setImageContent} from "../../../../utils/functions/cannon";
 import {setCurrentEditor} from "../../../../redux/actions/textEditor";
 
 const PostcardImage = () => {
