@@ -1,4 +1,5 @@
-import {setCurrentSidebar} from "./../../redux/actions/sideBar";
+import {setCurrentSidebar} from "../../redux/actions/sideBar";
+import {setAddTextData} from "../../redux/actions/textData";
 
 import {panelData} from "../constants/PanelData";
 
@@ -6,6 +7,7 @@ import AddTextOption from "../../components/SideBar/Options/AddTextOption";
 import AddPhotoOption from "../../components/SideBar/Options/AddPhotoOption";
 import StickerOption from "../../components/SideBar/Options/StickerOption";
 import ChouseMessageOption from "../../components/SideBar/Options/ChouseMessageOption";
+import BoomfDesigns from "../../components/SideBar/Options/BoomfDesigns";
 
 import {
   Icon,
@@ -13,7 +15,6 @@ import {
   OptionIcon,
   OptionText,
 } from "../../components/SideBar/style";
-import {setAddTextData} from "../../redux/actions/textData";
 
 export const drawOption = (title) => {
   switch (title) {
@@ -25,6 +26,8 @@ export const drawOption = (title) => {
       return <StickerOption/>;
     case "Choose a message":
       return <ChouseMessageOption/>;
+    case "Boomf designs":
+      return <BoomfDesigns />
     default:
       break;
   }
@@ -34,7 +37,11 @@ export const findPanelOption = (dispatch) =>
   panelData.map(({icon, text, flag}) => {
     return (
       <Option
-        onClick={() => text === '+ Add text' ? dispatch(setAddTextData()) : dispatch(setCurrentSidebar({state: true, flag: text}))}
+        onClick={() => text === '+ Add text' ? (
+          dispatch(setAddTextData())
+        ) : (
+          dispatch(setCurrentSidebar({state: true, flag: text}))
+        )}
         key={flag}
       >
         <OptionIcon>

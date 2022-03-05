@@ -3,7 +3,6 @@ import boombReducer from "./boomb";
 import textEditorReducer from "./textEditor";
 import confettiReducer from "./confetti";
 import sidebarReducer from "./sideBar";
-import cannonReducer from "./cannon";
 import modalReducer from "./modal";
 import backgroundReducer from "./background";
 import imageLibraryReducer from "./imageLibrary";
@@ -15,7 +14,6 @@ const rootReducer = combineReducers({
   confettiReducer,
   sidebarReducer,
   modalReducer,
-  cannonReducer,
   backgroundReducer,
   imageLibraryReducer,
   textDataReducer

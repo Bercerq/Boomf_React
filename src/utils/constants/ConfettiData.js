@@ -137,3 +137,19 @@ export const backgroundDataCannon = [
   {name: 'Colorful', img: Colorful}, {name: 'Nature', img: Nature}, {name: 'Textile', img: Textile},
   {name: 'Colorful', img: Colorful}, {name: 'Nature', img: Nature}
 ]
+
+export const collectionData = [
+  {img: Colorful, alt: 'Colorful', id: 0}, {img: Nature, alt: 'Nature', id: 1},
+  {img: Textile, alt: 'Textile', id: 2}, {img: Summer1, alt: 'Summer1', id: 3},
+  {img: Blossom, alt: 'Blossom', id: 4}, {img: BlossomGB, alt: 'BlossomGB', id: 5},
+  {img: BCGold, alt: 'BCGold', id: 6}, {img: BcGold1, alt: 'BcGold1', id: 7},
+  {img: Unicorn, alt: 'Unicorn', id: 8}, {img: Watermelon, alt: 'Watermelon', id: 9},
+];
+
+export const activeCollectionData = [
+  {img: Unicorn, alt: 'Unicorn', id: 8}, {img: Watermelon, alt: 'Watermelon', id: 9},
+  {img: BCGold, alt: 'BCGold', id: 6}, {img: BcGold1, alt: 'BcGold1', id: 7},
+  {img: Blossom, alt: 'Blossom', id: 4}, {img: BlossomGB, alt: 'BlossomGB', id: 5},
+  {img: Textile, alt: 'Textile', id: 2}, {img: Summer1, alt: 'Summer1', id: 3},
+  {img: Colorful, alt: 'Colorful', id: 0}, {img: Nature, alt: 'Nature', id: 1},
+]

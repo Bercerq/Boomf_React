@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import Draggable from "react-draggable";
 
-import Reboot from '../../utils/assets/svg/Reboot.svg';
-import TrashCan from '../../utils/assets/svg/TrashCan.svg';
-
 import {textPosition} from "../../utils/functions/textData";
 
+import Reboot from '../../utils/assets/svg/Reboot.svg';
+import TrashCan from '../../utils/assets/svg/TrashCan.svg';
 import {CenterRotate, DivTextContent} from "./style.js";
 import './style.css';
 
@@ -58,9 +57,8 @@ const DraggableText = ({
           <div className='div-reboot-pos'>
             <strong className="no-cursor">
               {activeState && (
-                <div
+                <div className='image-div-block'
                   style={{cursor: 'col-resize'}}
-                  className='image-div-block'
                   onMouseDown={() => setEnableRotate(true)}
                   onTouchStart={() => {
                     setEnableRotate(true);
@@ -76,9 +74,8 @@ const DraggableText = ({
             <div className='div-trash-pos'>
               <strong className="no-cursor">
                 {activeState && (
-                  <div
+                  <div className='image-div-block'
                     style={{cursor: 'pointer'}}
-                    className='image-div-block'
                     onClick={deleteText}
                   >
                     <img src={TrashCan} height={10} width={10} alt='TrashCan'/>
@@ -87,9 +84,7 @@ const DraggableText = ({
               </strong>
             </div>
             <DivTextContent
-              style={activeState ? ({
-                cursor: 'all-scroll', border: '2px solid #0A74FF'
-              }) : {}}
+              activeState={activeState}
               textStyles={textStyles ? textStyles : {}}
             >
               {!textState ? ('Double Click to type your text') : (textState)}

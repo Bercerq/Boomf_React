@@ -34,12 +34,12 @@ export const textPosition = (data, wrapperH, wrapperW) => {
   return position[nearestSide];
 }
 
-export const getCenterBox = (box) => {
+export const getCenterBox = (box, scroll) => {
   let boxBoundingRect = box.getBoundingClientRect();
 
   return {
     x: boxBoundingRect.left + boxBoundingRect.width / 2,
-    y: boxBoundingRect.top + boxBoundingRect.height / 2
+    y: boxBoundingRect.top + scroll + boxBoundingRect.height / 2
   }
 }
 

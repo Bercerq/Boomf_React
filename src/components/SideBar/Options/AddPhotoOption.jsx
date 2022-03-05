@@ -50,8 +50,8 @@ function AddPhotoOption() {
         <Switch>
           {/**todo Route temporary solution*/}
           <Route path="/" exact={true}>
-            {boombData.map(({ img, position }) => (
-              <DivUploadImage>
+            {boombData.map(({ img, position }, idx) => (
+              <DivUploadImage key={'DivUploadImage' + idx}>
                 <CloseIconDiv>
                   <svg width="16" height="16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M41.5999 22.4004L22.3999 41.6004" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round"/>

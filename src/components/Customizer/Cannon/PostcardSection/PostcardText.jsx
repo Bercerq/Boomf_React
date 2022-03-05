@@ -56,7 +56,6 @@ const PostcardTextComponent = () => {
           onChange={(e) => changeTopText(setTextState, e)}
           type="text"
           value={textState}
-          defaultValue={textDataState.value}
           resize="none"
           readOnly={!textDataState.focusState}
         />

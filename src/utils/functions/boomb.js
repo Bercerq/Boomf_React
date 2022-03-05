@@ -10,6 +10,7 @@ import {
   selectUploadedImage,
   setImageLibrary,
 } from "../../redux/actions/sideBar";
+import {setAddImageLibrary} from "../../redux/actions/imageLibrary";
 
 export const changeCubeRotate = (
   operator,
@@ -80,6 +81,13 @@ export const updateItem = (
 export const setLibraryImage = (image, dispatch) => {
   dispatch(setImageLibrary(image));
 };
+export const setUploadImage = (img, dispatch) => {
+  if (!img) {
+    return null;
+  }
+
+  dispatch(setAddImageLibrary({img: URL.createObjectURL(img[0]), alt: img[0].name}))
+}
 export const setBoxPosition = (dispatch, position, defaultRotate) => () => {
   dispatch(setCurPosition(position));
   dispatch(setCurRotate(defaultRotate));

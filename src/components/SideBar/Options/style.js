@@ -120,3 +120,36 @@ export const DivUploadImage = styled.div`
 `;
 export const ButtonsWrapper = styled.div``;
 export const ButtonsItem = styled.div``;
+
+export const InputFilterImage = styled.input`
+  padding: 7px 8px 7px 27px;
+  width: 45%;
+  background: rgba(118, 118, 128, 0.12);
+  border-radius: 10px;
+  border-color: transparent;
+`;
+export const DivMicroIcon = styled.div`
+  position: absolute;
+  left: 47%;
+  width: 16px;
+  height: 16px;
+`;
+export const DivSearchIcon = styled.div`
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 10px;
+`;
+export const DivContainerMicro = styled.div`
+  display: flex;
+  align-items: center;
+`;
+export const DivCollectionImage = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+`;
+export const TitleCollection = styled.h3`
+  width: 150px;
+  overflow-wrap: break-word;
+`;
