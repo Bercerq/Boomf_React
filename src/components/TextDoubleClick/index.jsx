@@ -11,8 +11,9 @@ import {FormTextContent} from "./style.js";
 const TextDoubleClick = ({textState, rotateState, setRotateState, positionState, setPositionState}) => {
   const [enableRotate, setEnableRotate] = useState(false);
   const [cursorPosition, setCursorPosition] = useState(null);
-  const {textData, textDataState} = useSelector(({textDataReducer}) => textDataReducer)
+  const {textData, textDataState} = useSelector(({textDataReducer}) => textDataReducer);
 
+  const dispatch = useDispatch();
   const refs = useRef({});
 
   const handleCardMove = useCallback((e) => {
@@ -20,10 +21,10 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
       return;
     }
     if (e.type === 'touchmove') {
-      setRotateState(rotateDegree(e.touches[0], getCenterBox(refs.current[textDataState.id])))
+      setRotateState(rotateDegree(e.touches[0], getCenterBox(refs.current[textDataState.id], window.scrollY)))
       setCursorPosition(e.touches[0].clientX);
     } else {
-      setRotateState(rotateDegree(e, getCenterBox(refs.current[textDataState.id])))
+      setRotateState(rotateDegree(e, getCenterBox(refs.current[textDataState.id], window.scrollY)))
       setCursorPosition(e.clientX)
     }
   }, [cursorPosition, enableRotate]);
@@ -36,9 +37,6 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
     if (enableRotate) {
       window.addEventListener("mousemove", handleCardMove);
       window.addEventListener("touchmove", handleCardMove);
-    } else {
-      window.removeEventListener("mousemove", handleCardMove);
-      window.removeEventListener("touchmove", handleCardMove);
     }
     return () => {
       window.removeEventListener("mousemove", handleCardMove);
@@ -46,7 +44,7 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
     }
   }, [enableRotate, handleCardMove]);
 
-  const dispatch = useDispatch();
+
 
   return (
     <FormTextContent

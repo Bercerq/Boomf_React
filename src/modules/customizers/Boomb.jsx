@@ -10,7 +10,6 @@ function Boomb() {
   const dispatch = useDispatch();
   const {confettiState, confettiData} = useSelector(({confettiReducer}) => confettiReducer)
 
-  console.log(confettiData)
   useEffect(() => {
     dispatch(setConfettiData(confettiDataBoomb))
   }, []);

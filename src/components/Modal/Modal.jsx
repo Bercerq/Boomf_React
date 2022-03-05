@@ -1,18 +1,20 @@
 import React from "react";
-import { ModalWindow, ModalContent, ModalTitle, Title, Close } from "./style";
-import CloseIcon from "./../../utils/assets/svg/CloseIcon.svg";
-import { useSelector } from "react-redux";
-import { setCurrentModal } from "../../redux/actions/modal";
-import { useDispatch } from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 
-function Modal({ children }) {
-  const { currentModal } = useSelector(({ modalReducer }) => modalReducer);
+import {setCurrentModal} from "../../redux/actions/modal";
+import CloseIcon from "./../../utils/assets/svg/CloseIcon.svg";
+import {ModalWindow, ModalContent, ModalTitle, Title, Close} from "./style";
+
+
+function Modal({children}) {
+  const {currentModal} = useSelector(({modalReducer}) => modalReducer);
 
   const dispatch = useDispatch();
 
   const closeSideBar = () => {
-    dispatch(setCurrentModal({ title: "", state: false }));
+    dispatch(setCurrentModal({title: "", state: false}));
   };
+
   return (
     <ModalWindow openSideBar={currentModal.state} onClick={closeSideBar}>
       <ModalContent
@@ -22,7 +24,7 @@ function Modal({ children }) {
         <ModalTitle>
           <Title>{currentModal.title}</Title>
           <Close onClick={closeSideBar}>
-            <img src={CloseIcon} alt="close" />
+            <img src={CloseIcon} alt="close"/>
           </Close>
         </ModalTitle>
         {children}

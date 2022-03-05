@@ -1,39 +1,37 @@
-import React, {useState} from 'react';
-
-import {PostcardBlock} from "./PostcardSection/style";
-import PostcardSection from "./PostcardSection/PostcardSection";
+import React from 'react';
 import {useDispatch} from "react-redux";
+
+import PostcardSection from "./PostcardSection/PostcardSection";
 import BlueButton from "../../Buttons/BlueButton";
 import Modal from "../../Modal/Modal";
 
-const Postcard = () => {
-  const [openModal, setOpenModal] = useState({ state: false, title: "" });
+import ArrowRightIcon from '../../../utils/assets/svg/ArrowRightIcon.svg'
+import {PostcardBlock, PostcardButton} from "./PostcardSection/style";
+import {setCurrentModal} from "../../../redux/actions/modal";
 
+const Postcard = () => {
+  const dispatch = useDispatch();
   const handleButtonClick = () => {
-    setOpenModal({
-      title: "Add to cart",
-      state: true,
-    });
+    dispatch(setCurrentModal({title: "Add to cart", state: true}));
   };
 
-  const dispatch = useDispatch();
   return (
     <>
       <PostcardBlock>
         <PostcardSection/>
-        {/*<div>*/}
-        {/*  <BlueButton handleButtonClick={handleButtonClick}>*/}
-        {/*    Add to cart <img src={ArrowRightIcon} alt="add" />*/}
-        {/*  </BlueButton>*/}
-        {/*</div>*/}
-
+        <PostcardButton>
+          <BlueButton handleButtonClick={handleButtonClick}>
+            Add to cart <img src={ArrowRightIcon} alt="add"/>
+          </BlueButton>
+        </PostcardButton>
       </PostcardBlock>
-      <Modal openModal={openModal} setOpenModal={setOpenModal}>
-        <h1 style={{ textAling: "center" }}>Item add</h1>
+      <Modal>
+        <h1 style={{textAling: "center"}}>
+          Item add
+        </h1>
         <BlueButton>Checkout</BlueButton>{" "}
       </Modal>
     </>
-
   );
 };
 

@@ -1,1 +1,0 @@
-export const SET_IMAGE_CANNON = 'SET_IMAGE_CANNON';

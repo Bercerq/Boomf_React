@@ -42,13 +42,17 @@ export const DivTextContent = styled.div`
   min-width: 195px;
   min-height: 18px;
   padding: 8px;
+  ${({activeState}) => 
+  `cursor: ${activeState ? 
+  'all-scroll; border: 2px solid #0A74FF' : 'auto'
+  }`};
   
-  font-family: ${({ textStyles }) =>
+  font-family: ${({textStyles}) =>
           textStyles.font ? `${textStyles.font}` : "Objectivity"};
-  font-size: ${({ textStyles }) =>
+  font-size: ${({textStyles}) =>
           textStyles.size ? `${textStyles.size}px` : "20px"};
-  color: ${({ textStyles }) =>
+  color: ${({textStyles}) =>
           textStyles.colour ? `${textStyles.colour}` : "#222222"};
-  text-align: ${({ textStyles }) =>
+  text-align: ${({textStyles}) =>
           textStyles.alignment ? `${textStyles.alignment}` : "center"};
 `;
