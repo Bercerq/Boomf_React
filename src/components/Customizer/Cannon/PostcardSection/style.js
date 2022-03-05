@@ -121,4 +121,8 @@ export const PostcardButton = styled.div`
 
 export const PostcardText = styled(TopText)`
   z-index: -10;
+  transform: none;
+  left: auto;
+  top: auto;
+  height: auto;
 `

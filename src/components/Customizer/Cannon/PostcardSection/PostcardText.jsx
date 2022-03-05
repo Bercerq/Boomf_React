@@ -13,7 +13,7 @@ const PostcardTextComponent = () => {
   const [inputRef, setInputRef] = useFocus();
   const [textState, setTextState] = useState("");
   const [rotateState, setRotateState] = useState(0);
-  const [positionState, setPositionState] = useState({ x:0, y:0 });
+  const [positionState, setPositionState] = useState({x: 0, y: 0});
 
   const dispatch = useDispatch();
   const {textDataState} = useSelector(
@@ -47,28 +47,15 @@ const PostcardTextComponent = () => {
   }, [textDataState.id]);
 
   return (
-    <>
-      {textDataState.focusState && (
-        <PostcardText
-          focusState={textDataState.focusState}
-          ref={inputRef}
-          textStyles={textDataState.textStyles}
-          onChange={(e) => changeTopText(setTextState, e)}
-          type="text"
-          value={textState}
-          resize="none"
-          readOnly={!textDataState.focusState}
-        />
-      )}
-      <TextDoubleClick
-        textState={textState}
-        rotateState={rotateState}
-        setRotateState={setRotateState}
-        positionState={positionState}
-        setPositionState={setPositionState}
-      />
-    </>
-
+    <TextDoubleClick
+      textState={textState}
+      rotateState={rotateState}
+      setRotateState={setRotateState}
+      positionState={positionState}
+      setPositionState={setPositionState}
+      setTextState={setTextState}
+      inputRef={inputRef}
+    />
   );
 };
 
