@@ -5,13 +5,17 @@ import { ButtonsItem, ButtonsWrapper } from "../style";
 import Facebook from "../../../../utils/assets/svg/Facebook.svg";
 import boomfDesign from "../../../../utils/assets/svg/boomf.svg";
 import PrewUpload from "../../../../utils/assets/svg/PrewUpload.svg";
+import {useDispatch} from "react-redux";
+import {setCurrentSidebar} from "../../../../redux/actions/sideBar";
 
 function Buttons() {
+  const dispatch = useDispatch();
+
   const facebook = () => {
     console.log("facebook");
   };
   const boomf = () => {
-    console.log("boomf");
+    dispatch(setCurrentSidebar({state: true, flag: 'Boomf designs'}))
   };
   const prew = () => {
     console.log("prew");

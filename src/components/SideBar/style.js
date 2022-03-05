@@ -156,3 +156,17 @@ export const Title = styled.div`
 export const Close = styled.div`
   cursor: pointer;
 `;
+
+
+export const DivBackTitle = styled.div`
+  display: flex;
+  align-content: center;
+  align-items: center;
+`;
+
+export const DivArrowLeft = styled.div`
+  width: 19px;
+  height: 19px;
+  padding-right: 10px;
+  cursor: pointer;
+`;

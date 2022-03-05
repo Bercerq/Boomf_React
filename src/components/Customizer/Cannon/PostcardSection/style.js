@@ -8,6 +8,8 @@ import {
 
 export const PostcardBlock = styled(SideContent)`
   @media (max-width: 920px) {
+    display: flex;
+    align-items: flex-end;
     margin-bottom: 30px;
   }
 `
@@ -43,7 +45,7 @@ export const BackgroundCard = styled.div`
     width: 390px;
   }
 
-  @media (max-width: 520px) {
+  @media (max-width: 840px) {
     height: 525px;
     width: 335px;
   }
@@ -104,13 +106,17 @@ export const AddButton = styled.button`
 
 export const ImageContent = styled(ImageDiv)``
 
-export const PostcardSide = styled.div`
-  width: 100%;
-  height: 100%;
+export const PostcardButton = styled.div`
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  right: 0;
+  bottom: 0;
+  margin: 40px;
+  
+  @media(max-width: 920px) {
+    margin: 0 20px 0 0;
+    z-index: 1;
+    bottom: auto;
+  }
 `
 
 export const PostcardText = styled(TopText)`
