@@ -3,12 +3,13 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {getCenterBox, rotateDegree} from "../../utils/functions/textData";
 import DraggableText from "./Draggable";
-import {openEditor} from "../../utils/functions/boomb";
+import {changeTopText, openEditor} from "../../utils/functions/boomb";
 import {setActionTextData, setDeleteTextData} from "../../redux/actions/textData";
 
 import {FormTextContent} from "./style.js";
+import {PostcardText} from "../Customizer/Cannon/PostcardSection/style";
 
-const TextDoubleClick = ({textState, rotateState, setRotateState, positionState, setPositionState}) => {
+const TextDoubleClick = ({textState, rotateState, setRotateState, positionState, setPositionState, inputRef, setTextState}) => {
   const [enableRotate, setEnableRotate] = useState(false);
   const [cursorPosition, setCursorPosition] = useState(null);
   const {textData, textDataState} = useSelector(({textDataReducer}) => textDataReducer);
@@ -58,6 +59,18 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
         document.body.style.overflow = 'auto';
       }}
     >
+      {textDataState.focusState && (
+        <PostcardText
+          focusState={textDataState.focusState}
+          ref={inputRef}
+          textStyles={textDataState.textStyles}
+          onChange={(e) => changeTopText(setTextState, e)}
+          type="text"
+          value={textState}
+          resize="none"
+          readOnly={!textDataState.focusState}
+        />
+      )}
       {textData.map((e, idx) => (
         <React.Fragment key={'DraggableText' + idx}>
           <DraggableText

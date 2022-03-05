@@ -31,7 +31,7 @@ const PostcardImage = () => {
         </ImageDiv>
       ) : (
         <ImageNotContent>
-          <AddButton onClick={() => imageContent}>
+          <AddButton onClick={imageContent}>
             + Add Image
           </AddButton>
         </ImageNotContent>
