@@ -48,6 +48,7 @@ export const BackgroundCard = styled.div`
   @media (max-width: 840px) {
     height: 525px;
     width: 335px;
+    margin-bottom: 30px;
   }
 `
 
@@ -82,6 +83,7 @@ export const ImageNotContent = styled(ImageDiv)`
   justify-content: center;
   align-items: center;
   pointer-events: none;
+  background: #F5F5F5;
 `
 
 export const AddButton = styled.button`
@@ -93,7 +95,7 @@ export const AddButton = styled.button`
   pointer-events: all;
   width: 135px;
   height: 32px;
-
+  z-index: 1;
   background: #FF328B;
 
   box-shadow: 0 0 1px rgba(40, 41, 61, 0.04), 0 2px 4px rgba(96, 97, 112, 0.16);
@@ -111,8 +113,8 @@ export const PostcardButton = styled.div`
   right: 0;
   bottom: 0;
   margin: 40px;
-  
-  @media(max-width: 920px) {
+
+  @media (max-width: 920px) {
     margin: 0 20px 0 0;
     z-index: 1;
     bottom: auto;
@@ -120,9 +122,10 @@ export const PostcardButton = styled.div`
 `
 
 export const PostcardText = styled(TopText)`
-  z-index: -10;
+  opacity: 0;
   transform: none;
   left: auto;
   top: auto;
   height: auto;
 `
+

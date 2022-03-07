@@ -49,7 +49,7 @@ function AddPhotoOption() {
       <UploadedImagesWrapper>
         <Switch>
           {/**todo Route temporary solution*/}
-          <Route path="/b" exact={true}>
+          <Route path="/" exact={true}>
             {boombData.map(({ img, position }, idx) => (
               <DivUploadImage key={'DivUploadImage' + idx}>
                 <CloseIconDiv>
@@ -68,7 +68,7 @@ function AddPhotoOption() {
               </DivUploadImage>
             ))}
           </Route>
-          <Route path="/" exact={true}>
+          <Route path="/cannon" exact={true}>
             {imageData.map(({img, id}, idx) => id ? (
               <DivUploadImage key={'DivUploadImage' + idx}>
                 <CloseIconDiv onClick={() => deleteImage(id)}>

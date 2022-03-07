@@ -52,7 +52,7 @@ const DraggableText = ({
 
   return (
     <Draggable cancel="strong" {...dragHandlers}>
-      <div className="box" onClick={handleSelectCard} style={{position: 'absolute'}}>
+      <div className="box" onClick={handleSelectCard} style={{position: 'absolute', zIndex: activeState ? 1 : 0}}>
         <div className='text-editor-form' style={{transform: `rotate(${rotateState}deg)`}}>
           <div className='div-reboot-pos'>
             <strong className="no-cursor">
