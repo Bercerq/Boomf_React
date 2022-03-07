@@ -32,3 +32,13 @@ export const deleteStateImage = (state, initialState, id) => {
     imageState: state.imageState.id === id ? initialState : state.imageState
   }
 }
+
+export const diagonalLine = (box) => {
+  const widthLine = Math.sqrt(box.height * box.height + box.width * box.width);
+  const rotateLine = Math.asin(box.height / widthLine) * (180 / Math.PI);
+
+  return {
+    widthLine,
+    rotateLine
+  }
+}

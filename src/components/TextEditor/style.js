@@ -273,3 +273,16 @@ export const Text = styled.div`
   text-align: center;
   color: #3d3d3d;
 `;
+
+export const DiagonalLineOne = styled.div`
+  position: absolute;
+  border-top: 1px solid #FFFFFF;
+  transform-origin: ${({originLine}) => originLine ? 'left' : 'right'};
+  left: ${({originLine}) => originLine ? 0 : 'auto'};
+  right: 0;
+  top: 0;
+  bottom: ${({originLine}) => originLine ? 0 : 'auto'};
+  height: 1px;
+  width: ${({widthLine}) => `${widthLine}px`};
+  transform: rotate(${({rotateLine}) => `${rotateLine}deg`});
+`;
