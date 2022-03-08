@@ -120,7 +120,6 @@ export const openEditor = (dispatch, buttonflag) => () => {
       timer = setTimeout(() => {
         dispatch(setCurrentEditor({flag: "", state: true}));
         dispatch(setFocus(true));
-
         // todo cannon
         dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
         dispatch(setUpdateTextData({key: 'focusState', value: true}));

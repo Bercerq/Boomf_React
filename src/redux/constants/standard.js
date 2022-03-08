@@ -1,0 +1,1 @@
+export const SET_STANDARD_NAME = 'SET_STANDARD_NAME';

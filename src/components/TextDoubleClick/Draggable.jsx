@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import Draggable from "react-draggable";
 
-import {textPosition} from "../../utils/functions/textData";
-
 import Reboot from '../../utils/assets/svg/Reboot.svg';
 import TrashCan from '../../utils/assets/svg/TrashCan.svg';
+import LeftAndRightArrows from '../../utils/assets/svg/LeftAndRightArrows.svg';
+
+
 import {CenterRotate, DivTextContent} from "./style.js";
 import './style.css';
 
@@ -16,11 +17,13 @@ const DraggableText = ({
  activeState,
 
  setEnableRotate,
+ setEnableWidthText,
  setPositionState,
  deleteText,
  uid,
  handleSelectCard,
- refs
+ refs,
+ activeSizeImage
 }) => {
   const [, setActiveDrags] = useState(0);
 
@@ -32,22 +35,18 @@ const DraggableText = ({
   };
 
   const onStop = (e, data) => {
-    const documentElement = document.documentElement
-    const wrapperHeight = (window.innerHeight || documentElement.clientHeight)
-    const wrapperWidth = (window.innerWidth || documentElement.clientWidth)
-
-    setPositionState(textPosition(data, wrapperHeight, wrapperWidth))
+    setPositionState({x: data.lastX, y: data.lastY});
     setActiveDrags(e => --e);
   };
 
   const dragHandlers = {
     onStart,
-    onStop,
+    onStop: onStop,
+    onTouchEnd: onStop,
     axis: "both",
     scale: 1,
     grid: [15, 15],
-    position: null,
-    defaultPosition: position ? position : {x: 0, y: 0}
+    position: position ? position : {x: 0, y: 0},
   };
 
   return (
@@ -58,12 +57,12 @@ const DraggableText = ({
             <strong className="no-cursor">
               {activeState && (
                 <div className='image-div-block'
-                  style={{cursor: 'col-resize'}}
-                  onMouseDown={() => setEnableRotate(true)}
-                  onTouchStart={() => {
-                    setEnableRotate(true);
-                    document.body.style.overflow = 'hidden';
-                  }}
+                     style={{cursor: 'col-resize'}}
+                     onMouseDown={() => setEnableRotate(true)}
+                     onTouchStart={() => {
+                       setEnableRotate(true);
+                       document.body.style.overflow = 'hidden';
+                     }}
                 >
                   <img src={Reboot} height={10} width={10} alt='Reboot'/>
                 </div>
@@ -75,8 +74,8 @@ const DraggableText = ({
               <strong className="no-cursor">
                 {activeState && (
                   <div className='image-div-block'
-                    style={{cursor: 'pointer'}}
-                    onClick={deleteText}
+                       style={{cursor: 'pointer'}}
+                       onClick={deleteText}
                   >
                     <img src={TrashCan} height={10} width={10} alt='TrashCan'/>
                   </div>
@@ -89,6 +88,22 @@ const DraggableText = ({
             >
               {!textState ? ('Double Click to type your text') : (textState)}
             </DivTextContent>
+            <div className='text-editor-form'>
+              <strong className="no-cursor">
+                {activeState && activeSizeImage && (
+                  <div className='image-div-block div-size-icon'
+                       style={{cursor: 'col-resize'}}
+                       onMouseDown={() => setEnableWidthText(true)}
+                       onTouchStart={() => {
+                         setEnableWidthText(true);
+                         document.body.style.overflow = 'hidden';
+                       }}
+                  >
+                    <img src={LeftAndRightArrows} height={16} width={16} alt="LeftAndRightArrows"/>
+                  </div>
+                )}
+              </strong>
+            </div>
           </div>
         </div>
         <CenterRotate ref={r => refs.current[uid] = r}/>

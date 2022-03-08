@@ -1,5 +1,6 @@
 import Boomb from "../../modules/customizers/Boomb";
 import Cannon from "../../modules/customizers/Cannon"
+import Standard from "../../modules/customizers/Standard";
 
 export const routes = [
   {
@@ -12,4 +13,9 @@ export const routes = [
     exact: true,
     component: Cannon
   },
+  {
+    path: '/standard',
+    exact: true,
+    component: Standard
+  }
 ];

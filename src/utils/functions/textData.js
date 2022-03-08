@@ -35,11 +35,11 @@ export const textPosition = (data, wrapperH, wrapperW) => {
 }
 
 export const getCenterBox = (box, scroll) => {
-  let boxBoundingRect = box.getBoundingClientRect();
+  let boxBoundingRect = box?.getBoundingClientRect();
 
   return {
-    x: boxBoundingRect.left + boxBoundingRect.width / 2,
-    y: boxBoundingRect.top + scroll + boxBoundingRect.height / 2
+    x: boxBoundingRect?.left + boxBoundingRect?.width / 2,
+    y: boxBoundingRect?.top + scroll + boxBoundingRect?.height / 2
   }
 }
 
@@ -52,6 +52,7 @@ export const addDataStateText = (state, initialState) => {
   const data = state.textData.map(e => ({...e, dblClickState: false}))
   const textDataState = {
     ...initialState.textDataState,
+    column: state.textDataState.column,
     dblClickState: true,
     id: uid()
   }

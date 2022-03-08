@@ -6,6 +6,7 @@ import {MainWrapper} from "./style";
 import Sidebar from "../SideBar/SideBar";
 import CannonRightColumn from "../Confetti/Cannon";
 import TextEditorCannon from "../TextEditor/TextEditorCannon";
+import StandardRightColumn from "../Confetti/Standard";
 
 function CustomizerLayout({title, children, dataName}) {
   return (
@@ -13,15 +14,26 @@ function CustomizerLayout({title, children, dataName}) {
       <title>{title}</title>
       <Sidebar/>
       {children}
-      {dataName === 'cannon' ? (
+      {dataName === 'cannon' && (
         <>
           <CannonRightColumn/>
           <TextEditorCannon/>
         </>
-      ) : (
+      )}
+      {dataName === 'boomb' && (
         <>
           <Confetti/>
           <TextEditor/>
+        </>
+      )}
+      {dataName === 'Front' && (
+        <>
+          <StandardRightColumn/>
+        </>
+      )}
+      {dataName === 'Inside' && (
+        <>
+          <TextEditorCannon/>
         </>
       )}
     </MainWrapper>
