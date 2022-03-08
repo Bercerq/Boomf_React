@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
-import {confettiDataBoomb} from "../../utils/constants/ConfettiData";
+import {useDispatch, useSelector} from "react-redux";
 
+import {setConfettiData} from "../../redux/actions/confetti";
 import Cube from "../../components/Customizer/Boomb/Cube";
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
-import {useDispatch, useSelector} from "react-redux";
-import {setConfettiData} from "../../redux/actions/confetti";
+import {confettiDataBoomb} from "../../utils/constants/ConfettiData";
 
 function Boomb() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function Boomb() {
   }, []);
 
   return (
-    <CustomizerLayout confettiData={confettiData} title="Boomb customizer">
+    <CustomizerLayout confettiData={confettiData} title="Boomb customizer" dataName='boomb'>
       <Cube />
     </CustomizerLayout>
   );

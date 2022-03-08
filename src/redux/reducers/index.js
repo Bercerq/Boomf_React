@@ -7,6 +7,7 @@ import modalReducer from "./modal";
 import backgroundReducer from "./background";
 import imageLibraryReducer from "./imageLibrary";
 import textDataReducer from "./textData";
+import standardReducer from "./standard";
 
 const rootReducer = combineReducers({
   boombReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   modalReducer,
   backgroundReducer,
   imageLibraryReducer,
-  textDataReducer
+  textDataReducer,
+  standardReducer
 });
 
 export default rootReducer;

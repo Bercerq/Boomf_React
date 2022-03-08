@@ -1,5 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import {setBackground} from "../../../redux/actions/background";
+
 import {
   BackgroundImageCannon,
   BackgroundItemCannon,
@@ -7,7 +9,6 @@ import {
   ConfettiWrapperCannon,
   TitleCannon
 } from "./style";
-import {setBackground} from "../../../redux/actions/background";
 
 const Background = () => {
   const dispatch = useDispatch();

@@ -68,7 +68,7 @@ function AddPhotoOption() {
               </DivUploadImage>
             ))}
           </Route>
-          <Route path="/cannon" exact={true}>
+          <Route path={["/cannon", "/standard"]} exact={true}>
             {imageData.map(({img, id}, idx) => id ? (
               <DivUploadImage key={'DivUploadImage' + idx}>
                 <CloseIconDiv onClick={() => deleteImage(id)}>

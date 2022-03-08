@@ -20,11 +20,12 @@ const initialTextState = {
   currentEditor: {state: false, flag: ''},
   focusState: false,
   dblClickState: false,
-  id: 0
+  column: 1,
+  id: '1233221'
 }
 
 const initialState = {
-  textData: [initialTextState],
+  textData: [initialTextState, {...initialTextState, column: 2, id: '3221123'}],
   textDataState: initialTextState,
 };
 

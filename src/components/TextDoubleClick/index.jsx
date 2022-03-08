@@ -1,21 +1,38 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 import {getCenterBox, rotateDegree} from "../../utils/functions/textData";
 import DraggableText from "./Draggable";
-import {changeTopText, openEditor} from "../../utils/functions/boomb";
+import {changeTopText} from "../../utils/functions/boomb";
 import {setActionTextData, setDeleteTextData} from "../../redux/actions/textData";
 
-import {FormTextContent} from "./style.js";
 import {PostcardText} from "../Customizer/Cannon/PostcardSection/style";
 
-const TextDoubleClick = ({textState, rotateState, setRotateState, positionState, setPositionState, inputRef, setTextState}) => {
-  const [enableRotate, setEnableRotate] = useState(false);
-  const [cursorPosition, setCursorPosition] = useState(null);
+const TextDoubleClick = ({
+ textState,
+ rotateState,
+ setRotateState,
+ positionState,
+ setPositionState,
+ inputRef,
+ setTextState,
+
+ cursorPosition,
+ setCursorPosition,
+
+ enableRotate,
+ setEnableRotate,
+ enableWidthText,
+ setEnableWidthText,
+
+ column,
+ activeSizeImage
+}) => {
   const {textData, textDataState} = useSelector(({textDataReducer}) => textDataReducer);
 
-  const dispatch = useDispatch();
   const refs = useRef({});
+
+  const dispatch = useDispatch();
 
   const handleCardMove = useCallback((e) => {
     if (!enableRotate) {
@@ -29,6 +46,15 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
       setCursorPosition(e.clientX)
     }
   }, [cursorPosition, enableRotate]);
+
+  const handleWidthCard = useCallback((e) => {
+    if(!enableWidthText) {
+      return;
+    }
+    if(e.type === 'touchmove') {
+      // todo Take the click coordinate and track changes from it
+    }
+  }, [])
 
   const deleteText = (id) => {
     dispatch(setDeleteTextData(id))
@@ -45,21 +71,9 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
     }
   }, [enableRotate, handleCardMove]);
 
-
-
   return (
-    <FormTextContent
-      id="buttonClickCannon"
-      onClick={openEditor(dispatch, "buttonClickCannon")}
-      onMouseUp={() => {
-        setEnableRotate(false);
-      }}
-      onTouchEnd={() => {
-        setEnableRotate(false);
-        document.body.style.overflow = 'auto';
-      }}
-    >
-      {textDataState.focusState && (
+    <>
+      {textDataState.focusState && textDataState.column === column && (
         <PostcardText
           focusState={textDataState.focusState}
           ref={inputRef}
@@ -71,25 +85,31 @@ const TextDoubleClick = ({textState, rotateState, setRotateState, positionState,
           readOnly={!textDataState.focusState}
         />
       )}
-      {textData.map((e, idx) => (
+      {textData.map((e, idx) => e.column === column && (
         <React.Fragment key={'DraggableText' + idx}>
           <DraggableText
             textState={textDataState.id === e.id ? textState : e.value}
             position={textDataState.id === e.id ? positionState : e.position}
+            setPositionState={setPositionState}
             rotateState={textDataState.id === e.id ? rotateState : e.rotate}
             textStyles={e.textStyles}
             activeState={e.dblClickState}
+            uid={e.id}
+
+            activeSizeImage={activeSizeImage}
             setEnableRotate={setEnableRotate}
-            setPositionState={setPositionState}
-            deleteText={() => deleteText(e.id)}
+            setEnableWidthText={setEnableWidthText}
+
             handleSelectCard={() => dispatch(setActionTextData(e.id))}
 
-            uid={e.id}
+            deleteText={() => deleteText(e.id)}
+
             refs={refs}
           />
         </React.Fragment>
       ))}
-    </FormTextContent>
+    </>
+
   )
 };
 
