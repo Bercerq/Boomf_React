@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Draggable from "react-draggable";
 
 import Reboot from '../../utils/assets/svg/Reboot.svg';
-import TrashCan from '../../utils/assets/svg/TrashCan.svg';
+import Trash from '../../utils/assets/svg/Trash.svg';
 import LeftAndRightArrows from '../../utils/assets/svg/LeftAndRightArrows.svg';
 
 
@@ -10,20 +10,20 @@ import {CenterRotate, DivTextContent} from "./style.js";
 import './style.css';
 
 const DraggableText = ({
- textState,
- position,
- rotateState,
- textStyles,
- activeState,
+  textState,
+  position,
+  rotateState,
+  textStyles,
+  activeState,
 
- setEnableRotate,
- setEnableWidthText,
- setPositionState,
- deleteText,
- uid,
- handleSelectCard,
- refs,
- activeSizeImage
+  setEnableRotate,
+  setEnableWidthText,
+  setPositionState,
+  deleteText,
+  uid,
+  handleSelectCard,
+  refs,
+  activeSizeImage
 }) => {
   const [, setActiveDrags] = useState(0);
 
@@ -56,15 +56,14 @@ const DraggableText = ({
           <div className='div-reboot-pos'>
             <strong className="no-cursor">
               {activeState && (
-                <div className='image-div-block'
-                     style={{cursor: 'col-resize'}}
+                <div style={{cursor: 'col-resize'}}
                      onMouseDown={() => setEnableRotate(true)}
                      onTouchStart={() => {
                        setEnableRotate(true);
                        document.body.style.overflow = 'hidden';
                      }}
                 >
-                  <img src={Reboot} height={10} width={10} alt='Reboot'/>
+                  <img src={Reboot} height={24} width={24} alt='Reboot'/>
                 </div>
               )}
             </strong>
@@ -77,7 +76,7 @@ const DraggableText = ({
                        style={{cursor: 'pointer'}}
                        onClick={deleteText}
                   >
-                    <img src={TrashCan} height={10} width={10} alt='TrashCan'/>
+                    <img src={Trash} height={10} width={10} alt='TrashCan'/>
                   </div>
                 )}
               </strong>
@@ -99,7 +98,7 @@ const DraggableText = ({
                          document.body.style.overflow = 'hidden';
                        }}
                   >
-                    <img src={LeftAndRightArrows} height={16} width={16} alt="LeftAndRightArrows"/>
+                    <img src={LeftAndRightArrows} height={10} width={10} alt="LeftAndRightArrows"/>
                   </div>
                 )}
               </strong>

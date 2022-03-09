@@ -2,16 +2,17 @@ import {
   SET_ADD_IMAGE_LIBRARY,
   SET_DELETE_IMAGE_LIBRARY,
   SET_IMAGE_LIBRARY,
-  SET_IMAGE_LIBRARY_DATA,
+  SET_IMAGE_LIBRARY_DATA, SET_UPDATE_IMAGE_LIBRARY,
 } from "../constants/imageLibrary";
 
 import {uid} from "../../utils/functions/textData";
-import {addStateImage, deleteStateImage} from "../../utils/functions/imageLibrary";
+import {addStateImage, deleteStateImage, updateStateImage} from "../../utils/functions/imageLibrary";
 
 const initialImageState = {
   img: null,
   alt: '',
   action: false,
+  size: 1,
   id: 0
 }
 
@@ -39,6 +40,7 @@ const imageLibraryReducer = (state = initialState, action) => {
         img: e.img,
         name: e.name,
         active: e.active || false,
+        size: 1,
         id: uid()
       }));
 
@@ -47,6 +49,9 @@ const imageLibraryReducer = (state = initialState, action) => {
         imageData: data,
         imageState: data.filter((e) => e.active)[0] || initialImageState
       };
+    }
+    case SET_UPDATE_IMAGE_LIBRARY: {
+      return updateStateImage(state, action.payload)
     }
     case SET_ADD_IMAGE_LIBRARY: {
       return addStateImage(state, action.payload);
