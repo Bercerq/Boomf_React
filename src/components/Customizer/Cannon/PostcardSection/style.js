@@ -62,6 +62,7 @@ export const BackgroundImage = styled.img`
   -moz-background-size: 100%;
   -webkit-background-size: 100%;
   -o-background-size: 100%;
+  transform: scale(${({increaseSize}) => increaseSize || 1});
 `
 
 export const ImageDiv = styled(CubeItem)`

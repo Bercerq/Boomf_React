@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 
-import PostcardText from "./PostcardText";
+import PostcardTextComponent from "./PostcardText";
 import PostcardImage from "./PostcardImage";
 
 import {FormTextContent} from "../../../TextDoubleClick/style";
@@ -53,7 +53,7 @@ const PostcardSection = () => {
             document.body.style.overflow = 'auto';
           }}
         >
-          <PostcardText
+          <PostcardTextComponent
             enableRotate={enableRotate}
             setEnableRotate={setEnableRotate}
             buttonflag='buttonClickCannon'

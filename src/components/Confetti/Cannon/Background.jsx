@@ -25,14 +25,14 @@ const Background = () => {
     <ConfettiWrapperCannon>
       <TitleCannon>Background: {backgroundState.name}</TitleCannon>
       <ConfettiBoxCannon>
-        {backgroundData.map((confetti, idx) => (
+        {backgroundData.map((background, idx) => (
           <BackgroundItemCannon
             key={idx}
-            selectConfetti={backgroundState}
-            name={confetti.name}
-            onClick={handleSelectBackground(confetti)}
+            selectConfetti={background.id === backgroundState.id}
+            name={background.name}
+            onClick={handleSelectBackground(background)}
           >
-            <BackgroundImageCannon src={confetti.img} alt={confetti.name}/>
+            <BackgroundImageCannon src={background.img} alt={background.name}/>
           </BackgroundItemCannon>
         ))}
       </ConfettiBoxCannon>

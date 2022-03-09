@@ -2,7 +2,7 @@ import {uid} from "./textData";
 
 export const addStateImage = (state, image) => {
   const data = state.imageData.map(e => ({...e, active: false}));
-  const imageState = {...image, active: true, id: uid()}
+  const imageState = {...image, size: 1, active: true, id: uid()}
 
   return {
     ...state,
@@ -11,8 +11,19 @@ export const addStateImage = (state, image) => {
   }
 }
 
-export const updateStateImage = () => {
+export const updateStateImage = (state, {key, value}) => {
+  const imageState = {
+    ...state.imageState,
+    [key]: value
+  }
 
+  return {
+    ...state,
+    imageData: state.imageData.map(e => (
+      e.id === state.imageState.id ? imageState : e
+    )),
+    imageState
+  }
 }
 
 export const deleteStateImage = (state, initialState, id) => {

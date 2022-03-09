@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setUpdateTextData} from "../../../../redux/actions/textData";
 import {setCurrentSidebar} from "../../../../redux/actions/sideBar";
 
-import EditPencil from "../../../../utils/assets/svg/EditPencil.svg";
+import EditPencilCan from "../../../../utils/assets/svg/EditPencilCan.svg";
 import {AddButton, BackgroundImage, ImageDiv, ImageNotContent} from "./style";
 import {EditButton, EditIcon} from "../../Boomb/CubeSection/style";
 import {diagonalLine} from "../../../../utils/functions/imageLibrary";
@@ -36,9 +36,13 @@ const PostcardImage = () => {
     <>
       {imageState.img ? (
         <ImageDiv>
-          <BackgroundImage src={imageState.img} alt={imageState.alt}/>
+          <BackgroundImage
+            increaseSize={imageState.size}
+            src={imageState.img}
+            alt={imageState.alt}
+          />
           <EditButton onClick={openEditor}>
-            <EditIcon src={EditPencil} alt="edit"/>
+            <EditIcon src={EditPencilCan} width={48} height={48} alt="edit"/>
           </EditButton>
         </ImageDiv>
       ) : (

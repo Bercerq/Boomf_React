@@ -28,11 +28,14 @@ const Confetti = () => {
         {confettiData.map((confetti, idx) => (
           <ConfettiItemCannon
             key={idx}
-            selectConfetti={confettiState}
+            selectConfetti={confetti.id === confettiState.id}
             name={confetti.name}
             onClick={handleSelectConfetti(confetti)}
           >
-            <ConfettiImageCannon src={confetti.img} alt={confetti.name}/>
+            <ConfettiImageCannon
+              src={confetti.img}
+              alt={confetti.name}
+            />
           </ConfettiItemCannon>
         ))}
       </ConfettiBoxCannon>
