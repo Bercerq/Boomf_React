@@ -15,7 +15,7 @@ export const ModalWindow = styled.div`
   opacity: 0;
   transition: 0.5s;
   pointer-events: none;
-  ${({ openSideBar }) => openSideBar && "opacity:1; pointer-events: all;"}
+  ${({ openSideBar }) => openSideBar && "opacity:1; pointer-events: all;"};
 `;
 export const ModalContent = styled.div`
   font-family: "objectivity-regular-11", sans-serif;

@@ -102,11 +102,11 @@ export const closeSideBar =
       // todo cannon
       dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
     } else {
-      dispatch(setCurrentEditor({flag: currentEditor.flag, state: {flag: "", state: true}}));
+      dispatch(setCurrentEditor({flag: "", state: false}));
       dispatch(setFocus(false));
       // todo cannon
-      dispatch(setUpdateTextData({key: 'focusState', value: false}));
       dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: false}}));
+      dispatch(setUpdateTextData({key: 'focusState', value: false}));
     }
     setOption("");
 

@@ -25,6 +25,12 @@ export const ConfettiWrapperCannon = styled(ConfettiWrapper)`
 `;
 
 export const ConfettiBoxCannon = styled(ConfetiBox)`
+  overflow: auto hidden;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   height: auto;
@@ -40,12 +46,33 @@ export const ConfettiBoxCannon = styled(ConfetiBox)`
   }
 `;
 
-export const ConfettiItemCannon = styled(ConfettiItem)`
+export const ConfettiItemCannon = styled.div`
+  cursor: pointer;
+  width: 78px;
+  height: 78px;
   margin: 10px;
+  border-radius: 50%;
+  transition: 0.4s;
+  background-color: white;
+
+  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16));
+
+  ${({selectConfetti}) =>
+          `border: 4px solid ${
+                  selectConfetti ? "#2EDBE3" : "transparent"
+          };  transition: 0.4s;`};
   
   @media (max-width: 920px) {
+    width: 40px;
+    height: 35px;
+  }
+  @media (max-width: 920px) {
+    margin: 0 10px 12px 10px;
     width: 45px;
     height: 45px;
+  }
+  @media (max-width: 520px) {
+    margin: 0 1%;
   }
 `;
 
@@ -57,14 +84,16 @@ export const BackgroundItemCannon = styled(ConfettiItemCannon)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
-  margin-bottom: 0;
+  width: 45px;
+  height: 45px;
+  margin: 7px;
+  background: transparent;
 `;
 
 export const BackgroundImageCannon = styled(ConfettiImage)`
-  width: 45px;
-  height: 45px;
+  width: 44px;
+  height: 44px;
+  margin: 0;
 `;
 
 export const ConfettiImageCannon = styled(ConfettiImage)`

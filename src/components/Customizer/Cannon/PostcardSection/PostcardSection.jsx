@@ -1,19 +1,24 @@
 import React, {useEffect, useState} from 'react';
+import {useSelector} from "react-redux";
+
+import PostcardTextComponent from "./PostcardText";
+import PostcardImage from "./PostcardImage";
+
+import {FormTextContent} from "../../../TextDoubleClick/style";
 import {
-  BackgroundCard, BackgroundImage,
+  BackgroundCard,
+  BackgroundImage,
   PostcardContainer,
   PostcardWrapper,
 } from "./style";
 
-import PostcardText from "./PostcardText";
-import PostcardImage from "./PostcardImage";
-import {useSelector} from "react-redux";
-
 const PostcardSection = () => {
+  const [enableRotate, setEnableRotate] = useState(false);
   const [sizeCard, setSize] = useState({
     height: window.innerWidth / 100 * 40,
     width: window.innerWidth / 100 * 40 / 1.5
   });
+
   const {confettiState} = useSelector(({confettiReducer}) => confettiReducer);
   const {backgroundState} = useSelector(({backgroundReducer}) => backgroundReducer);
 
@@ -38,7 +43,23 @@ const PostcardSection = () => {
           alt={backgroundState.name}
         />
         <PostcardImage/>
-        <PostcardText/>
+        <FormTextContent
+          id="buttonClickCannon"
+          onMouseUp={() => {
+            setEnableRotate(false);
+          }}
+          onTouchEnd={() => {
+            setEnableRotate(false);
+            document.body.style.overflow = 'auto';
+          }}
+        >
+          <PostcardTextComponent
+            enableRotate={enableRotate}
+            setEnableRotate={setEnableRotate}
+            buttonflag='buttonClickCannon'
+            column={1}
+          />
+        </FormTextContent>
       </BackgroundCard>
     </PostcardContainer>
   );
