@@ -12,9 +12,11 @@ const InsidePages = () => {
       id="buttonClickStandard"
       onMouseUp={() => {
         setEnableRotate(false);
+        setEnableWidthText(false);
       }}
       onTouchEnd={() => {
         setEnableRotate(false);
+        setEnableWidthText(false);
         document.body.style.overflow = 'auto';
       }}
     >

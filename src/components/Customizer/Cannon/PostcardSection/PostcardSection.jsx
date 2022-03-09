@@ -13,7 +13,6 @@ import {
 } from "./style";
 
 const PostcardSection = () => {
-  const [enableRotate, setEnableRotate] = useState(false);
   const [sizeCard, setSize] = useState({
     height: window.innerWidth / 100 * 40,
     width: window.innerWidth / 100 * 40 / 1.5
@@ -45,17 +44,8 @@ const PostcardSection = () => {
         <PostcardImage/>
         <FormTextContent
           id="buttonClickCannon"
-          onMouseUp={() => {
-            setEnableRotate(false);
-          }}
-          onTouchEnd={() => {
-            setEnableRotate(false);
-            document.body.style.overflow = 'auto';
-          }}
         >
           <PostcardTextComponent
-            enableRotate={enableRotate}
-            setEnableRotate={setEnableRotate}
             buttonflag='buttonClickCannon'
             column={1}
           />
