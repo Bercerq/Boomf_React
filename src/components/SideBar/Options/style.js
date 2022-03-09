@@ -53,11 +53,7 @@ export const UploadedImg = styled.img`
   cursor: pointer;
   filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
   drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
-
-  @media (max-width: 920px) {
-    width: 120px;
-    height: 120px;
-  }
+  
   @media (max-height: 605px) {
     margin: 6px;
   }
