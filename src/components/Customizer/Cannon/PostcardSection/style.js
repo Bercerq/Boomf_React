@@ -7,10 +7,12 @@ import {
 } from "../../Boomb/CubeSection/style";
 
 export const PostcardBlock = styled(SideContent)`
+  width: 62%;
   @media (max-width: 920px) {
     display: flex;
     align-items: flex-end;
     margin-bottom: 30px;
+    width: 100%;
   }
 `
 
