@@ -286,27 +286,14 @@ export const EditButton = styled.div`
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 30px;
-  height: 30px;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  padding: 12px;
-  @media (max-width: 920px) {
-    padding: 6px;
-  }
-  margin: 15px;
-  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
-    0px 2px 4px rgba(96, 97, 112, 0.16);
+  margin: 14px;
   transition: 0.3s;
   &:hover {
-    padding: 15px;
     transition: 0.3s;
-    @media (max-width: 920px) {
-      padding: 8px;
-    }
+    transform: scale(1.2);
   }
 `;
 export const EditIcon = styled.img``;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
+
 import {setConfetti} from "../../../redux/actions/confetti";
 
 import {
@@ -27,11 +28,14 @@ const Confetti = () => {
         {confettiData.map((confetti, idx) => (
           <ConfettiItemCannon
             key={idx}
-            selectConfetti={confettiState}
+            selectConfetti={confetti.id === confettiState.id}
             name={confetti.name}
             onClick={handleSelectConfetti(confetti)}
           >
-            <ConfettiImageCannon src={confetti.img} alt={confetti.name}/>
+            <ConfettiImageCannon
+              src={confetti.img}
+              alt={confetti.name}
+            />
           </ConfettiItemCannon>
         ))}
       </ConfettiBoxCannon>
