@@ -42,11 +42,40 @@ export const DivTextContent = styled.div`
   min-width: 195px;
   min-height: 18px;
   padding: 8px;
-  ${({activeState}) => 
-  `cursor: ${activeState ? 
-  'all-scroll; border: 2px solid #0A74FF' : 'auto'
-  }`};
-  
+  ${({activeState}) =>
+          `cursor: ${activeState ?
+                  'all-scroll; border: 2px solid #0A74FF' : 'auto'
+          }`};
+
+  font-family: ${({textStyles}) =>
+          textStyles.font ? `${textStyles.font}` : "Objectivity"};
+  font-size: ${({textStyles}) =>
+          textStyles.size ? `${textStyles.size}px` : "20px"};
+  color: ${({textStyles}) =>
+          textStyles.colour ? `${textStyles.colour}` : "#222222"};
+  text-align: ${({textStyles}) =>
+          textStyles.alignment ? `${textStyles.alignment}` : "center"};
+`;
+
+export const TestText = styled.textarea`
+  resize: none;
+  cursor: pointer;
+  min-width: 195px;
+  min-height: 18px;
+  height: fit-content;
+  background: transparent;
+  border-color: transparent;
+  &:focus {
+    outline: none !important;
+    border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+  }
+  overflow: hidden;
+  ${({activeState}) =>
+          `cursor: ${activeState ?
+                  'all-scroll; border: 2px solid #0A74FF' : 'auto'
+          }`};
+
   font-family: ${({textStyles}) =>
           textStyles.font ? `${textStyles.font}` : "Objectivity"};
   font-size: ${({textStyles}) =>
