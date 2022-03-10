@@ -3,18 +3,18 @@ import {useDispatch, useSelector} from "react-redux";
 import {setBackground} from "../../../redux/actions/background";
 
 import {
-  BackgroundImageCannon,
-  BackgroundItemCannon,
+  BackgroundImage,
+  BackgroundItem,
   ConfettiBoxCannon,
-  ConfettiWrapperCannon,
+  BackgroundWrapperCannon,
   TitleCannon
 } from "./style";
 
 const Background = () => {
   const dispatch = useDispatch();
 
-  const { backgroundState, backgroundData } = useSelector(
-    ({ backgroundReducer }) => backgroundReducer
+  const {backgroundState, backgroundData} = useSelector(
+    ({backgroundReducer}) => backgroundReducer
   );
 
   const handleSelectBackground = (background) => () => {
@@ -22,21 +22,25 @@ const Background = () => {
   };
 
   return (
-    <ConfettiWrapperCannon>
+    <BackgroundWrapperCannon>
       <TitleCannon>Background: {backgroundState.name}</TitleCannon>
       <ConfettiBoxCannon>
         {backgroundData.map((background, idx) => (
-          <BackgroundItemCannon
+          <BackgroundItem
             key={idx}
             selectConfetti={background.id === backgroundState.id}
             name={background.name}
             onClick={handleSelectBackground(background)}
           >
-            <BackgroundImageCannon src={background.img} alt={background.name}/>
-          </BackgroundItemCannon>
+            <BackgroundImage
+              src={background.img}
+              alt={background.name}
+              selectConfetti={background.id === backgroundState.id}
+            />
+          </BackgroundItem>
         ))}
       </ConfettiBoxCannon>
-    </ConfettiWrapperCannon>
+    </BackgroundWrapperCannon>
   );
 };
 

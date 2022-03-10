@@ -3,12 +3,17 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {setUpdateTextData} from "../../../../redux/actions/textData";
 import {setCurrentSidebar} from "../../../../redux/actions/sideBar";
+import {diagonalLine} from "../../../../utils/functions/imageLibrary";
 
 import EditPencilCan from "../../../../utils/assets/svg/EditPencilCan.svg";
-import {AddButton, BackgroundImage, ImageDiv, ImageNotContent} from "./style";
-import {EditButton, EditIcon} from "../../Boomb/CubeSection/style";
-import {diagonalLine} from "../../../../utils/functions/imageLibrary";
 import {DiagonalLineOne} from "../../../TextEditor/style";
+import {
+  AddButton,
+  BackgroundImage,
+  ImageDiv,
+  ImageNotContent,
+  PostcardEditButton
+} from "./style";
 
 const PostcardImage = () => {
   const [{widthLine, rotateLine}, setLineState] = useState({widthLine: 0, rotateLine: 0});
@@ -27,7 +32,7 @@ const PostcardImage = () => {
   }
 
   useEffect(() => {
-    if(ref.current) {
+    if (ref.current) {
       setLineState(diagonalLine(ref.current.getBoundingClientRect()));
     }
   }, [ref]);
@@ -41,9 +46,9 @@ const PostcardImage = () => {
             src={imageState.img}
             alt={imageState.alt}
           />
-          <EditButton onClick={openEditor}>
-            <EditIcon src={EditPencilCan} width={48} height={48} alt="edit"/>
-          </EditButton>
+          <PostcardEditButton onClick={openEditor}>
+            <img src={EditPencilCan} width={48} height={48} alt="edit"/>
+          </PostcardEditButton>
         </ImageDiv>
       ) : (
         <ImageNotContent ref={ref}>

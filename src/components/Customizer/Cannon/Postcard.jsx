@@ -6,7 +6,7 @@ import BlueButton from "../../Buttons/BlueButton";
 import Modal from "../../Modal/Modal";
 
 import ArrowRightIcon from '../../../utils/assets/svg/ArrowRightIcon.svg'
-import {PostcardBlock, PostcardButton} from "./PostcardSection/style";
+import {PostcardBlock} from "./PostcardSection/style";
 import {setCurrentModal} from "../../../redux/actions/modal";
 
 const Postcard = () => {
@@ -18,12 +18,7 @@ const Postcard = () => {
   return (
     <>
       <PostcardBlock>
-        <PostcardSection/>
-        <PostcardButton>
-          <BlueButton handleButtonClick={handleButtonClick}>
-            Add to cart <img src={ArrowRightIcon} alt="add"/>
-          </BlueButton>
-        </PostcardButton>
+        <PostcardSection handleButtonClick={handleButtonClick}/>
       </PostcardBlock>
       <Modal>
         <h1 style={{textAling: "center"}}>

@@ -17,7 +17,6 @@ export const ConfettiWrapper = styled.div`
   padding-right: 50px;
   @media (max-width: 920px) {
     order: 1;
-    margin-top: 0;
     padding-right: 0;
     margin-left: 30px;
     margin-top: 10px;
