@@ -42,6 +42,7 @@ const PostcardTextComponent = ({
 
   useEffect(() => {
     if (rotate) {
+      console.log(rotate, 'rotate')
       dispatch(setUpdateTextData({key: 'rotate', value: debouncedRotate}));
     }
   }, [debouncedRotate]);

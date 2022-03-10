@@ -53,7 +53,7 @@ const TextDoubleClick = ({
             textState={textDataState.id === e.id ? textState : e.value}
             position={textDataState.id === e.id ? positionState : e.position}
             setPositionState={setPositionState}
-            rotateState={textDataState.id === e.id ? rotate : e.rotate}
+            rotate={textDataState.id === e.id ? rotate : e.rotate}
             textStyles={e.textStyles}
             activeState={e.dblClickState}
             activeSizeImage={activeSizeImage}
@@ -65,7 +65,6 @@ const TextDoubleClick = ({
             refRotate={refRotate}
             initResize={initResize}
             initRotate={initRotate}
-            rotate={rotate}
           />
         </React.Fragment>
       ))}
