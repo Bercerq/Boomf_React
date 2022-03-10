@@ -22,13 +22,15 @@ function Confetti() {
   };
   return (
     <ConfettiWrapper>
-      <Title>Confetti: {confettiState.name}</Title>
+      <Title>
+        Confetti: <span>{confettiState.name}</span>
+      </Title>
       <ConfetiBox>
         {confettiData.map((confetti, idx) => (
           <ConfettiItem
-            key={idx}
             selectConfetti={confettiState}
             name={confetti.id}
+            key={idx}
             onClick={handleSelectConfetti(confetti)}
           >
             <ConfettiImage src={confetti.img} alt={confetti.name} />

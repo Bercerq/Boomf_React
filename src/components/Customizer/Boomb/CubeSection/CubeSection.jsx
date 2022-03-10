@@ -29,7 +29,7 @@ function CubeSection({ topText, confettiState, setTopText }) {
           id="buttonClick"
           onClick={openEditor(dispatch, "buttonClick")}
         >
-          {!topText ? "Double Click to type your text" : focusState && topText}
+          {!topText ? "Click to type or edit your text" : focusState && topText}
         </StaticText>
       </CubeWrapper>
       <RotateButtons />

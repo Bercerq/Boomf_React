@@ -81,6 +81,9 @@ export const BoxSide = styled.div`
     resize: none;
     outline: none;
   }
+  @media (max-width: 488px) {
+    height: fit-content;
+  }
   .BoxNoImage {
     font-family: "objectivity-regular-11", sans-serif;
     opacity: 0;
@@ -89,7 +92,9 @@ export const BoxSide = styled.div`
     word-break: keep-all;
     transition: 0.4s;
     max-width: 120px;
-    height: 120px;
+    @media (max-width: 488px) {
+      height: fit-content;
+    }
   }
   &:hover {
     .BoxNoImage {
@@ -111,7 +116,7 @@ export const ButtonWrapper = styled.div`
   right: 45px;
   @media (max-width: 1190px) {
     right: 15px;
-    width: 140px;
+    width: 180px;
   }
   @media (max-width: 920px) {
     position: static;

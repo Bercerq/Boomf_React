@@ -11,15 +11,22 @@ export const Title = styled.div`
       display: none;
     }
   }
+  span {
+    font-weight: bold;
+  }
 `;
 export const ConfettiWrapper = styled.div`
   margin-top: 3%;
-  padding-right: 50px;
+  padding-right: 60px;
+
   @media (max-width: 920px) {
     order: 1;
     padding-right: 0;
     margin-left: 30px;
     margin-top: 10px;
+  }
+  @media (max-width: 400px) {
+    margin-left: unset;
   }
 `;
 export const ConfetiBox = styled.div`
@@ -38,19 +45,19 @@ export const ConfetiBox = styled.div`
     border-radius: 10px;
     border: 3px solid #ffffff;
   }
-  overflow-y: scroll;
   padding-right: 5px;
-  height: 550px;
-  @media (max-width: 1600px) {
-    height: 40vh;
-  }
-  @media (max-height: 785px) {
-    height: 35vh;
-  }
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
   @media (max-width: 920px) {
+    flex-direction: row;
+    flex-wrap: nowrap;
     display: flex;
+    overflow: scroll;
     height: unset;
-    width: 80vw;
+    width: 94vw;
     &::-webkit-scrollbar-track {
       background: transparent;
     }
@@ -61,38 +68,39 @@ export const ConfetiBox = styled.div`
   }
 `;
 export const ConfettiImage = styled.img`
-  width: 65px;
-  height: 65px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
   border-radius: 50%;
-  margin: 6px;
+  transition: 0.4s;
+
   @media (max-width: 920px) {
-    width: 35px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     margin: 0;
   }
 `;
 export const ConfettiItem = styled.div`
-  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04))
-    drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16));
-  cursor: pointer;
-  width: 78px;
-  height: 78px;
-  @media (max-width: 920px) {
-    width: 40px;
-    height: 35px;
-  }
-  border-radius: 50%;
+  padding: 4px;
+  background-color: white;
+
   ${({ selectConfetti, name }) =>
     `border: 4px solid ${
       selectConfetti.id === name ? "#2EDBE3" : "transparent"
     };  transition: 0.4s;`}
-  transition: 0.4s;
-  background-color: white;
-  margin: 24px 0 24px auto;
+  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04))
+    drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16));
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  margin: 20px;
   @media (max-width: 920px) {
     margin: 0 10px 12px 10px;
   }
   @media (max-width: 520px) {
-    margin: 0 1%;
+    margin: 0 6px;
   }
 `;

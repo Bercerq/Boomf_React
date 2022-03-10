@@ -44,7 +44,7 @@ export const CubeWrapper = styled.div`
   background-repeat: no-repeat;
   position: relative;
   user-select: none;
-  padding: 160px 200px;
+  padding: 185px 200px;
   overflow: hidden;
   filter: drop-shadow(0px 2px 4px rgba(40, 41, 61, 0.04))
     drop-shadow(0px 8px 16px rgba(96, 97, 112, 0.16));
@@ -55,7 +55,7 @@ export const CubeWrapper = styled.div`
     padding: 120px;
   }
   @media (max-width: 920px) {
-    padding: 80px 130px;
+    padding: 120px 130px;
   }
   @media (max-width: 500px) {
     padding: 80px 60px;
@@ -67,11 +67,10 @@ export const CubeWrapper = styled.div`
   }
 
   @media (max-height: 780px) {
-    padding: 80px 60px;
-    background-size: 360px;
+    padding: 80px 120px;
   }
-  @media (max-width: 390px) {
-    padding: 80px 35px !important;
+  @media (max-width: 490px) {
+    padding: 80px 45px !important ;
   }
 `;
 export const CubeBox = styled.div`
@@ -95,20 +94,20 @@ export const CubeBox = styled.div`
     min-height: 320px;
   }
   @media (max-width: 920px) {
-    max-width: 200px;
-    max-height: 200px;
-    height: 20vw;
-    width: 20vw;
-    min-width: 200px;
-    min-height: 200px;
+    max-width: 200px !important;
+    max-height: 200px !important;
+    height: 20vw !important;
+    width: 20vw !important;
+    min-width: 200px !important;
+    min-height: 200px !important;
   }
   @media (max-height: 780px) {
-    max-width: 200px;
-    max-height: 200px;
-    height: 20vw;
-    width: 20vw;
-    min-width: 200px;
-    min-height: 200px;
+    max-width: 320px;
+    max-height: 320px;
+    height: 50vw;
+    width: 50vw;
+    min-width: 320px;
+    min-height: 320px;
   }
 `;
 
@@ -129,10 +128,10 @@ export const CubeSide = styled.div`
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
   @media (max-width: 920px) {
-    transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px);
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px) !important;
   }
   @media (max-height: 780px) {
-    transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px);
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
 `;
 
@@ -226,6 +225,9 @@ export const TopText = styled.textarea`
   background: none;
   border: none;
   outline: none;
+  @media(max-width:1060px){
+  left: -40px;
+  }
 `;
 export const NoImage = styled.div`
   font-family: "objectivity-regular-11", sans-serif;
@@ -287,14 +289,27 @@ export const EditButton = styled.div`
   position: absolute;
   bottom: 0;
   right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 14px;
+  border-radius: 50%;
+  padding: 12px;
+  @media (max-width: 920px) {
+    padding: 6px;
+  }
+  margin: 15px;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
+    0px 2px 4px rgba(96, 97, 112, 0.16);
   transition: 0.3s;
   &:hover {
+    padding: 15px;
     transition: 0.3s;
-    transform: scale(1.2);
+    @media (max-width: 920px) {
+      padding: 8px;
+    }
   }
 `;
 export const EditIcon = styled.img``;
