@@ -1,42 +1,41 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Draggable from "react-draggable";
 
 import Reboot from '../../utils/assets/svg/Reboot.svg';
 import Trash from '../../utils/assets/svg/Trash.svg';
 import LeftAndRightArrows from '../../utils/assets/svg/LeftAndRightArrows.svg';
 
-
 import {CenterRotate, DivTextContent} from "./style.js";
 import './style.css';
 
 const DraggableText = ({
-  textState,
-  position,
-  rotateState,
-  textStyles,
-  activeState,
+                         textState,
+                         position,
+                         setPositionState,
+                         textStyles,
+                         activeState,
 
-  setEnableRotate,
-  setEnableWidthText,
-  setPositionState,
-  deleteText,
-  uid,
-  handleSelectCard,
-  refs,
-  activeSizeImage
-}) => {
-  const [, setActiveDrags] = useState(0);
+
+                         deleteText,
+                         handleSelectCard,
+                         activeSizeImage,
+
+                         refResize,
+                         refRotate,
+                         initResize,
+                         initRotate,
+                         rotate
+                       }) => {
+
 
   const onStart = (e) => {
     if (!activeState) {
       return false;
     }
-    setActiveDrags(e => ++e)
   };
 
   const onStop = (e, data) => {
     setPositionState({x: data.lastX, y: data.lastY});
-    setActiveDrags(e => --e);
   };
 
   const dragHandlers = {
@@ -52,18 +51,15 @@ const DraggableText = ({
   return (
     <Draggable cancel="strong" {...dragHandlers}>
       <div className="box" onClick={handleSelectCard} style={{position: 'absolute', zIndex: activeState ? 1 : 0}}>
-        <div className='text-editor-form' style={{transform: `rotate(${rotateState}deg)`}}>
+        <div className='text-editor-form' style={{transform: `rotate(${rotate}deg)`}}>
           <div className='div-reboot-pos'>
             <strong className="no-cursor">
               {activeState && (
                 <div style={{cursor: 'col-resize'}}
-                     onMouseDown={() => setEnableRotate(true)}
-                     onTouchStart={() => {
-                       setEnableRotate(true);
-                       document.body.style.overflow = 'hidden';
-                     }}
+                     onMouseDown={initRotate}
+                     onTouchStart={initRotate}
                 >
-                  <img src={Reboot} height={24} width={24} alt='Reboot'/>
+                  <img src={Reboot} alt='Reboot' height={24} width={24}/>
                 </div>
               )}
             </strong>
@@ -76,12 +72,13 @@ const DraggableText = ({
                        style={{cursor: 'pointer'}}
                        onClick={deleteText}
                   >
-                    <img src={Trash} height={10} width={10} alt='TrashCan'/>
+                    <img src={Trash} alt='TrashCan' height={10} width={10}/>
                   </div>
                 )}
               </strong>
             </div>
             <DivTextContent
+              ref={refResize}
               activeState={activeState}
               textStyles={textStyles ? textStyles : {}}
             >
@@ -92,20 +89,17 @@ const DraggableText = ({
                 {activeState && activeSizeImage && (
                   <div className='image-div-block div-size-icon'
                        style={{cursor: 'col-resize'}}
-                       onMouseDown={() => setEnableWidthText(true)}
-                       onTouchStart={() => {
-                         setEnableWidthText(true);
-                         document.body.style.overflow = 'hidden';
-                       }}
+                       onMouseDown={initResize}
+                       onTouchStart={initResize}
                   >
-                    <img src={LeftAndRightArrows} height={10} width={10} alt="LeftAndRightArrows"/>
+                    <img src={LeftAndRightArrows} alt="LeftAndRightArrows" height={10} width={10}/>
                   </div>
                 )}
               </strong>
             </div>
           </div>
         </div>
-        <CenterRotate ref={r => refs.current[uid] = r}/>
+        <CenterRotate ref={refRotate}/>
       </div>
     </Draggable>
   )
