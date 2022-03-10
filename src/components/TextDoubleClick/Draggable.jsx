@@ -1,32 +1,43 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Draggable from "react-draggable";
 
 import Reboot from '../../utils/assets/svg/Reboot.svg';
 import Trash from '../../utils/assets/svg/Trash.svg';
 import LeftAndRightArrows from '../../utils/assets/svg/LeftAndRightArrows.svg';
 
-import {CenterRotate, DivTextContent} from "./style.js";
+import {CenterRotate, DivTextContent, TestText} from "./style.js";
 import './style.css';
 
 const DraggableText = ({
-                         textState,
-                         position,
-                         setPositionState,
-                         textStyles,
-                         activeState,
+ textState,
+ position,
+ setPositionState,
+ textStyles,
+ activeState,
 
 
-                         deleteText,
-                         handleSelectCard,
-                         activeSizeImage,
+ deleteText,
+ handleSelectCard,
+ activeSizeImage,
 
-                         refResize,
-                         refRotate,
-                         initResize,
-                         initRotate,
-                         rotate
-                       }) => {
+ refResize,
+ refRotate,
+ initResize,
+ initRotate,
+ rotate
+}) => {
+  // const refText = useRef();
+  // const [valueTest, setValueTest] = useState('');
 
+  // useEffect(() => {
+  //   refText.current.setAttribute("style", "height:" + (refText.current.scrollHeight) + "px;overflow-y:hidden;");
+  //   refText.current.addEventListener("input", OnInput, false);
+  // }, [refText, valueTest]);
+
+  // function OnInput() {
+  //   this.style.height = "auto";
+  //   this.style.height = (this.scrollHeight) + "px";
+  // }
 
   const onStart = (e) => {
     if (!activeState) {
@@ -82,6 +93,7 @@ const DraggableText = ({
               activeState={activeState}
               textStyles={textStyles ? textStyles : {}}
             >
+              {/*<TestText onChange={(e) => setValueTest(e.target.value)} ref={refText} textStyles={textStyles ? textStyles : {}}/>*/}
               {!textState ? ('Double Click to type your text') : (textState)}
             </DivTextContent>
             <div className='text-editor-form'>

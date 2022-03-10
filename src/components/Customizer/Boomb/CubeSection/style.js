@@ -31,6 +31,7 @@ export const CubeContainer = styled.div`
   }
   @media (max-width: 640px) {
     width: 80vw;
+    justify-content: start;
   }
   @media (max-width: 340px) {
     width: 85vw;

@@ -1,15 +1,11 @@
-import React, {useCallback, useEffect, useRef} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
-import {getCenterBox, rotateDegree} from "../../utils/functions/textData";
 import DraggableText from "./Draggable";
 import {changeTopText} from "../../utils/functions/boomb";
-import {setActionTextData, setDeleteTextData, setUpdateTextData} from "../../redux/actions/textData";
+import {setActionTextData, setDeleteTextData} from "../../redux/actions/textData";
 
 import {PostcardText} from "../Customizer/Cannon/PostcardSection/style";
-import {useResize} from "../../utils/hooks/useResize";
-import useRotate from "../../utils/hooks/useRotate";
-import useDebounce from "../../utils/hooks/useDebounce";
 
 const TextDoubleClick = ({
  textState,
