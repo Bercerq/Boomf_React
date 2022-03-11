@@ -2,7 +2,8 @@ import {
   SET_ADD_IMAGE_LIBRARY,
   SET_DELETE_IMAGE_LIBRARY,
   SET_IMAGE_LIBRARY,
-  SET_IMAGE_LIBRARY_DATA, SET_UPDATE_IMAGE_LIBRARY,
+  SET_IMAGE_LIBRARY_DATA,
+  SET_UPDATE_IMAGE_LIBRARY,
 } from "../constants/imageLibrary";
 
 import {uid} from "../../utils/functions/textData";

@@ -1,16 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
-import Confetti from "./Confetti";
+import Confetti from "../Confetti";
 import Background from "./Background";
+import MobileDevices from "./MobileDevices";
+import ConfettiDevice from "./MobileDevices/ConfettiDevice";
 import {ConfettiWrapperCannonColumn} from "./style";
 
 const CannonRightColumn = () => {
-return (
+  const [mobileDevice, setMobileDevice] = useState(window.matchMedia("(max-width: 520px)").matches);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      setMobileDevice(window.matchMedia("(max-width: 520px)").matches)
+    });
+  }, []);
+
+  return mobileDevice ? (
+    <MobileDevices/>
+  ) : (
     <ConfettiWrapperCannonColumn>
-      <Background />
-      <Confetti/>
+      <Background/>
+      <Confetti textStart={true}>
+        <ConfettiDevice />
+      </Confetti>
     </ConfettiWrapperCannonColumn>
-  );
+  )
 };
 
 export default CannonRightColumn;

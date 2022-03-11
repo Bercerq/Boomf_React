@@ -1,4 +1,8 @@
-import {SET_BACKGROUND, SET_BACKGROUND_DATA} from "../constants/background";
+import {
+  SET_BACKGROUND,
+  SET_BACKGROUND_DATA,
+  SET_SELECTED_BACKGROUND
+} from "../constants/background";
 
 const initialState = {
   backgroundData: [],
@@ -8,6 +12,7 @@ const initialState = {
     action: false,
     id: 0
   },
+  selectedBackground: false
 };
 
 const backgroundReducer = (state = initialState, action) => {
@@ -21,6 +26,7 @@ const backgroundReducer = (state = initialState, action) => {
       }))
 
       return {
+        ...state,
         backgroundData: data,
         backgroundState: state.backgroundData[action.payload.id],
       };
@@ -36,6 +42,12 @@ const backgroundReducer = (state = initialState, action) => {
       return {
         backgroundData: data,
         backgroundState: data.filter((e) => e?.active)[0] || data[0]
+      }
+    }
+    case SET_SELECTED_BACKGROUND: {
+      return {
+        ...state,
+        selectedBackground: action.payload
       }
     }
     default:
