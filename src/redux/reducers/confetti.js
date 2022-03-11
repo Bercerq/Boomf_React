@@ -1,6 +1,7 @@
 import {
   SET_CONFETTI,
-  SET_CONFETTI_DATA
+  SET_CONFETTI_DATA,
+  SET_SELECTED_CONFETTI
 } from "../constants/confetti";
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
     action: false,
     id: 0
   },
+  selectedConfetti: false
 };
 
 const confettiReducer = (state = initialState, action) => {
@@ -24,6 +26,7 @@ const confettiReducer = (state = initialState, action) => {
       }))
 
       return {
+        ...state,
         confettiData: data,
         confettiState: action.payload,
       };
@@ -39,8 +42,15 @@ const confettiReducer = (state = initialState, action) => {
       const active = data.filter((e) => e?.active)[0] || data[0];
 
       return {
+        ...state,
         confettiData: data,
         confettiState: active
+      }
+    }
+    case SET_SELECTED_CONFETTI: {
+      return {
+        ...state,
+        selectedConfetti: action.payload
       }
     }
     default:

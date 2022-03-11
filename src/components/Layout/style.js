@@ -6,5 +6,6 @@ export const MainWrapper = styled.div`
   justify-content: space-between;
   @media (max-width: 920px) {
     flex-direction: column;
+    height: 100vh;
   }
 `;
