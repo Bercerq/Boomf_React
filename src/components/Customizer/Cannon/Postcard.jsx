@@ -1,24 +1,16 @@
 import React from 'react';
-import {useDispatch} from "react-redux";
 
 import PostcardSection from "./PostcardSection/PostcardSection";
 import BlueButton from "../../Buttons/BlueButton";
 import Modal from "../../Modal/Modal";
 
-import ArrowRightIcon from '../../../utils/assets/svg/ArrowRightIcon.svg'
 import {PostcardBlock} from "./PostcardSection/style";
-import {setCurrentModal} from "../../../redux/actions/modal";
 
 const Postcard = () => {
-  const dispatch = useDispatch();
-  const handleButtonClick = () => {
-    dispatch(setCurrentModal({title: "Add to cart", state: true}));
-  };
-
   return (
     <>
       <PostcardBlock>
-        <PostcardSection handleButtonClick={handleButtonClick}/>
+        <PostcardSection/>
       </PostcardBlock>
       <Modal>
         <h1 style={{textAling: "center"}}>

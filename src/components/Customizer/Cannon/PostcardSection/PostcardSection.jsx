@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setCurrentModal} from "../../../../redux/actions/modal";
 
 import PostcardTextComponent from "./PostcardText";
+import MobileDeviceColumn from "./MobileDeviceColumn";
 import PostcardImage from "./PostcardImage";
 
 import ArrowRightIcon from "../../../../utils/assets/svg/ArrowRightIcon.svg";
@@ -48,6 +49,7 @@ const PostcardSection = () => {
           src={confettiState.img}
           alt={confettiState.name}
         />
+        <MobileDeviceColumn />
         <BackgroundCard sizeCard={sizeCard}>
           <BackgroundImage
             src={backgroundState.img}

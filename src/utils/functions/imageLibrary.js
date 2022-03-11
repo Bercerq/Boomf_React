@@ -1,4 +1,6 @@
 import {uid} from "./textData";
+import {setSelectedBackground} from "../../redux/actions/background";
+import {setSelectedConfetti} from "../../redux/actions/confetti";
 
 export const addStateImage = (state, image) => {
   const data = state.imageData.map(e => ({...e, active: false}));
@@ -52,4 +54,9 @@ export const diagonalLine = (box) => {
     widthLine,
     rotateLine
   }
+}
+
+export const closeSelectDevice = (dispatch) => () => {
+  dispatch(setSelectedBackground(false));
+  dispatch(setSelectedConfetti(false));
 }
