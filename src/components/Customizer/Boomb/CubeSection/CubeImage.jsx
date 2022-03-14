@@ -32,7 +32,7 @@ function CubeImage({ img, position, editCrop }) {
       </EditButton>
     </>
   ) : (
-    <NoImage>+ Photo {findBoxSide(position)}</NoImage>
+    <NoImage onClick={openSideBar}>+ Photo {findBoxSide(position)}</NoImage>
   );
 }
 

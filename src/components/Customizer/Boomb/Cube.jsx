@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { setCurrentModal } from "../../../redux/actions/modal";
+import { selectUploadedImage } from "../../../redux/actions/sideBar";
 import { sendBoomb } from "../../../redux/actions/boomb";
+
 import { updateItem } from "../../../utils/functions/boomb";
 
 import BlueButton from "../../Buttons/BlueButton";
@@ -10,8 +13,7 @@ import CubeSection from "./CubeSection/CubeSection";
 import Modal from "../../Modal/Modal";
 
 import { SideContent } from "./CubeSection/style";
-import { setCurrentModal } from "../../../redux/actions/modal";
-import { selectUploadedImage } from "../../../redux/actions/sideBar";
+
 
 function Cube() {
   const [topText, setTopText] = useState("");

@@ -13,7 +13,7 @@ export const ConfettiWrapperCannonColumn = styled(ConfettiWrapper)`
   @media (max-width: 1010px) {
     width: 30vw;
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -23,7 +23,7 @@ export const ConfettiWrapperCannonColumn = styled(ConfettiWrapper)`
 export const ConfettiWrapperCannon = styled(ConfettiWrapper)`
   padding: 0;
 
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin-top: 0;
   }
 `;
@@ -31,7 +31,7 @@ export const ConfettiWrapperCannon = styled(ConfettiWrapper)`
 export const BackgroundWrapperCannon = styled(ConfettiWrapper)`
   padding: 0;
 
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin-top: 12px;
   }
 `;
@@ -52,7 +52,7 @@ export const ConfettiBoxCannon = styled(ConfetiBox)`
   @media (min-width: 1440px) {
     overflow: hidden;
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     display: flex;
     padding: 0;
   }
@@ -74,11 +74,11 @@ export const ConfettiItemCannon = styled.div`
                   selectConfetti ? "#2EDBE3" : "transparent"
           };  transition: 0.4s;`};
 
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     width: 40px;
     height: 35px;
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 0 10px 12px 10px;
     width: 45px;
     height: 45px;
@@ -90,7 +90,7 @@ export const ConfettiItemCannon = styled.div`
 
 export const TitleCannon = styled(Title)`
   text-align: start;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 12px 0 0 0;
     &:last-child {
       display: block;
@@ -117,7 +117,7 @@ export const BackgroundItem = styled.div`
                   selectConfetti ? "#75bce8" : "transparent"
           };  transition: 0.4s;`};
 
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 0 10px 12px 10px;
   }
 `;
@@ -133,7 +133,7 @@ export const BackgroundImage = styled(ConfettiImage)`
 `;
 
 export const ConfettiImageCannon = styled(ConfettiImage)`
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     width: 45px;
     height: 45px;
   }

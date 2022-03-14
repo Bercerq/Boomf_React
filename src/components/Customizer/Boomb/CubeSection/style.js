@@ -5,14 +5,14 @@ export const SideContent = styled.div`
   display: block;
   width: 100%;
   height: 100vh;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     order: 2;
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     height: unset;
   }
   @media (min-height: 780px) {
-    height: 77vh;
+    height: 72.5vh;
   }
 `;
 
@@ -26,7 +26,7 @@ export const CubeContainer = styled.div`
   @media (max-width: 1200px) {
     width: 55vw;
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     width: 80vw;
   }
   @media (max-width: 640px) {
@@ -39,12 +39,12 @@ export const CubeContainer = styled.div`
 `;
 export const CubeWrapper = styled.div`
   background-image: ${({ confettiState }) => `url(${confettiState})`};
-  background-size: 100%;
+  background-size: 90%;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
   user-select: none;
-  padding: 185px 200px;
+  padding: 120px 200px;
   overflow: hidden;
   filter: drop-shadow(0px 2px 4px rgba(40, 41, 61, 0.04))
     drop-shadow(0px 8px 16px rgba(96, 97, 112, 0.16));
@@ -54,8 +54,8 @@ export const CubeWrapper = styled.div`
   @media (max-width: 1010px) {
     padding: 120px;
   }
-  @media (max-width: 920px) {
-    padding: 120px 130px;
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+    padding: 90px 130px;
   }
   @media (max-width: 500px) {
     padding: 80px 60px;
@@ -76,7 +76,7 @@ export const CubeWrapper = styled.div`
 export const CubeBox = styled.div`
   margin: auto;
   position: relative;
-  height: 20vw;
+  height: 30vw;
   width: 60vw;
   max-height: 420px;
   max-width: 420px;
@@ -93,7 +93,7 @@ export const CubeBox = styled.div`
     min-width: 320px;
     min-height: 320px;
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     max-width: 200px !important;
     max-height: 200px !important;
     height: 20vw !important;
@@ -114,7 +114,6 @@ export const CubeBox = styled.div`
 //CUBE TOP/CUBE SIDE
 export const CubeSide = styled.div`
   width: 100%;
-  height: 100%;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -122,12 +121,11 @@ export const CubeSide = styled.div`
   color: #fff;
   letter-spacing: 2px;
   background: rgba(0, 0, 0, 0.2);
-  border: 2px solid #fff;
   transform: ${({ spinParam }) => `${spinParam}`} translateZ(210px);
   @media (max-width: 1200px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px) !important;
   }
   @media (max-height: 780px) {
@@ -196,7 +194,7 @@ export const BoxInfoSide = styled.div`
     font-size: 11px;
     width: 50%;
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     font-size: 10px;
   }
 `;
@@ -257,7 +255,7 @@ export const NoImage = styled.div`
     padding: 8px;
     width: 50%;
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     font-size: 10px;
     left: 9%;
     width: 71%;
@@ -283,7 +281,6 @@ export const StaticText = styled.div`
   text-transform: capitalize;
   cursor: pointer;
   width: 50%;
-  word-break: break-all;
 `;
 export const EditButton = styled.div`
   position: absolute;
@@ -297,7 +294,7 @@ export const EditButton = styled.div`
   align-items: center;
   border-radius: 50%;
   padding: 12px;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     padding: 6px;
   }
   margin: 15px;
@@ -307,7 +304,7 @@ export const EditButton = styled.div`
   &:hover {
     padding: 15px;
     transition: 0.3s;
-    @media (max-width: 920px) {
+    @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
       padding: 8px;
     }
   }
