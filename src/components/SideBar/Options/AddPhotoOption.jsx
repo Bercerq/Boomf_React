@@ -51,7 +51,7 @@ function AddPhotoOption() {
           id ? (
             <DivUploadImage key={"DivUploadImage" + idx}>
               <CloseIconDiv onClick={() => deleteImage(id)}>
-                <img src={CloseImage} alt="" />
+                <img src={CloseImage} alt="Close" />
               </CloseIconDiv>
               <UploadedImg
                 activeId={imageState.id}

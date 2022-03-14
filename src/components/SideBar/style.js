@@ -19,7 +19,7 @@ export const PanelContainer = styled.div`
     z-index: 2;
     bottom: 0;
   }
-  @media (min-height: 850px) {
+  @media (min-height: 850px) and (max-width: 1130px) {
     position: absolute;
   }
 `;
