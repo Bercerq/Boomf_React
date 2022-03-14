@@ -1,6 +1,6 @@
 import {
   CURRENT_SIDEBAR,
-  IMAGE_LIBRARY,
+  // IMAGE_LIBRARY,
   SELECT_UPLOADED,
 } from "../constants/sideBar";
 
@@ -16,11 +16,11 @@ const sidebarReducer = (state = initialState, action) => {
         ...state,
         currentSidebar: action.payload,
       };
-    case IMAGE_LIBRARY:
-      return {
-        ...state,
-        imageLibrary: [{ img: action.payload }, ...state.imageLibrary],
-      };
+    // case IMAGE_LIBRARY:
+    //   return {
+    //     ...state,
+    //     imageLibrary: [{ img: action.payload }, ...state.imageLibrary],
+    //   };
     case SELECT_UPLOADED:
       return {
         ...state,

@@ -53,7 +53,7 @@ export const WhiteBtn = styled.button`
 export const SideBarBtn = styled.button`
   width: 100%;
   padding: 12px 61px 12px 0;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     padding: 8px 20px 8px 0;
     font-size: 13px;
   }
