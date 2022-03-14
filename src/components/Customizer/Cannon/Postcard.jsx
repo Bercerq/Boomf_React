@@ -6,11 +6,11 @@ import Modal from "../../Modal/Modal";
 
 import {PostcardBlock} from "./PostcardSection/style";
 
-const Postcard = () => {
+const Postcard = ({editTextRef}) => {
   return (
     <>
       <PostcardBlock>
-        <PostcardSection/>
+        <PostcardSection editTextRef={editTextRef}/>
       </PostcardBlock>
       <Modal>
         <h1 style={{textAling: "center"}}>

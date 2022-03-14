@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const TextEditorWrapper = styled.div`
-  height: 100vh;
+  height: fit-content;
   width: 100vw;
   position: fixed;
   bottom: 0;
