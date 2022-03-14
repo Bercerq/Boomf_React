@@ -21,6 +21,10 @@ export const PostcardBlock = styled(SideContent)`
   @media (max-width: 520px) {
     height: 100%;
   }
+
+  @media (min-height: 780px) {
+    height: fit-content;
+  }
 `
 
 export const PostcardEditButton = styled.div`
