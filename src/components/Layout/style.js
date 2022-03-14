@@ -4,7 +4,7 @@ export const MainWrapper = styled.div`
   user-select: none;
   height: 100%;
   justify-content: space-between;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     flex-direction: column;
     height: 100vh;
   }
