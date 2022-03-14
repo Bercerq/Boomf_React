@@ -17,6 +17,10 @@ export const PostcardBlock = styled(SideContent)`
     width: 100%;
     height: fit-content;
   }
+  
+  @media (max-width: 520px) {
+    height: 100%;
+  }
 `
 
 export const PostcardEditButton = styled.div`
@@ -47,13 +51,25 @@ export const PostcardTest = styled.div`
     width: 100%;
     margin: 0;
   }
+  
+  @media (max-width: 520px) {
+    display: grid;
+    align-items: start;
+    height: 100%;
+  }
 `
 export const PostcardContainer = styled(CubeContainer)`
   width: 100%;
-  height: 100%;
   flex-direction: column;
   align-items: center;
-
+  
+  @media(max-width: 920px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  
   @media (max-width: 415px) {
     height: auto;
     margin: 0;
@@ -66,10 +82,15 @@ export const PostcardWrapper = styled.img`
   width: 100%;
   height: 90%;
   object-fit: cover;
+  z-index: -1;
 
+  @media(max-width: 920px) {
+  }
+  
   @media (max-width: 415px) {
     width: 416px;
     height: 427px;
+    margin-top: 30%;
   }
 `
 
@@ -104,6 +125,12 @@ export const BackgroundCard = styled.div`
   @media (max-width: 415px) {
     width: 265px;
     height: 427px;
+    margin-bottom: 23px;
+  }
+  
+  @media (max-width: 375px) {
+    width: 241px;
+    height: 380px;
   }
 `
 
@@ -121,6 +148,7 @@ export const BackgroundImage = styled.img`
 `
 
 export const ImageDiv = styled(CubeItem)`
+  
   width: 76%;
   height: 51%;
   padding: initial;
@@ -165,9 +193,6 @@ export const AddButton = styled.button`
   cursor: pointer;
 `
 
-
-export const ImageContent = styled(ImageDiv)``
-
 export const PostcardButton = styled.div`
   position: absolute;
   background: transparent;
@@ -179,16 +204,29 @@ export const PostcardButton = styled.div`
     position: static;
     display: flex;
     justify-content: flex-end;
-    width: 100%;
-    margin: 0 30px 0 0;
+  }
+  
+  @media(max-width: 415px) {
+    margin: 20px 30px;
+  }
+
+  @media (max-width: 375px) {
+    margin: 0 30px;
   }
 `
 
 export const PostcardBlueButton = styled(BlueBtn)`
   @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     padding: 0;
-    margin-right: 10px;
+    margin: 10px;
     width: 146px;
+    height: 40px;
+  }
+  
+  @media(max-width: 520px) {
+    padding: 0;
+    margin: 10px;
+    width: 100%;
     height: 40px;
   }
 `;

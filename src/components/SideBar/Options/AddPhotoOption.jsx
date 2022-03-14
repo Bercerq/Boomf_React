@@ -9,7 +9,12 @@ import {
 
 import Buttons from "./components/Buttons";
 import ImageUploader from "./components/ImageUploader";
+import {
+  setDeleteImageLibrary,
+  setImageLibrary,
+} from "../../../redux/actions/imageLibrary";
 
+import CloseImage from "../../../utils/assets/svg/CloseImage.svg";
 import {
   MainWrapper,
   ActionsWrapper,
@@ -20,16 +25,10 @@ import {
   UploadedImg,
 } from "./style";
 
-import {
-  setDeleteImageLibrary,
-  // setImageLibrary,
-} from "../../../redux/actions/imageLibrary";
-
 function AddPhotoOption() {
-  // const { boombData, curCubePosition } = useSelector(
-  //   ({ boombReducer }) => boombReducer
-  // );
-  // const { imageLibrary } = useSelector(({ sidebarReducer }) => sidebarReducer);
+  const { boombData, curCubePosition } = useSelector(
+    ({ boombReducer }) => boombReducer
+  );
 
   const { imageData, imageState } = useSelector(
     ({ imageLibraryReducer }) => imageLibraryReducer
@@ -58,28 +57,7 @@ function AddPhotoOption() {
           id ? (
             <DivUploadImage key={"DivUploadImage" + idx}>
               <CloseIconDiv onClick={() => deleteImage(id)}>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M41.5999 22.4004L22.3999 41.6004"
-                    stroke="#FFFFFF"
-                    strokeWidth="8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M22.3999 22.4004L41.5999 41.6004"
-                    stroke="#FFFFFF"
-                    strokeWidth="8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <CloseImage />
               </CloseIconDiv>
               <UploadedImg
                 activeId={imageState.id}

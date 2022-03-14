@@ -6,5 +6,6 @@ export const MainWrapper = styled.div`
   justify-content: space-between;
   @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     flex-direction: column;
+    height: 100vh;
   }
 `;

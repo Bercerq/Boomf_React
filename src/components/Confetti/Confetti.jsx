@@ -10,7 +10,7 @@ import {
   ConfetiBox,
 } from "./style";
 
-function Confetti() {
+function Confetti({children, textStart}) {
   const dispatch = useDispatch();
 
   const { confettiState, confettiData } = useSelector(
@@ -22,22 +22,24 @@ function Confetti() {
   };
   return (
     <ConfettiWrapper>
-      <Title>
+      <Title textStart={textStart}>
         Confetti: <span>{confettiState.name}</span>
       </Title>
-      <ConfetiBox>
-        {confettiData.map((confetti, idx) => (
-          <ConfettiItem
-            selectConfetti={confettiState}
-            name={confetti.id}
-            key={idx}
-            onClick={handleSelectConfetti(confetti)}
-          >
-            <ConfettiImage src={confetti.img} alt={confetti.name} />
-          </ConfettiItem>
-        ))}
-      </ConfetiBox>
-      <Title>Confetti launches out of card</Title>
+      {children ? children : (
+        <ConfetiBox>
+          {confettiData.map((confetti, idx) => (
+            <ConfettiItem
+              selectConfetti={confettiState}
+              name={confetti.id}
+              key={idx}
+              onClick={handleSelectConfetti(confetti)}
+            >
+              <ConfettiImage src={confetti.img} alt={confetti.name} />
+            </ConfettiItem>
+          ))}
+        </ConfetiBox>
+      )}
+      <Title textStart={textStart}>Confetti launches out of card</Title>
     </ConfettiWrapper>
   );
 }
