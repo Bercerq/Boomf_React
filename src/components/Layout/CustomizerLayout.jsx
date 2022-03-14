@@ -17,7 +17,6 @@ function CustomizerLayout({title, children, dataName}) {
       {dataName === 'cannon' && (
         <>
           <CannonRightColumn/>
-          <TextEditorCannon/>
         </>
       )}
       {dataName === 'boomb' && (

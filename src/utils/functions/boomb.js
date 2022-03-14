@@ -123,7 +123,7 @@ export const openEditor = (dispatch, buttonflag) => () => {
         // todo cannon
         dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
         dispatch(setUpdateTextData({key: 'focusState', value: true}));
-        dispatch(setUpdateTextData({key: 'dblClickState', value: false}));
+        // dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
       }, 200);
     }
   });
@@ -132,13 +132,13 @@ export const openEditor = (dispatch, buttonflag) => () => {
     dispatch(setFocus(true));
     // todo cannon
     dispatch(setUpdateTextData({key: 'focusState', value: true}));
-    dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
+    // dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
   });
 
   button.addEventListener('touchend', () => {
     dispatch(setFocus(true));
     // todo cannon
     dispatch(setUpdateTextData({key: 'focusState', value: true}));
-    dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
+    // dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
   })
 };
