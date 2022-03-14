@@ -9,31 +9,31 @@ import {CenterRotate, DivTextContent, TestText} from "./style.js";
 import './style.css';
 
 const DraggableText = ({
- textState,
- position,
- setPositionState,
- textStyles,
- activeState,
+textState,
+position,
+setPositionState,
+textStyles,
+activeState,
 
 
- deleteText,
- handleSelectCard,
- activeSizeImage,
+deleteText,
+handleSelectCard,
+activeSizeImage,
 
- refResize,
- refRotate,
- initResize,
- initRotate,
- rotate
+refResize,
+refRotate,
+initResize,
+initRotate,
+rotate
 }) => {
   // const refText = useRef();
   // const [valueTest, setValueTest] = useState('');
-
+  //
   // useEffect(() => {
   //   refText.current.setAttribute("style", "height:" + (refText.current.scrollHeight) + "px;overflow-y:hidden;");
   //   refText.current.addEventListener("input", OnInput, false);
   // }, [refText, valueTest]);
-
+  //
   // function OnInput() {
   //   this.style.height = "auto";
   //   this.style.height = (this.scrollHeight) + "px";
@@ -93,7 +93,12 @@ const DraggableText = ({
               activeState={activeState}
               textStyles={textStyles ? textStyles : {}}
             >
-              {/*<TestText onChange={(e) => setValueTest(e.target.value)} ref={refText} textStyles={textStyles ? textStyles : {}}/>*/}
+              {/*<TestText onChange={(e) => setValueTest(e.target.value)}*/}
+              {/*          textStyles={textStyles ? textStyles : {}}*/}
+              {/*          readonly={!activeState}*/}
+              {/*          ref={refText}*/}
+              {/*          placeholder={'Double Click to type your text'}*/}
+              {/*/>*/}
               {!textState ? ('Double Click to type your text') : (textState)}
             </DivTextContent>
             <div className='text-editor-form'>
