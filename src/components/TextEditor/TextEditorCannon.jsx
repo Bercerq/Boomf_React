@@ -44,6 +44,7 @@ const TextEditorCannon = forwardRef(({}, editTextRef) => {
 
   return (
     <TextEditorWrapper
+
       ref={ref => editTextRef.current[0] = ref}
       currentEditor={textDataState.currentEditor.state}
     >

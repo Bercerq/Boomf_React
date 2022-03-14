@@ -32,7 +32,7 @@ function CustomizerLayout({title, children, dataName}) {
       )}
       {dataName === 'Inside' && (
         <>
-          <TextEditorCannon/>
+          {/*<TextEditorCannon/>*/}
         </>
       )}
     </MainWrapper>
