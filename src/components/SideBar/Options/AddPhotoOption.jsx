@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Switch, Route } from "react-router-dom";
 
 import {
   selectUploadedImage,
@@ -9,17 +8,13 @@ import {
 
 import Buttons from "./components/Buttons";
 import ImageUploader from "./components/ImageUploader";
-import {
-  setDeleteImageLibrary,
-  setImageLibrary,
-} from "../../../redux/actions/imageLibrary";
+import { setDeleteImageLibrary } from "../../../redux/actions/imageLibrary";
 
 import CloseImage from "../../../utils/assets/svg/CloseImage.svg";
 import {
   MainWrapper,
   ActionsWrapper,
   UploadedImagesWrapper,
-  UploadedImage,
   DivUploadImage,
   CloseIconDiv,
   UploadedImg,
@@ -33,7 +28,7 @@ function AddPhotoOption() {
   const { imageData, imageState } = useSelector(
     ({ imageLibraryReducer }) => imageLibraryReducer
   );
-
+  console.log(imageData);
   const dispatch = useDispatch();
   const setImage = (img, id) => () => {
     dispatch(selectUploadedImage(img));
@@ -52,12 +47,11 @@ function AddPhotoOption() {
       </ActionsWrapper>
       <UploadedImagesWrapper>
         {/**todo Route temporary solution*/}
-
         {imageData.map(({ img, id }, idx) =>
           id ? (
             <DivUploadImage key={"DivUploadImage" + idx}>
               <CloseIconDiv onClick={() => deleteImage(id)}>
-                <CloseImage />
+                <img src={CloseImage} alt="" />
               </CloseIconDiv>
               <UploadedImg
                 activeId={imageState.id}
