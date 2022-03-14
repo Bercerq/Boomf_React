@@ -3,7 +3,7 @@ export const MainWrapper = styled.div``;
 
 export const ActionsWrapper = styled.div`
   display: flex;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     width: 80vw;
   }
 `;
@@ -11,7 +11,7 @@ export const UploadedImagesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 42px;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     width: 90vw;
     margin-top: 10px;
   }
@@ -30,8 +30,8 @@ export const UploadedImage = styled.img`
   cursor: pointer;
   filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
     drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
-  
-  @media (max-width: 920px) {
+
+  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
     width: 120px;
     height: 120px;
   }
@@ -43,20 +43,21 @@ export const UploadedImage = styled.img`
 export const UploadedImg = styled.img`
   position: absolute;
   border: ${({ id, activeId }) =>
-          activeId && activeId === id
-                  ? `3px solid #2EDBE3;`
-                  : "3px solid transparent"};
+    activeId && activeId === id
+      ? `3px solid #2EDBE3;`
+      : "3px solid transparent"};
   width: 150px;
   height: 150px;
   border-radius: 16px;
   margin: 12px;
   cursor: pointer;
   filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
-  drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
-  
+    drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
+
   @media (max-height: 605px) {
     margin: 6px;
   }
+  object-fit: cover;
 `;
 
 export const ImageCide = styled.label`
@@ -96,7 +97,7 @@ export const CloseIconDiv = styled.div`
   justify-content: center;
   align-items: center;
   transition: 0.3s;
-  
+
   &:hover {
     transform: scale(1.1);
   }

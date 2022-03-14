@@ -21,7 +21,6 @@ function TextEditor() {
     ({ textEditorReducer }) => textEditorReducer
   );
   const debouncedValue = useDebounce(option, 500);
-
   useCreateEditorValue(currentEditor.flag, debouncedValue, dispatch);
 
   useEffect(() => {

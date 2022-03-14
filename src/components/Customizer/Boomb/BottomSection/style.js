@@ -8,7 +8,7 @@ export const Bottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     flex-direction: column;
     justify-content: center;
     align-items: end;
@@ -21,7 +21,7 @@ export const ImagePicker = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: auto;
     width: 95%;
   }
@@ -31,7 +31,7 @@ export const PickerItem = styled.div`
   margin: 0 12px;
   height: fit-content;
 
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 0 4px;
   }
 `;
@@ -39,7 +39,7 @@ export const PickerItem = styled.div`
 export const PickerItemText = styled.div`
   display: block;
   margin: 0 12px;
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 0 4px;
     font-size: 11px;
     height: 120px;
@@ -52,10 +52,8 @@ export const BoxSide = styled.div`
     curCubePosition && curCubePosition === position
       ? `3px solid #2EDBE3;`
       : "3px solid #f5f5f5"};
-  max-width: 120px;
-  max-height: 120px;
-  height: 100%;
-  width: 100%;
+  height: 120px;
+  width: 120px;
   ${({ img }) => !img && "background: #d6d6d6;"};
   cursor: pointer;
   word-break: break-all;
@@ -81,9 +79,7 @@ export const BoxSide = styled.div`
     resize: none;
     outline: none;
   }
-  @media (max-width: 488px) {
-    height: fit-content;
-  }
+
   .BoxNoImage {
     font-family: "objectivity-regular-11", sans-serif;
     opacity: 0;
@@ -92,9 +88,6 @@ export const BoxSide = styled.div`
     word-break: keep-all;
     transition: 0.4s;
     max-width: 120px;
-    @media (max-width: 488px) {
-      height: fit-content;
-    }
   }
   &:hover {
     .BoxNoImage {
@@ -102,14 +95,26 @@ export const BoxSide = styled.div`
       transition: 0.4s;
     }
   }
-  @media (max-width: 920px) {
-    max-width: 90px;
-    max-height: 85px;
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+    width: 90px;
+    height: 85px;
   }
-  @media (max-height: 615px) {
-    max-width: 90px;
-    max-height: 85px;
+  @media (max-width: 520px) {
+    width: 60px;
+    height: 70px;
   }
+  @media (max-width: 480px) {
+    height: 65px;
+  }
+  @media (max-height: 660px) {
+    width: 50px;
+    height: 50px;
+  }
+  @media (max-height: 640px) {
+    width: 57px;
+    height: 57px;
+  }
+  
 `;
 export const ButtonWrapper = styled.div`
   position: absolute;
@@ -118,12 +123,13 @@ export const ButtonWrapper = styled.div`
     right: 15px;
     width: 180px;
   }
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     position: static;
     right: unset;
     margin: 30px;
     width: 200px;
   }
+
   @media (max-height: 760px) {
     margin: 10px;
   }

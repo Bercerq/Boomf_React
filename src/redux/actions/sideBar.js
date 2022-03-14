@@ -9,7 +9,7 @@ export const selectUploadedImage = (payload) => ({
   type: SELECT_UPLOADED,
   payload,
 });
-export const setImageLibrary = (payload) => ({
-  type: IMAGE_LIBRARY,
-  payload,
-});
+// export const setImageLibrary = (payload) => ({
+//   type: IMAGE_LIBRARY,
+//   payload,
+// });
