@@ -1,25 +1,32 @@
 import styled from "styled-components";
 
+import {BlueBtn} from "../../../Buttons/style";
 import {
   CubeContainer,
   CubeItem,
-  SideContent,
   TopText
 } from "../../Boomb/CubeSection/style";
-import {BlueBtn} from "../../../Buttons/style";
 
-export const PostcardBlock = styled(SideContent)`
+export const PostcardBlock = styled.div`
+  display: block;
+  height: 100vh;
   width: 62%;
+  
   @media (max-width: 920px) {
     display: flex;
     align-items: flex-start;
     margin-bottom: 5px;
     width: 100%;
+    order: 2;
     height: fit-content;
   }
   
   @media (max-width: 520px) {
     height: 100%;
+  }
+
+  @media (min-height: 780px) {
+    height: fit-content;
   }
 `
 
