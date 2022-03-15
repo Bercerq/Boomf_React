@@ -1,13 +1,12 @@
 import {useCallback, useEffect, useState} from 'react';
 import {getCenterBox, rotateDegree} from "../functions/textData";
 
-const useRotate = (ref, option, initialRotate) => {
+export const useRotate = (ref, option, initialRotate) => {
   const [enableRotate, setEnableRotate] = useState(false);
   const [rotateState, setRotateState] = useState(initialRotate);
   const [cursorPosition, setCursorPosition] = useState(null);
 
   const initRotate = (event) => {
-    console.log('type', event.type);
     if (!ref.current) {
       return;
     }
@@ -46,7 +45,5 @@ const useRotate = (ref, option, initialRotate) => {
     }
   }, [enableRotate, handleRotate])
 
-  return {initRotate, rotate: rotateState};
+  return {initRotate, rotateState};
 };
-
-export default useRotate;

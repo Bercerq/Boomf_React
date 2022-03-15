@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {setCurrentModal} from "../../../../redux/actions/modal";
 
-import PostcardTextComponent from "./PostcardText";
 import MobileDeviceColumn from "./MobileDeviceColumn";
 import PostcardImage from "./PostcardImage";
 
@@ -18,6 +17,7 @@ import {
   PostcardWrapper,
   PostcardTest,
 } from "./style";
+import TextDoubleClick from "../../../TextDoubleClick";
 
 const PostcardSection = ({editTextRef}) => {
   const [sizeCard, setSize] = useState({
@@ -61,7 +61,7 @@ const PostcardSection = ({editTextRef}) => {
             onClick={(e) => e.stopPropagation()}
             ref={ref => editTextRef.current[1] = ref}
           >
-            <PostcardTextComponent
+            <TextDoubleClick
               buttonflag='buttonClickCannon'
               column={1}
             />

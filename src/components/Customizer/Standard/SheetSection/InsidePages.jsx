@@ -1,45 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import PostcardTextComponent from "../../Cannon/PostcardSection/PostcardText";
 import {DivFlex, FontPageDiv} from "./style";
+import TextDoubleClick from "../../../TextDoubleClick";
 
 const InsidePages = () => {
-  const [enableRotate, setEnableRotate] = useState(false);
-  const [enableWidthText, setEnableWidthText] = useState(false);
 
   return (
-    <div
-      id="buttonClickStandard"
-      onMouseUp={() => {
-        setEnableRotate(false);
-        setEnableWidthText(false);
-      }}
-      onTouchEnd={() => {
-        setEnableRotate(false);
-        setEnableWidthText(false);
-        document.body.style.overflow = 'auto';
-      }}
-    >
+    <div id="buttonClickStandard">
       <DivFlex>
         <FontPageDiv>
-          <PostcardTextComponent
-            enableRotate={enableRotate}
-            setEnableRotate={setEnableRotate}
+          <TextDoubleClick
             buttonflag='buttonClickStandard'
             activeSizeImage={true}
-            enableWidthText={enableWidthText}
-            setEnableWidthText={setEnableWidthText}
             column={1}
           />
         </FontPageDiv>
         <FontPageDiv>
-          <PostcardTextComponent
-            enableRotate={enableRotate}
-            setEnableRotate={setEnableRotate}
+          <TextDoubleClick
             buttonflag='buttonClickStandard'
             activeSizeImage={true}
-            enableWidthText={enableWidthText}
-            setEnableWidthText={setEnableWidthText}
             column={2}
           />
         </FontPageDiv>
