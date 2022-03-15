@@ -7,11 +7,11 @@ import ConfettiDevice from "./MobileDevices/ConfettiDevice";
 import {ConfettiWrapperCannonColumn} from "./style";
 
 const CannonRightColumn = () => {
-  const [mobileDevice, setMobileDevice] = useState(window.matchMedia("(max-width: 520px)").matches);
+  const [mobileDevice, setMobileDevice] = useState(window.matchMedia("(max-width: 1130px)").matches);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
-      setMobileDevice(window.matchMedia("(max-width: 520px)").matches)
+      setMobileDevice(window.matchMedia("(max-width: 1130px)").matches)
     });
   }, []);
 

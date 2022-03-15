@@ -28,16 +28,3 @@ export const BoombData = [
     editCrop: "1",
   },
 ];
-
-// export const media = [
-//   { width: "(max-width: 1920px)", minSize: "600", maxSize: "900" },
-//   { width: "(max-width: 1800px)", minSize: "573", maxSize: "847" },
-//   { width: "(max-width: 1440px)", minSize: "467", maxSize: "658" },
-//   { width: "(max-width: 1240px)", minSize: "460", maxSize: "585" },
-//   { width: "(max-width: 1100px)", minSize: "428", maxSize: "553" },
-//   { width: "(max-width: 990px)", minSize: "408", maxSize: "534" },
-//   { width: "(max-width: 920px)", minSize: "347", maxSize: "441" },
-//   { width: "(max-width: 840px)", minSize: "307", maxSize: "401" },
-//   { width: "(max-width: 750px)", minSize: "260", maxSize: "356" },
-//   { width: "(max-width: 565px)", minSize: "186", maxSize: "280" },
-// ];

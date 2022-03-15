@@ -9,12 +9,11 @@ const cursor = {
 export const useResize = (ref, options) => {
   const [coords, setCoords] = useState({x: Infinity, y: Infinity});
   const [dims, setDims] = useState({width: Infinity});
-  const [size, setSize] = useState({width: Infinity});
+  const [sizeState, setSizeState] = useState({width: Infinity});
   const {step = 1, axis = 'both'} = options || {};
   ref = ref || {};
 
   const initResize = (event) => {
-    console.log('type', event.type);
     if (!ref.current) {
       return;
     }
@@ -56,7 +55,7 @@ export const useResize = (ref, options) => {
       if (axis === 'vertical') {
         ref.current.style.height = height + 'px';
       }
-      setSize({ width, height });
+      setSizeState({ width, height });
     }
 
     const stopDrag = () => {
@@ -73,5 +72,5 @@ export const useResize = (ref, options) => {
     document.addEventListener('touchend', stopDrag, false);
   }, [dims, coords, step, ref, axis])
 
-  return {initResize, size, cursor: cursor[axis]}
+  return {initResize, sizeState, cursor: cursor[axis]}
 };
