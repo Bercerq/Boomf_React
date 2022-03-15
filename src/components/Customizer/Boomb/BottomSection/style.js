@@ -8,7 +8,7 @@ export const Bottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     flex-direction: column;
     justify-content: center;
     align-items: end;
@@ -21,7 +21,8 @@ export const ImagePicker = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  align-items: center;
+  @media (max-width: 1130px) {
     margin: auto;
     width: 95%;
   }
@@ -31,7 +32,7 @@ export const PickerItem = styled.div`
   margin: 0 12px;
   height: fit-content;
 
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     margin: 0 4px;
   }
 `;
@@ -39,7 +40,7 @@ export const PickerItem = styled.div`
 export const PickerItemText = styled.div`
   display: block;
   margin: 0 12px;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     margin: 0 4px;
     font-size: 11px;
     height: 120px;
@@ -58,6 +59,7 @@ export const BoxSide = styled.div`
   cursor: pointer;
   word-break: break-all;
   transition: 0.4s;
+  margin: auto;
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
       drop-shadow(0px 8px 16px rgba(53, 53, 53, 0.281));
@@ -95,7 +97,7 @@ export const BoxSide = styled.div`
       transition: 0.4s;
     }
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     width: 90px;
     height: 85px;
   }
@@ -106,15 +108,10 @@ export const BoxSide = styled.div`
   @media (max-width: 480px) {
     height: 65px;
   }
-  @media (max-height: 660px) {
-    width: 50px;
-    height: 50px;
+  @media (max-height: 720px) {
+    width: 60px;
+    height: 60px;
   }
-  @media (max-height: 640px) {
-    width: 57px;
-    height: 57px;
-  }
-  
 `;
 export const ButtonWrapper = styled.div`
   position: absolute;
@@ -123,16 +120,13 @@ export const ButtonWrapper = styled.div`
     right: 15px;
     width: 180px;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     position: static;
     right: unset;
-    margin: 30px;
-    width: 200px;
+    width: 90%;
+    margin: auto;
   }
 
-  @media (max-height: 760px) {
-    margin: 10px;
-  }
 `;
 export const BoxImage = styled.img`
   width: 100%;
@@ -149,5 +143,11 @@ export const BoxText = styled.div`
   margin-top: 5px;
   @media (max-width: 675px) {
     font-size: 12px;
+  }
+  @media (max-height: 720px) {
+    font-size: 12px;
+  }
+  @media (max-width: 1130px) {
+    display: none;
   }
 `;

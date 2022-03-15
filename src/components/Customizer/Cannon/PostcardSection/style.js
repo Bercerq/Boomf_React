@@ -10,7 +10,7 @@ import {
 
 export const PostcardBlock = styled(SideContent)`
   width: 62%;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     display: flex;
     align-items: flex-start;
     margin-bottom: 5px;
@@ -50,7 +50,7 @@ export const PostcardTest = styled.div`
   align-items: center;
   overflow: hidden;
   
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     height: auto;
     width: 100%;
     margin: 0;
@@ -111,7 +111,7 @@ export const BackgroundCard = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     height: 630px;
     width: 390px;
   }
@@ -159,7 +159,7 @@ export const ImageDiv = styled(CubeItem)`
   margin-top: 45px;
   background: white;
 
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     height: 50%;
     width: 80%;
     margin: 30px 30px 0 30px;
@@ -204,7 +204,7 @@ export const PostcardButton = styled.div`
   bottom: 0;
   margin: 30px;
 
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     position: static;
     display: flex;
     justify-content: flex-end;
@@ -220,7 +220,7 @@ export const PostcardButton = styled.div`
 `
 
 export const PostcardBlueButton = styled(BlueBtn)`
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     padding: 0;
     margin: 10px;
     width: 146px;

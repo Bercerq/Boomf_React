@@ -5,10 +5,10 @@ export const SideContent = styled.div`
   display: block;
   width: 100%;
   height: 100vh;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     order: 2;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     height: unset;
   }
   @media (min-height: 780px) {
@@ -26,7 +26,7 @@ export const CubeContainer = styled.div`
   @media (max-width: 1200px) {
     width: 55vw;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     width: 80vw;
   }
   @media (max-width: 640px) {
@@ -35,6 +35,12 @@ export const CubeContainer = styled.div`
   }
   @media (max-width: 340px) {
     width: 85vw;
+  }
+  @media (max-width: 510px) {
+    width: 65vw;
+  }
+  @media (max-height: 850px) and (max-width: 400px) {
+    width: 80vw;
   }
 `;
 export const CubeWrapper = styled.div`
@@ -54,23 +60,60 @@ export const CubeWrapper = styled.div`
   @media (max-width: 1010px) {
     padding: 120px;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     padding: 90px 130px;
   }
   @media (max-width: 500px) {
-    padding: 80px 60px;
+    padding: 80px 100px;
     background-size: 360px;
   }
+  /* @media (max-width: 510px) {
+    padding: 55px 95px !important;
+  } */
 
   @media (max-width: 340px) {
     padding: 80px 35px;
   }
-
-  @media (max-height: 780px) {
+  /* @media (max-width: 490px) {
+    padding: 55px 65px !important;
+    background-size: 100% !important;
+  }
+  @media (max-width: 410px) {
+    padding: 55px 45px !important;
+    background-size: 100% !important;
+  } */
+  @media (max-height: 675px) {
+    padding: 85px 170px;
+  }
+  @media screen and (max-height: 680px), screen and (min-width: 580pc) {
     padding: 80px 120px;
   }
-  @media (max-width: 490px) {
-    padding: 80px 45px !important ;
+  @media (max-height: 625px) {
+    padding: 55px 115px;
+    background-size: 90%;
+  }
+
+  @media (max-width: 510px) {
+    padding: 80px 75px;
+  }
+
+  @media (max-height: 1155px) and (max-width: 1130px) {
+    padding: 240px 130px;
+  }
+  @media (max-height: 960px) and (max-width: 1130px) {
+    padding: 190px 75px;
+  }
+  @media (max-height: 860px) and (max-width: 1130px) {
+    padding: 160px 75px;
+  }
+  @media (max-height: 790px) and (max-width: 1130px) {
+    padding: 120px 75px;
+  }
+  @media (max-height: 725px) and (max-width: 1130px) {
+    padding: 80px 75px;
+  }
+  @media (max-height: 610px) and (max-width: 1130px) {
+    padding: 50px 70px;
   }
 `;
 export const CubeBox = styled.div`
@@ -93,13 +136,22 @@ export const CubeBox = styled.div`
     min-width: 320px;
     min-height: 320px;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     max-width: 200px !important;
     max-height: 200px !important;
     height: 20vw !important;
     width: 20vw !important;
     min-width: 200px !important;
     min-height: 200px !important;
+  }
+
+  @media (max-width: 520px) {
+    max-width: 160px !important;
+    max-height: 160px !important;
+    height: 18vw !important;
+    width: 18vw !important;
+    min-width: 160px !important;
+    min-height: 160px !important;
   }
   @media (max-height: 780px) {
     max-width: 320px;
@@ -108,6 +160,14 @@ export const CubeBox = styled.div`
     width: 50vw;
     min-width: 320px;
     min-height: 320px;
+  }
+  @media (max-height: 675px) {
+    max-width: 200px;
+    max-height: 200px;
+    height: 20vw;
+    width: 20vw;
+    min-width: 200px;
+    min-height: 200px;
   }
 `;
 
@@ -125,11 +185,17 @@ export const CubeSide = styled.div`
   @media (max-width: 1200px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px) !important;
+  }
+  @media (max-width: 520px) {
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(80px) !important;
   }
   @media (max-height: 780px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
+  }
+  @media (max-height: 675px) {
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px);
   }
 `;
 
@@ -194,7 +260,7 @@ export const BoxInfoSide = styled.div`
     font-size: 11px;
     width: 50%;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     font-size: 10px;
   }
 `;
@@ -223,8 +289,8 @@ export const TopText = styled.textarea`
   background: none;
   border: none;
   outline: none;
-  @media(max-width:1060px){
-  left: -40px;
+  @media (max-width: 1060px) {
+    left: -40px;
   }
 `;
 export const NoImage = styled.div`
@@ -237,7 +303,7 @@ export const NoImage = styled.div`
   color: white;
   font-weight: bold;
   background-color: #f3328b;
-  width: 100%;
+  width: 60%;
   max-width: 260px;
   padding: 10px 20px 10px 25px;
   border-radius: 8px;
@@ -255,7 +321,7 @@ export const NoImage = styled.div`
     padding: 8px;
     width: 50%;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     font-size: 10px;
     left: 9%;
     width: 71%;
@@ -281,6 +347,25 @@ export const StaticText = styled.div`
   text-transform: capitalize;
   cursor: pointer;
   width: 50%;
+
+  @media (max-height: 1155px) and (max-width: 1130px) {
+    top: 33%;
+  }
+  @media (max-height: 960px) and (max-width: 1130px) {
+    top: 28%;
+  }
+  @media (max-height: 860px) and (max-width: 1130px) {
+    top: 25%;
+  }
+  @media (max-height: 790px) and (max-width: 1130px) {
+    top: 18%;
+  }
+  @media (max-height: 725px) and (max-width: 1130px) {
+    top: 16%;
+  }
+  @media (max-height: 610px) and (max-width: 1130px) {
+    top: 14%;
+  }
 `;
 export const EditButton = styled.div`
   position: absolute;
@@ -294,7 +379,7 @@ export const EditButton = styled.div`
   align-items: center;
   border-radius: 50%;
   padding: 12px;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     padding: 6px;
   }
   margin: 15px;
@@ -304,7 +389,7 @@ export const EditButton = styled.div`
   &:hover {
     padding: 15px;
     transition: 0.3s;
-    @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+    @media (max-width: 1130px) {
       padding: 8px;
     }
   }
