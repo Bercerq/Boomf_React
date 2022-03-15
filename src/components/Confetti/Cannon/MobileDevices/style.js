@@ -65,6 +65,21 @@ export const DivFlexCenter = styled.div`
 `;
 
 export const DeviceContentCard = styled(DivFlexCenter)`
-
   z-index: 3;
+  
+  @media (max-width: 1130px) {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 30%;
+    margin-top: 50px;
+  }
+  @media (max-width: 620px) {
+    width: 15%;
+  }
+  @media (max-width: 520px) {
+    width: auto;
+    position: static;
+    margin: 0;
+  }
 `;
