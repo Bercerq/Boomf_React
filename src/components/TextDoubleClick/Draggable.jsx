@@ -1,52 +1,45 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect} from 'react';
 import Draggable from "react-draggable";
+import {useDispatch} from "react-redux";
 
 import Reboot from '../../utils/assets/svg/Reboot.svg';
 import Trash from '../../utils/assets/svg/Trash.svg';
 import LeftAndRightArrows from '../../utils/assets/svg/LeftAndRightArrows.svg';
 
-import {CenterRotate, DivTextContent, TestText} from "./style.js";
+
+import {useAutoResize} from "../../utils/hooks/useAutoResize";
+import {setActionTextData, setDeleteTextData} from "../../redux/actions/textData";
+
+import {
+  CenterRotate,
+  DivTextContent,
+  TestText
+} from "./style.js";
 import './style.css';
 
-const DraggableText = ({
-textState,
-position,
-setPositionState,
-textStyles,
-activeState,
+const DraggableText = ({currentState, inputRef, activeId, textEditorParams, activeSizeImage, textState}) => {
+  useAutoResize({
+    inputRef: activeId ? inputRef : null,
+    valueText: textState,
+    active: currentState.value,
+  });
 
+  const handleSelectCard = () => {
+    dispatch(setActionTextData(currentState.id));
+  }
 
-deleteText,
-handleSelectCard,
-activeSizeImage,
-
-refResize,
-refRotate,
-initResize,
-initRotate,
-rotate
-}) => {
-  // const refText = useRef();
-  // const [valueTest, setValueTest] = useState('');
-
-  // useEffect(() => {
-  //   refText.current.setAttribute("style", "height:" + (refText.current.scrollHeight) + "px;overflow-y:hidden;");
-  //   refText.current.addEventListener("input", OnInput, false);
-  // }, [refText, valueTest]);
-
-  // function OnInput() {
-  //   this.style.height = "auto";
-  //   this.style.height = (this.scrollHeight) + "px";
-  // }
+  const deleteText = () => {
+    dispatch(setDeleteTextData(currentState.id));
+  }
 
   const onStart = (e) => {
-    if (!activeState) {
+    if (!currentState.focusState) {
       return false;
     }
   };
 
   const onStop = (e, data) => {
-    setPositionState({x: data.lastX, y: data.lastY});
+    textEditorParams.setPosition({x: data.lastX, y: data.lastY});
   };
 
   const dragHandlers = {
@@ -56,20 +49,21 @@ rotate
     axis: "both",
     scale: 1,
     grid: [15, 15],
-    position: position ? position : {x: 0, y: 0},
+    position: activeId ? textEditorParams.position : currentState.position,
   };
 
+  const dispatch = useDispatch();
   return (
     <Draggable cancel="strong" {...dragHandlers}>
-      <div className="box" onClick={handleSelectCard} style={{position: 'absolute', zIndex: activeState ? 1 : 0}}>
-        <div className='text-editor-form' style={{transform: `rotate(${rotate}deg)`}}>
+      <div className="box" onClick={handleSelectCard}
+           style={{position: 'absolute', zIndex: currentState.focusState ? 1 : 0}}>
+        <div className='text-editor-form' style={{transform: `rotate(${textEditorParams.rotateState}deg)`}}>
           <div className='div-reboot-pos'>
             <strong className="no-cursor">
-              {activeState && (
-                <div style={{cursor: 'col-resize'}}
-                     onMouseDown={initRotate}
-                     onTouchStart={initRotate}
-                >
+              {currentState.focusState && (
+                <div onMouseDown={textEditorParams.initRotate}
+                     onTouchStart={textEditorParams.initRotate}
+                     style={{cursor: 'col-resize'}}>
                   <img src={Reboot} alt='Reboot' height={24} width={24}/>
                 </div>
               )}
@@ -78,37 +72,31 @@ rotate
           <div className='div-flex'>
             <div className='div-trash-pos'>
               <strong className="no-cursor">
-                {activeState && (
+                {currentState.focusState && (
                   <div className='image-div-block'
-                       style={{cursor: 'pointer'}}
                        onClick={deleteText}
-                  >
+                       style={{cursor: 'pointer'}}>
                     <img src={Trash} alt='TrashCan' height={10} width={10}/>
                   </div>
                 )}
               </strong>
             </div>
-            <DivTextContent
-              ref={refResize}
-              activeState={activeState}
-              textStyles={textStyles ? textStyles : {}}
-            >
-              {/*<TestText onChange={(e) => setValueTest(e.target.value)}*/}
-              {/*          textStyles={textStyles ? textStyles : {}}*/}
-              {/*          readonly={!activeState}*/}
-              {/*          ref={refText}*/}
-              {/*          placeholder={'Double Click to type your text'}*/}
-              {/*/>*/}
-              {!textState ? ('Double Click to type your text') : (textState)}
+            <DivTextContent ref={activeId ? textEditorParams.refResize : null} activeState={currentState.focusState}>
+              <TestText onChange={textEditorParams.setTextState}
+                value={activeId ? textEditorParams.textState : currentState.value}
+                textStyles={currentState.textStyles}
+                disabled={!activeId}
+                ref={activeId ? inputRef : null}
+                placeholder={!((activeId && textEditorParams.textState) || currentState.value) && 'Double Click to type your text'}
+              />
             </DivTextContent>
             <div className='text-editor-form'>
               <strong className="no-cursor">
-                {activeState && activeSizeImage && (
+                {currentState.focusState && activeSizeImage && (
                   <div className='image-div-block div-size-icon'
-                       style={{cursor: 'col-resize'}}
-                       onMouseDown={initResize}
-                       onTouchStart={initResize}
-                  >
+                       onMouseDown={textEditorParams.initResize}
+                       onTouchStart={textEditorParams.initResize}
+                       style={{cursor: 'col-resize'}}>
                     <img src={LeftAndRightArrows} alt="LeftAndRightArrows" height={10} width={10}/>
                   </div>
                 )}
@@ -116,7 +104,7 @@ rotate
             </div>
           </div>
         </div>
-        <CenterRotate ref={refRotate}/>
+        <CenterRotate ref={activeId ? textEditorParams.refRotate : null}/>
       </div>
     </Draggable>
   )

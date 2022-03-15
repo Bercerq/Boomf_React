@@ -67,14 +67,16 @@ export const PostcardContainer = styled(CubeContainer)`
   flex-direction: column;
   align-items: center;
   
-  @media(max-width: 920px) {
+  @media(max-width: 1130px) {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: row-reverse;
     align-items: flex-start;
+    justify-content: center;
   }
   
-  @media (max-width: 415px) {
+  @media (max-width: 520px) {
+    justify-content: space-around;
+    flex-direction: row;
     height: auto;
     margin: 0;
   }
