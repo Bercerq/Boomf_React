@@ -19,7 +19,7 @@ import {
   PostcardTest,
 } from "./style";
 
-const PostcardSection = () => {
+const PostcardSection = ({editTextRef}) => {
   const [sizeCard, setSize] = useState({
     height: window.innerWidth / 100 * 40,
     width: window.innerWidth / 100 * 40 / 1.5
@@ -56,7 +56,11 @@ const PostcardSection = () => {
             alt={backgroundState.name}
           />
           <PostcardImage/>
-          <FormTextContent id="buttonClickCannon">
+          <FormTextContent
+            id="buttonClickCannon"
+            onClick={(e) => e.stopPropagation()}
+            ref={ref => editTextRef.current[1] = ref}
+          >
             <PostcardTextComponent
               buttonflag='buttonClickCannon'
               column={1}

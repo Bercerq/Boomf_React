@@ -46,7 +46,6 @@ export const DivTextContent = styled.div`
           `cursor: ${activeState ?
                   'all-scroll; border: 2px solid #0A74FF' : 'auto'
           }`};
-
   font-family: ${({textStyles}) =>
           textStyles.font ? `${textStyles.font}` : "Objectivity"};
   font-size: ${({textStyles}) =>
@@ -59,16 +58,19 @@ export const DivTextContent = styled.div`
 
 export const TestText = styled.textarea`
   resize: none;
-  cursor: pointer;
-  min-width: 195px;
-  min-height: 18px;
-  height: fit-content;
+  cursor: pointer !important; 
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
   background: transparent;
   border-color: transparent;
   &:focus {
     outline: none !important;
-    border-color: #719ECE;
-    box-shadow: 0 0 10px #719ECE;
+    border-color: transparent;
+  }
+  &::placeholder {
+    color: unset;
   }
   overflow: hidden;
   ${({activeState}) =>

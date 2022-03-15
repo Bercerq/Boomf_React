@@ -51,7 +51,8 @@ const TextDoubleClick = ({
             setPositionState={setPositionState}
             rotate={textDataState.id === e.id ? rotate : e.rotate}
             textStyles={e.textStyles}
-            activeState={e.dblClickState}
+            //todo dblclick
+            activeState={e.focusState}
             activeSizeImage={activeSizeImage}
 
             handleSelectCard={() => dispatch(setActionTextData(e.id))}
