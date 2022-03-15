@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import ConfettiDevice from "./ConfettiDevice";
 import BackgroundDevice from "./BackgroundDevice";
-import {closeSelectDevice} from "../../../../utils/functions/imageLibrary";
+import { closeSelectDevice } from "../../../../utils/functions/imageLibrary";
 
 import {
   DeviceButtonClose,
@@ -14,22 +14,25 @@ import {
 } from "./style";
 
 const MobileDevices = () => {
-  const [{selected, title}, setActiveState] = useState({selected: false, title: ''});
+  const [{ selected, title }, setActiveState] = useState({
+    selected: false,
+    title: "",
+  });
 
-  const {selectedBackground} = useSelector(
-    ({backgroundReducer}) => backgroundReducer
+  const { selectedBackground } = useSelector(
+    ({ backgroundReducer }) => backgroundReducer
   );
-  const {selectedConfetti} = useSelector(
-    ({confettiReducer}) => confettiReducer
+  const { selectedConfetti } = useSelector(
+    ({ confettiReducer }) => confettiReducer
   );
 
   useEffect(() => {
     if (selectedBackground) {
-      setActiveState({selected: true, title: 'Background'});
+      setActiveState({ selected: true, title: "Background" });
     } else if (selectedConfetti) {
-      setActiveState({selected: true, title: 'Confetti'});
+      setActiveState({ selected: true, title: "Confetti" });
     } else if (!selectedBackground && !selectedConfetti) {
-      setActiveState({selected: false, title: ''});
+      setActiveState({ selected: false, title: "" });
     }
   }, [selectedBackground, selectedConfetti]);
 
@@ -40,16 +43,14 @@ const MobileDevices = () => {
       onClick={(e) => e.stopPropagation()}
     >
       <DeviceDivCenter>
-        <DeviceCloseWindow onClick={closeSelectDevice(dispatch)}/>
+        <DeviceCloseWindow onClick={closeSelectDevice(dispatch)} />
       </DeviceDivCenter>
-      <h3 style={{width: 'fit-content'}}>
-        {title}
-      </h3>
+      <h3 style={{ width: "fit-content" }}>{title}</h3>
       <DeviceContent>
-        {selected && title === 'Background' ? (
-          <BackgroundDevice/>
+        {selected && title === "Background" ? (
+          <BackgroundDevice />
         ) : (
-          <ConfettiDevice/>
+          <ConfettiDevice />
         )}
         <DeviceButtonClose onClick={closeSelectDevice(dispatch)}>
           Close

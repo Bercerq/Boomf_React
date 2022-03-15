@@ -67,36 +67,6 @@ export const BoxSide = styled.div`
     border: ${({ curCubePosition, position }) =>
       curCubePosition !== position && "3px solid transparent"};
   }
-  &:focus-within {
-    filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
-      drop-shadow(0px 8px 16px rgba(53, 53, 53, 0.281));
-    transition: 0.4s;
-  }
-  textarea {
-    padding: 15px 0 0 15px;
-    width: 80%;
-    height: 85%;
-    background: none;
-    border: none;
-    resize: none;
-    outline: none;
-  }
-
-  .BoxNoImage {
-    font-family: "objectivity-regular-11", sans-serif;
-    opacity: 0;
-    padding: 15px;
-    color: gray;
-    word-break: keep-all;
-    transition: 0.4s;
-    max-width: 120px;
-  }
-  &:hover {
-    .BoxNoImage {
-      opacity: 1;
-      transition: 0.4s;
-    }
-  }
   @media (max-width: 1130px) {
     width: 90px;
     height: 85px;
@@ -126,13 +96,13 @@ export const ButtonWrapper = styled.div`
     width: 90%;
     margin: auto;
   }
-
 `;
 export const BoxImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: flex;
+  ${({ src }) => !src && "opacity:0"}
 `;
 export const BoxText = styled.div`
   font-size: 16px;

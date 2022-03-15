@@ -21,18 +21,13 @@ import {
 } from "./style";
 
 function AddPhotoOption() {
-  const { boombData, curCubePosition } = useSelector(
-    ({ boombReducer }) => boombReducer
-  );
 
   const { imageData, imageState } = useSelector(
     ({ imageLibraryReducer }) => imageLibraryReducer
   );
-  console.log(imageData);
   const dispatch = useDispatch();
   const setImage = (img, id) => () => {
     dispatch(selectUploadedImage(img));
-    // dispatch(setImageLibrary(id));
     dispatch(setCurrentSidebar({ flag: "", state: false }));
   };
   const deleteImage = (id) => {

@@ -19,11 +19,7 @@ const SelectImage = () => {
           curCubePosition={curCubePosition}
           position={position}
         >
-          {img ? (
-            <BoxImage src={img} alt={`image ${position}`} />
-          ) : (
-            <div className="BoxNoImage"></div>
-          )}
+          <BoxImage src={img} alt={`image ${position}`} />
         </BoxSide>
         <BoxText>Image - {findBoxSide(position)}</BoxText>
       </PickerItem>

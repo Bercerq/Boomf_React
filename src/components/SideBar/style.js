@@ -10,7 +10,6 @@ export const PanelContainer = styled.div`
   z-index: 4;
 
   @media (max-width: 1130px) {
-    position: absolute;
     height: unset;
     order: 3;
     width: 100%;
@@ -18,7 +17,6 @@ export const PanelContainer = styled.div`
     justify-content: center;
     flex-direction: row;
     z-index: 2;
-    bottom: 0;
   }
 `;
 
@@ -40,14 +38,18 @@ export const Option = styled.div`
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
     0px 0.5px 2px rgba(96, 97, 112, 0.16);
   @media (max-width: 1130px) {
-    margin: 20px 6px !important;
-    width: 70px !important;
-    min-width: 65px !important;
+    margin: 16px 14px !important;
+    width: 70px;
   }
-  @media (max-height: 720px) {
-    margin: 4px 6px !important;
+  @media (max-width: 490px) {
+    margin: 16px 8px !important;
+    padding: 14px;
   }
 
+  @media (max-height: 720px) {
+    margin: 4px 6px;
+  }
+  padding: 17px;
   cursor: pointer;
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
@@ -65,11 +67,9 @@ export const OptionIcon = styled.div`
 export const Icon = styled.img`
   width: 35px;
   height: 50px;
-  margin: 15px 0;
   @media (max-width: 1130px) {
     display: block;
-    margin: 5px;
-    width: 20px;
+    width: 25px;
   }
 `;
 

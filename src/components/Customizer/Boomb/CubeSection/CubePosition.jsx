@@ -22,10 +22,6 @@ export const CubePosition = ({ boombData, curCubePosition }) => {
       >
         <CubeImage img={img} position={position} editCrop={editCrop} />
       </CubeItem>
-      {/* 
-      <BoxInfoSide position={position}>
-        {findBoxSide(position)} side
-      </BoxInfoSide> */}
     </CubeSide>
   );
 };
