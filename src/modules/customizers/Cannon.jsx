@@ -6,6 +6,7 @@ import {useDispatch} from "react-redux";
 import {setConfettiData} from "../../redux/actions/confetti";
 import {setBackgroundData} from "../../redux/actions/background";
 import TextEditorCannon from "../../components/TextEditor/TextEditorCannon";
+import CannonRightColumn from "../../components/Confetti/Cannon";
 
 const Cannon = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Cannon = () => {
     <CustomizerLayout title="Boomf cannon card" dataName='cannon'>
       <Postcard editTextRef={editTextRef}/>
       <TextEditorCannon editTextRef={editTextRef}/>
+      <CannonRightColumn/>
     </CustomizerLayout>
   );
 };

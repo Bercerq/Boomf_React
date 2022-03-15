@@ -10,7 +10,7 @@ import {setSelectedBackground} from "../../../../redux/actions/background";
 import {setSelectedConfetti} from "../../../../redux/actions/confetti";
 
 const MobileDeviceColumn = () => {
-  const [mobileDevice, setMobileDevice] = useState(window.matchMedia("(max-width: 520px)").matches);
+  const [mobileDevice, setMobileDevice] = useState(window.matchMedia("(max-width: 1130px)").matches);
 
   const {confettiState} = useSelector(
     ({confettiReducer}) => confettiReducer
@@ -31,7 +31,7 @@ const MobileDeviceColumn = () => {
 
   useEffect(() => {
     window.addEventListener('resize', () => {
-      setMobileDevice(window.matchMedia("(max-width: 520px)").matches)
+      setMobileDevice(window.matchMedia("(max-width: 1130px)").matches)
     });
   }, [])
 

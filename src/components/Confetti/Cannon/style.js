@@ -48,7 +48,7 @@ export const ConfettiBoxCannon = styled.div`
   }
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     display: flex;
-    justify-content: space-evenly;;
+    justify-content: space-evenly;
     padding: 0;
   }
 `;
@@ -86,11 +86,22 @@ export const ConfettiItemCannon = styled.div`
   }
 `;
 
-export const TitleCannon = styled(Title)`
+export const TitleCannon = styled.div`
+  color: #717171;
+  font-size: 16px;
+  font-family: "objectivity-regular-11", sans-serif;
+  width: 100%;
   text-align: start;
+
+  span {
+    font-weight: bold;
+    @media (max-width: 1130px) {
+      display: none;
+    }
+  }
+  
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 12px 0 0 0;
-    width: fit-content;
     &:last-child {
       display: block;
       margin: 0;

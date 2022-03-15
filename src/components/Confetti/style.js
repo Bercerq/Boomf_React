@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const Title = styled.div`
   color: #717171;
   font-size: 16px;
-  text-align: ${({ textStart }) => (textStart ? "start" : "end")};
+  text-align: ${({ textStart }) => (textStart ? "start !important; width: 100% !important;" : "end")};
   font-family: "objectivity-regular-11", sans-serif;
   width: 200px;
   text-align: center;
