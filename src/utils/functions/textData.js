@@ -47,17 +47,27 @@ export const rotateDegree = (event, boxCenter) => {
   return Math.atan2(event.pageX - boxCenter.x, -(event.pageY - boxCenter.y)) * (180 / Math.PI)
 }
 
+export const setDataStateText = (state, initialState, id) => {
+  const data = state.textData.filter(e => e.id === id ? {...e, focusState: true} : {...e, focusState: false});
+  const textDataState = state.textData.filter(e => e.id === id && {...e, focusState: true})[0] || initialState;
+
+  return {
+    ...state,
+    textData: data,
+    textDataState: textDataState
+  }
+}
 
 export const addDataStateText = (state, initialState) => {
-  const data = state.textData.map(e => ({...e, dblClickState: false}))
+  const data = state.textData.map(e => ({...e, focusState: false}))
   const textDataState = {
     ...initialState.textDataState,
     column: state.textDataState.column,
-    dblClickState: true,
+    focusState: true,
     id: uid()
   }
   if (data.length > 10) {
-    data[0] = {...data[0], dblClickState: true}
+    data[0] = {...data[0], focusState: true}
     return {
       ...state,
       textData: [...data],
@@ -83,7 +93,7 @@ export const updateDataStateText = (state, {key, value}) => {
   return {
     ...state,
     textData: state.textData.map(e => (
-      e.id === state.textDataState.id ? textState : {...e, dblClickState: false}
+      e.id === state.textDataState.id ? textState : {...e, focusState: false}
     )),
     textDataState: textState,
   }

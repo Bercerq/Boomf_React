@@ -9,7 +9,8 @@ import {
 import {
   addDataStateText,
   updateDataStateText,
-  deleteDataStateText
+  deleteDataStateText,
+  setDataStateText
 } from "../../utils/functions/textData";
 
 const initialTextState = {
@@ -19,7 +20,6 @@ const initialTextState = {
   textStyles: {},
   currentEditor: {state: false, flag: ''},
   focusState: false,
-  dblClickState: false,
   column: 1,
   id: '1233221'
 }
@@ -32,15 +32,11 @@ const initialState = {
 const textDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_ACTIVE_TEXT_DATA: {
-      return {
-        ...state,
-        textDataState: {
-          ...state.textData.filter(e => e.id === action.payload)[0] || initialState.textDataState,
-        },
-      }
+      return setDataStateText(state, initialTextState, action.payload)
     }
     case SET_DATA_TEXT: {
       return {
+        ...state,
         textData: action.payload,
         textDataState: action.payload[0]
       };

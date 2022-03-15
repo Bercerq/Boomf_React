@@ -28,7 +28,7 @@
   margin-left: -8px;
 }
 
-.image-div-block img {
+.image-div-block img, .div-reboot-pos img {
   pointer-events: none;
 }
 
@@ -49,8 +49,4 @@
 .div-reboot-pos {
   position: absolute;
   top: -26px;
-}
-
-.div-reboot-pos img {
-  pointer-events: none;
 }
