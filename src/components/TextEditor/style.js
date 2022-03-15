@@ -29,7 +29,7 @@ export const TextEditorContent = styled.div`
   @media (max-width: 1470px) {
     padding-left: 20%;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     padding: unset;
     padding-top: 42px;
   }
@@ -119,7 +119,7 @@ export const FontItem = styled.div`
   padding: 8px 0;
   cursor: pointer;
 
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     font-size: 14px;
     width: 120px;
     margin: 6px;
@@ -216,14 +216,14 @@ export const ImageWrapper = styled.div`
     width: 83%;
   }
 
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     width: 100%;
   }
 `;
 
 export const SliderContainerImage = styled.div`
   min-width: 420px;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     min-width: 280px;
   }
   @media (max-width: 520px) {

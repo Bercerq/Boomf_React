@@ -3,7 +3,7 @@ export const MainWrapper = styled.div``;
 
 export const ActionsWrapper = styled.div`
   display: flex;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     width: 80vw;
   }
 `;
@@ -11,7 +11,7 @@ export const UploadedImagesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 42px;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     width: 90vw;
     margin-top: 10px;
   }
@@ -31,7 +31,7 @@ export const UploadedImage = styled.img`
   filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
     drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
 
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px)  {
     width: 120px;
     height: 120px;
   }
