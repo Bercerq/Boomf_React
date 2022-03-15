@@ -5,14 +5,8 @@ export const SideContent = styled.div`
   display: block;
   width: 100%;
   height: 100vh;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     order: 2;
-  }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
-    height: unset;
-  }
-  @media (min-height: 780px) {
-    height: 72.5vh;
   }
 `;
 
@@ -26,16 +20,22 @@ export const CubeContainer = styled.div`
   @media (max-width: 1200px) {
     width: 55vw;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
-    width: 80vw;
+  @media (max-width: 1130px) {
+    width: 100%;
   }
-  @media (max-width: 640px) {
+  /* @media (max-width: 640px) {
     width: 80vw;
     justify-content: start;
   }
   @media (max-width: 340px) {
     width: 85vw;
   }
+  @media (max-width: 510px) {
+    width: 65vw;
+  }
+  @media (max-height: 850px) and (max-width: 400px) {
+    width: 80vw;
+  } */
 `;
 export const CubeWrapper = styled.div`
   background-image: ${({ confettiState }) => `url(${confettiState})`};
@@ -44,7 +44,7 @@ export const CubeWrapper = styled.div`
   background-repeat: no-repeat;
   position: relative;
   user-select: none;
-  padding: 120px 200px;
+  padding: 140px 200px;
   overflow: hidden;
   filter: drop-shadow(0px 2px 4px rgba(40, 41, 61, 0.04))
     drop-shadow(0px 8px 16px rgba(96, 97, 112, 0.16));
@@ -54,23 +54,93 @@ export const CubeWrapper = styled.div`
   @media (max-width: 1010px) {
     padding: 120px;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     padding: 90px 130px;
+    background-size: contain;
   }
   @media (max-width: 500px) {
-    padding: 80px 60px;
-    background-size: 360px;
+    padding: 80px 100px;
   }
 
   @media (max-width: 340px) {
     padding: 80px 35px;
   }
 
-  @media (max-height: 780px) {
-    padding: 80px 120px;
+  @media (max-height: 675px) {
+    padding: 85px 170px;
   }
-  @media (max-width: 490px) {
-    padding: 80px 45px !important ;
+
+  @media (max-width: 510px) {
+    padding: 80px 75px;
+  }
+
+  @media (max-height: 1155px) and (max-width: 1130px) {
+    padding: 150px 130px;
+  }
+
+  @media (max-height: 960px) and (max-width: 1130px) {
+    padding: 120px 140px;
+  }
+
+  @media (max-height: 960px) and (max-width: 680px) {
+    padding: 120px 160px;
+  }
+
+  @media (max-height: 960px) and (max-width: 600px) {
+    padding: 160px 140px 68px 140px;
+    background-position: bottom;
+  }
+
+  @media (max-height: 960px) and (max-width: 570px) {
+    padding: 240px 140px 71px 140px;
+    background-position: bottom;
+  }
+  @media (max-height: 960px) and (max-width: 480px) {
+    padding: 240px 110px 71px 110px;
+  }
+  @media (max-height: 960px) and (max-width: 420px) {
+    padding: 230px 80px 71px 80px;
+  }
+
+  @media (max-height: 960px) and (max-width: 385px) {
+    padding: 240px 60px 71px 60px;
+  }
+
+  @media (max-height: 810px) and (max-width: 660px) {
+    padding: 161px 60px 55px 60px;
+    background-size: cover;
+  }
+
+  /* @media (max-height: 960px) and (max-width: 545px) {
+    padding: 180px 120px;
+  }
+  @media (max-height: 960px) and (max-width: 400px) {
+    padding: 180px 80px;
+    background-size: 100%;
+  }
+  @media (max-height: 960px) and (max-width: 440px) {
+    padding: 155px 90px;
+  }
+  @media (max-height: 960px) and (max-width: 480px) {
+    padding: 140px 90px;
+  } */
+
+  @media (max-height: 725px) and (max-width: 1130px) {
+    padding: 70px 95px;
+  }
+
+  @media (max-height: 610px) and (max-width: 1130px) {
+    padding: 50px 70px;
+  }
+  @media (max-height: 725px) and (max-width: 360px) {
+    padding: 92px 60px;
+    background-size: 100%;
+  }
+  @media (max-height: 675px) and (max-width: 410px) {
+    padding: 86px 80px 51px 80px;
+  }
+  @media (max-height: 670px) and (max-width: 390px) {
+    padding: 60px 65px 53px 65px;
   }
 `;
 export const CubeBox = styled.div`
@@ -93,15 +163,42 @@ export const CubeBox = styled.div`
     min-width: 320px;
     min-height: 320px;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  /* @media (max-width: 1130px) {
     max-width: 200px !important;
     max-height: 200px !important;
     height: 20vw !important;
     width: 20vw !important;
     min-width: 200px !important;
     min-height: 200px !important;
+  } */
+
+  @media (max-height: 725px) and (max-width: 1130px) {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    height: 35vw !important;
+    width: 35vw !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
   }
-  @media (max-height: 780px) {
+  @media (max-height: 960px) and (max-width: 570px) {
+    max-width: 250px !important;
+    max-height: 250px !important;
+    height: 30vw !important;
+    width: 30vw !important;
+    min-width: 250px !important;
+    min-height: 250px !important;
+  }
+
+  @media (max-height: 670px) and (max-width: 390px) {
+    max-width: 220px !important;
+    max-height: 220px !important;
+    height: 25vw !important;
+    width: 25vw !important;
+    min-width: 220px !important;
+    min-height: 220px !important;
+  }
+
+  @media (max-height: 860px) {
     max-width: 320px;
     max-height: 320px;
     height: 50vw;
@@ -125,10 +222,21 @@ export const CubeSide = styled.div`
   @media (max-width: 1200px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
-    transform: ${({ spinParam }) => `${spinParam}`} translateZ(100px) !important;
+  /* @media (max-width: 1130px) {
+    transform: ${({ spinParam }) =>
+    `${spinParam}`} translateZ(100px) !important;
+  } */
+  @media (max-height: 725px) and (max-width: 1130px) {
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(140px) !important;
   }
-  @media (max-height: 780px) {
+  @media (max-height: 960px) and (max-width: 570px) {
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(125px) !important;
+  }
+  @media (max-height: 670px) and (max-width: 390px) {
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(110px) !important;
+  }
+
+  @media (max-height: 860px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
 `;
@@ -172,32 +280,7 @@ export const SideImage = styled.img`
   width: 100%;
   transform: translate(-50%, -50%) ${({ editCrop }) => `scale(${editCrop})`};
 `;
-export const BoxInfoSide = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  max-width: 200px;
-  font-size: 36px;
-  color: rgba(250, 250, 250, 0.8);
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 8px;
-  font-size: 36px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  font-family: "objectivity-regular-11", sans-serif;
 
-  @media (max-width: 1560px) {
-    font-size: 13px;
-  }
-  @media (max-width: 1240px) {
-    font-size: 11px;
-    width: 50%;
-  }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
-    font-size: 10px;
-  }
-`;
 export const TopText = styled.textarea`
   font-family: ${({ textStyles }) =>
     textStyles.font ? `${textStyles.font}` : "Objectivity"};
@@ -223,8 +306,8 @@ export const TopText = styled.textarea`
   background: none;
   border: none;
   outline: none;
-  @media(max-width:1060px){
-  left: -40px;
+  @media (max-width: 1060px) {
+    left: -40px;
   }
 `;
 export const NoImage = styled.div`
@@ -237,7 +320,7 @@ export const NoImage = styled.div`
   color: white;
   font-weight: bold;
   background-color: #f3328b;
-  width: 100%;
+  width: 60%;
   max-width: 260px;
   padding: 10px 20px 10px 25px;
   border-radius: 8px;
@@ -255,7 +338,7 @@ export const NoImage = styled.div`
     padding: 8px;
     width: 50%;
   }
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     font-size: 10px;
     left: 9%;
     width: 71%;
@@ -281,6 +364,29 @@ export const StaticText = styled.div`
   text-transform: capitalize;
   cursor: pointer;
   width: 50%;
+
+  @media (max-height: 1155px) and (max-width: 1130px) {
+    top: 33%;
+  }
+  @media (max-width: 1130px) {
+    top: 20%;
+  }
+  @media (max-height: 960px) and (max-width: 600px) {
+    top: 30%;
+  }
+  @media (max-height: 960px) and (max-width: 570px) {
+    top: 40%;
+  }
+
+  @media (max-height: 790px) and (max-width: 1130px) {
+    top: 18%;
+  }
+  @media (max-height: 725px) and (max-width: 1130px) {
+    top: 16%;
+  }
+  @media (max-height: 610px) and (max-width: 1130px) {
+    top: 14%;
+  }
 `;
 export const EditButton = styled.div`
   position: absolute;
@@ -294,7 +400,7 @@ export const EditButton = styled.div`
   align-items: center;
   border-radius: 50%;
   padding: 12px;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+  @media (max-width: 1130px) {
     padding: 6px;
   }
   margin: 15px;
@@ -304,7 +410,7 @@ export const EditButton = styled.div`
   &:hover {
     padding: 15px;
     transition: 0.3s;
-    @media screen and (max-width: 1130px), screen and (max-height: 605px)  {
+    @media (max-width: 1130px) {
       padding: 8px;
     }
   }
@@ -318,6 +424,9 @@ export const ArrowLeft = styled.div`
   cursor: pointer;
   left: -30px;
   transform: translateY(-50%);
+  @media (max-width: 1130px) {
+    display: none;
+  }
 `;
 export const ArrowRight = styled.div`
   position: absolute;
@@ -326,4 +435,7 @@ export const ArrowRight = styled.div`
   right: -30px;
   transform: rotate(180deg) translateY(-50%);
   transform-origin: center top;
+  @media (max-width: 1130px) {
+    display: none;
+  }
 `;

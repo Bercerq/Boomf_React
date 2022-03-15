@@ -22,7 +22,6 @@ function CubeImage({ img, position, editCrop }) {
   return img ? (
     <>
       <SideImage
-        onClick={openSideBar}
         editCrop={editCrop}
         src={img}
         alt={findBoxSide(position)}

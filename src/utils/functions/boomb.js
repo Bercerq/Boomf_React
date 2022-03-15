@@ -1,15 +1,11 @@
 import {
   setBoomb,
-  setCurImage,
   setCurPosition,
   setCurRotate,
 } from "../../redux/actions/boomb";
 import {setCurrentEditor, setFocus} from "../../redux/actions/textEditor";
 import {setUpdateTextData} from "../../redux/actions/textData";
-// import {
-//   selectUploadedImage,
-//   setImageLibrary,
-// } from "../../redux/actions/sideBar";
+
 import {setAddImageLibrary} from "../../redux/actions/imageLibrary";
 
 export const changeCubeRotate = (
@@ -78,9 +74,6 @@ export const updateItem = (
     );
   }
 };
-// export const setLibraryImage = (image, dispatch) => {
-//   dispatch(setImageLibrary(image));
-// };
 export const setUploadImage = (img, dispatch) => {
   if (!img) {
     return null;

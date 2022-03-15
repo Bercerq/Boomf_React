@@ -9,7 +9,7 @@ export const PanelContainer = styled.div`
   align-items: center;
   z-index: 4;
 
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     height: unset;
     order: 3;
     width: 100%;
@@ -17,16 +17,12 @@ export const PanelContainer = styled.div`
     justify-content: center;
     flex-direction: row;
     z-index: 2;
-    bottom: 0;
-  }
-  @media (min-height: 850px) and (max-width: 1130px) {
-    position: absolute;
   }
 `;
 
 export const LogoIcon = styled.img`
   margin-top: 30px;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     display: none;
   }
   @media (max-height: 785px) {
@@ -41,15 +37,19 @@ export const Option = styled.div`
   margin: 32px 42px 17px 42px;
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
     0px 0.5px 2px rgba(96, 97, 112, 0.16);
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
-    margin: 20px 6px !important;
-    width: 70px !important;
-    min-width: 65px !important;
+  @media (max-width: 1130px) {
+    margin: 16px 14px !important;
+    width: 70px;
   }
-  @media (max-height: 695px) {
-    margin: 4px 6px !important;
+  @media (max-width: 490px) {
+    margin: 16px 8px !important;
+    padding: 14px;
   }
 
+  @media (max-height: 720px) {
+    margin: 4px 6px;
+  }
+  padding: 17px;
   cursor: pointer;
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
@@ -67,11 +67,9 @@ export const OptionIcon = styled.div`
 export const Icon = styled.img`
   width: 35px;
   height: 50px;
-  margin: 15px 0;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     display: block;
-    margin: 5px;
-    width: 20px;
+    width: 25px;
   }
 `;
 
@@ -84,7 +82,7 @@ export const OptionText = styled.div`
   padding-bottom: 16px;
   margin-top: -10px;
   font-family: "objectivity-regular-11", sans-serif;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     display: none;
   }
   @media (max-height: 785px) {
@@ -145,7 +143,7 @@ export const SideBarTitle = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 42px;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+  @media (max-width: 1130px) {
     width: 80vw;
   }
 `;
