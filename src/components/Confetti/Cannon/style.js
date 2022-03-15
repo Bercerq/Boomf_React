@@ -99,6 +99,7 @@ export const TitleCannon = styled(Title)`
   text-align: start;
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 12px 0 0 0;
+    width: fit-content;
     &:last-child {
       display: block;
       margin: 0;

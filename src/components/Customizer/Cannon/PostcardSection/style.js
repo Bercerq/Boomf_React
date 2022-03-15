@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
+import {BlueBtn} from "../../../Buttons/style";
 import {
   CubeContainer,
   CubeItem,
   SideContent,
   TopText
 } from "../../Boomb/CubeSection/style";
-import {BlueBtn} from "../../../Buttons/style";
 
 export const PostcardBlock = styled(SideContent)`
   width: 62%;
@@ -20,6 +20,10 @@ export const PostcardBlock = styled(SideContent)`
   
   @media (max-width: 520px) {
     height: 100%;
+  }
+
+  @media (min-height: 780px) {
+    height: fit-content;
   }
 `
 
