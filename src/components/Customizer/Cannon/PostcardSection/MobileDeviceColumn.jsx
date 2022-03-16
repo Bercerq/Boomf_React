@@ -40,14 +40,12 @@ const MobileDeviceColumn = () => {
     <DeviceContentCard>
       <DivFlexCenter>
         <BackgroundItem
-          selectConfetti={false}
           onClick={selectConfetti}
           name={confettiState.name}
         >
           <BackgroundImage
             src={confettiState.img}
             alt={confettiState.name}
-            selectConfetti={false}
           />
         </BackgroundItem>
         <TitleCannon>Confetti</TitleCannon>
@@ -55,14 +53,12 @@ const MobileDeviceColumn = () => {
 
       <DivFlexCenter>
         <BackgroundItem
-          selectConfetti={false}
           onClick={selectBackground}
           name={backgroundState.name}
         >
           <BackgroundImage
             src={backgroundState.img}
             alt={backgroundState.name}
-            selectConfetti={false}
           />
         </BackgroundItem>
         <TitleCannon>Background</TitleCannon>

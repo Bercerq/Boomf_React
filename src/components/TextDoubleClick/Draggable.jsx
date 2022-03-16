@@ -1,11 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Draggable from "react-draggable";
 import {useDispatch} from "react-redux";
 
 import Reboot from '../../utils/assets/svg/Reboot.svg';
 import Trash from '../../utils/assets/svg/Trash.svg';
 import LeftAndRightArrows from '../../utils/assets/svg/LeftAndRightArrows.svg';
-
 
 import {useAutoResize} from "../../utils/hooks/useAutoResize";
 import {setActionTextData, setDeleteTextData} from "../../redux/actions/textData";
@@ -55,9 +54,9 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
   const dispatch = useDispatch();
   return (
     <Draggable cancel="strong" {...dragHandlers}>
-      <div className="box" onClick={handleSelectCard}
+      <div className="box" onClick={handleSelectCard} onTouchStart={handleSelectCard}
            style={{position: 'absolute', zIndex: currentState.focusState ? 1 : 0}}>
-        <div className='text-editor-form' style={{transform: `rotate(${textEditorParams.rotateState}deg)`}}>
+        <div className='text-editor-form' style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}>
           <div className='div-reboot-pos'>
             <strong className="no-cursor">
               {currentState.focusState && (

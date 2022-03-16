@@ -25,14 +25,12 @@ const BackgroundDevice = () => {
       {backgroundData.map((background, idx) => (
         <BackgroundItem
           key={idx}
-          selectConfetti={false}
           name={background.name}
           onClick={handleSelectBackground(background)}
         >
           <BackgroundImage
             src={background.img}
             alt={background.name}
-            selectConfetti={false}
           />
           <ActiveBackground selectConfetti={background.id === backgroundState.id}/>
         </BackgroundItem>

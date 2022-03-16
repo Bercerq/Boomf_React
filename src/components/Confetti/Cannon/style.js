@@ -122,10 +122,7 @@ export const BackgroundItem = styled.div`
   
   transition: 0.4s;
   background: transparent;
-  ${({selectConfetti}) =>
-          `border: 3px solid ${
-                  selectConfetti ? "#75bce8" : "transparent"
-          };  transition: 0.4s;`};
+
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 0 10px 12px 10px;
   }
@@ -136,10 +133,6 @@ export const BackgroundImage = styled.img`
   height: 45px;
   margin: 0;
   border-radius: 50%;
-  ${({selectConfetti}) =>
-          `border: 6px solid ${
-                  selectConfetti ? "#FFFFFF; transform: scale(0.8);" : "transparent"
-          }; transition: 0.4s;`};
 `;
 
 export const ActiveBackground = styled.div`

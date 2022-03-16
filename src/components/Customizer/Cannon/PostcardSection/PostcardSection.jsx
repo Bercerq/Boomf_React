@@ -58,7 +58,6 @@ const PostcardSection = ({editTextRef}) => {
           <PostcardImage/>
           <FormTextContent
             id="buttonClickCannon"
-            onClick={(e) => e.stopPropagation()}
             ref={ref => editTextRef.current[1] = ref}
           >
             <TextDoubleClick

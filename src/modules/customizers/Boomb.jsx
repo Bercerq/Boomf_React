@@ -5,6 +5,8 @@ import {setConfettiData} from "../../redux/actions/confetti";
 import Cube from "../../components/Customizer/Boomb/Cube";
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
 import {confettiDataBoomb} from "../../utils/constants/ConfettiData";
+import Confetti from "../../components/Confetti/Confetti";
+import TextEditor from "../../components/TextEditor/TextEditor";
 
 function Boomb() {
   const dispatch = useDispatch();
@@ -15,8 +17,10 @@ function Boomb() {
   }, []);
 
   return (
-    <CustomizerLayout confettiData={confettiData} title="Boomb customizer" dataName='boomb'>
+    <CustomizerLayout confettiData={confettiData} title="Boomb customizer">
       <Cube />
+      <Confetti/>
+      <TextEditor/>
     </CustomizerLayout>
   );
 }
