@@ -4,9 +4,10 @@ export const MainWrapper = styled.div`
   user-select: none;
   height: 100%;
   justify-content: space-between;
+  background-color: #f5f5f5;
+  position: fixed;
+  width: 100%;
   @media (max-width: 1130px) {
     flex-direction: column;
-    position: fixed;
-    width: 100%;
   }
 `;

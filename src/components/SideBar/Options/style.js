@@ -4,7 +4,7 @@ export const MainWrapper = styled.div``;
 export const ActionsWrapper = styled.div`
   display: flex;
   @media (max-width: 1130px)  {
-    width: 80vw;
+    width: 100%;
   }
 `;
 export const UploadedImagesWrapper = styled.div`

@@ -16,7 +16,6 @@ import {
 } from "../style";
 import { updateItem } from "../../../utils/functions/boomb";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentEditor } from "../../../redux/actions/textEditor";
 import { setCurrentSidebar } from "../../../redux/actions/sideBar";
 import {setDeleteImageLibrary} from "../../../redux/actions/imageLibrary";
 import {setUpdateTextData} from "../../../redux/actions/textData";
@@ -36,7 +35,6 @@ function Image({ option, setOption }) {
 
   const deleteCurrentImage = () => {
     updateItem(curCubePosition, { img: "" }, boombData, dispatch);
-    dispatch(setCurrentEditor({ flag: "", state: false }));
     //todo cannon
     dispatch(setUpdateTextData({key: 'currentEditor', value: { flag: "", state: false }}));
     dispatch(setDeleteImageLibrary(imageState.id));

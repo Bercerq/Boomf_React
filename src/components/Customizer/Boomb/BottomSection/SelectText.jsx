@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setCurrentEditor } from "../../../../redux/actions/textEditor";
+import { setUpdateTextData } from "../../../../redux/actions/textData";
 import { BoxSide, BoxText, PickerItemText } from "./style";
 
 function SelectText() {
   const dispatch = useDispatch();
   const setFocusToTop = () => {
-    dispatch(setCurrentEditor({ flag: "", state: true }));
+    dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
   };
   return (
     <PickerItemText>
