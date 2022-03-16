@@ -21,11 +21,13 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  cursor: pointer;
 }
 
 .div-size-icon {
   padding: 5px;
   margin-left: -8px;
+  cursor: col-resize;
 }
 
 .image-div-block img, .div-reboot-pos img {
@@ -49,4 +51,8 @@
 .div-reboot-pos {
   position: absolute;
   top: -26px;
+}
+
+.box {
+  position: absolute;
 }

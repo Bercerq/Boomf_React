@@ -29,11 +29,13 @@ const TextEditorCannon = ({editTextRef}) => {
   }, [textDataState.currentEditor.flag]);
 
   useEffect(() => {
-    window.addEventListener("click", handleClick, true);
+    if(textDataState.currentEditor.state) {
+      window.addEventListener("click", handleClick, true);
+    }
     return () => {
       window.removeEventListener("click", handleClick, true);
     }
-  }, []);
+  }, [textDataState.currentEditor.state]);
 
 
   return (

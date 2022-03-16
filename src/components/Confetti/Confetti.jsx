@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setConfetti, setSelectedConfetti } from "../../redux/actions/confetti";
+import React from "react";
+import {useDispatch, useSelector} from "react-redux";
+
+import {useResizeDevice} from "../../utils/hooks/useResizeDevice";
+import {setConfetti, setSelectedConfetti} from "../../redux/actions/confetti";
+
 import MobileDevices from "./Cannon/MobileDevices";
 
 import {
@@ -11,14 +14,13 @@ import {
   ConfetiBox,
 } from "./style";
 
-function Confetti({ children, textStart }) {
-  const dispatch = useDispatch();
 
-  const { confettiState, confettiData } = useSelector(
-    ({ confettiReducer }) => confettiReducer
-  );
-  const [mobileDevice, setMobileDevice] = useState(
-    window.matchMedia("(max-width: 1130px)").matches
+function Confetti({children, textPosition}) {
+  const dispatch = useDispatch();
+  const {mobileDevice} = useResizeDevice({maxWidth: 1130});
+
+  const {confettiState, confettiData} = useSelector(
+    ({confettiReducer}) => confettiReducer
   );
 
   const handleSelectConfetti = (confetti) => () => {
@@ -29,15 +31,10 @@ function Confetti({ children, textStart }) {
     dispatch(setSelectedConfetti(true));
   };
 
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setMobileDevice(window.matchMedia("(max-width: 1130px)").matches);
-    });
-  }, []);
   return (
     <>
       <ConfettiWrapper>
-        <Title textStart={textStart}>
+        <Title textPosition={textPosition}>
           Confetti<span>: {confettiState.name}</span>
         </Title>
         {children ? (
@@ -56,15 +53,15 @@ function Confetti({ children, textStart }) {
                     : handleSelectConfetti(confetti)
                 }
               >
-                <ConfettiImage src={confetti.img} alt={confetti.name} />
+                <ConfettiImage src={confetti.img} alt={confetti.name}/>
               </ConfettiItem>
             ))}
           </ConfetiBox>
         )}
-        <Title textStart={textStart}>Confetti launches out of card</Title>
+        <Title textPosition={textPosition}>Confetti launches out of card</Title>
       </ConfettiWrapper>
 
-      {mobileDevice && <MobileDevices />}
+      {mobileDevice && <MobileDevices/>}
     </>
   );
 }

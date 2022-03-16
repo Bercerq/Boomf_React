@@ -1,14 +1,14 @@
 import styled from "styled-components";
+
 export const Title = styled.div`
   color: #717171;
   font-size: 16px;
-  text-align: ${({ textStart }) => (textStart ? "start !important; width: 100% !important;" : "end")};
+  text-align: ${({textPosition}) =>
+          textPosition === 'start' ? `start; width: 100% !important;` : textPosition};
   font-family: "objectivity-regular-11", sans-serif;
   width: 200px;
-  text-align: center;
   @media (max-width: 1130px) {
-    width: auto;
-    text-align: center;
+    width: 100%;
     margin: 0;
     &:last-child {
       display: none;
@@ -54,17 +54,21 @@ export const ConfetiBox = styled.div`
     scrollbar-width: auto;
     scrollbar-color: #666666 #ffffff;
   }
+
   &::-webkit-scrollbar {
     width: 8px;
   }
+
   &::-webkit-scrollbar-track {
     background: #f5f5f5;
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: #666666;
     border-radius: 10px;
     border: 3px solid #ffffff;
   }
+
   padding-right: 5px;
   height: 350px;
   display: flex;
@@ -91,14 +95,13 @@ export const ConfettiItem = styled.div`
   padding: 4px;
   background-color: white;
 
-  ${({ selectConfetti, name, mobileDevice }) =>
-    `border: 4px solid ${
-      !mobileDevice && selectConfetti.id === name ? "#2EDBE3" : "transparent"
-    };transition: 0.4s;
+  ${({selectConfetti, name, mobileDevice}) =>
+          `border: 4px solid ${
+                  !mobileDevice && selectConfetti.id === name ? "#2EDBE3" : "transparent"
+          };transition: 0.4s;
     ${mobileDevice && selectConfetti.id !== name && "display:none;"}`}
 
-  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04))
-    drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16));
+  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16));
   cursor: pointer;
   width: 32px;
   height: 32px;

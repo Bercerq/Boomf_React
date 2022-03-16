@@ -46,7 +46,7 @@ export const DivTextContent = styled.div`
           `cursor: ${activeState ? 'all-scroll; border: 2px solid #0A74FF' : 'auto'}`};
 `;
 
-export const TestText = styled.textarea`
+export const TextareaDraggable = styled.textarea`
   resize: none;
   cursor: unset !important;
   padding: 0;

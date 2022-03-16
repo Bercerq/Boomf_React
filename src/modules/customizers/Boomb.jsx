@@ -19,7 +19,7 @@ function Boomb() {
   return (
     <CustomizerLayout confettiData={confettiData} title="Boomb customizer">
       <Cube />
-      <Confetti/>
+      <Confetti textPosition='center'/>
       <TextEditor/>
     </CustomizerLayout>
   );

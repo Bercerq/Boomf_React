@@ -4,20 +4,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {setCurrentModal} from "../../../../redux/actions/modal";
 
 import MobileDeviceColumn from "./MobileDeviceColumn";
-import PostcardImage from "./PostcardImage";
+import PostcardBackground from "./PostcardBackground";
 
 import ArrowRightIcon from "../../../../utils/assets/svg/ArrowRightIcon.svg";
-import {FormTextContent} from "../../../TextDoubleClick/style";
+
 import {
-  BackgroundCard,
-  BackgroundImage,
   PostcardBlueButton,
   PostcardButton,
   PostcardContainer,
   PostcardWrapper,
   PostcardTest,
 } from "./style";
-import TextDoubleClick from "../../../TextDoubleClick";
 
 const PostcardSection = ({editTextRef}) => {
   const [sizeCard, setSize] = useState({
@@ -26,7 +23,6 @@ const PostcardSection = ({editTextRef}) => {
   });
 
   const {confettiState} = useSelector(({confettiReducer}) => confettiReducer);
-  const {backgroundState} = useSelector(({backgroundReducer}) => backgroundReducer);
 
   const dispatch = useDispatch();
   const handleButtonClick = () => {
@@ -34,13 +30,13 @@ const PostcardSection = ({editTextRef}) => {
   };
 
   useEffect(() => {
-    // window.addEventListener('resize', () => {
-    //   setSize((e) => ({
-    //     height: window.innerWidth / 100 * 40,
-    //     width: window.innerWidth / 100 * 40 / 1.5
-    //   }));
-    // });  TODO
-  }, [])
+    window.addEventListener('resize', () => {
+      setSize((e) => ({
+        height: window.innerWidth / 100 * 40,
+        width: window.innerWidth / 100 * 40 / 1.5
+      }));
+    });
+  }, []);
 
   return (
     <PostcardTest>
@@ -49,23 +45,12 @@ const PostcardSection = ({editTextRef}) => {
           src={confettiState.img}
           alt={confettiState.name}
         />
-        <MobileDeviceColumn />
-        <BackgroundCard sizeCard={sizeCard}>
-          <BackgroundImage
-            src={backgroundState.img}
-            alt={backgroundState.name}
-          />
-          <PostcardImage/>
-          <FormTextContent
-            id="buttonClickCannon"
-            ref={ref => editTextRef.current[1] = ref}
-          >
-            <TextDoubleClick
-              buttonflag='buttonClickCannon'
-              column={1}
-            />
-          </FormTextContent>
-        </BackgroundCard>
+        <MobileDeviceColumn/>
+        <PostcardBackground
+          sizeCard={sizeCard}
+          editTextRef={editTextRef}
+          options={{buttonflag: 'buttonClickCannon', column: 1}}
+        />
       </PostcardContainer>
       <PostcardButton>
         <PostcardBlueButton onClick={handleButtonClick}>

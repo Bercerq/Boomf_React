@@ -1,17 +1,19 @@
 import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
+
 import BlueButton from "../../Buttons/BlueButton";
 import Modal from "../../Modal/Modal";
-
-import {SheetBlock} from "./SheetSection/style";
 import SheetSection from "./SheetSection/SheetSection";
-import ArrowRightIcon from "../../../utils/assets/svg/ArrowRightIcon.svg";
-import {PostcardButton} from "../Cannon/PostcardSection/style";
+
 import {setCurrentModal} from "../../../redux/actions/modal";
-import {useDispatch, useSelector} from "react-redux";
 import {setStandardName} from "../../../redux/actions/standard";
 
+import ArrowRightIcon from "../../../utils/assets/svg/ArrowRightIcon.svg";
+
+import {PostcardButton} from "../Cannon/PostcardSection/style";
+import {SheetBlock} from "./SheetSection/style";
+
 const Sheet = () => {
-  const dispatch = useDispatch();
   const {standardName} = useSelector(
     ({standardReducer}) => standardReducer
   );
@@ -24,6 +26,7 @@ const Sheet = () => {
     }
   };
 
+  const dispatch = useDispatch();
   return (
     <>
       <SheetBlock>
