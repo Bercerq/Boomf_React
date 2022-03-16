@@ -44,7 +44,7 @@ export const CubeWrapper = styled.div`
   background-repeat: no-repeat;
   position: relative;
   user-select: none;
-  padding: 140px 200px;
+  padding: 170px 200px;
   overflow: hidden;
   filter: drop-shadow(0px 2px 4px rgba(40, 41, 61, 0.04))
     drop-shadow(0px 8px 16px rgba(96, 97, 112, 0.16));
@@ -66,7 +66,7 @@ export const CubeWrapper = styled.div`
     padding: 80px 35px;
   }
 
-  @media (max-height: 675px) {
+  @media (max-height: 780px) {
     padding: 85px 170px;
   }
 
@@ -125,14 +125,14 @@ export const CubeWrapper = styled.div`
     padding: 140px 90px;
   } */
 
-  @media (max-height: 725px) and (max-width: 1130px) {
+  @media (max-height: 843px) and (max-width: 1130px) {
     padding: 70px 95px;
   }
 
   @media (max-height: 610px) and (max-width: 1130px) {
     padding: 50px 70px;
   }
-  @media (max-height: 725px) and (max-width: 360px) {
+  @media (max-height: 843px) and (max-width: 360px) {
     padding: 92px 60px;
     background-size: 100%;
   }
@@ -198,7 +198,7 @@ export const CubeBox = styled.div`
     min-height: 220px !important;
   }
 
-  @media (max-height: 860px) {
+  @media (max-height: 920px) {
     max-width: 320px;
     max-height: 320px;
     height: 50vw;
@@ -236,7 +236,7 @@ export const CubeSide = styled.div`
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(110px) !important;
   }
 
-  @media (max-height: 860px) {
+  @media (max-height: 920px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
 `;
@@ -286,12 +286,8 @@ export const TopText = styled.textarea`
     textStyles.font ? `${textStyles.font}` : "Objectivity"};
   font-size: ${({ textStyles }) =>
     textStyles.size ? `${textStyles.size}px` : "16px"};
-  color: ${({ textStyles, focusState }) =>
-    focusState
-      ? "transparent"
-      : textStyles.colour
-      ? `${textStyles.colour}`
-      : "black"};
+  color: ${({ textStyles }) =>
+    textStyles.colour ? `${textStyles.colour}` : "black"};
   text-align: ${({ textStyles }) =>
     textStyles.alignment ? `${textStyles.alignment}` : "center"};
   position: absolute;

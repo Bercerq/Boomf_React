@@ -1,8 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
-
-import { setCurrentEditor } from "../../../../redux/actions/textEditor";
+import { setUpdateTextData } from "../../../../redux/actions/textData";
 
 import { findBoxSide } from "../../../../utils/functions/boomb";
 
@@ -14,18 +13,19 @@ function CubeImage({ img, position, editCrop }) {
   const dispatch = useDispatch();
 
   const openEditor = () => {
-    dispatch(setCurrentEditor({ flag: "Image", state: true }));
+    dispatch(
+      setUpdateTextData({
+        key: "currentEditor",
+        value: { flag: "Image", state: true },
+      })
+    );
   };
   const openSideBar = () => {
     dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
   };
   return img ? (
     <>
-      <SideImage
-        editCrop={editCrop}
-        src={img}
-        alt={findBoxSide(position)}
-      />
+      <SideImage editCrop={editCrop} src={img} alt={findBoxSide(position)} />
       <EditButton onClick={openEditor}>
         <EditIcon src={EditPencil} alt="edit" />
       </EditButton>

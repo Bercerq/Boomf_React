@@ -1,7 +1,6 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 
-import {setCurrentEditor} from "../../../redux/actions/textEditor";
 import {
   closeSideBar,
   findButtonName,
@@ -17,11 +16,9 @@ function Buttons({currentEditor, textStyles, option, setOption}) {
 
   const submitChanges = () => {
     if (currentEditor.flag === "Image") {
-      dispatch(setCurrentEditor({flag: "", state: false}));
       //todo cannon
       dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: false}}));
     } else {
-      dispatch(setCurrentEditor({flag: "", state: true}));
       //todo cannon
       dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
     }

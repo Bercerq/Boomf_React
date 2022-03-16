@@ -37,26 +37,27 @@ export const Option = styled.div`
   margin: 32px 42px 17px 42px;
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08),
     0px 0.5px 2px rgba(96, 97, 112, 0.16);
-  @media (max-width: 1130px) {
-    margin: 16px 14px !important;
-    width: 70px;
-  }
-  @media (max-width: 490px) {
-    margin: 16px 8px !important;
-    padding: 14px;
-  }
-
-  @media (max-height: 720px) {
-    margin: 4px 6px;
-  }
   padding: 17px;
   cursor: pointer;
+  transition: 0.4s;
+
+  @media (max-width: 1130px) {
+    margin: 15px 14px !important;
+    width: 70px;
+    padding: 7px 0;
+  }
+  @media (max-width: 490px) {
+    margin: 15px 8px !important;
+  }
+
+  @media (max-height: 760px) {
+    margin: 4px 6px;
+  }
   &:hover {
     filter: drop-shadow(0px 2px 4px rgba(53, 53, 53, 0.281))
       drop-shadow(0px 8px 16px rgba(53, 53, 53, 0.281));
     transition: 0.4s;
   }
-  transition: 0.4s;
 `;
 export const OptionIcon = styled.div`
   display: flex;
@@ -67,7 +68,9 @@ export const OptionIcon = styled.div`
 export const Icon = styled.img`
   width: 35px;
   height: 50px;
+  margin-bottom: 12px;
   @media (max-width: 1130px) {
+    margin-bottom: unset;
     display: block;
     width: 25px;
   }
