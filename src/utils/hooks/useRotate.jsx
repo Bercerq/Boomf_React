@@ -45,5 +45,5 @@ export const useRotate = (ref, option, initialRotate) => {
     }
   }, [enableRotate, handleRotate])
 
-  return {initRotate, rotateState};
+  return {initRotate, rotateState, setRotateState};
 };

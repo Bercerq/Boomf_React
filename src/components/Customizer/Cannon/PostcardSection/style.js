@@ -1,23 +1,22 @@
 import styled from "styled-components";
 
 import {BlueBtn} from "../../../Buttons/style";
-import {
-  CubeContainer,
-  CubeItem,
-  SideContent,
-  TopText
-} from "../../Boomb/CubeSection/style";
+import {CubeItem} from "../../Boomb/CubeSection/style";
 
-export const PostcardBlock = styled(SideContent)`
+export const PostcardBlock = styled.div`
+  display: block;
+  height: 100vh;
   width: 62%;
-  @media (max-width: 1130px)  {
+
+  @media (max-width: 1130px) {
     display: flex;
     align-items: flex-start;
+    height: 100%;
+    order: 2;
     margin-bottom: 5px;
     width: 100%;
-    height: fit-content;
   }
-  
+
   @media (max-width: 520px) {
     height: 100%;
   }
@@ -49,31 +48,35 @@ export const PostcardTest = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  
-  @media (max-width: 1130px)  {
+
+  @media (max-width: 1130px) {
     height: auto;
     width: 100%;
     margin: 0;
   }
-  
+
   @media (max-width: 520px) {
     display: grid;
     align-items: start;
     height: 100%;
   }
 `
-export const PostcardContainer = styled(CubeContainer)`
+export const PostcardContainer = styled.div`
+  margin: auto;
+  display: flex;
+  justify-content: center;
+
   width: 100%;
   flex-direction: column;
   align-items: center;
-  
-  @media(max-width: 1130px) {
+
+  @media (max-width: 1130px) {
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
     justify-content: center;
   }
-  
+
   @media (max-width: 520px) {
     justify-content: space-around;
     flex-direction: row;
@@ -85,17 +88,18 @@ export const PostcardContainer = styled(CubeContainer)`
 
 export const PostcardWrapper = styled.img`
   position: absolute;
-  width: 100%;
-  height: 90%;
+  width: 45%;
   object-fit: cover;
   z-index: -1;
 
-  @media(max-width: 920px) {
+  @media (max-width: 1130px) {
+    width: 80%;
   }
-  
-  @media (max-width: 415px) {
-    width: 416px;
-    height: 427px;
+  @media (max-width: 920px) {
+    width: 90%;
+  }
+  @media (max-width: 520px) {
+    width: 100%;
     margin-top: 30%;
   }
 `
@@ -113,7 +117,7 @@ export const BackgroundCard = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     height: 630px;
     width: 390px;
   }
@@ -133,7 +137,7 @@ export const BackgroundCard = styled.div`
     height: 427px;
     margin-bottom: 23px;
   }
-  
+
   @media (max-width: 375px) {
     width: 241px;
     height: 380px;
@@ -154,14 +158,13 @@ export const BackgroundImage = styled.img`
 `
 
 export const ImageDiv = styled(CubeItem)`
-  
   width: 76%;
   height: 51%;
   padding: initial;
   margin-top: 45px;
   background: white;
 
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     height: 50%;
     width: 80%;
     margin: 30px 30px 0 30px;
@@ -206,13 +209,13 @@ export const PostcardButton = styled.div`
   bottom: 0;
   margin: 30px;
 
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     position: static;
     display: flex;
     justify-content: flex-end;
   }
-  
-  @media(max-width: 415px) {
+
+  @media (max-width: 415px) {
     margin: 20px 30px;
   }
 
@@ -222,26 +225,17 @@ export const PostcardButton = styled.div`
 `
 
 export const PostcardBlueButton = styled(BlueBtn)`
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     padding: 0;
     margin: 10px;
     width: 146px;
     height: 40px;
   }
-  
-  @media(max-width: 520px) {
+
+  @media (max-width: 520px) {
     padding: 0;
     margin: 10px;
     width: 100%;
     height: 40px;
   }
 `;
-
-export const PostcardText = styled(TopText)`
-  opacity: 0;
-  transform: none;
-  left: auto;
-  top: auto;
-  height: auto;
-`
-

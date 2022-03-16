@@ -1,22 +1,16 @@
 import React from "react";
 
-import TextEditor from "../TextEditor/TextEditor";
-import Confetti from "../Confetti/Confetti";
-import {MainWrapper} from "./style";
+import { MainWrapper } from "./style";
 import Sidebar from "../SideBar/SideBar";
+import TextEditor from "../TextEditor/TextEditor";
 
-function CustomizerLayout({title, children, dataName}) {
+function CustomizerLayout({ title, editTextRef, children }) {
   return (
     <MainWrapper>
       <title>{title}</title>
-      <Sidebar/>
+      <Sidebar />
+      <TextEditor editTextRef={editTextRef} />
       {children}
-      {dataName === 'boomb' && (
-        <>
-          <Confetti/>
-          <TextEditor/>
-        </>
-      )}
     </MainWrapper>
   );
 }

@@ -1,32 +1,32 @@
 import styled from "styled-components";
-import {ConfetiBox, ConfettiImage, ConfettiWrapper, Title} from "../style";
 
-export const ConfettiWrapperCannonColumn = styled(ConfettiWrapper)`
+export const ConfettiWrapperCannonColumn = styled.div`
+  margin-top: 3%;
   display: flex;
   flex-direction: column;
+  
   width: 40vw;
   padding: 0 50px 0 40px;
-  @media (max-width: 1200px) {
-    width: 35vw;
-  }
-  @media (max-width: 1010px) {
-    width: 30vw;
-  }
+
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+    flex-direction: column-reverse;
+    position: absolute;
+    right: 0;
     padding: 0;
     margin: 0;
     width: 100%;
   }
-`;
-
-export const ConfettiWrapperCannon = styled(ConfettiWrapper)`
-  padding: 0;
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
-    margin-top: 0;
+  
+  @media (max-width: 520px) {
+    right: 20px;
+  }  
+  
+  @media (max-width: 400px) {
+    margin-left: unset;
   }
 `;
 
-export const BackgroundWrapperCannon = styled(ConfettiWrapper)`
+export const BackgroundWrapperCannon = styled(ConfettiWrapperCannonColumn)`
   padding: 0;
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin-top: 12px;
@@ -34,7 +34,7 @@ export const BackgroundWrapperCannon = styled(ConfettiWrapper)`
 `;
 
 export const ConfettiBoxCannon = styled.div`
-  overflow: auto hidden;
+  overflow: auto;
   &::-webkit-scrollbar {
     height: 8px;
   }
@@ -54,7 +54,7 @@ export const ConfettiBoxCannon = styled.div`
 `;
 
 export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
-  @media (max-width: 920px) {
+  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     justify-content: flex-start;
   }
 `;
@@ -122,10 +122,7 @@ export const BackgroundItem = styled.div`
   
   transition: 0.4s;
   background: transparent;
-  ${({selectConfetti}) =>
-          `border: 3px solid ${
-                  selectConfetti ? "#75bce8" : "transparent"
-          };  transition: 0.4s;`};
+
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 0 10px 12px 10px;
   }
@@ -136,10 +133,6 @@ export const BackgroundImage = styled.img`
   height: 45px;
   margin: 0;
   border-radius: 50%;
-  ${({selectConfetti}) =>
-          `border: 6px solid ${
-                  selectConfetti ? "#FFFFFF; transform: scale(0.8);" : "transparent"
-          }; transition: 0.4s;`};
 `;
 
 export const ActiveBackground = styled.div`

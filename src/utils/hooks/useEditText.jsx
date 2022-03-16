@@ -16,7 +16,7 @@ export const useEditText = ({resizeOption, textDataState}) => {
   const refRotate = useRef();
 
   const {initResize, sizeState} = useResize(refResize, resizeOption || {step: 5, axis: 'horizontal'});
-  const {initRotate, rotateState} = useRotate(refRotate, '', textDataState.rotate);
+  const {initRotate, rotateState, setRotateState} = useRotate(refRotate, '', textDataState.rotate);
 
   const debouncedValue = useDebounce(textState, 500);
   const debouncedPosition = useDebounce(positionState, 100);
@@ -54,18 +54,19 @@ export const useEditText = ({resizeOption, textDataState}) => {
     }
   }, [debouncedPosition]);
 
-  useEffect(() => {
-    console.log(debouncedSize, 'debouncedSize')
-  }, [debouncedSize])
+  // useEffect(() => {
+  //   console.log(debouncedSize, 'debouncedSize')
+  // }, [debouncedSize])
 
-  useEffect(() => {
-    console.log(debouncedAuthSize, 'debouncedAuthSize')
-  }, [debouncedAuthSize])
+  // useEffect(() => {
+  //   console.log(debouncedAuthSize, 'debouncedAuthSize')
+  // }, [debouncedAuthSize])
 
   useEffect(() => {
     if (textDataState.id) {
       setText(textDataState.value);
       setPosition(textDataState.position);
+      setRotateState(textDataState.rotate);
     }
   }, [textDataState.id]);
 

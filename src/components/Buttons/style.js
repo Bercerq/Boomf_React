@@ -54,7 +54,7 @@ export const SideBarBtn = styled.button`
   width: 100%;
   padding: 12px 61px 12px 0;
   @media (max-width: 1130px){
-    padding: 8px 20px 8px 0;
+    padding: 10px 20px 10px 0;
     font-size: 13px;
   }
 

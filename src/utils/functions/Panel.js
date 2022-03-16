@@ -15,6 +15,9 @@ import {
   OptionIcon,
   OptionText,
 } from "../../components/SideBar/style";
+import BackgroundDevice from "../../components/Confetti/Cannon/MobileDevices/BackgroundDevice";
+import React from "react";
+import ConfettiDevice from "../../components/Confetti/Cannon/MobileDevices/ConfettiDevice";
 
 export const drawOption = (title) => {
   switch (title) {
@@ -27,7 +30,7 @@ export const drawOption = (title) => {
     case "Choose a message":
       return <ChouseMessageOption/>;
     case "Boomf designs":
-      return <BoomfDesigns />
+      return <BoomfDesigns/>
     default:
       break;
   }
@@ -51,3 +54,21 @@ export const findPanelOption = (dispatch) =>
       </Option>
     );
   });
+
+export const findMobileDevice = ({selectedBackground, selectedConfetti}) => {
+  if (selectedBackground) {
+    return <BackgroundDevice/>
+  }
+  if (selectedConfetti) {
+    return <ConfettiDevice/>
+  }
+}
+
+export const findMobileDeviceTitle = ({selectedBackground, selectedConfetti}) => {
+  if (selectedBackground) {
+    return 'Background';
+  }
+  if (selectedConfetti) {
+    return 'Confetti';
+  }
+}

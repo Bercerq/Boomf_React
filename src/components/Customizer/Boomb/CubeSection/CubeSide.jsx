@@ -1,36 +1,26 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-
-import { useFocus } from "../../../../utils/hooks/useFocus";
 
 import { CubePosition } from "./CubePosition";
 import { CubeTop } from "./CubeTop";
 import { CubeBox } from "./style";
 
-function CubeSide({ textStyles, focusState, topText, setTopText }) {
-  const [inputRef, setInputRef] = useFocus();
-
+function CubeSide({ textStyles, editTextRef }) {
   const { curCubePosition, curCubeRotate, boombData } = useSelector(
     ({ boombReducer }) => boombReducer
   );
-
-  useEffect(() => {
-    if (focusState) setInputRef();
-  }, [focusState]);
+  const { imageData } = useSelector(
+    ({ imageLibraryReducer }) => imageLibraryReducer
+  );
   return (
     <CubeBox cubeRotateY={curCubeRotate}>
-      <CubeTop
-        textStyles={textStyles}
-        focusState={focusState}
-        topText={topText}
-        setTopText={setTopText}
-        inputRef={inputRef}
-      />
+      <CubeTop textStyles={textStyles} editTextRef={editTextRef} />
       {boombData?.map((boombData) => (
         <CubePosition
           key={boombData.position}
           curCubePosition={curCubePosition}
           boombData={boombData}
+          imageData={imageData[0].size}
         />
       ))}
     </CubeBox>
