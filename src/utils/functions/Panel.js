@@ -15,6 +15,9 @@ import {
   OptionIcon,
   OptionText,
 } from "../../components/SideBar/style";
+import BackgroundDevice from "../../components/Confetti/Cannon/MobileDevices/BackgroundDevice";
+import React from "react";
+import ConfettiDevice from "../../components/Confetti/Cannon/MobileDevices/ConfettiDevice";
 
 export const drawOption = (title) => {
   switch (title) {
@@ -51,3 +54,14 @@ export const findPanelOption = (dispatch) =>
       </Option>
     );
   });
+
+export const findMobileDevice = (activeDevice) => {
+  if(activeDevice.selected) {
+    if(activeDevice.title === 'Background') {
+      return <BackgroundDevice/>
+    }
+    if(activeDevice.title === 'Confetti') {
+      return <ConfettiDevice/>
+    }
+  }
+}

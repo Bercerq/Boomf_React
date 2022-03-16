@@ -19,7 +19,7 @@ const Cannon = () => {
   }, []);
 
   return (
-    <CustomizerLayout title="Boomf cannon card" dataName='cannon'>
+    <CustomizerLayout title="Boomf cannon card">
       <Postcard editTextRef={editTextRef}/>
       <TextEditorCannon editTextRef={editTextRef}/>
       <CannonRightColumn/>
