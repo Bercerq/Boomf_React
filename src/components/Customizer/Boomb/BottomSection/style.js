@@ -8,7 +8,11 @@ export const Bottom = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  left: 0;
+  bottom: 15px;
   @media (max-width: 1130px) {
+    bottom: 160px;
     flex-direction: column;
     justify-content: center;
     align-items: end;
@@ -24,16 +28,21 @@ export const ImagePicker = styled.div`
   align-items: center;
   @media (max-width: 1130px) {
     margin: auto;
-    width: 95%;
   }
 `;
 export const PickerItem = styled.div`
   display: block;
-  margin: 0 12px;
+  margin: 0 8px;
   height: fit-content;
 
   @media (max-width: 1130px) {
-    margin: 0 4px;
+    margin: 0 8px;
+  }
+  @media (max-width: 715px) {
+    margin: 0 6px;
+  }
+  @media (max-width: 390px) {
+    margin: 0 2px;
   }
 `;
 
@@ -91,10 +100,17 @@ export const ButtonWrapper = styled.div`
     width: 180px;
   }
   @media (max-width: 1130px) {
-    position: static;
-    right: unset;
+    position: absolute;
+    right: 35px;
     width: 90%;
     margin: auto;
+    bottom: -50px;
+  }
+  @media (max-width: 625px) {
+    right: 25px;
+  }
+  @media (max-width: 420px) {
+    right: 20px;
   }
 `;
 export const BoxImage = styled.img`

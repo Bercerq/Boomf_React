@@ -1,51 +1,80 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import Buttons from "./components/Buttons";
+import useDebounce from "../../utils/hooks/useDebounce";
+import useCreateEditorValue from "../../utils/hooks/useCreateEditorValue";
 import {
   closeSideBar,
   drawEditorContent,
 } from "../../utils/functions/textEditor";
+import { TextEditorContent, TextEditorWrapper } from "./style";
 
-import useCreateEditorValue from "../../utils/hooks/useCreateEditorValue";
-import useDebounce from "../../utils/hooks/useDebounce";
-
-import Buttons from "./components/Buttons";
-
-import { TextEditorWrapper, TextEditorContent } from "./style";
-
-function TextEditor() {
+const TextEditor = ({ editTextRef }) => {
   const [option, setOption] = useState();
   const dispatch = useDispatch();
-  const { textStyles, currentEditor } = useSelector(
-    ({ textEditorReducer }) => textEditorReducer
+
+  const { textDataState } = useSelector(
+    ({ textDataReducer }) => textDataReducer
   );
   const debouncedValue = useDebounce(option, 500);
-  useCreateEditorValue(currentEditor.flag, debouncedValue, dispatch);
+  useCreateEditorValue(
+    textDataState.currentEditor.flag,
+    debouncedValue,
+    dispatch
+  );
+
+  const handleClick = (event) => {
+    if (
+      editTextRef.current &&
+      !(
+        editTextRef.current[0].contains(event.target) ||
+        editTextRef.current[1].contains(event.target)
+      )
+    ) {
+      closeSideBar(
+        dispatch,
+        textDataState.currentEditor,
+        textDataState.textStyles,
+        setOption
+      )();
+    }
+  };
 
   useEffect(() => {
-    setOption(textStyles[currentEditor?.flag.toLowerCase()]);
-  }, [currentEditor.flag]);
+    setOption(
+      textDataState.textStyles[textDataState.currentEditor?.flag?.toLowerCase()]
+    );
+  }, [textDataState.currentEditor.flag]);
+
+  useEffect(() => {
+    window.addEventListener("click", handleClick, true);
+    return () => {
+      window.removeEventListener("click", handleClick, true);
+    };
+  }, []);
 
   return (
     <TextEditorWrapper
-      currentEditor={currentEditor.state}
-      onClick={closeSideBar(dispatch, currentEditor, textStyles, setOption)}
+      ref={(ref) => (editTextRef.current[0] = ref)}
+      currentEditor={textDataState.currentEditor.state}
     >
-      <TextEditorContent
-        currentEditor={currentEditor.state}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {drawEditorContent(currentEditor.flag, option, setOption, dispatch)}
+      <TextEditorContent currentEditor={textDataState.currentEditor.state}>
+        {drawEditorContent(
+          textDataState.currentEditor.flag,
+          option,
+          setOption,
+          dispatch
+        )}
         <Buttons
-          currentEditor={currentEditor}
-          textStyles={textStyles}
+          currentEditor={textDataState.currentEditor}
+          textStyles={textDataState.textStyles}
           option={option}
           setOption={setOption}
         />
       </TextEditorContent>
     </TextEditorWrapper>
   );
-}
+};
 
 export default TextEditor;

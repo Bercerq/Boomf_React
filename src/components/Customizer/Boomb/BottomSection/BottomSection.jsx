@@ -16,6 +16,7 @@ function BottomSection({ handleButtonClick }) {
           Add to cart <img src={ArrowRightIcon} alt="add" />
         </BlueButton>
       </ButtonWrapper>
+      
     </Bottom>
   );
 }

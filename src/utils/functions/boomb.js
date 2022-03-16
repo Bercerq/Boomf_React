@@ -1,12 +1,14 @@
 import {
+  sendBoomb,
   setBoomb,
   setCurPosition,
   setCurRotate,
 } from "../../redux/actions/boomb";
-import {setCurrentEditor, setFocus} from "../../redux/actions/textEditor";
-import {setUpdateTextData} from "../../redux/actions/textData";
+import { setUpdateTextData } from "../../redux/actions/textData";
 
-import {setAddImageLibrary} from "../../redux/actions/imageLibrary";
+import { setAddImageLibrary } from "../../redux/actions/imageLibrary";
+import { setCurrentModal } from "../../redux/actions/modal";
+import { StaticText } from "../../components/Customizer/Boomb/CubeSection/style";
 
 export const changeCubeRotate = (
   operator,
@@ -16,45 +18,11 @@ export const changeCubeRotate = (
 ) => {
   if (operator === "right") {
     dispatch(setCurRotate(curCubeRotate + 90));
-    switch (curCubePosition) {
-      case 1:
-        changeCubePosition(2, dispatch);
-        break;
-      case 2:
-        changeCubePosition(3, dispatch);
-        break;
-      case 3:
-        changeCubePosition(4, dispatch);
-        break;
-      case 4:
-        changeCubePosition(1, dispatch);
-        break;
-      default:
-        break;
-    }
+    dispatch(setCurPosition(curCubePosition === 4 ? 1 : ++curCubePosition));
   } else if (operator === "left") {
     dispatch(setCurRotate(curCubeRotate - 90));
-    switch (curCubePosition) {
-      case 4:
-        changeCubePosition(3, dispatch);
-        break;
-      case 3:
-        changeCubePosition(2, dispatch);
-        break;
-      case 2:
-        changeCubePosition(1, dispatch);
-        break;
-      case 1:
-        changeCubePosition(4, dispatch);
-        break;
-      default:
-        break;
-    }
+    dispatch(setCurPosition(curCubePosition === 1 ? 4 : --curCubePosition));
   }
-};
-
-const changeCubePosition = (position, dispatch) => {
-  dispatch(setCurPosition(position));
 };
 
 export const updateItem = (
@@ -79,8 +47,10 @@ export const setUploadImage = (img, dispatch) => {
     return null;
   }
 
-  dispatch(setAddImageLibrary({img: URL.createObjectURL(img[0]), alt: img[0].name}))
-}
+  dispatch(
+    setAddImageLibrary({ img: URL.createObjectURL(img[0]), alt: img[0].name })
+  );
+};
 export const setBoxPosition = (dispatch, position, defaultRotate) => () => {
   dispatch(setCurPosition(position));
   dispatch(setCurRotate(defaultRotate));
@@ -111,27 +81,54 @@ export const openEditor = (dispatch, buttonflag) => () => {
   button.addEventListener("click", (event) => {
     if (event.detail === 1) {
       timer = setTimeout(() => {
-        dispatch(setCurrentEditor({flag: "", state: true}));
-        dispatch(setFocus(true));
-        // todo cannon
-        dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
-        dispatch(setUpdateTextData({key: 'focusState', value: true}));
-        // dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
+        dispatch(
+          setUpdateTextData({
+            key: "currentEditor",
+            value: { flag: "", state: true },
+          })
+        );
+        dispatch(setUpdateTextData({ key: "focusState", value: true }));
       }, 200);
     }
   });
-  button.addEventListener("dblclick", (event) => {
+  button.addEventListener("dblclick", () => {
     clearTimeout(timer);
-    dispatch(setFocus(true));
-    // todo cannon
-    dispatch(setUpdateTextData({key: 'focusState', value: true}));
-    // dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
+    dispatch(setUpdateTextData({ key: "focusState", value: true }));
   });
 
-  button.addEventListener('touchend', () => {
-    dispatch(setFocus(true));
-    // todo cannon
-    dispatch(setUpdateTextData({key: 'focusState', value: true}));
-    // dispatch(setUpdateTextData({key: 'dblClickState', value: true}));
-  })
+  button.addEventListener("touchend", () => {
+    dispatch(setUpdateTextData({ key: "focusState", value: true }));
+  });
+};
+
+export const handleClickAddToCart =
+  (boombData, dispatch, confettiState, textData) => () => {
+    let boxArr = [];
+    boombData?.map((data) => {
+      boxArr.push(data);
+    });
+    dispatch(sendBoomb([...boxArr, textData, { confetti: confettiState.img }]));
+    dispatch(
+      setCurrentModal({
+        title: "Add to cart",
+        state: true,
+      })
+    );
+  };
+
+export const findStaticText = (textData, textDataState, dispatch) => {
+  return textData.map(
+    ({ textStyles, value, focusState }) =>
+      focusState && (
+        <StaticText
+          textStyles={textStyles}
+          id="buttonClick"
+          onClick={openEditor(dispatch, "buttonClick")}
+        >
+          {!value && !textDataState.focusState
+            ? "Double Click to type your text"
+            : textDataState.currentEditor.state && value}
+        </StaticText>
+      )
+  );
 };

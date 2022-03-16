@@ -2,7 +2,8 @@ import styled from "styled-components";
 export const Title = styled.div`
   color: #717171;
   font-size: 16px;
-  text-align: ${({ textStart }) => (textStart ? "start !important; width: 100% !important;" : "end")};
+  text-align: ${({ textStart }) =>
+    textStart ? "start !important; width: 100% !important;" : "end"};
   font-family: "objectivity-regular-11", sans-serif;
   width: 200px;
   text-align: center;
@@ -103,7 +104,7 @@ export const ConfettiItem = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  margin: 20px;
+  margin: 20px 10px;
 
   @media (max-height: 605px) {
     margin: 10px 0;
