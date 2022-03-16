@@ -6,7 +6,6 @@ import Cube from "../../components/Customizer/Boomb/Cube";
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
 import { confettiDataBoomb } from "../../utils/constants/ConfettiData";
 import Confetti from "../../components/Confetti/Confetti";
-import TextEditor from "../../components/TextEditor/TextEditor";
 
 function Boomb() {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ function Boomb() {
       title="Boomb customizer"
     >
       <Cube editTextRef={editTextRef} />
-      <Confetti />
+      <Confetti textPosition='center'/>
     </CustomizerLayout>
   );
 }

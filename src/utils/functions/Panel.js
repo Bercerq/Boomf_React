@@ -30,7 +30,7 @@ export const drawOption = (title) => {
     case "Choose a message":
       return <ChouseMessageOption/>;
     case "Boomf designs":
-      return <BoomfDesigns />
+      return <BoomfDesigns/>
     default:
       break;
   }
@@ -55,13 +55,20 @@ export const findPanelOption = (dispatch) =>
     );
   });
 
-export const findMobileDevice = (activeDevice) => {
-  if(activeDevice.selected) {
-    if(activeDevice.title === 'Background') {
-      return <BackgroundDevice/>
-    }
-    if(activeDevice.title === 'Confetti') {
-      return <ConfettiDevice/>
-    }
+export const findMobileDevice = ({selectedBackground, selectedConfetti}) => {
+  if (selectedBackground) {
+    return <BackgroundDevice/>
+  }
+  if (selectedConfetti) {
+    return <ConfettiDevice/>
+  }
+}
+
+export const findMobileDeviceTitle = ({selectedBackground, selectedConfetti}) => {
+  if (selectedBackground) {
+    return 'Background';
+  }
+  if (selectedConfetti) {
+    return 'Confetti';
   }
 }

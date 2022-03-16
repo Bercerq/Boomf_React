@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {findMobileDevice} from "../../../../utils/functions/Panel";
+import {findMobileDevice, findMobileDeviceTitle} from "../../../../utils/functions/Panel";
 import {closeSelectDevice} from "../../../../utils/functions/imageLibrary";
 
 import {
@@ -13,8 +13,6 @@ import {
 } from "./style";
 
 const MobileDevices = () => {
-  const [{selected, title}, setActiveState] = useState({selected: false, title: ""});
-
   const {selectedBackground} = useSelector(
     ({backgroundReducer}) => backgroundReducer
   );
@@ -22,25 +20,17 @@ const MobileDevices = () => {
     ({confettiReducer}) => confettiReducer
   );
 
-  useEffect(() => {
-    if (selectedBackground) {
-      setActiveState({selected: true, title: "Background"});
-    } else if (selectedConfetti) {
-      setActiveState({selected: true, title: "Confetti"});
-    } else if (!selectedBackground && !selectedConfetti) {
-      setActiveState({selected: false, title: ""});
-    }
-  }, [selectedBackground, selectedConfetti]);
-
   const dispatch = useDispatch();
   return (
-    <DeviceSelectImage currentEditor={selected}>
+    <DeviceSelectImage currentEditor={(selectedBackground || selectedConfetti)}>
       <DeviceDivCenter>
         <DeviceCloseWindow onClick={closeSelectDevice(dispatch)}/>
       </DeviceDivCenter>
-      <h3>{title}</h3>
+      <h3>
+        {findMobileDeviceTitle({selectedBackground, selectedConfetti})}
+      </h3>
       <DeviceContent>
-        {findMobileDevice({title, selected})}
+        {findMobileDevice({selectedBackground, selectedConfetti})}
         <DeviceButtonClose onClick={closeSelectDevice(dispatch)}>
           Close
         </DeviceButtonClose>

@@ -12,7 +12,7 @@ import {setActionTextData, setDeleteTextData} from "../../redux/actions/textData
 import {
   CenterRotate,
   DivTextContent,
-  TestText
+  TextareaDraggable
 } from "./style.js";
 import './style.css';
 
@@ -44,6 +44,7 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
   const dragHandlers = {
     onStart,
     onStop: onStop,
+    onTouchStart: onStop,
     onTouchEnd: onStop,
     axis: "both",
     scale: 1,
@@ -54,11 +55,14 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
   const dispatch = useDispatch();
   return (
     <Draggable cancel="strong" {...dragHandlers}>
-      <div className="box" onClick={handleSelectCard} onTouchStart={handleSelectCard}
-           style={{position: 'absolute', zIndex: currentState.focusState ? 1 : 0}}>
-        <div className='text-editor-form' style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}>
-          <div className='div-reboot-pos'>
-            <strong className="no-cursor">
+      <div className="box"
+           onClick={handleSelectCard}
+           onTouchStart={handleSelectCard}
+           style={{zIndex: currentState.focusState ? 1 : 0}}>
+        <div className='text-editor-form'
+             style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}>
+          <div className='no-cursor div-reboot-pos'>
+            <strong>
               {currentState.focusState && (
                 <div onMouseDown={textEditorParams.initRotate}
                      onTouchStart={textEditorParams.initRotate}
@@ -69,33 +73,30 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
             </strong>
           </div>
           <div className='div-flex'>
-            <div className='div-trash-pos'>
-              <strong className="no-cursor">
+            <div className='no-cursor div-trash-pos'>
+              <strong>
                 {currentState.focusState && (
-                  <div className='image-div-block'
-                       onClick={deleteText}
-                       style={{cursor: 'pointer'}}>
+                  <div className='image-div-block' onClick={deleteText}>
                     <img src={Trash} alt='TrashCan' height={10} width={10}/>
                   </div>
                 )}
               </strong>
             </div>
             <DivTextContent ref={activeId ? textEditorParams.refResize : null} activeState={currentState.focusState}>
-              <TestText onChange={textEditorParams.setTextState}
-                value={activeId ? textEditorParams.textState : currentState.value}
-                textStyles={currentState.textStyles}
-                disabled={!activeId}
-                ref={activeId ? inputRef : null}
-                placeholder={!((activeId && textEditorParams.textState) || currentState.value) && 'Double Click to type your text'}
+              <TextareaDraggable onChange={textEditorParams.setTextState}
+                                 value={activeId ? textEditorParams.textState : currentState.value}
+                                 textStyles={currentState.textStyles}
+                                 disabled={!activeId}
+                                 ref={activeId ? inputRef : null}
+                                 placeholder={'Click To Type Or Edit Your Text'}
               />
             </DivTextContent>
-            <div className='text-editor-form'>
-              <strong className="no-cursor">
+            <div className='no-cursor text-editor-form'>
+              <strong>
                 {currentState.focusState && activeSizeImage && (
                   <div className='image-div-block div-size-icon'
                        onMouseDown={textEditorParams.initResize}
-                       onTouchStart={textEditorParams.initResize}
-                       style={{cursor: 'col-resize'}}>
+                       onTouchStart={textEditorParams.initResize}>
                     <img src={LeftAndRightArrows} alt="LeftAndRightArrows" height={10} width={10}/>
                   </div>
                 )}

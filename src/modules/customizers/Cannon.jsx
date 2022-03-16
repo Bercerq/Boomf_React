@@ -1,14 +1,17 @@
-import React, { useEffect, useRef } from "react";
-import {
-  confettiDataCannon,
-  backgroundDataCannon,
-} from "../../utils/constants/ConfettiData";
+import React, {useEffect, useRef} from 'react';
+import {useDispatch} from "react-redux";
+
+import {setConfettiData} from "../../redux/actions/confetti";
+import {setBackgroundData} from "../../redux/actions/background";
+
+import CannonRightColumn from "../../components/Confetti/Cannon";
 import Postcard from "../../components/Customizer/Cannon/Postcard";
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
-import { useDispatch } from "react-redux";
-import { setConfettiData } from "../../redux/actions/confetti";
-import { setBackgroundData } from "../../redux/actions/background";
-import CannonRightColumn from "../../components/Confetti/Cannon";
+
+import {
+  confettiDataCannon,
+  backgroundDataCannon
+} from "../../utils/constants/ConfettiData";
 
 const Cannon = () => {
   const dispatch = useDispatch();
