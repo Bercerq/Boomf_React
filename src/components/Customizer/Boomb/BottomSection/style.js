@@ -38,10 +38,10 @@ export const PickerItem = styled.div`
   @media (max-width: 1130px) {
     margin: 0 8px;
   }
-  @media (max-width: 715px) {
+  @media (max-width: 380px) {
     margin: 0 6px;
   }
-  @media (max-width: 390px) {
+  @media (max-width: 360px) {
     margin: 0 2px;
   }
 `;
@@ -77,19 +77,8 @@ export const BoxSide = styled.div`
       curCubePosition !== position && "3px solid transparent"};
   }
   @media (max-width: 1130px) {
-    width: 90px;
-    height: 85px;
-  }
-  @media (max-width: 520px) {
-    width: 60px;
-    height: 70px;
-  }
-  @media (max-width: 480px) {
-    height: 65px;
-  }
-  @media (max-height: 720px) {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
   }
 `;
 export const ButtonWrapper = styled.div`
@@ -106,11 +95,16 @@ export const ButtonWrapper = styled.div`
     margin: auto;
     bottom: -50px;
   }
+
   @media (max-width: 625px) {
-    right: 25px;
+    right: 30px;
+    width: 95vw;
+  }
+  @media (max-width: 520px) {
+    bottom: -45px;
   }
   @media (max-width: 420px) {
-    right: 20px;
+    right: 9px;
   }
 `;
 export const BoxImage = styled.img`

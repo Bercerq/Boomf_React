@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {findMobileDevice, findMobileDeviceTitle} from "../../../../utils/functions/Panel";
+import useDebounce from "../../../../utils/hooks/useDebounce";
+import {
+  findMobileDevice,
+  findMobileDeviceTitle,
+} from "../../../../utils/functions/Panel";
 import {closeSelectDevice} from "../../../../utils/functions/imageLibrary";
 
 import {
@@ -11,7 +15,6 @@ import {
   DeviceDivCenter,
   DeviceSelectImage,
 } from "./style";
-import useDebounce from "../../../../utils/hooks/useDebounce";
 
 const MobileDevices = () => {
   const [selectAnimation, setSelectAnimation] = useState(false);
@@ -25,7 +28,7 @@ const MobileDevices = () => {
   const debouncedSelect = useDebounce(selectAnimation, 400);
 
   useEffect(() => {
-    if(selectedBackground || selectedConfetti) {
+    if (selectedBackground || selectedConfetti) {
       setSelectAnimation(true);
     } else {
       setSelectAnimation(false);

@@ -47,7 +47,7 @@ export const Option = styled.div`
     padding: 7px 0;
   }
   @media (max-width: 490px) {
-    margin: 15px 8px !important;
+    margin: 15px 12px !important;
   }
 
   @media (max-height: 760px) {
