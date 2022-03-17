@@ -107,7 +107,7 @@ export const BackgroundCard = styled.div`
   display: flex;
   height: ${({sizeCard: {height}}) => height ? `${height}px` : 'auto'};
   width: ${({sizeCard: {width}}) => width ? `${width}px` : 'auto'};;
-  margin-top: 40px;
+  margin: 40px;
   position: relative;
   user-select: none;
   overflow: hidden;
@@ -118,7 +118,7 @@ export const BackgroundCard = styled.div`
 
   @media (max-width: 1130px) {
     height: 630px;
-    width: 390px;
+    width: 379px;
   }
 
   @media (max-width: 840px) {
@@ -130,15 +130,11 @@ export const BackgroundCard = styled.div`
     height: 593px;
     width: 357px;
   }
-
+  
   @media (max-width: 540px) {//todo 520
-    margin-top: 10px;
-  }
-
-  @media (max-width: 415px) {
-    width: 265px;
-    height: 427px;
-    margin-bottom: 23px;
+    margin: 10px 0 0 0;
+    height: 413px;
+    width: 248px;
   }
 
   @media (max-width: 375px) {

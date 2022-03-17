@@ -75,8 +75,8 @@ export const findBoxSide = (position) => {
   }
 };
 //check one or double click
-export const openEditor = (dispatch, buttonflag) => () => {
-  const button = document.getElementById(buttonflag);
+export const openEditor = (dispatch, buttonFlag) => () => {
+  const button = document.getElementById(buttonFlag);
   let timer;
   button.addEventListener("click", (event) => {
     if (event.detail === 1) {

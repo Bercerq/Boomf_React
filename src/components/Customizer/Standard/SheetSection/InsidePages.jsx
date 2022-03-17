@@ -4,20 +4,19 @@ import {DivFlex, FontPageDiv} from "./style";
 import TextDoubleClick from "../../../TextDoubleClick";
 
 const InsidePages = () => {
-
   return (
     <div id="buttonClickStandard">
       <DivFlex>
         <FontPageDiv>
           <TextDoubleClick
-            buttonflag='buttonClickStandard'
+            buttonFlag='buttonClickStandard'
             activeSizeImage={true}
             column={1}
           />
         </FontPageDiv>
         <FontPageDiv>
           <TextDoubleClick
-            buttonflag='buttonClickStandard'
+            buttonFlag='buttonClickStandard'
             activeSizeImage={true}
             column={2}
           />

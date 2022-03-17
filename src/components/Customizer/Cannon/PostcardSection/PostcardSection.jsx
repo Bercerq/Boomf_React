@@ -49,7 +49,7 @@ const PostcardSection = ({editTextRef}) => {
         <PostcardBackground
           sizeCard={sizeCard}
           editTextRef={editTextRef}
-          options={{buttonflag: 'buttonClickCannon', column: 1}}
+          options={{buttonFlag: 'buttonClickCannon', column: 1}}
         />
       </PostcardContainer>
       <PostcardButton>
