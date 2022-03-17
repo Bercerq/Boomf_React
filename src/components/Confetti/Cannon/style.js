@@ -9,15 +9,22 @@ export const ConfettiWrapperCannonColumn = styled.div`
   padding: 0 50px 0 40px;
 
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
-    flex-direction: column-reverse;
-    position: absolute;
-    right: 0;
-    padding: 0;
-    margin: 0;
+    //flex-direction: column-reverse;
+    //position: absolute;
+    //right: 0;
+    //padding: 0;
+    //margin: 0;
     width: 100%;
+
+    position: static;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
   }
   
-  @media (max-width: 520px) {
+  @media (max-width: 540px) {//todo 520 
     right: 20px;
   }  
   
@@ -48,7 +55,7 @@ export const ConfettiBoxCannon = styled.div`
   }
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: ${({justifyContent}) => justifyContent};
     padding: 0;
   }
 `;
@@ -56,6 +63,11 @@ export const ConfettiBoxCannon = styled.div`
 export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     justify-content: flex-start;
+    width: 63%;
+  }
+  
+  @media (max-width: 540px) {//todo 520 
+    width: 100%;
   }
 `;
 
@@ -81,7 +93,7 @@ export const ConfettiItemCannon = styled.div`
     width: 45px;
     height: 45px;
   }
-  @media (max-width: 520px) {
+  @media (max-width: 540px) {//todo 520 
     margin: 7px;
   }
 `;
@@ -95,9 +107,6 @@ export const TitleCannon = styled.div`
 
   span {
     font-weight: bold;
-    @media (max-width: 1130px) {
-      display: none;
-    }
   }
   
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {

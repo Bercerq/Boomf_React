@@ -21,8 +21,8 @@ const MobileDevices = () => {
   );
 
   const dispatch = useDispatch();
-  return (
-    <DeviceSelectImage currentEditor={(selectedBackground || selectedConfetti)}>
+  return (selectedBackground || selectedConfetti) && (
+    <DeviceSelectImage selected={selectedBackground || selectedConfetti}>
       <DeviceDivCenter>
         <DeviceCloseWindow onClick={closeSelectDevice(dispatch)}/>
       </DeviceDivCenter>

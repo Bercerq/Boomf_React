@@ -1,4 +1,13 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+
+const opacity = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 3;
+  }
+`;
 
 export const DeviceSelectImage = styled.div`
   position: fixed;
@@ -7,19 +16,17 @@ export const DeviceSelectImage = styled.div`
   align-items: center;
   
   width: 100vw;
-  height: 0;
   bottom: 0;
   border-radius: 32px 32px 0 0;
   z-index: 3;
   
   background: #FFFFFF;
-  
   font-family: "objectivity-regular-11", sans-serif;
   box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04), 0 16px 24px rgba(96, 97, 112, 0.16);
-  transition: 0.4s;
+  height: 37vh;
 
-  opacity: 0;
-  ${({ currentEditor }) => currentEditor && "opacity:1;height: 37vh;transition: 0.4s;"};
+  animation: ${opacity} 0.4s linear;
+  animation-fill-mode: forwards;
 `;
 
 export const DeviceDivCenter = styled.div`
@@ -77,7 +84,7 @@ export const DeviceContentCard = styled(DivFlexCenter)`
   @media (max-width: 620px) {
     width: 15%;
   }
-  @media (max-width: 520px) {
+  @media (max-width: 540px) {//todo 520 
     width: auto;
     position: static;
     margin: 0;
