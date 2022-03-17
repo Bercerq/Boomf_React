@@ -21,7 +21,7 @@ const Cannon = () => {
   useEffect(() => {
     dispatch(setConfettiData(confettiDataCannon));
     dispatch(setBackgroundData(backgroundDataCannon));
-  }, []);
+  }, [dispatch]);
 
   return (
     <CustomizerLayout editTextRef={editTextRef} title="Boomf cannon card">

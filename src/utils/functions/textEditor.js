@@ -1,6 +1,5 @@
 import { alignmentIcon, editOptions } from "../constants/TextEditData";
 
-
 import { setUpdateTextData } from "../../redux/actions/textData";
 
 import Colour from "../../components/TextEditor/Option/Colour";

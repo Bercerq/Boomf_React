@@ -77,6 +77,7 @@ export const findBoxSide = (position) => {
 //check one or double click
 export const openEditor = (dispatch, buttonflag) => () => {
   const button = document.getElementById(buttonflag);
+
   let timer;
   button.addEventListener("click", (event) => {
     if (event.detail === 1) {
@@ -95,18 +96,19 @@ export const openEditor = (dispatch, buttonflag) => () => {
     clearTimeout(timer);
     dispatch(setUpdateTextData({ key: "focusState", value: true }));
   });
-
   button.addEventListener("touchend", () => {
     dispatch(setUpdateTextData({ key: "focusState", value: true }));
   });
+
+  if (buttonflag === "buttonClickTop") {
+    dispatch(setCurRotate(760));
+  }
 };
 
 export const handleClickAddToCart =
   (boombData, dispatch, confettiState, textData) => () => {
     let boxArr = [];
-    boombData?.map((data) => {
-      boxArr.push(data);
-    });
+    boombData?.map((data) => boxArr.push(data));
     dispatch(sendBoomb([...boxArr, textData, { confetti: confettiState.img }]));
     dispatch(
       setCurrentModal({
@@ -118,9 +120,10 @@ export const handleClickAddToCart =
 
 export const findStaticText = (textData, textDataState, dispatch) => {
   return textData.map(
-    ({ textStyles, value, focusState }) =>
+    ({ textStyles, value, focusState, id }) =>
       focusState && (
         <StaticText
+          key={id}
           textStyles={textStyles}
           id="buttonClick"
           onClick={openEditor(dispatch, "buttonClick")}

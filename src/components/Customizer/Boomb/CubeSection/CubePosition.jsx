@@ -14,7 +14,7 @@ export const CubePosition = ({ boombData, curCubePosition, imageData }) => {
 
   useEffect(() => {
     dispatch(editImage(imageData));
-  }, [imageData]);
+  }, [imageData, dispatch]);
 
   return (
     <CubeSide spinParam={rotate}>

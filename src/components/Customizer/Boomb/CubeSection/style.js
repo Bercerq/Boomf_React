@@ -17,29 +17,23 @@ export const CubeContainer = styled.div`
   align-items: center;
   position: relative;
   justify-content: center;
+
   @media (max-width: 1200px) {
     width: 55vw;
   }
   @media (max-width: 1130px) {
     width: 100%;
+    position: absolute;
+    bottom: 222px;
   }
-  /* @media (max-width: 640px) {
-    width: 80vw;
-    justify-content: start;
+  @media (max-width: 570px) {
+    bottom: 180px;
   }
-  @media (max-width: 340px) {
-    width: 85vw;
-  }
-  @media (max-width: 510px) {
-    width: 65vw;
-  }
-  @media (max-height: 850px) and (max-width: 400px) {
-    width: 80vw;
-  } */
+
 `;
 export const CubeWrapper = styled.div`
   background-image: ${({ confettiState }) => `url(${confettiState})`};
-  background-size: 90%;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
@@ -48,100 +42,26 @@ export const CubeWrapper = styled.div`
   overflow: hidden;
   filter: drop-shadow(0px 2px 4px rgba(40, 41, 61, 0.04))
     drop-shadow(0px 8px 16px rgba(96, 97, 112, 0.16));
-  @media (max-width: 1200px) {
-    padding: 150px;
+  @media (max-width: 670px) {
+    padding: 170px 170px;
+    background-size: auto;
   }
-  @media (max-width: 1010px) {
-    padding: 120px;
+  @media (max-width: 610px) {
+    padding: 170px 150px;
   }
-  @media (max-width: 1130px) {
-    padding: 90px 130px;
-    background-size: contain;
+  @media (max-width: 570px) {
+    background-size: auto;
   }
-  @media (max-width: 500px) {
-    padding: 80px 100px;
+  @media (max-width: 490px) {
+    padding: 170px 110px;
   }
-
-  @media (max-width: 340px) {
-    padding: 80px 35px;
+  @media (max-width: 445px) {
+    padding: 170px 90px;
   }
-
-  @media (max-height: 780px) {
-    padding: 85px 170px;
+  @media (max-width: 405px) {
+    padding: 170px 70px;
   }
 
-  @media (max-width: 510px) {
-    padding: 80px 75px;
-  }
-
-  @media (max-height: 1155px) and (max-width: 1130px) {
-    padding: 150px 130px;
-  }
-
-  @media (max-height: 960px) and (max-width: 1130px) {
-    padding: 120px 140px;
-  }
-
-  @media (max-height: 960px) and (max-width: 680px) {
-    padding: 120px 160px;
-  }
-
-  @media (max-height: 960px) and (max-width: 600px) {
-    padding: 160px 140px 68px 140px;
-    background-position: bottom;
-  }
-
-  @media (max-height: 960px) and (max-width: 570px) {
-    padding: 240px 140px 71px 140px;
-    background-position: bottom;
-  }
-  @media (max-height: 960px) and (max-width: 480px) {
-    padding: 240px 110px 71px 110px;
-  }
-  @media (max-height: 960px) and (max-width: 420px) {
-    padding: 230px 80px 71px 80px;
-  }
-
-  @media (max-height: 960px) and (max-width: 385px) {
-    padding: 240px 60px 71px 60px;
-  }
-
-  @media (max-height: 810px) and (max-width: 660px) {
-    padding: 161px 60px 55px 60px;
-    background-size: cover;
-  }
-
-  /* @media (max-height: 960px) and (max-width: 545px) {
-    padding: 180px 120px;
-  }
-  @media (max-height: 960px) and (max-width: 400px) {
-    padding: 180px 80px;
-    background-size: 100%;
-  }
-  @media (max-height: 960px) and (max-width: 440px) {
-    padding: 155px 90px;
-  }
-  @media (max-height: 960px) and (max-width: 480px) {
-    padding: 140px 90px;
-  } */
-
-  @media (max-height: 843px) and (max-width: 1130px) {
-    padding: 70px 95px;
-  }
-
-  @media (max-height: 610px) and (max-width: 1130px) {
-    padding: 50px 70px;
-  }
-  @media (max-height: 843px) and (max-width: 360px) {
-    padding: 92px 60px;
-    background-size: 100%;
-  }
-  @media (max-height: 675px) and (max-width: 410px) {
-    padding: 86px 80px 51px 80px;
-  }
-  @media (max-height: 670px) and (max-width: 390px) {
-    padding: 60px 65px 53px 65px;
-  }
 `;
 export const CubeBox = styled.div`
   margin: auto;
@@ -163,14 +83,6 @@ export const CubeBox = styled.div`
     min-width: 320px;
     min-height: 320px;
   }
-  /* @media (max-width: 1130px) {
-    max-width: 200px !important;
-    max-height: 200px !important;
-    height: 20vw !important;
-    width: 20vw !important;
-    min-width: 200px !important;
-    min-height: 200px !important;
-  } */
 
   @media (max-height: 725px) and (max-width: 1130px) {
     max-width: 280px !important;
@@ -222,10 +134,7 @@ export const CubeSide = styled.div`
   @media (max-width: 1200px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
   }
-  /* @media (max-width: 1130px) {
-    transform: ${({ spinParam }) =>
-    `${spinParam}`} translateZ(100px) !important;
-  } */
+
   @media (max-height: 725px) and (max-width: 1130px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(140px) !important;
   }
