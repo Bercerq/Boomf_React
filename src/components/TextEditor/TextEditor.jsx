@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 import Buttons from "./components/Buttons";
 import useDebounce from "../../utils/hooks/useDebounce";
@@ -8,14 +8,14 @@ import {
   closeSideBar,
   drawEditorContent,
 } from "../../utils/functions/textEditor";
-import { TextEditorContent, TextEditorWrapper } from "./style";
+import {TextEditorContent, TextEditorWrapper} from "./style";
 
-const TextEditor = ({ editTextRef }) => {
+const TextEditor = ({editTextRef}) => {
   const [option, setOption] = useState();
   const dispatch = useDispatch();
 
-  const { textDataState } = useSelector(
-    ({ textDataReducer }) => textDataReducer
+  const {textDataState} = useSelector(
+    ({textDataReducer}) => textDataReducer
   );
   const debouncedValue = useDebounce(option, 500);
   useCreateEditorValue(
@@ -24,35 +24,27 @@ const TextEditor = ({ editTextRef }) => {
     dispatch
   );
 
-  const handleClick = (event) => {
-    if (
-      editTextRef.current &&
-      !(
-        editTextRef.current[0].contains(event.target) ||
-        editTextRef.current[1].contains(event.target)
-      )
-    ) {
-      closeSideBar(
-        dispatch,
-        textDataState.currentEditor,
-        textDataState.textStyles,
-        setOption
-      )();
-    }
-  };
-
   useEffect(() => {
     setOption(
       textDataState.textStyles[textDataState.currentEditor?.flag?.toLowerCase()]
     );
-  }, [textDataState.currentEditor.flag]);
+  }, [textDataState.textStyles]);
+
 
   useEffect(() => {
-    window.addEventListener("click", handleClick, true);
+    const handleClick = (event) => {
+      if (editTextRef.current && !(editTextRef.current[0].contains(event.target) || editTextRef.current[1].contains(event.target))) {
+        closeSideBar(dispatch, textDataState.currentEditor, textDataState.textStyles, setOption)()
+      }
+    }
+
+    if (textDataState.currentEditor.state) {
+      window.addEventListener("click", handleClick, true);
+    }
     return () => {
       window.removeEventListener("click", handleClick, true);
-    };
-  }, []);
+    }
+  }, [textDataState.currentEditor.state]);
 
   return (
     <TextEditorWrapper
