@@ -13,7 +13,7 @@ const Standard = () => {
 
   useEffect(() => {
     dispatch(setConfettiData(confettiDataBoomb));
-  }, []);
+  }, [dispatch]);
 
   return (
     <CustomizerLayout editTextRef={editTextRef} title="Standard">

@@ -1,8 +1,8 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import {useResizeDevice} from "../../utils/hooks/useResizeDevice";
-import {setConfetti, setSelectedConfetti} from "../../redux/actions/confetti";
+import { useResizeDevice } from "../../utils/hooks/useResizeDevice";
+import { setConfetti, setSelectedConfetti } from "../../redux/actions/confetti";
 
 import MobileDevices from "./Cannon/MobileDevices";
 
@@ -14,13 +14,12 @@ import {
   ConfetiBox,
 } from "./style";
 
-
-function Confetti({children, textPosition, lastChild, positionWrapper}) {
+function Confetti({ children, textPosition, lastChild, positionWrapper }) {
   const dispatch = useDispatch();
-  const {mobileDevice} = useResizeDevice({maxWidth: 1130});
+  const { mobileDevice } = useResizeDevice({ maxWidth: 1130 });
 
-  const {confettiState, confettiData} = useSelector(
-    ({confettiReducer}) => confettiReducer
+  const { confettiState, confettiData } = useSelector(
+    ({ confettiReducer }) => confettiReducer
   );
 
   const handleSelectConfetti = (confetti) => () => {
@@ -33,9 +32,7 @@ function Confetti({children, textPosition, lastChild, positionWrapper}) {
 
   return (
     <>
-      <ConfettiWrapper
-        positionWrapper={positionWrapper}
-      >
+      <ConfettiWrapper positionWrapper={positionWrapper}>
         <Title textPosition={textPosition} lastChild={lastChild}>
           Confetti<span>: {confettiState.name}</span>
         </Title>
@@ -45,25 +42,27 @@ function Confetti({children, textPosition, lastChild, positionWrapper}) {
           <ConfetiBox>
             {confettiData.map((confetti, idx) => (
               <ConfettiItem
+                key={idx}
                 mobileDevice={mobileDevice}
                 selectConfetti={confettiState}
                 name={confetti.id}
-                key={idx}
                 onClick={
                   mobileDevice
                     ? handleSelectConfettiMobile
                     : handleSelectConfetti(confetti)
                 }
               >
-                <ConfettiImage src={confetti.img} alt={confetti.name}/>
+                <ConfettiImage src={confetti.img} alt={confetti.name} />
               </ConfettiItem>
             ))}
           </ConfetiBox>
         )}
-        <Title textPosition={textPosition} lastChild={lastChild}>Confetti launches out of card</Title>
+        <Title textPosition={textPosition} lastChild={lastChild}>
+          Confetti launches out of card
+        </Title>
       </ConfettiWrapper>
 
-      {mobileDevice && <MobileDevices/>}
+      {mobileDevice && <MobileDevices />}
     </>
   );
 }

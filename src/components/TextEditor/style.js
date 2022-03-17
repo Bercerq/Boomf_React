@@ -24,20 +24,16 @@ export const TextEditorContent = styled.div`
   width: 100vw;
   transition: 0.4s;
   height: 0vh;
-  ${({ currentEditor }) => currentEditor && "height: 22vh;transition: 0.4s;"};
+  ${({ currentEditor }) =>
+    currentEditor &&
+    "height: 22vh;transition: 0.4s;  @media (max-height: 845px) { height: 35vh;}@media (max-height: 490px) { height: 45vh;}"};
 
   @media (max-width: 1470px) {
     padding-left: 20%;
   }
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     padding: unset;
     padding-top: 42px;
-  }
-  @media (max-height: 845px) {
-    height: 35vh;
-  }
-  @media (max-height: 490px) {
-    height: 45vh;
   }
 `;
 export const ButtonWrapper = styled.div`
@@ -119,7 +115,7 @@ export const FontItem = styled.div`
   padding: 8px 0;
   cursor: pointer;
 
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     font-size: 14px;
     width: 120px;
     margin: 6px;
@@ -216,14 +212,14 @@ export const ImageWrapper = styled.div`
     width: 83%;
   }
 
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     width: 100%;
   }
 `;
 
 export const SliderContainerImage = styled.div`
   min-width: 420px;
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     min-width: 280px;
   }
   @media (max-width: 520px) {
@@ -276,13 +272,13 @@ export const Text = styled.div`
 
 export const DiagonalLineOne = styled.div`
   position: absolute;
-  border-top: 1px solid #FFFFFF;
-  transform-origin: ${({originLine}) => originLine ? 'left' : 'right'};
-  left: ${({originLine}) => originLine ? 0 : 'auto'};
+  border-top: 1px solid #ffffff;
+  transform-origin: ${({ originLine }) => (originLine ? "left" : "right")};
+  left: ${({ originLine }) => (originLine ? 0 : "auto")};
   right: 0;
   top: 0;
-  bottom: ${({originLine}) => originLine ? 0 : 'auto'};
+  bottom: ${({ originLine }) => (originLine ? 0 : "auto")};
   height: 1px;
-  width: ${({widthLine}) => `${widthLine}px`};
-  transform: rotate(${({rotateLine}) => `${rotateLine}deg`});
+  width: ${({ widthLine }) => `${widthLine}px`};
+  transform: rotate(${({ rotateLine }) => `${rotateLine}deg`});
 `;

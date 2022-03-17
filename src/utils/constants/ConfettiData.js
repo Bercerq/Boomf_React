@@ -1,15 +1,9 @@
-import BcGold1 from "../assets/png/confetti/BCGold-1.png";
-import BCGold from "../assets/png/confetti/BCGold.png";
-import BlossomGB from "../assets/png/confetti/Blossom-GB.png";
-import Blossom from "../assets/png/confetti/Blossom.png";
-import Hearts from "../assets/png/confetti/Hearts.png";
-import OceanBlue from "../assets/png/confetti/Ocean-Blue.png";
-import Summer1 from "../assets/png/confetti/Summer-2.png";
-import TuttiFruitti from "../assets/png/confetti/Tutti-Fruitti.png";
-import Unicorn from "../assets/png/confetti/Unicorn.png";
-import Watermelon from "../assets/png/confetti/Watermelon.png";
-import BlueCircles from "../assets/png/confetti/Blue-Circles.png";
-import Stars from "../assets/png/confetti/Stars.png";
+import Blossom from "../assets/png/confetti/Blossom.webp";
+import OceanBlue from "../assets/png/confetti/Ocean-Blue.webp";
+import Summer1 from "../assets/png/confetti/Summer-2.webp";
+import TuttiFruitti from "../assets/png/confetti/Tutti-Fruitti.webp";
+import BlueCircles from "../assets/png/confetti/Blue-Circles.webp";
+import Stars from "../assets/png/confetti/Stars.webp";
 
 import Colorful from "../assets/jpg/background/colorful-2468874__340.jpg";
 import Nature from "../assets/jpg/background/nature-3082832__480.jpg";
@@ -25,12 +19,18 @@ import Textile from "../assets/jpg/background/textile-2918844__340.jpg";
 // import Rainbow from "../assets/png/confetti/Rainbow.png";
 // import BcGoldStars1 from "../assets/png/confetti/Stars.png";
 // import Summer from "../assets/png/confetti/Summer.png";
+// import BcGold1 from "../assets/png/confetti/BCGold-1.png";
+// import BCGold from "../assets/png/confetti/BCGold.png";
+// import BlossomGB from "../assets/png/confetti/Blossom-GB.png";
+// import Hearts from "../assets/png/confetti/Hearts.png";
+// import Unicorn from "../assets/png/confetti/Unicorn.png";
+// import Watermelon from "../assets/png/confetti/Watermelon.png";
 
 export const confettiDataBoomb = [
-  {
-    name: "Hearts",
-    img: Hearts,
-  },
+  // {
+  //   name: "Hearts",
+  //   img: Hearts,
+  // },
   {
     name: "Stars",
     img: Stars,
@@ -119,18 +119,18 @@ export const confettiDataBoomb = [
 ];
 
 export const confettiDataCannon = [
-  {
-    name: "Gold",
-    img: BcGold1,
-  },
-  {
-    name: "BC Gold",
-    img: BCGold,
-  },
-  {
-    name: "Blossom GB",
-    img: BlossomGB,
-  },
+  // {
+  //   name: "Gold",
+  //   img: BcGold1,
+  // },
+  // {
+  //   name: "BC Gold",
+  //   img: BCGold,
+  // },
+  // {
+  //   name: "Blossom GB",
+  //   img: BlossomGB,
+  // },
   {
     name: "Blossom",
     img: Blossom,
@@ -164,20 +164,20 @@ export const collectionData = [
   { img: Textile, alt: "Textile", id: 2 },
   { img: Summer1, alt: "Summer1", id: 3 },
   { img: Blossom, alt: "Blossom", id: 4 },
-  { img: BlossomGB, alt: "BlossomGB", id: 5 },
-  { img: BCGold, alt: "BCGold", id: 6 },
-  { img: BcGold1, alt: "BcGold1", id: 7 },
-  { img: Unicorn, alt: "Unicorn", id: 8 },
-  { img: Watermelon, alt: "Watermelon", id: 9 },
+  // { img: BlossomGB, alt: "BlossomGB", id: 5 },
+  // { img: BCGold, alt: "BCGold", id: 6 },
+  // { img: BcGold1, alt: "BcGold1", id: 7 },
+  // { img: Unicorn, alt: "Unicorn", id: 8 },
+  // { img: Watermelon, alt: "Watermelon", id: 9 },
 ];
 
 export const activeCollectionData = [
-  { img: Unicorn, alt: "Unicorn", id: 8 },
-  { img: Watermelon, alt: "Watermelon", id: 9 },
-  { img: BCGold, alt: "BCGold", id: 6 },
-  { img: BcGold1, alt: "BcGold1", id: 7 },
+  // { img: Unicorn, alt: "Unicorn", id: 8 },
+  // { img: Watermelon, alt: "Watermelon", id: 9 },
+  // { img: BCGold, alt: "BCGold", id: 6 },
+  // { img: BcGold1, alt: "BcGold1", id: 7 },
   { img: Blossom, alt: "Blossom", id: 4 },
-  { img: BlossomGB, alt: "BlossomGB", id: 5 },
+  // { img: BlossomGB, alt: "BlossomGB", id: 5 },
   { img: Textile, alt: "Textile", id: 2 },
   { img: Summer1, alt: "Summer1", id: 3 },
   { img: Colorful, alt: "Colorful", id: 0 },
