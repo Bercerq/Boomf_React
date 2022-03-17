@@ -8,15 +8,15 @@ import {ConfettiWrapperCannonColumn} from "./style";
 import {useResizeDevice} from "../../../utils/hooks/useResizeDevice";
 
 const CannonRightColumn = () => {
-  const {mobileDevice} = useResizeDevice({maxWidth: 1130});
+  const {mobileDevice} = useResizeDevice({maxWidth: 540});
 
   return mobileDevice ? (
     <MobileDevices/>
   ) : (
     <ConfettiWrapperCannonColumn>
       <Background/>
-      <Confetti textPosition='start'>
-        <ConfettiDevice />
+      <Confetti textPosition='start' lastChild={true}>
+        <ConfettiDevice justifyContent='flex-start'/>
       </Confetti>
     </ConfettiWrapperCannonColumn>
   )

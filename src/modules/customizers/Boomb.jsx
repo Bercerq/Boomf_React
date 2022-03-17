@@ -25,7 +25,7 @@ function Boomb() {
       title="Boomb customizer"
     >
       <Cube editTextRef={editTextRef} />
-      <Confetti textPosition='center'/>
+      <Confetti textPosition='center' positionWrapper='absolute'/>
     </CustomizerLayout>
   );
 }
