@@ -46,7 +46,6 @@ export const setUploadImage = (img, dispatch) => {
   if (!img) {
     return null;
   }
-
   dispatch(
     setAddImageLibrary({ img: URL.createObjectURL(img[0]), alt: img[0].name })
   );
