@@ -9,7 +9,7 @@ import {
 } from "../style";
 import {ConfettiImage} from "../../style";
 
-const ConfettiDevice = () => {
+const ConfettiDevice = ({justifyContent}) => {
   const {confettiState, confettiData} = useSelector(
     ({confettiReducer}) => confettiReducer
   );
@@ -20,7 +20,9 @@ const ConfettiDevice = () => {
 
   const dispatch = useDispatch();
   return (
-    <ConfettiBoxCannon>
+    <ConfettiBoxCannon
+      justifyContent={justifyContent}
+    >
       {confettiData.map((confetti, idx) => (
         <ConfettiItemCannon
           key={idx}

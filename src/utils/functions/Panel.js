@@ -60,7 +60,7 @@ export const findMobileDevice = ({selectedBackground, selectedConfetti}) => {
     return <BackgroundDevice/>
   }
   if (selectedConfetti) {
-    return <ConfettiDevice/>
+    return <ConfettiDevice justifyContent='space-evenly'/>
   }
 }
 

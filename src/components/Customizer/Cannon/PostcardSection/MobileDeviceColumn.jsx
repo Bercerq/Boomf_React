@@ -10,7 +10,7 @@ import MobileDeviceBackground from "./MobileDeviceBackground";
 import {DeviceContentCard} from "../../../Confetti/Cannon/MobileDevices/style";
 
 const MobileDeviceColumn = () => {
-  const {mobileDevice} = useResizeDevice({maxWidth: 1130});
+  const {mobileDevice} = useResizeDevice({maxWidth: 540});
 
   const {confettiState} = useSelector(
     ({confettiReducer}) => confettiReducer
