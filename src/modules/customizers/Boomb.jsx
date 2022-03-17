@@ -16,7 +16,7 @@ function Boomb() {
 
   useEffect(() => {
     dispatch(setConfettiData(confettiDataBoomb));
-  }, []);
+  }, [dispatch]);
 
   return (
     <CustomizerLayout

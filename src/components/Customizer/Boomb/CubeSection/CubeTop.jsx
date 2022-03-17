@@ -20,7 +20,7 @@ export const CubeTop = ({ topText,  editTextRef }) => {
             id="buttonClickCannon"
             ref={(ref) => (editTextRef.current[1] = ref)}
           >
-            <TextDoubleClick buttonflag="buttonClickCannon" column={1} />
+            <TextDoubleClick buttonFlag="buttonClickCannon" column={1} />
           </div>
         </CubeItem>
       </CubeSide>

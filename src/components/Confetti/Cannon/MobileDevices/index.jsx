@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {findMobileDevice, findMobileDeviceTitle} from "../../../../utils/functions/Panel";
+import useDebounce from "../../../../utils/hooks/useDebounce";
+import {
+  findMobileDevice,
+  findMobileDeviceTitle,
+} from "../../../../utils/functions/Panel";
 import {closeSelectDevice} from "../../../../utils/functions/imageLibrary";
 
 import {
@@ -13,6 +17,7 @@ import {
 } from "./style";
 
 const MobileDevices = () => {
+  const [selectAnimation, setSelectAnimation] = useState(false);
   const {selectedBackground} = useSelector(
     ({backgroundReducer}) => backgroundReducer
   );
@@ -20,8 +25,18 @@ const MobileDevices = () => {
     ({confettiReducer}) => confettiReducer
   );
 
+  const debouncedSelect = useDebounce(selectAnimation, 400);
+
+  useEffect(() => {
+    if (selectedBackground || selectedConfetti) {
+      setSelectAnimation(true);
+    } else {
+      setSelectAnimation(false);
+    }
+  }, [selectedBackground, selectedConfetti])
+
   const dispatch = useDispatch();
-  return (selectedBackground || selectedConfetti) && (
+  return ((selectedConfetti || selectedBackground) || debouncedSelect) && (
     <DeviceSelectImage selected={selectedBackground || selectedConfetti}>
       <DeviceDivCenter>
         <DeviceCloseWindow onClick={closeSelectDevice(dispatch)}/>

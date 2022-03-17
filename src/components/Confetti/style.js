@@ -53,21 +53,17 @@ export const ConfetiBox = styled.div`
     scrollbar-width: auto;
     scrollbar-color: #666666 #ffffff;
   }
-
   &::-webkit-scrollbar {
     width: 8px;
   }
-
   &::-webkit-scrollbar-track {
     background: #f5f5f5;
   }
-
   &::-webkit-scrollbar-thumb {
     background-color: #666666;
     border-radius: 10px;
     border: 3px solid #ffffff;
   }
-
   padding-right: 5px;
   height: 350px;
   display: flex;
@@ -84,7 +80,6 @@ export const ConfetiBox = styled.div`
 `;
 export const ConfettiImage = styled.img`
   width: 100%;
-  height: 100%;
   margin: auto;
   display: flex;
   border-radius: 50%;
