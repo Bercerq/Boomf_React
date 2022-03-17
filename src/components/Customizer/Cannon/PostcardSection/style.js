@@ -215,12 +215,14 @@ export const PostcardButton = styled.div`
   background: transparent;
   right: 0;
   bottom: 0;
-
+  margin: 30px;
+  
   @media (max-width: 1130px) {
     position: static;
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    margin: 0;
   }
 `
 
