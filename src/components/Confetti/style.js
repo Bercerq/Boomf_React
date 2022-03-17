@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const Title = styled.div`
   color: #717171;
   font-size: 16px;
@@ -10,7 +11,7 @@ export const Title = styled.div`
     width: 100%;
     margin: 0;
     &:last-child {
-      display: none;
+      display: ${({lastChild}) => lastChild ? 'block' : 'none'};
     }
   }
   @media (max-height: 680px) {
@@ -22,7 +23,7 @@ export const Title = styled.div`
   span {
     font-weight: bold;
     @media (max-width: 1130px) {
-      display: none;
+      display: ${({lastChild}) => lastChild ? 'contents' : 'none'};
     }
   }
 `;
@@ -34,10 +35,9 @@ export const ConfettiWrapper = styled.div`
   align-items: center;
   @media (max-width: 1130px) {
     display: flex;
-    flex-direction: column-reverse;
-    position: absolute;
-    right: 0;
-    width: 20vw;
+    ${({positionWrapper}) =>
+            positionWrapper === 'absolute' ?
+                    `position: absolute; right: 0; width: 20vw; flex-direction: column-reverse;` : `width: 100%;`}
     padding: 0;
     margin: 0;
   }

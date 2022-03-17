@@ -75,9 +75,8 @@ export const findBoxSide = (position) => {
   }
 };
 //check one or double click
-export const openEditor = (dispatch, buttonflag) => () => {
-  const button = document.getElementById(buttonflag);
-
+export const openEditor = (dispatch, buttonFlag) => () => {
+  const button = document.getElementById(buttonFlag);
   let timer;
   button.addEventListener("click", (event) => {
     if (event.detail === 1) {
@@ -96,11 +95,12 @@ export const openEditor = (dispatch, buttonflag) => () => {
     clearTimeout(timer);
     dispatch(setUpdateTextData({ key: "focusState", value: true }));
   });
+
   button.addEventListener("touchend", () => {
     dispatch(setUpdateTextData({ key: "focusState", value: true }));
   });
 
-  if (buttonflag === "buttonClickTop") {
+  if (buttonFlag === "buttonClickTop") {
     dispatch(setCurRotate(760));
   }
 };

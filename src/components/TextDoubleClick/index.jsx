@@ -6,22 +6,22 @@ import {useEditText} from "../../utils/hooks/useEditText";
 import {useFocus} from "../../utils/hooks/useFocus";
 import {openEditor} from "../../utils/functions/boomb";
 
-const TextDoubleClick = ({buttonflag, column, activeSizeImage}) => {
+const TextDoubleClick = ({buttonFlag, column, activeSizeImage}) => {
   const [inputRef, setInputRef] = useFocus();
   const {textData, textDataState} = useSelector(({textDataReducer}) => textDataReducer);
   const textEditorParams = useEditText({resizeOption: null, textDataState});
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    openEditor(dispatch, buttonflag)();
-  }, []);
+    openEditor(dispatch, buttonFlag)();
+  }, [dispatch, buttonFlag]);
 
   useEffect(() => {
     if (textDataState.focusState) {
       setInputRef();
     }
-  }, [textDataState.focusState]);
+  }, [setInputRef, textDataState.focusState]);
 
-  const dispatch = useDispatch();
   return textData.map((e, idx) => e.column === column && (
     <React.Fragment key={'DraggableText' + idx}>
       <DraggableText

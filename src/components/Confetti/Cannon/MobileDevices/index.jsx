@@ -1,11 +1,12 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
+import useDebounce from "../../../../utils/hooks/useDebounce";
 import {
   findMobileDevice,
   findMobileDeviceTitle,
 } from "../../../../utils/functions/Panel";
-import { closeSelectDevice } from "../../../../utils/functions/imageLibrary";
+import {closeSelectDevice} from "../../../../utils/functions/imageLibrary";
 
 import {
   DeviceButtonClose,
@@ -16,30 +17,40 @@ import {
 } from "./style";
 
 const MobileDevices = () => {
-  const { selectedBackground } = useSelector(
-    ({ backgroundReducer }) => backgroundReducer
+  const [selectAnimation, setSelectAnimation] = useState(false);
+  const {selectedBackground} = useSelector(
+    ({backgroundReducer}) => backgroundReducer
   );
-  const { selectedConfetti } = useSelector(
-    ({ confettiReducer }) => confettiReducer
+  const {selectedConfetti} = useSelector(
+    ({confettiReducer}) => confettiReducer
   );
+
+  const debouncedSelect = useDebounce(selectAnimation, 400);
+
+  useEffect(() => {
+    if (selectedBackground || selectedConfetti) {
+      setSelectAnimation(true);
+    } else {
+      setSelectAnimation(false);
+    }
+  }, [selectedBackground, selectedConfetti])
+
   const dispatch = useDispatch();
-  return (
-    (selectedBackground || selectedConfetti) && (
-      <DeviceSelectImage selected={selectedBackground || selectedConfetti}>
-        <DeviceDivCenter>
-          <DeviceCloseWindow onClick={closeSelectDevice(dispatch)} />
-        </DeviceDivCenter>
-        <h3>
-          {findMobileDeviceTitle({ selectedBackground, selectedConfetti })}
-        </h3>
-        <DeviceContent>
-          {findMobileDevice({ selectedBackground, selectedConfetti })}
-          <DeviceButtonClose onClick={closeSelectDevice(dispatch)}>
-            Close
-          </DeviceButtonClose>
-        </DeviceContent>
-      </DeviceSelectImage>
-    )
+  return ((selectedConfetti || selectedBackground) || debouncedSelect) && (
+    <DeviceSelectImage selected={selectedBackground || selectedConfetti}>
+      <DeviceDivCenter>
+        <DeviceCloseWindow onClick={closeSelectDevice(dispatch)}/>
+      </DeviceDivCenter>
+      <h3>
+        {findMobileDeviceTitle({selectedBackground, selectedConfetti})}
+      </h3>
+      <DeviceContent>
+        {findMobileDevice({selectedBackground, selectedConfetti})}
+        <DeviceButtonClose onClick={closeSelectDevice(dispatch)}>
+          Close
+        </DeviceButtonClose>
+      </DeviceContent>
+    </DeviceSelectImage>
   );
 };
 

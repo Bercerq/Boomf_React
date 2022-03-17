@@ -20,7 +20,7 @@ const PostcardBackground = ({sizeCard, editTextRef, options}) => {
       />
       <PostcardImage/>
       <FormTextContent
-        id={options.buttonflag}
+        id={options.buttonFlag}
         ref={ref => editTextRef.current[1] = ref}
       >
         <TextDoubleClick {...options}/>

@@ -132,12 +132,24 @@ export const confettiDataCannon = [
   //   img: BlossomGB,
   // },
   {
+    name: "Stars",
+    img: Stars,
+  },
+  {
+    name: "Ocean Blue",
+    img: OceanBlue,
+  },
+  {
     name: "Blossom",
     img: Blossom,
   },
   {
-    name: "Summer 1",
-    img: Summer1,
+    name: "Tutti Fruitti",
+    img: TuttiFruitti,
+  },
+  {
+    name: "Blue Circles",
+    img: BlueCircles,
   },
 ];
 
