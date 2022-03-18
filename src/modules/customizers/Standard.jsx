@@ -17,7 +17,7 @@ const Standard = () => {
 
   return (
     <CustomizerLayout editTextRef={editTextRef} title="Standard">
-      <Sheet />
+      <Sheet editTextRef={editTextRef}/>
     </CustomizerLayout>
   );
 };

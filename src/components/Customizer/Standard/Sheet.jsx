@@ -13,7 +13,7 @@ import ArrowRightIcon from "../../../utils/assets/svg/ArrowRightIcon.svg";
 import {PostcardButton} from "../Cannon/PostcardSection/style";
 import {SheetBlock} from "./SheetSection/style";
 
-const Sheet = () => {
+const Sheet = ({editTextRef}) => {
   const {standardName} = useSelector(
     ({standardReducer}) => standardReducer
   );
@@ -31,7 +31,7 @@ const Sheet = () => {
     <>
       <SheetBlock>
         <h3>{standardName} Page</h3>
-        <SheetSection/>
+        <SheetSection editTextRef={editTextRef}/>
         <PostcardButton>
           <BlueButton handleButtonClick={handleButtonClick}>
             {standardName === 'Front' ? ('Inside pages') : ('Add to cart')} <img src={ArrowRightIcon} alt="add"/>
