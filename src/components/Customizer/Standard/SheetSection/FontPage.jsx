@@ -1,11 +1,11 @@
 import React from 'react';
-import {FontPageDiv} from "./style";
+import {FontPageDivOne} from "./style";
 
 const FontPage = () => {
   return (
-    <FontPageDiv>
+    <FontPageDivOne>
 
-    </FontPageDiv>
+    </FontPageDivOne>
   );
 };
 

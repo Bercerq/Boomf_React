@@ -88,8 +88,7 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
                                  textStyles={currentState.textStyles}
                                  disabled={!activeId}
                                  ref={activeId ? inputRef : null}
-                                 placeholder={'Click To Type Or Edit Your Text'}
-              />
+                                 placeholder={'Click To Type Or Edit Your Text'}/>
             </DivTextContent>
             <div className='no-cursor text-editor-form'>
               <strong>

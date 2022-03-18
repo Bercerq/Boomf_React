@@ -1,25 +1,28 @@
 import React from 'react';
 
-import {DivFlex, FontPageDiv} from "./style";
+import {DivFlex, FontPageDiv, LineDivStandard, TextContentStandard} from "./style";
 import TextDoubleClick from "../../../TextDoubleClick";
 
-const InsidePages = () => {
+const InsidePages = ({editTextRef}) => {
   return (
-    <div id="buttonClickStandard">
+    <div id="buttonClickStandard" ref={ref => editTextRef.current[1] = ref}>
       <DivFlex>
         <FontPageDiv>
-          <TextDoubleClick
-            buttonFlag='buttonClickStandard'
-            activeSizeImage={true}
-            column={1}
-          />
-        </FontPageDiv>
-        <FontPageDiv>
-          <TextDoubleClick
-            buttonFlag='buttonClickStandard'
-            activeSizeImage={true}
-            column={2}
-          />
+          <TextContentStandard>
+            <TextDoubleClick
+              buttonFlag='buttonClickStandard'
+              activeSizeImage={true}
+              column={1}
+            />
+          </TextContentStandard>
+          <LineDivStandard/>
+          <TextContentStandard>
+            <TextDoubleClick
+              buttonFlag='buttonClickStandard'
+              activeSizeImage={true}
+              column={2}
+            />
+          </TextContentStandard>
         </FontPageDiv>
       </DivFlex>
     </div>
@@ -27,3 +30,4 @@ const InsidePages = () => {
 };
 
 export default InsidePages;
+

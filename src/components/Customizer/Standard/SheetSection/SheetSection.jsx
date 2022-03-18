@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import SelectPage from "./SelectPage";
 import InsidePages from "./InsidePages";
 
-const SheetSection = () => {
+const SheetSection = ({editTextRef}) => {
   const {standardName} = useSelector(
     ({standardReducer}) => standardReducer
   );
@@ -15,7 +15,7 @@ const SheetSection = () => {
         <FontPage/>
       )}
       {standardName === 'Inside' && (
-        <InsidePages />
+        <InsidePages editTextRef={editTextRef}/>
       )}
       <SelectPage />
     </div>

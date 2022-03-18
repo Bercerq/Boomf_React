@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {ActiveSheetDiv, DivFlex, DivSheetContent, FrontSheetDiv} from "./style";
+import {ActiveSheetDiv, DivFlex, DivSheetContent, FrontDblSheet, FrontSheetDiv, LineDivStandard} from "./style";
 import {setStandardName} from "../../../../redux/actions/standard";
 
 const SelectPage = () => {
@@ -28,8 +28,9 @@ const SelectPage = () => {
           onClick={() => handleSelect('Inside')}
           activeSheet={standardName === 'Inside'}
         >
-          <FrontSheetDiv/>
-          <FrontSheetDiv/>
+          <FrontDblSheet>
+            <LineDivStandard />
+          </FrontDblSheet>
         </DivFlex>
         <h3>Inside pages</h3>
       </DivSheetContent>
