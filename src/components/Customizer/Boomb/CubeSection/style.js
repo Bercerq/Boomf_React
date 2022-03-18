@@ -11,25 +11,31 @@ export const SideContent = styled.div`
 `;
 
 export const CubeContainer = styled.div`
-  width: 60vw;
+  width: 70vw;
   margin: auto;
   display: flex;
   align-items: center;
-  position: relative;
   justify-content: center;
+  position: absolute;
+  bottom: 160px;
+  left: 260px;
+  @media (max-height: 750px) {
+    bottom: 130px;
+  }
+  @media (max-height: 690px) {
+    bottom: 80px;
+  }
 
   @media (max-width: 1200px) {
     width: 55vw;
   }
   @media (max-width: 1130px) {
     width: 100%;
-    position: absolute;
-    bottom: 222px;
+    left: unset;
   }
   @media (max-width: 570px) {
     bottom: 180px;
   }
-
 `;
 export const CubeWrapper = styled.div`
   background-image: ${({ confettiState }) => `url(${confettiState})`};
@@ -61,7 +67,6 @@ export const CubeWrapper = styled.div`
   @media (max-width: 405px) {
     padding: 170px 70px;
   }
-
 `;
 export const CubeBox = styled.div`
   margin: auto;
@@ -110,6 +115,14 @@ export const CubeBox = styled.div`
     min-height: 220px !important;
   }
 
+  @media (max-height: 630px) {
+    max-width: 280px !important;
+    max-height: 280px !important;
+    height: 35vw !important;
+    width: 35vw !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
+  }
   @media (max-height: 920px) {
     max-width: 320px;
     max-height: 320px;
@@ -143,6 +156,9 @@ export const CubeSide = styled.div`
   }
   @media (max-height: 670px) and (max-width: 390px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(110px) !important;
+  }
+  @media (max-height: 630px) {
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(140px) !important;
   }
 
   @media (max-height: 920px) {
