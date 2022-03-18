@@ -11,19 +11,22 @@ export const SideContent = styled.div`
 `;
 
 export const CubeContainer = styled.div`
-  width: 70vw;
+  width: 60vw;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   bottom: 160px;
-  left: 260px;
+  left: 350px;
   @media (max-height: 750px) {
     bottom: 130px;
   }
   @media (max-height: 690px) {
     bottom: 80px;
+  }
+  @media (max-width: 1520px) {
+    left: 280px;
   }
 
   @media (max-width: 1200px) {
