@@ -58,7 +58,7 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
       <div className="box"
            onClick={handleSelectCard}
            onTouchStart={handleSelectCard}
-           style={{zIndex: currentState.focusState ? 1 : 0}}>
+           style={{zIndex: currentState.focusState ? 2 : 1}}>
         <div className='text-editor-form'
              style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}>
           <div className='no-cursor div-reboot-pos'>
@@ -88,8 +88,7 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
                                  textStyles={currentState.textStyles}
                                  disabled={!activeId}
                                  ref={activeId ? inputRef : null}
-                                 placeholder={'Click To Type Or Edit Your Text'}
-              />
+                                 placeholder={'Click To Type Or Edit Your Text'}/>
             </DivTextContent>
             <div className='no-cursor text-editor-form'>
               <strong>
