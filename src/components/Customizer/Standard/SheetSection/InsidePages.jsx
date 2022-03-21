@@ -1,30 +1,39 @@
 import React from 'react';
 
-import {DivFlex, FontPageDiv, LineDivStandard, TextContentStandard} from "./style";
 import TextDoubleClick from "../../../TextDoubleClick";
+
+import {
+  FontPageDiv,
+  LineDivStandard,
+  SheetDivFlex,
+  SheetContainer,
+  TextContentStandard
+} from "./style";
 
 const InsidePages = ({editTextRef}) => {
   return (
     <div id="buttonClickStandard" ref={ref => editTextRef.current[1] = ref}>
-      <DivFlex>
+      <SheetDivFlex>
         <FontPageDiv>
-          <TextContentStandard>
-            <TextDoubleClick
-              buttonFlag='buttonClickStandard'
-              activeSizeImage={true}
-              column={1}
-            />
-          </TextContentStandard>
-          <LineDivStandard/>
-          <TextContentStandard>
-            <TextDoubleClick
-              buttonFlag='buttonClickStandard'
-              activeSizeImage={true}
-              column={2}
-            />
-          </TextContentStandard>
+          <SheetContainer>
+            <TextContentStandard>
+              <TextDoubleClick
+                buttonFlag='buttonClickStandard'
+                activeSizeImage={true}
+                column={1}
+              />
+            </TextContentStandard>
+            <LineDivStandard/>
+            <TextContentStandard>
+              <TextDoubleClick
+                buttonFlag='buttonClickStandard'
+                activeSizeImage={true}
+                column={2}
+              />
+            </TextContentStandard>
+          </SheetContainer>
         </FontPageDiv>
-      </DivFlex>
+      </SheetDivFlex>
     </div>
   );
 };

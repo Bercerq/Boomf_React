@@ -17,7 +17,7 @@ export const PostcardBlock = styled.div`
     width: 100%;
   }
 
-  @media (max-width: 540px) { //todo 520 
+  @media (max-width: 540px) {
     height: 100%;
   }
 `
@@ -52,7 +52,7 @@ export const PostcardTest = styled.div`
     justify-content: space-between;
   }
 
-  @media (max-width: 540px) {//todo 520 
+  @media (max-width: 540px) {
     display: grid;
     align-items: start;
     height: 100%;
@@ -75,7 +75,7 @@ export const PostcardContainer = styled.div`
     justify-content: center;
   }
 
-  @media (max-width: 540px) {//todo 520 
+  @media (max-width: 540px) {
     width: 100vw;
     justify-content: space-around;
     flex-direction: row;
@@ -97,7 +97,7 @@ export const PostcardWrapper = styled.img`
   @media (max-width: 920px) {
     width: 90%;
   }
-  @media (max-width: 540px) {//todo 520 
+  @media (max-width: 540px) {
     width: 100%;
     margin-top: 30%;
   }
@@ -125,13 +125,13 @@ export const BackgroundCard = styled.div`
     height: 520px;
     width: 313px;
   }
-  
+
   @media (min-height: 1060px) and (max-width: 840px) {
     height: 593px;
     width: 357px;
   }
-  
-  @media (max-width: 540px) {//todo 520
+
+  @media (max-width: 540px) {
     margin: 10px 0 0 0;
     height: 413px;
     width: 248px;
@@ -141,7 +141,7 @@ export const BackgroundCard = styled.div`
     width: 241px;
     height: 380px;
   }
-  
+
   @media (max-width: 300px) {
     width: 190px;
     height: 315px;
@@ -212,14 +212,21 @@ export const PostcardButton = styled.div`
   right: 0;
   bottom: 0;
   margin: 30px;
-  
+
   @media (max-width: 1130px) {
     position: static;
-    width: 100%;
     display: flex;
     justify-content: flex-end;
+    width: ${({widthSheet}) => widthSheet ? 'auto' : '100%'};
     margin: 0;
   }
+  
+  @media (max-width: 540px) {
+    button {
+      ${({widthSheet}) => widthSheet ? `padding: 8px 18px !important; height: 40px !important;margin: 0 0 0 8px !impor  tant;` : ''};
+    }
+  }
+}
 `
 
 export const PostcardBlueButton = styled(BlueBtn)`

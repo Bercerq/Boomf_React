@@ -1,8 +1,11 @@
 import React from 'react';
-import FontPage from "./FontPage";
 import {useSelector} from "react-redux";
+
+import FontPage from "./FontPage";
 import SelectPage from "./SelectPage";
 import InsidePages from "./InsidePages";
+
+import {SheetContentPage} from "./style";
 
 const SheetSection = ({editTextRef}) => {
   const {standardName} = useSelector(
@@ -10,7 +13,7 @@ const SheetSection = ({editTextRef}) => {
   );
 
   return (
-    <div>
+    <SheetContentPage>
       {standardName === 'Front' && (
         <FontPage/>
       )}
@@ -18,7 +21,7 @@ const SheetSection = ({editTextRef}) => {
         <InsidePages editTextRef={editTextRef}/>
       )}
       <SelectPage />
-    </div>
+    </SheetContentPage>
   );
 };
 

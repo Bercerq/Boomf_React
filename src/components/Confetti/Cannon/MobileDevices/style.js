@@ -87,7 +87,6 @@ export const DeviceContentCard = styled(DivFlexCenter)`
     width: 15%;
   }
   @media (max-width: 540px) {
-    //todo 520 
     width: auto;
     position: static;
     margin: 0;
