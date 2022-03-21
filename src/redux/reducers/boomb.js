@@ -36,7 +36,7 @@ const boombReducer = (state = initialState, action) => {
     case EDIT_IMAGE:
       return {
         ...state,
-        editCrop: action.payload,
+        editCrop: action.payload.value,
       };
     case CURRENT_CUBE_POSITION:
       return {

@@ -21,7 +21,6 @@ import {
 } from "./style";
 
 function AddPhotoOption() {
-
   const { imageData, imageState } = useSelector(
     ({ imageLibraryReducer }) => imageLibraryReducer
   );
@@ -34,15 +33,17 @@ function AddPhotoOption() {
     dispatch(setDeleteImageLibrary(id));
   };
 
+  const localImage = JSON.parse(localStorage.getItem("imageLibrary"));
+  
   return (
     <MainWrapper>
       <ActionsWrapper>
-        <ImageUploader />
+        <ImageUploader imageData={imageData} />
         <Buttons />
       </ActionsWrapper>
       <UploadedImagesWrapper>
         {/**todo Route temporary solution*/}
-        {imageData.map(({ img, id }, idx) =>
+        {imageData?.map(({ img, id }, idx) =>
           id ? (
             <DivUploadImage key={"DivUploadImage" + idx}>
               <CloseIconDiv onClick={() => deleteImage(id)}>

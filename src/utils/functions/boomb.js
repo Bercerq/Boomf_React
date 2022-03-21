@@ -9,6 +9,7 @@ import { setUpdateTextData } from "../../redux/actions/textData";
 import { setAddImageLibrary } from "../../redux/actions/imageLibrary";
 import { setCurrentModal } from "../../redux/actions/modal";
 import { StaticText } from "../../components/Customizer/Boomb/CubeSection/style";
+import { uid } from "./textData";
 
 export const changeCubeRotate = (
   operator,
@@ -42,13 +43,19 @@ export const updateItem = (
     );
   }
 };
-export const setUploadImage = (img, dispatch) => {
+export const setUploadImage = (img, imageData, dispatch) => {
+  const uploadImage = {
+    img: URL.createObjectURL(img[0]),
+    alt: img[0].name,
+    id: uid(),
+  };
+  const arr = [];
+  imageData.map((data) => arr.push(data, uploadImage));
   if (!img) {
     return null;
   }
-  dispatch(
-    setAddImageLibrary({ img: URL.createObjectURL(img[0]), alt: img[0].name })
-  );
+  dispatch(setAddImageLibrary(uploadImage));
+  localStorage.setItem("imageLibrary", JSON.stringify(arr));
 };
 export const setBoxPosition = (dispatch, position, defaultRotate) => () => {
   dispatch(setCurPosition(position));

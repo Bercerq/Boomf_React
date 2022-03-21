@@ -3,7 +3,7 @@ import axios from "axios";
 export const api = axios.create({
   // baseURL: process.env.REACT_APP_BASE_URL,
   // baseURL: "http://localhost:5000",
-  baseURL: "https://api.shopify.staging.boomf.com/graphql",
+  baseURL: "https://api-shopify.staging.boomf.com/user/session",
 });
 
 api.interceptors.request.use(
@@ -26,7 +26,6 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log(error);
     if (error.response.status === 401) {
       localStorage.removeItem("Boomf_accessToken");
       if (!window.location.href.includes("login")) {
