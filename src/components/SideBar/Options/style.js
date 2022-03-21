@@ -3,7 +3,7 @@ export const MainWrapper = styled.div``;
 
 export const ActionsWrapper = styled.div`
   display: flex;
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     width: 100%;
   }
 `;
@@ -11,7 +11,7 @@ export const UploadedImagesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 42px;
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     width: 90vw;
     margin-top: 10px;
   }
@@ -31,7 +31,7 @@ export const UploadedImage = styled.img`
   filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
     drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
 
-  @media (max-width: 1130px)  {
+  @media (max-width: 1130px) {
     width: 120px;
     height: 120px;
   }
@@ -85,17 +85,12 @@ export const Uploader = styled.input`
 `;
 
 export const CloseIconDiv = styled.div`
-  position: absolute;
   display: flex;
   z-index: 1;
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer;
-  top: 0;
-  right: 0;
-  margin: 5px;
-  justify-content: center;
-  align-items: center;
+  margin: 5px 5px auto auto;
   transition: 0.3s;
 
   &:hover {

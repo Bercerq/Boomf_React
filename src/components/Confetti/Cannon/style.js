@@ -24,7 +24,7 @@ export const ConfettiWrapperCannonColumn = styled.div`
     justify-content: center;
   }
   
-  @media (max-width: 540px) {//todo 520 
+  @media (max-width: 540px) {
     right: 20px;
   }  
   
@@ -66,7 +66,7 @@ export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
     width: 63%;
   }
   
-  @media (max-width: 540px) {//todo 520 
+  @media (max-width: 540px) {
     width: 100%;
   }
 `;
@@ -93,7 +93,7 @@ export const ConfettiItemCannon = styled.div`
     width: 45px;
     height: 45px;
   }
-  @media (max-width: 540px) {//todo 520 
+  @media (max-width: 540px) {
     margin: 7px;
   }
 `;

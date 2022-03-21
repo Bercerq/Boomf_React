@@ -1,20 +1,22 @@
 import React from "react";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 
-import {setUploadImage} from "../../../../utils/functions/boomb";
+import { setUploadImage } from "../../../../utils/functions/boomb";
 
 import UploadIcon from "../../../../utils/assets/svg/UploadIcon.svg";
-import {Icon, ImageItem} from "../../../TextEditor/style";
-import {ImageCide, Uploader} from "../style";
+import { Icon, ImageItem } from "../../../TextEditor/style";
+import { ImageCide, Uploader } from "../style";
 
-function ImageUploader() {
+function ImageUploader({ imageData }) {
   const dispatch = useDispatch();
+
+
+
   return (
     <>
       <Uploader
         onChange={(e) => {
-          // setLibraryImage(e.target.value, dispatch)
-          setUploadImage(e.target.files, dispatch)
+          setUploadImage(e.target.files, imageData, dispatch);
         }}
         type="file"
         id="imageUpload"
@@ -22,11 +24,11 @@ function ImageUploader() {
       />
       <ImageCide htmlFor="imageUpload">
         <Icon>
-          <ImageItem src={UploadIcon} alt="Upload"/>
+          <ImageItem src={UploadIcon} alt="Upload" />
         </Icon>
         <span>
           Upload an
-          <br/> image
+          <br /> image
         </span>
       </ImageCide>
     </>

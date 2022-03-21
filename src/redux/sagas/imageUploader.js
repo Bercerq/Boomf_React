@@ -3,9 +3,9 @@ import { api } from "../../services/api";
 import { SET_BOOMB } from "../constants/boomb";
 
 function* createNewBoomb() {
-  // try {
-  //   yield call(api.post, "/", "reqObject");
-  // } catch (error) {}
+//   try {
+//     yield call(api.post, "/", "reqObject");
+//   } catch (error) {}
 }
 
 export function* boombWatcher() {

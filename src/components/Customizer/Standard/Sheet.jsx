@@ -1,42 +1,24 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 import BlueButton from "../../Buttons/BlueButton";
 import Modal from "../../Modal/Modal";
 import SheetSection from "./SheetSection/SheetSection";
 
-import {setCurrentModal} from "../../../redux/actions/modal";
-import {setStandardName} from "../../../redux/actions/standard";
+import {SheetBlock, TitleStandard} from "./SheetSection/style";
 
-import ArrowRightIcon from "../../../utils/assets/svg/ArrowRightIcon.svg";
-
-import {PostcardButton} from "../Cannon/PostcardSection/style";
-import {SheetBlock} from "./SheetSection/style";
-
-const Sheet = () => {
+const Sheet = ({editTextRef}) => {
   const {standardName} = useSelector(
     ({standardReducer}) => standardReducer
   );
 
-  const handleButtonClick = () => {
-    if (standardName === 'Front') {
-      dispatch(setStandardName('Inside'))
-    } else {
-      dispatch(setCurrentModal({title: "Add to cart", state: true}));
-    }
-  };
-
-  const dispatch = useDispatch();
   return (
     <>
       <SheetBlock>
-        <h3>{standardName} Page</h3>
-        <SheetSection/>
-        <PostcardButton>
-          <BlueButton handleButtonClick={handleButtonClick}>
-            {standardName === 'Front' ? ('Inside pages') : ('Add to cart')} <img src={ArrowRightIcon} alt="add"/>
-          </BlueButton>
-        </PostcardButton>
+        <TitleStandard>
+          {standardName} Page
+        </TitleStandard>
+        <SheetSection editTextRef={editTextRef}/>
       </SheetBlock>
       <Modal>
         <h1 style={{textAling: "center"}}>

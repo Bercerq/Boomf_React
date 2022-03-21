@@ -1,11 +1,13 @@
 import React from 'react';
-import {FontPageDiv} from "./style";
+import {SheetContainer, TextContentStandard} from "./style";
 
 const FontPage = () => {
   return (
-    <FontPageDiv>
+    <SheetContainer oneSheet={true}>
+      <TextContentStandard>
 
-    </FontPageDiv>
+      </TextContentStandard>
+    </SheetContainer>
   );
 };
 
