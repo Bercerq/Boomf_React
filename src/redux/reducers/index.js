@@ -7,6 +7,7 @@ import backgroundReducer from "./background";
 import imageLibraryReducer from "./imageLibrary";
 import textDataReducer from "./textData";
 import standardReducer from "./standard";
+import sessionReducer from "./session";
 
 const rootReducer = combineReducers({
   boombReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   backgroundReducer,
   imageLibraryReducer,
   textDataReducer,
-  standardReducer
+  standardReducer,
+  sessionReducer,
 });
 
 export default rootReducer;

@@ -62,13 +62,13 @@ export const CubeWrapper = styled.div`
     background-size: auto;
   }
   @media (max-width: 490px) {
-    padding: 170px 110px;
+    padding: 170px 119px;
   }
   @media (max-width: 445px) {
-    padding: 170px 90px;
+    padding: 170px 95px;
   }
   @media (max-width: 405px) {
-    padding: 170px 70px;
+    padding: 170px 77px;
   }
 `;
 export const CubeBox = styled.div`
@@ -117,15 +117,6 @@ export const CubeBox = styled.div`
     min-width: 220px !important;
     min-height: 220px !important;
   }
-
-  @media (max-height: 630px) {
-    max-width: 280px !important;
-    max-height: 280px !important;
-    height: 35vw !important;
-    width: 35vw !important;
-    min-width: 280px !important;
-    min-height: 280px !important;
-  }
   @media (max-height: 920px) {
     max-width: 320px;
     max-height: 320px;
@@ -133,6 +124,14 @@ export const CubeBox = styled.div`
     width: 50vw;
     min-width: 320px;
     min-height: 320px;
+  }
+  @media (max-height: 630px) {
+    max-width: 280px;
+    max-height: 280px;
+    height: 35vw;
+    width: 35vw;
+    min-width: 280px;
+    min-height: 280px;
   }
 `;
 
@@ -160,12 +159,11 @@ export const CubeSide = styled.div`
   @media (max-height: 670px) and (max-width: 390px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(110px) !important;
   }
-  @media (max-height: 630px) {
-    transform: ${({ spinParam }) => `${spinParam}`} translateZ(140px) !important;
-  }
-
   @media (max-height: 920px) {
     transform: ${({ spinParam }) => `${spinParam}`} translateZ(160px);
+  }
+  @media (max-height: 630px) {
+    transform: ${({ spinParam }) => `${spinParam}`} translateZ(140px);
   }
 `;
 
