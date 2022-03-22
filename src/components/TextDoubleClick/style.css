@@ -3,6 +3,10 @@
   display: flex;
 }
 
+.div-center {
+  justify-content: center;
+}
+
 .text-editor-form {
   display: flex;
   flex-direction: column;

@@ -4,16 +4,19 @@ import {
   SET_ADD_TEXT_DATA,
   SET_UPDATE_TEXT_DATA,
   SET_DELETE_TEXT_DATA,
+  SET_ADD_IMAGE_DATA,
 } from "../constants/textData";
 
 import {
   addDataStateText,
   updateDataStateText,
   deleteDataStateText,
-  setDataStateText
+  setDataStateText,
+  addDataStateImage
 } from "../../utils/functions/textData";
 
 const initialTextState = {
+  type: 'text',
   value: '',
   position: {x: 0, y: 0},
   rotate: 0,
@@ -43,6 +46,9 @@ const textDataReducer = (state = initialState, action) => {
     }
     case SET_ADD_TEXT_DATA: {
       return addDataStateText(state, initialState);
+    }
+    case SET_ADD_IMAGE_DATA: {
+      return addDataStateImage(state, initialState, action.payload);
     }
     case SET_UPDATE_TEXT_DATA: {
       return updateDataStateText(state, action.payload);

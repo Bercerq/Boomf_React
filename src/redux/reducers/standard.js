@@ -3,7 +3,7 @@ import {
 } from '../constants/standard';
 
 const initialState = {
-  standardName: 'Front'
+  standardName: ''
 }
 
 const standardReducer = (state = initialState, action) => {

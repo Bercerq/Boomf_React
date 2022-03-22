@@ -59,21 +59,46 @@ export const setDataStateText = (state, initialState, id) => {
 }
 
 export const addDataStateText = (state, initialState) => {
-  const data = state.textData.map(e => ({...e, focusState: false}))
+  const data = state.textData.map(e => ({...e, focusState: false}));
   const textDataState = {
     ...initialState.textDataState,
     column: state.textDataState.column,
     focusState: true,
     id: uid()
   }
-  if (data.length > 10) {
-    data[0] = {...data[0], focusState: true}
-    return {
-      ...state,
-      textData: [...data],
-      textDataState: data[0]
+  const dataText = data.filter(e => e.type === 'text');
+  if (dataText.length > 10) {
+    for (let key of data) {
+      if (key.type === 'text') {
+        const newStateData = {...data[data.indexOf(key)], focusState: true};
+
+        data[data.indexOf(key)] = newStateData
+        return {
+          ...state,
+          textData: [...data],
+          textDataState: newStateData
+        }
+      }
     }
   }
+  return {
+    ...state,
+    textData: [...data, textDataState],
+    textDataState
+  }
+}
+
+export const addDataStateImage = (state, initialState, payload) => {
+  const data = state.textData.map(e => ({...e, focusState: false}));
+  const textDataState = {
+    ...initialState.textDataState,
+    type: 'image',
+    image: payload,
+    column: state.textDataState.column,
+    focusState: true,
+    id: uid()
+  }
+
   return {
     ...state,
     textData: [...data, textDataState],
