@@ -52,7 +52,16 @@ const selectEditorOption = (text, setOption, option, dispatch) => () => {
     })
   );
 };
-
+const findAlignmentImage = (option) => {
+  const image = alignmentIcon.find(({ side }) => side === option);
+  return (
+    <img
+      key="side"
+      src={image?.icon || alignmentIcon[0].icon}
+      alt={image?.side || "center"}
+    />
+  );
+};
 const findAlignment = (option, setOption) => {
   if (!option) {
     setOption("left");
@@ -62,19 +71,10 @@ const findAlignment = (option, setOption) => {
     setOption("right");
   } else if (option === "right") {
     setOption("left");
+  } else {
+    setOption("left");
   }
 };
-
-const findAlignmentImage = (option) =>
-  !option ? (
-    <img src={alignmentIcon[0].icon} alt="center" />
-  ) : (
-    alignmentIcon.map(({ icon, side }) => {
-      if (option === side) {
-        return <img key="side" src={icon} alt={side} />;
-      }
-    })
-  );
 
 const drawOption = (flag, option, setOption) => {
   switch (flag) {

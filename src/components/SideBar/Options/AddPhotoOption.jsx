@@ -40,7 +40,6 @@ function AddPhotoOption() {
     dispatch(setDeleteImageLibrary(id));
   };
 
-  const localImage = JSON.parse(localStorage.getItem("imageLibrary"));
   
   return (
     <MainWrapper>

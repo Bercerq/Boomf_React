@@ -19,6 +19,7 @@ function ImageUploader({ imageData }) {
         type="file"
         id="imageUpload"
         accept=".png, .jpg, .jpeg"
+        
       />
       <ImageCide htmlFor="imageUpload">
         <Icon>
