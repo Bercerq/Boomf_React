@@ -5,8 +5,10 @@ import { ButtonsItem, ButtonsWrapper } from "../style";
 import Facebook from "../../../../utils/assets/svg/Facebook.svg";
 import boomfDesign from "../../../../utils/assets/svg/boomf.svg";
 import PrewUpload from "../../../../utils/assets/svg/PrewUpload.svg";
-import {useDispatch} from "react-redux";
-import {setCurrentSidebar} from "../../../../redux/actions/sideBar";
+import { useDispatch } from "react-redux";
+import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
+import { setCurrentModal } from "../../../../redux/actions/modal";
+import Modal from "../../../Modal/Modal";
 
 function Buttons() {
   const dispatch = useDispatch();
@@ -15,10 +17,15 @@ function Buttons() {
     console.log("facebook");
   };
   const boomf = () => {
-    dispatch(setCurrentSidebar({state: true, flag: 'Boomf designs'}))
+    dispatch(setCurrentSidebar({ state: true, flag: "Boomf designs" }));
   };
   const prew = () => {
-    console.log("prew");
+    dispatch(
+      setCurrentModal({
+        title: "Log in",
+        state: true,
+      })
+    );
   };
   const sidebarButtons = [
     { text: "Add from Facebook", action: facebook, img: Facebook },
@@ -27,16 +34,18 @@ function Buttons() {
   ];
 
   return (
-    <ButtonsWrapper>
-      <ButtonsItem>
-        {sidebarButtons.map(({ text, img, action }) => (
-          <SideBarButton key={text} handleButtonClick={action}>
-            <img src={img} alt={text} />
-            <div>{text}</div>
-          </SideBarButton>
-        ))}
-      </ButtonsItem>
-    </ButtonsWrapper>
+    <>
+      <ButtonsWrapper>
+        <ButtonsItem>
+          {sidebarButtons.map(({ text, img, action }) => (
+            <SideBarButton key={text} handleButtonClick={action}>
+              <img src={img} alt={text} />
+              <div>{text}</div>
+            </SideBarButton>
+          ))}
+        </ButtonsItem>
+      </ButtonsWrapper>
+    </>
   );
 }
 

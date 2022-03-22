@@ -17,28 +17,7 @@ export const UploadedImagesWrapper = styled.div`
   }
 `;
 
-export const UploadedImage = styled.img`
-  position: absolute;
-  border: ${({ curCubePosition, position }) =>
-    curCubePosition && curCubePosition === position
-      ? `3px solid #2EDBE3;`
-      : "3px solid transparent"};
-  width: 150px;
-  height: 150px;
-  border-radius: 16px;
-  margin: 12px;
-  cursor: pointer;
-  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
-    drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
 
-  @media (max-width: 1130px) {
-    width: 120px;
-    height: 120px;
-  }
-  @media (max-height: 605px) {
-    margin: 6px;
-  }
-`;
 
 export const UploadedImg = styled.img`
   position: absolute;

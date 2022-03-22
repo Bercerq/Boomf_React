@@ -3,7 +3,13 @@ import { useDispatch } from "react-redux";
 import { selectUploadedImage } from "../../redux/actions/sideBar";
 import { updateItem } from "../functions/boomb";
 
-function useUpdateCube( curCubePosition, curCubeImage, boombData, editCrop ) {
+function useUpdateCube(
+  curCubePosition,
+  curCubeImage,
+  boombData,
+  localBoombData,
+  editCrop
+) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (curCubeImage) {
