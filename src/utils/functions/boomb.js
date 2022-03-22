@@ -4,7 +4,7 @@ import {
   setCurPosition,
   setCurRotate,
 } from "../../redux/actions/boomb";
-import { setUpdateTextData } from "../../redux/actions/textData";
+import {setAddImageData, setUpdateTextData} from "../../redux/actions/textData";
 
 import { setAddImageLibrary } from "../../redux/actions/imageLibrary";
 import { setCurrentModal } from "../../redux/actions/modal";

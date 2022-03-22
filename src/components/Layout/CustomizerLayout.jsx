@@ -14,7 +14,7 @@ function CustomizerLayout({ title, editTextRef, children }) {
   return (
     <MainWrapper>
       <title>{title}</title>
-      <Sidebar />
+      <Sidebar/>
       <TextEditor editTextRef={editTextRef} />
       {children}
     </MainWrapper>

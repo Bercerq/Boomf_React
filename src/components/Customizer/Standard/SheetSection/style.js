@@ -42,6 +42,8 @@ export const SheetContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  overflow: hidden;
 
   margin-top: 10px;
   width: fit-content;
@@ -49,11 +51,8 @@ export const SheetContainer = styled.div`
 
   box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04),
   0 8px 16px rgba(96, 97, 112, 0.16);
-
   @media (max-width: 1280px) {
-    overflow: hidden;
     width: fit-content;
-    //height: fit-content;
     height: ${({oneSheet}) => oneSheet ? 'fit-content' : '-webkit-fill-available'};
     margin: 22px;
   }
@@ -61,10 +60,6 @@ export const SheetContainer = styled.div`
   @media (max-width: 540px) and (max-height: 720px) {
     margin: 10px 20px;
   }
-  
-  //@media (max-width: 540px) {
-  //  height: auto;
-  //}
 `;
 
 export const TextContentStandard = styled.div`
@@ -92,6 +87,7 @@ export const TextContentStandard = styled.div`
 `;
 
 export const LineDivStandard = styled.div`
+  z-index: ${({zIndexPos}) => zIndexPos ? 1 : 4};
   height: 100%;
   border: 1px solid #A3A3A3;
 `;
