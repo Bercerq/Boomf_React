@@ -9,6 +9,7 @@ import {
   SheetContainer,
   TextContentStandard
 } from "./style";
+import ImageRefactoring from "../../../ImageRefactoring";
 
 const InsidePages = ({editTextRef}) => {
   return (
@@ -22,6 +23,7 @@ const InsidePages = ({editTextRef}) => {
                 activeSizeImage={true}
                 column={1}
               />
+              <ImageRefactoring imageKey={'Inside'}/>
             </TextContentStandard>
             <LineDivStandard/>
             <TextContentStandard>

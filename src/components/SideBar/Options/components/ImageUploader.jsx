@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 
 import { setUploadImage } from "../../../../utils/functions/boomb";
 
@@ -10,8 +10,6 @@ import { ImageCide, Uploader } from "../style";
 function ImageUploader({ imageData }) {
   const dispatch = useDispatch();
 
-
-
   return (
     <>
       <Uploader
@@ -21,6 +19,7 @@ function ImageUploader({ imageData }) {
         type="file"
         id="imageUpload"
         accept=".png, .jpg, .jpeg"
+        
       />
       <ImageCide htmlFor="imageUpload">
         <Icon>

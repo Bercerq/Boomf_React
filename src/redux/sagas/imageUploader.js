@@ -1,13 +1,14 @@
 import { takeEvery, call } from "@redux-saga/core/effects";
-import { api } from "../../services/api";
-import { SET_BOOMB } from "../constants/boomb";
+import { apiResizer } from "../../services/api";
+import { UPLOAD_IMAGE } from "../constants/imageUploader";
 
-function* createNewBoomb() {
-//   try {
-//     yield call(api.post, "/", "reqObject");
-//   } catch (error) {}
+function* uploadImageReq(data) {
+  const { value } = data.payload;
+  try {
+    yield call(apiResizer.post, "/user/images", value);
+  } catch (error) {}
 }
 
-export function* boombWatcher() {
-  yield takeEvery(SET_BOOMB, createNewBoomb);
+export function* imageUploadWatcher() {
+  yield takeEvery(UPLOAD_IMAGE, uploadImageReq);
 }

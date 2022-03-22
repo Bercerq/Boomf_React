@@ -8,6 +8,7 @@ import {
 
 import Buttons from "./components/Buttons";
 import ImageUploader from "./components/ImageUploader";
+import {setAddImageData} from "../../../redux/actions/textData";
 import { setDeleteImageLibrary } from "../../../redux/actions/imageLibrary";
 
 import CloseImage from "../../../utils/assets/svg/CloseImage.svg";
@@ -24,36 +25,41 @@ function AddPhotoOption() {
   const { imageData, imageState } = useSelector(
     ({ imageLibraryReducer }) => imageLibraryReducer
   );
+  const {standardName} = useSelector(
+    ({standardReducer}) => standardReducer
+  )
   const dispatch = useDispatch();
-  const setImage = (img, id) => () => {
-    dispatch(selectUploadedImage(img));
+  const setImage = (img) => () => {
+    if(standardName) {
+      dispatch(setAddImageData({...img, key: standardName}));
+    }
+    dispatch(selectUploadedImage(img.img));
     dispatch(setCurrentSidebar({ flag: "", state: false }));
   };
   const deleteImage = (id) => {
     dispatch(setDeleteImageLibrary(id));
   };
 
-  const localImage = JSON.parse(localStorage.getItem("imageLibrary"));
   
   return (
     <MainWrapper>
       <ActionsWrapper>
-        <ImageUploader imageData={imageData} />
+        <ImageUploader imageData={imageData}/>
         <Buttons />
       </ActionsWrapper>
       <UploadedImagesWrapper>
         {/**todo Route temporary solution*/}
-        {imageData?.map(({ img, id }, idx) =>
-          id ? (
+        {imageData?.map((img, idx) =>
+          img.id ? (
             <DivUploadImage key={"DivUploadImage" + idx}>
-              <CloseIconDiv onClick={() => deleteImage(id)}>
+              <CloseIconDiv onClick={() => deleteImage(img.id)}>
                 <img src={CloseImage} alt="Close" />
               </CloseIconDiv>
               <UploadedImg
                 activeId={imageState.id}
-                id={id}
-                onClick={setImage(img, id)}
-                src={img}
+                id={img.id}
+                onClick={setImage(img)}
+                src={img.img}
               />
             </DivUploadImage>
           ) : null

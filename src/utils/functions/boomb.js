@@ -4,12 +4,13 @@ import {
   setCurPosition,
   setCurRotate,
 } from "../../redux/actions/boomb";
-import { setUpdateTextData } from "../../redux/actions/textData";
+import {setAddImageData, setUpdateTextData} from "../../redux/actions/textData";
 
 import { setAddImageLibrary } from "../../redux/actions/imageLibrary";
 import { setCurrentModal } from "../../redux/actions/modal";
 import { StaticText } from "../../components/Customizer/Boomb/CubeSection/style";
 import { uid } from "./textData";
+import { fetchUploadImage } from "../../redux/actions/imageUploader";
 
 export const changeCubeRotate = (
   operator,
@@ -32,7 +33,7 @@ export const updateItem = (
   boombData,
   dispatch
 ) => {
-  let index = boombData.findIndex((x) => x.position === curCubePosition);
+  let index = boombData?.findIndex((x) => x.position === curCubePosition);
   if (index !== -1) {
     dispatch(
       setBoomb([
@@ -55,7 +56,12 @@ export const setUploadImage = (img, imageData, dispatch) => {
     return null;
   }
   dispatch(setAddImageLibrary(uploadImage));
-  localStorage.setItem("imageLibrary", JSON.stringify(arr));
+
+  const formData = new FormData();
+
+  formData.append("image", img[0]);
+  console.log(formData);
+  dispatch(fetchUploadImage({ value: formData }));
 };
 export const setBoxPosition = (dispatch, position, defaultRotate) => () => {
   dispatch(setCurPosition(position));
@@ -140,4 +146,11 @@ export const findStaticText = (textData, textDataState, dispatch) => {
         </StaticText>
       )
   );
+};
+
+export const findCurrentCrop = (boombData, curCubePosition) => {
+  const curCrop = boombData.find(
+    ({ position }) => curCubePosition === position
+  );
+  return +curCrop.editCrop;
 };

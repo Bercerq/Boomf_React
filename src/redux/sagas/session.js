@@ -3,9 +3,9 @@ import { api } from "../../services/api";
 import { GET_SESSION } from "../constants/session";
 
 function* sessionReq() {
+
   try {
-    const { data } = yield call(api.get, "/");
-    console.log(data);
+    const { data } = yield call(api.get, "/user/session");
     localStorage.setItem("Boomf_accessToken", data.providers.photoLibrary);
   } catch (error) {
     console.log(error);

@@ -24,7 +24,6 @@ export const ModalContent = styled.div`
   background-color: white;
   box-shadow: 0px 2px 8px rgba(40, 41, 61, 0.04),
     0px 16px 24px rgba(96, 97, 112, 0.16);
-  width: 50vw;
   transition: 0.5s;
   transition: 0.3s;
 `;
@@ -33,13 +32,13 @@ export const ModalTitle = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 42px;
+  padding-bottom: 8px;
 `;
 
 export const Title = styled.div`
   font-family: "objectivity-regular-11", sans-serif;
-  font-weight: bold;
-  font-size: 28px;
+  font-weight: 700;
+  font-size: 20px;
   color: #222222;
 `;
 export const Close = styled.div`

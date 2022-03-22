@@ -50,7 +50,7 @@ const SelectPage = () => {
             activeSheet={standardName === 'Inside'}
           >
             <FrontDblSheet>
-              <LineDivStandard />
+              <LineDivStandard zIndexPos={true}/>
             </FrontDblSheet>
           </DivFlex>
           <h3>Inside pages</h3>

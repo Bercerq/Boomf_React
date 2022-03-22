@@ -22,9 +22,10 @@ export const BlueBtn = styled.button`
   }
 
   cursor: pointer;
-  svg {
-    margin-left: 5px;
+  img {
+    margin-left: 4px;
   }
+
 `;
 
 export const WhiteBtn = styled.button`

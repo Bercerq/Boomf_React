@@ -22,7 +22,7 @@ const TextDoubleClick = ({buttonFlag, column, activeSizeImage}) => {
     }
   }, [setInputRef, textDataState.focusState]);
 
-  return textData.map((e, idx) => e.column === column && (
+  return textData.map((e, idx) => e.column === column && e.type === 'text' && (
     <React.Fragment key={'DraggableText' + idx}>
       <DraggableText
         currentState={e}

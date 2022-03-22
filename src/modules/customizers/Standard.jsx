@@ -6,6 +6,7 @@ import Sheet from "../../components/Customizer/Standard/Sheet";
 import { setConfettiData } from "../../redux/actions/confetti";
 
 import { confettiDataBoomb } from "../../utils/constants/ConfettiData";
+import {setStandardName} from "../../redux/actions/standard";
 
 const Standard = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const Standard = () => {
 
   useEffect(() => {
     dispatch(setConfettiData(confettiDataBoomb));
+    dispatch(setStandardName('Front'));
   }, [dispatch]);
 
   return (
