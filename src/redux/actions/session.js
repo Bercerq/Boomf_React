@@ -5,7 +5,6 @@ export const getCurrentSession = (payload) => ({
   payload,
 });
 export const setCurrentSession = (payload) => ({
-    type: SET_SESSION,
-    payload,
-  });
-  
+  type: SET_SESSION,
+  payload,
+});

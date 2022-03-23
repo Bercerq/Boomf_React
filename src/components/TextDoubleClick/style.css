@@ -1,3 +1,6 @@
+.box {
+  position: absolute;
+}
 
 .div-flex {
   display: flex;
@@ -12,6 +15,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.image-resize {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  right: -24px;
+  bottom: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .image-div-block {
@@ -30,7 +46,9 @@
 
 .div-size-icon {
   padding: 5px;
-  margin-left: -8px;
+  z-index: 2;
+}
+.div-size-icon:active {
   cursor: col-resize;
 }
 
@@ -55,8 +73,8 @@
 .div-reboot-pos {
   position: absolute;
   top: -26px;
+  cursor: pointer;
 }
-
-.box {
-  position: absolute;
+.div-reboot-pos:active {
+  cursor: col-resize;
 }

@@ -1,95 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 
-import {
-  activeCollectionData,
-  collectionData,
-} from "../../../utils/constants/ConfettiData";
-import { setAddImageLibrary } from "../../../redux/actions/imageLibrary";
-import { setCurrentSidebar } from "../../../redux/actions/sideBar";
-
-import MicrophoneIcon from "../../../utils/assets/svg/MicrophoneIcon.svg";
-import Search from "../../../utils/assets/svg/Search.svg";
-
-import {
-  DivContainerMicro,
-  DivMicroIcon,
-  DivSearchIcon,
-  DivUploadImage,
-  InputFilterImage,
-  UploadedImg,
-  DivCollectionImage,
-  TitleCollection,
-} from "./style";
+import { DivCollectionImage } from "./style";
+import LibraryImages from "./components/LibraryImages";
+import LibraryCategories from "./components/LibraryCategories";
+import Search from "./components/Search";
 
 const BoomfDesigns = () => {
-  const [collectionState, setCollectionState] = useState([]);
-  const [activeCollection, setActiveCollection] = useState([]);
-  const [collectionName, setCollectionName] = useState(null);
-
-  const dispatch = useDispatch();
-
-  const addImage = ({ img, alt }) => {
-    dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
-    dispatch(setAddImageLibrary({ img, alt }));
-  };
-
-  useEffect(() => {
-    setCollectionState(collectionData);
-  }, []);
-
-  useEffect(() => {
-    if (collectionName) {
-      setActiveCollection(activeCollectionData);
-    }
-  }, [collectionName]);
+  const { categories, images } = useSelector(
+    ({ boomfImagesReducer }) => boomfImagesReducer
+  );
 
   return (
-    <div>
-      <DivContainerMicro>
-        <DivSearchIcon>
-          <img src={Search} alt="Search" />
-        </DivSearchIcon>
-        <InputFilterImage
-          type="text"
-          placeholder="Search for designs..."
-          maxLength={50}
-        />
-        <DivMicroIcon>
-          <img src={MicrophoneIcon} alt="MicrophoneIcon" />
-        </DivMicroIcon>
-      </DivContainerMicro>
+    <React.Fragment>
+      <Search />
       <DivCollectionImage>
-        {collectionName
-          ? activeCollection.map((e, idx) => (
-              <div style={{ textAlign: "center" }} key={"DivUploadImage" + idx}>
-                <DivUploadImage>
-                  <UploadedImg
-                    activeId={0}
-                    id={e.id}
-                    onClick={() => addImage(e)}
-                    src={e.img}
-                    alt={e.alt}
-                  />
-                </DivUploadImage>
-              </div>
-            ))
-          : collectionState.map((e, idx) => (
-              <div style={{ textAlign: "center" }} key={"DivUploadImage" + idx}>
-                <DivUploadImage>
-                  <UploadedImg
-                    activeId={0}
-                    id={e.id}
-                    onClick={() => setCollectionName(e.alt)}
-                    src={e.img}
-                    alt={e.alt}
-                  />
-                </DivUploadImage>
-                <TitleCollection>{e.alt}</TitleCollection>
-              </div>
-            ))}
+        {images
+          ? images?.map((data) => <LibraryImages data={data} />)
+          : categories?.map((data) => <LibraryCategories data={data} />)}
       </DivCollectionImage>
-    </div>
+    </React.Fragment>
   );
 };
 

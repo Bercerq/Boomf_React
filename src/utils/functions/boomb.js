@@ -4,13 +4,16 @@ import {
   setCurPosition,
   setCurRotate,
 } from "../../redux/actions/boomb";
-import {setAddImageData, setUpdateTextData} from "../../redux/actions/textData";
+import {
+  setAddImageData,
+  setUpdateTextData,
+} from "../../redux/actions/textData";
 
 import { setAddImageLibrary } from "../../redux/actions/imageLibrary";
 import { setCurrentModal } from "../../redux/actions/modal";
 import { StaticText } from "../../components/Customizer/Boomb/CubeSection/style";
 import { uid } from "./textData";
-import { fetchUploadImage } from "../../redux/actions/imageUploader";
+import { fetchUploadImage, getBoomfLibrary } from "../../redux/actions/images";
 
 export const changeCubeRotate = (
   operator,

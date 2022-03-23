@@ -5,18 +5,25 @@ import { ButtonsItem, ButtonsWrapper } from "../style";
 import Facebook from "../../../../utils/assets/svg/Facebook.svg";
 import boomfDesign from "../../../../utils/assets/svg/boomf.svg";
 import PrewUpload from "../../../../utils/assets/svg/PrewUpload.svg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
 import { setCurrentModal } from "../../../../redux/actions/modal";
-import Modal from "../../../Modal/Modal";
+import { getBoomfCategories } from "../../../../redux/actions/images";
 
 function Buttons() {
   const dispatch = useDispatch();
 
+  const { categories, productType } = useSelector(
+    ({ boomfImagesReducer }) => boomfImagesReducer
+  );
+  console.log(productType);
   const facebook = () => {
     console.log("facebook");
   };
   const boomf = () => {
+    if (!categories) {
+      dispatch(getBoomfCategories({ productType }));
+    }
     dispatch(setCurrentSidebar({ state: true, flag: "Boomf designs" }));
   };
   const prew = () => {

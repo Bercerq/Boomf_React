@@ -17,8 +17,6 @@ export const UploadedImagesWrapper = styled.div`
   }
 `;
 
-
-
 export const UploadedImg = styled.img`
   position: absolute;
   border: ${({ id, activeId }) =>
@@ -119,8 +117,16 @@ export const DivCollectionImage = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 30px;
+  div {
+    text-align: center;
+  }
 `;
 export const TitleCollection = styled.h3`
   width: 150px;
   overflow-wrap: break-word;
+  margin: 0 auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;

@@ -6,7 +6,7 @@ import Sheet from "../../components/Customizer/Standard/Sheet";
 import { setConfettiData } from "../../redux/actions/confetti";
 
 import { confettiDataBoomb } from "../../utils/constants/ConfettiData";
-import {setStandardName} from "../../redux/actions/standard";
+import { setStandardName } from "../../redux/actions/standard";
 
 const Standard = () => {
   const dispatch = useDispatch();
@@ -14,12 +14,16 @@ const Standard = () => {
 
   useEffect(() => {
     dispatch(setConfettiData(confettiDataBoomb));
-    dispatch(setStandardName('Front'));
+    dispatch(setStandardName("Front"));
   }, [dispatch]);
 
   return (
-    <CustomizerLayout editTextRef={editTextRef} title="Standard">
-      <Sheet editTextRef={editTextRef}/>
+    <CustomizerLayout
+      productType={"greeting_card"}
+      editTextRef={editTextRef}
+      title="Standard"
+    >
+      <Sheet editTextRef={editTextRef} />
     </CustomizerLayout>
   );
 };

@@ -20,12 +20,13 @@ function Boomb() {
 
   return (
     <CustomizerLayout
+      productType={"exploding_card"}
       editTextRef={editTextRef}
       confettiData={confettiData}
       title="Boomb customizer"
     >
       <Cube editTextRef={editTextRef} />
-      <Confetti textPosition='center' positionWrapper='absolute'/>
+      <Confetti textPosition="center" positionWrapper="absolute" />
     </CustomizerLayout>
   );
 }
