@@ -3,7 +3,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { getBoomfImages } from "../../../../redux/actions/images";
 
-import { DivUploadImage, TitleCollection, UploadedImg } from "../style";
+import { DivUploadImage, TitleCollection } from "../style";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function LibraryCategories({ data }) {
   const dispatch = useDispatch();
@@ -12,9 +13,9 @@ function LibraryCategories({ data }) {
   };
 
   return (
-    <div key={data.id}>
+    <div>
       <DivUploadImage>
-        <UploadedImg
+        <LazyLoadImage
           activeId={0}
           id={data.id}
           onClick={handleSetCategories(data)}

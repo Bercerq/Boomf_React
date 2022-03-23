@@ -73,6 +73,11 @@ export const CloseIconDiv = styled.div`
   &:hover {
     transform: scale(1.1);
   }
+  img {
+    width: unset !important;
+    height: unset !important;
+    margin: unset !important;
+  }
 `;
 export const DivUploadImage = styled.div`
   position: relative;
@@ -85,6 +90,25 @@ export const DivUploadImage = styled.div`
   transition: 0.3s;
   &:hover {
     transform: scale(1.1);
+  }
+
+  img {
+    border: ${({ id, activeId }) =>
+      activeId && activeId === id
+        ? `3px solid #2EDBE3;`
+        : "3px solid transparent"};
+    width: 150px;
+    height: 150px;
+    border-radius: 16px;
+    margin: 12px;
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
+      drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
+
+    @media (max-height: 605px) {
+      margin: 6px;
+    }
+    object-fit: cover;
   }
 `;
 export const ButtonsWrapper = styled.div``;
