@@ -2,25 +2,26 @@ import React from 'react';
 import Draggable from "react-draggable";
 import {useDispatch} from "react-redux";
 
-import Reboot from '../../utils/assets/svg/Reboot.svg';
-import Trash from '../../utils/assets/svg/Trash.svg';
-import LeftAndRightArrows from '../../utils/assets/svg/LeftAndRightArrows.svg';
+import {useAutoResize} from "../../../utils/hooks/useAutoResize";
+import {setActionTextData, setDeleteTextData} from "../../../redux/actions/textData";
 
-import {useAutoResize} from "../../utils/hooks/useAutoResize";
-import {setActionTextData, setDeleteTextData} from "../../redux/actions/textData";
+import Reboot from "../../../utils/assets/svg/Reboot.svg";
+import Trash from "../../../utils/assets/svg/Trash.svg";
+import LeftAndRightArrows from "../../../utils/assets/svg/LeftAndRightArrows.svg";
 
 import {
   CenterRotate,
   DivTextContent,
-  TextareaDraggable
+  TextareaDraggable,
+  TextEditorForm
 } from "./style.js";
 import './style.css';
 
-const DraggableText = ({currentState, inputRef, activeId, textEditorParams, activeSizeImage, textState}) => {
+const TextDraggablePos = ({currentState, inputRef, activeId, textEditorParams, activeSizeImage, textState}) => {
   useAutoResize({
     inputRef: activeId ? inputRef : null,
     valueText: textState,
-    active: currentState.value,
+    currentValue: currentState.value,
   });
 
   const handleSelectCard = () => {
@@ -56,20 +57,19 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
   return (
     <Draggable cancel="strong" {...dragHandlers}>
       <div className="box" onClick={handleSelectCard} onTouchStart={handleSelectCard} style={{zIndex: 2}}>
-        <div className='text-editor-form' style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}>
-          <div className='no-cursor div-reboot-pos'>
-            <strong>
+        <TextEditorForm style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}>
+          <div className='div-reboot-pos'>
+            <strong className='no-cursor'>
               {currentState.focusState && (
-                <div onMouseDown={textEditorParams.initRotate}
-                     onTouchStart={textEditorParams.initRotate}>
+                <div onMouseDown={textEditorParams.initRotate} onTouchStart={textEditorParams.initRotate}>
                   <img src={Reboot} alt='Reboot' height={24} width={24}/>
                 </div>
               )}
             </strong>
           </div>
           <div className='div-flex'>
-            <div className='no-cursor div-trash-pos'>
-              <strong>
+            <div className='div-trash-pos'>
+              <strong className='no-cursor'>
                 {currentState.focusState && (
                   <div className='image-div-block' onClick={deleteText}>
                     <img src={Trash} alt='TrashCan' height={10} width={10}/>
@@ -78,30 +78,34 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
               </strong>
             </div>
             <DivTextContent ref={activeId ? textEditorParams.refResize : null} activeState={currentState.focusState}>
-              <TextareaDraggable onChange={textEditorParams.setTextState}
-                                 value={activeId ? textEditorParams.textState : currentState.value}
-                                 textStyles={currentState.textStyles}
-                                 disabled={!activeId}
-                                 ref={activeId ? inputRef : null}
-                                 placeholder={'Click To Type Or Edit Your Text'}/>
+              <TextareaDraggable
+                onChange={textEditorParams.setTextState}
+                value={activeId ? textEditorParams.textState : currentState.value}
+                textStyles={currentState.textStyles}
+                disabled={!activeId}
+                ref={activeId ? inputRef : null}
+                placeholder={'Click To Type Or Edit Your Text'}
+              />
             </DivTextContent>
-            <div className='no-cursor image-resize'>
-              <strong>
+            <div className='image-resize'>
+              <strong className='no-cursor'>
                 {currentState.focusState && activeSizeImage && (
-                  <div className='no-cursor image-div-block div-size-icon'
-                       onMouseDown={textEditorParams.initResize}
-                       onTouchStart={textEditorParams.initResize}>
+                  <div
+                    className='image-div-block div-size-icon'
+                    onMouseDown={textEditorParams.initResize}
+                    onTouchStart={textEditorParams.initResize}
+                  >
                     <img src={LeftAndRightArrows} alt="LeftAndRightArrows" height={10} width={10}/>
                   </div>
                 )}
               </strong>
             </div>
           </div>
-        </div>
+        </TextEditorForm>
         <CenterRotate ref={activeId ? textEditorParams.refRotate : null}/>
       </div>
     </Draggable>
   )
 };
 
-export default DraggableText;
+export default TextDraggablePos;

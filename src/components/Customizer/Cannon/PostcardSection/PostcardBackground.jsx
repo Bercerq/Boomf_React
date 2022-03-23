@@ -2,10 +2,10 @@ import React from 'react';
 import {useSelector} from "react-redux";
 
 import PostcardImage from "./PostcardImage";
-import TextDoubleClick from "../../../TextDoubleClick";
+import TextDraggable from "../../../Draggable/TextDraggable";
 
 import {BackgroundCard, BackgroundImage} from "./style";
-import {FormTextContent} from "../../../TextDoubleClick/style";
+import {FormTextContent} from "../../../Draggable/TextDraggable/style";
 
 const PostcardBackground = ({sizeCard, editTextRef, options}) => {
   const {backgroundState} = useSelector(
@@ -23,7 +23,7 @@ const PostcardBackground = ({sizeCard, editTextRef, options}) => {
         id={options.buttonFlag}
         ref={ref => editTextRef.current[1] = ref}
       >
-        <TextDoubleClick {...options}/>
+        <TextDraggable {...options}/>
       </FormTextContent>
     </BackgroundCard>
   );
