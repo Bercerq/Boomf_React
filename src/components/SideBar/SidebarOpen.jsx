@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { setCurrentSidebar } from "../../redux/actions/sideBar";
 
@@ -12,18 +12,29 @@ import {
   SideContent,
   SideBarTitle,
   Title,
-  Close, DivBackTitle, DivArrowLeft,
+  Close,
+  DivBackTitle,
+  DivArrowLeft,
 } from "./style";
+import { getBoomfImages, setImages } from "../../redux/actions/images";
 
 function SidebarOpen({ children, currentSidebar }) {
   const dispatch = useDispatch();
 
+  const { images } = useSelector(
+    ({ boomfImagesReducer }) => boomfImagesReducer
+  );
   const closeSideBar = () => {
     dispatch(setCurrentSidebar({ flag: "", state: false }));
   };
   const backSideBar = () => {
-    dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
-  }
+    if (images) {
+      dispatch(setImages());
+      dispatch(setCurrentSidebar({ flag: "Boomf designs", state: true }));
+    } else {
+      dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
+    }
+  };
 
   return (
     <SideBarWindow currentSidebar={currentSidebar.state} onClick={closeSideBar}>
@@ -33,13 +44,13 @@ function SidebarOpen({ children, currentSidebar }) {
       >
         <SideBarTitle>
           {/*todo*/}
-          {currentSidebar.flag === 'Boomf designs' ? (
-              <DivBackTitle>
-                <DivArrowLeft onClick={backSideBar}>
-                  <img src={ArrowLeftIcon} alt="ArrowLeftIcon"/>
-                </DivArrowLeft>
-                <Title>{currentSidebar.flag}</Title>
-              </DivBackTitle>
+          {currentSidebar.flag === "Boomf designs" ? (
+            <DivBackTitle>
+              <DivArrowLeft onClick={backSideBar}>
+                <img src={ArrowLeftIcon} alt="ArrowLeftIcon" />
+              </DivArrowLeft>
+              <Title>{currentSidebar.flag}</Title>
+            </DivBackTitle>
           ) : (
             <Title>{currentSidebar.flag}</Title>
           )}

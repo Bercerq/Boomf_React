@@ -7,14 +7,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCurrentSession } from "../../redux/actions/session";
 import Modal from "../Modal/Modal";
 import { findModalChildren } from "../../utils/functions/modal";
+import { getBoomfLibrary, setProductType } from "../../redux/actions/images";
 
-function CustomizerLayout({ title, editTextRef, children }) {
+function CustomizerLayout({ title, editTextRef, children, productType }) {
   const dispatch = useDispatch();
 
   const { currentModal } = useSelector(({ modalReducer }) => modalReducer);
 
   useEffect(() => {
     dispatch(getCurrentSession());
+    dispatch(setProductType(productType));
   }, []);
   return (
     <>

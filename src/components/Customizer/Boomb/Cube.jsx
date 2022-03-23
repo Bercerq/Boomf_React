@@ -28,9 +28,9 @@ function Cube({ editTextRef }) {
     ({ textDataReducer }) => textDataReducer
   );
 
-  useEffect(() => {
-    setLocalBoombData(JSON.parse(localStorage.getItem("boomf-boomb-creator")));
-  }, []);
+  // useEffect(() => {
+  //   setLocalBoombData(JSON.parse(localStorage.getItem("boomf-boomb-creator")));
+  // }, []);
   useUpdateCube(
     curCubePosition,
     curCubeImage,

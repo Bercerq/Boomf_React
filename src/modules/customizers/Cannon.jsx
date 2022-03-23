@@ -1,8 +1,8 @@
-import React, {useEffect, useRef} from 'react';
-import {useDispatch} from "react-redux";
+import React, { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
 
-import {setConfettiData} from "../../redux/actions/confetti";
-import {setBackgroundData} from "../../redux/actions/background";
+import { setConfettiData } from "../../redux/actions/confetti";
+import { setBackgroundData } from "../../redux/actions/background";
 
 import CannonRightColumn from "../../components/Confetti/Cannon";
 import Postcard from "../../components/Customizer/Cannon/Postcard";
@@ -10,7 +10,7 @@ import CustomizerLayout from "../../components/Layout/CustomizerLayout";
 
 import {
   confettiDataCannon,
-  backgroundDataCannon
+  backgroundDataCannon,
 } from "../../utils/constants/ConfettiData";
 
 const Cannon = () => {
@@ -24,7 +24,12 @@ const Cannon = () => {
   }, [dispatch]);
 
   return (
-    <CustomizerLayout editTextRef={editTextRef} title="Boomf cannon card">
+    <CustomizerLayout
+      productType={"greeting_card"}
+       
+      editTextRef={editTextRef}
+      title="Boomf cannon card"
+    >
       <Postcard editTextRef={editTextRef} />
       <CannonRightColumn />
     </CustomizerLayout>
