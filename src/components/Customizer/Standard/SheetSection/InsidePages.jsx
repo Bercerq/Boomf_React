@@ -1,6 +1,7 @@
 import React from 'react';
 
-import TextDoubleClick from "../../../TextDoubleClick";
+import TextDraggable from "../../../Draggable/TextDraggable";
+import ImageDraggable from "../../../Draggable/ImageDraggable";
 
 import {
   FontPageDiv,
@@ -9,7 +10,6 @@ import {
   SheetContainer,
   TextContentStandard
 } from "./style";
-import ImageRefactoring from "../../../ImageRefactoring";
 
 const InsidePages = ({editTextRef}) => {
   return (
@@ -18,16 +18,16 @@ const InsidePages = ({editTextRef}) => {
         <FontPageDiv>
           <SheetContainer>
             <TextContentStandard>
-              <TextDoubleClick
+              <TextDraggable
                 buttonFlag='buttonClickStandard'
                 activeSizeImage={true}
                 column={1}
               />
-              <ImageRefactoring imageKey={'Inside'}/>
+              <ImageDraggable imageKey={'Inside'}/>
             </TextContentStandard>
             <LineDivStandard/>
             <TextContentStandard>
-              <TextDoubleClick
+              <TextDraggable
                 buttonFlag='buttonClickStandard'
                 activeSizeImage={true}
                 column={2}

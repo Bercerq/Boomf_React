@@ -1,27 +1,28 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 import { setAddImageLibrary } from "../../../../redux/actions/imageLibrary";
 import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
 
-import { DivUploadImage, TitleCollection, UploadedImg } from "../style";
+import { DivUploadImage, TitleCollection } from "../style";
 
 function LibraryImages({ data }) {
   const dispatch = useDispatch();
   const addImage = (e) => {
+    console.log(e);
     dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
-    dispatch(setAddImageLibrary({ img: e.images, alt: e.name }));
+    dispatch(setAddImageLibrary({ img: e.file.url, alt: e.name }));
   };
-
   return (
-    <div key={data.id}>
-      <DivUploadImage>
-        <UploadedImg
-          activeId={0}
-          id={data.id}
+    <div>
+      <DivUploadImage activeId={0} id={data.id}>
+        <LazyLoadImage
           onClick={() => addImage(data)}
-          src={data.image}
+          src={data.file.url}
           alt={data.name}
+          effect="blur"
         />
       </DivUploadImage>
       <TitleCollection title={data.name}>{data.name}</TitleCollection>

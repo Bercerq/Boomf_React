@@ -1,7 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+
 import { openEditor } from "../../../../utils/functions/boomb";
-import TextDoubleClick from "../../../TextDoubleClick";
+import TextDraggable from "../../../Draggable/TextDraggable";
+
 import { CubeItem, CubeSide } from "./style";
 
 export const CubeTop = ({ topText,  editTextRef }) => {
@@ -20,7 +22,7 @@ export const CubeTop = ({ topText,  editTextRef }) => {
             id="buttonClickCannon"
             ref={(ref) => (editTextRef.current[1] = ref)}
           >
-            <TextDoubleClick buttonFlag="buttonClickCannon" column={1} />
+            <TextDraggable buttonFlag="buttonClickCannon" column={1} />
           </div>
         </CubeItem>
       </CubeSide>

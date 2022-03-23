@@ -43,7 +43,7 @@ export const DivTextContent = styled.div`
   min-height: 18px;
   padding: 8px;
   ${({activeState}) =>
-          `cursor: ${activeState ? 'all-scroll; border: 2px solid #0A74FF' : 'auto'}`};
+  `cursor: ${activeState ? 'all-scroll; border: 2px solid #0A74FF' : 'auto'}`};
 `;
 
 export const TextareaDraggable = styled.textarea`
@@ -68,13 +68,20 @@ export const TextareaDraggable = styled.textarea`
   }
 
   ${({activeState}) =>
-          `cursor: ${activeState ? 'all-scroll; border: 2px solid #0A74FF' : 'auto;'}`};
+  `cursor: ${activeState ? 'all-scroll; border: 2px solid #0A74FF' : 'auto;'}`};
   font-family: ${({textStyles}) =>
-          textStyles.font ? `${textStyles.font}` : "Objectivity"};
+  textStyles.font ? `${textStyles.font}` : "Objectivity"};
   font-size: ${({textStyles}) =>
-          textStyles.size ? `${textStyles.size}px` : "20px"};
+  textStyles.size ? `${textStyles.size}px` : "20px"};
   color: ${({textStyles}) =>
-          textStyles.colour ? `${textStyles.colour}` : "#222222"};
+  textStyles.colour ? `${textStyles.colour}` : "#222222"};
   text-align: ${({textStyles}) =>
-          textStyles.alignment ? `${textStyles.alignment}` : "center"};
+  textStyles.alignment ? `${textStyles.alignment}` : "center"};
+`;
+
+export const TextEditorForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;

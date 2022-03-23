@@ -2,17 +2,17 @@ import React from 'react';
 import Draggable from "react-draggable";
 import {useDispatch} from "react-redux";
 
-import {setActionTextData, setDeleteTextData} from "../../redux/actions/textData";
+import {setActionTextData, setDeleteTextData} from "../../../redux/actions/textData";
 
-import Reboot from "../../utils/assets/svg/Reboot.svg";
-import Trash from "../../utils/assets/svg/Trash.svg";
-import LeftAndRightArrows from "../../utils/assets/svg/LeftAndRightArrows.svg";
+import Reboot from "../../../utils/assets/svg/Reboot.svg";
+import Trash from "../../../utils/assets/svg/Trash.svg";
+import LeftAndRightArrows from "../../../utils/assets/svg/LeftAndRightArrows.svg";
 
-import {CenterRotate} from "../TextDoubleClick/style";
 import {BoxContainerImage, ImageBlock} from "./style";
+import {CenterRotate} from "../TextDraggable/style";
 import './style.css';
 
-const DraggableImage = ({currentState, textEditorParams, activeId}) => {
+const ImageDraggablePos = ({currentState, textEditorParams, activeId}) => {
   const handleSelectImage = () => {
     dispatch(setActionTextData(currentState.id));
   }
@@ -94,4 +94,4 @@ const DraggableImage = ({currentState, textEditorParams, activeId}) => {
   );
 };
 
-export default DraggableImage;
+export default ImageDraggablePos;

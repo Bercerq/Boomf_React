@@ -16,8 +16,8 @@ const BoomfDesigns = () => {
       <Search />
       <DivCollectionImage>
         {images
-          ? images?.map((data) => <LibraryImages data={data} />)
-          : categories?.map((data) => <LibraryCategories data={data} />)}
+          ? images?.map((data, idx) => <LibraryImages key={'LibraryImages' + idx} data={data} />)
+          : categories?.map((data, idx) => <LibraryCategories key={'LibraryCategories' + idx} data={data} />)}
       </DivCollectionImage>
     </React.Fragment>
   );

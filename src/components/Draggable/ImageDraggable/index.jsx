@@ -1,12 +1,12 @@
 import React from 'react';
 import {useSelector} from "react-redux";
 
-import DraggableImage from "./DraggableImage";
+import {useEditText} from "../../../utils/hooks/useEditText";
+import ImageDraggablePos from "./ImageDraggable";
 
 import {ImageRefactoringContent} from "./style";
-import {useEditText} from "../../utils/hooks/useEditText";
 
-const ImageRefactoring = ({imageKey}) => {
+const ImageDraggable = ({imageKey}) => {
   const {textData, textDataState} = useSelector(
     ({textDataReducer}) => textDataReducer
   );
@@ -16,7 +16,7 @@ const ImageRefactoring = ({imageKey}) => {
     <ImageRefactoringContent>
       {textData.map((image, idx) => image.type === 'image' && image.image.key === imageKey && (
         <React.Fragment key={'ImageRefactoringContent' + idx}>
-          <DraggableImage
+          <ImageDraggablePos
             currentState={image}
             textEditorParams={textEditorParams}
             activeId={textDataState.id === image.id}
@@ -27,4 +27,4 @@ const ImageRefactoring = ({imageKey}) => {
   );
 };
 
-export default ImageRefactoring;
+export default ImageDraggable;
