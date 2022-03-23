@@ -8,6 +8,7 @@ import { confettiDataBoomb } from "../../utils/constants/ConfettiData";
 import Confetti from "../../components/Confetti/Confetti";
 
 function Boomb() {
+  
   const dispatch = useDispatch();
   const { confettiData } = useSelector(
     ({ confettiReducer }) => confettiReducer

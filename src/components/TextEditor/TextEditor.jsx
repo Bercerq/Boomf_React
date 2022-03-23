@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import Buttons from "./components/Buttons";
-import useDebounce from "../../utils/hooks/useDebounce";
 import useCreateEditorValue from "../../utils/hooks/useCreateEditorValue";
 import {
   closeSideBar,
@@ -17,10 +16,9 @@ const TextEditor = ({editTextRef}) => {
   const {textDataState} = useSelector(
     ({textDataReducer}) => textDataReducer
   );
-  const debouncedValue = useDebounce(option, 500);
   useCreateEditorValue(
     textDataState.currentEditor.flag,
-    debouncedValue,
+    option,
     dispatch
   );
 
