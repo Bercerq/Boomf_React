@@ -116,6 +116,11 @@ export const BackgroundCard = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  @media (max-height: 600px) and (max-width: 1300px) {
+    height: 328px;
+    width: 218px;
+  }
+
   @media (max-width: 1130px) {
     height: 630px;
     width: 379px;
@@ -168,6 +173,9 @@ export const ImageDiv = styled(CubeItem)`
   margin-top: 45px;
   background: white;
 
+  @media (max-height: 600px) and (max-width: 1300px) {
+    margin-top: 25px;
+  }
   @media (max-width: 1130px) {
     height: 48%;
     width: 80%;
@@ -204,6 +212,11 @@ export const AddButton = styled.button`
   border-color: transparent;
   color: #FFFFFF;
   cursor: pointer;
+
+  @media (max-height: 600px) and (max-width: 1300px) {
+    width: fit-content;
+    height: 25px;
+  }
 `
 
 export const PostcardButton = styled.div`
@@ -220,7 +233,7 @@ export const PostcardButton = styled.div`
     width: ${({widthSheet}) => widthSheet ? 'auto' : '100%'};
     margin: 0;
   }
-  
+
   @media (max-width: 540px) {
     button {
       ${({widthSheet}) => widthSheet ? `padding: 8px 18px !important; height: 40px !important;margin: 0 0 0 8px !impor  tant;` : ''};

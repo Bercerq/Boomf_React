@@ -35,19 +35,6 @@
   align-items: center;
 }
 
-.box-container {
-  position: relative;
-  width: 100%;
-}
-
-.box-container img {
-  pointer-events: none;
-}
-
-.box-container:active {
-  cursor: all-scroll;
-}
-
 .image-resize-pos:active {
   cursor: auto;
 }
@@ -78,4 +65,8 @@
   left: 50%;
   right: 50%;
   top: -26px;
+}
+
+.image-rotate-pos img {
+  pointer-events: none;
 }
