@@ -9,7 +9,7 @@ import Trash from "../../utils/assets/svg/Trash.svg";
 import LeftAndRightArrows from "../../utils/assets/svg/LeftAndRightArrows.svg";
 
 import {CenterRotate} from "../TextDoubleClick/style";
-import {ImageBlock} from "./style";
+import {BoxContainerImage, ImageBlock} from "./style";
 import './style.css';
 
 const DraggableImage = ({currentState, textEditorParams, activeId}) => {
@@ -49,9 +49,9 @@ const DraggableImage = ({currentState, textEditorParams, activeId}) => {
         <div className="box box-position"
              onClick={handleSelectImage}
              onTouchStart={handleSelectImage}>
-          <div className='box-container'
-               style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}>
-            <div className='div-flex div-center image-rotate-pos no-cursor'>
+          <BoxContainerImage style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}
+                             activeState={currentState.focusState}>
+            <div className='no-cursor div-flex div-center image-rotate-pos'>
               <strong className='no-cursor'>
                 {currentState.focusState && (
                   <div onMouseDown={textEditorParams.initRotate}
@@ -62,7 +62,7 @@ const DraggableImage = ({currentState, textEditorParams, activeId}) => {
               </strong>
             </div>
             <div className='no-cursor image-trash-pos'>
-              <strong className='no-cursor'>
+              <strong>
                 {currentState.focusState && (
                   <div className='image-div-block' onClick={deleteImage}>
                     <img src={Trash} alt='TrashCan' height={10} width={10}/>
@@ -73,7 +73,6 @@ const DraggableImage = ({currentState, textEditorParams, activeId}) => {
             <div className='max-image'>
               <ImageBlock src={currentState.image.img}
                           alt={currentState.image.alt}
-                          activeState={currentState.focusState}
                           ref={activeId ? textEditorParams.refResize : null}/>
             </div>
             <div className='no-cursor image-resize-pos'>
@@ -87,7 +86,7 @@ const DraggableImage = ({currentState, textEditorParams, activeId}) => {
                 )}
               </strong>
             </div>
-          </div>
+          </BoxContainerImage>
           <CenterRotate ref={activeId ? textEditorParams.refRotate : null}/>
         </div>
       </Draggable>

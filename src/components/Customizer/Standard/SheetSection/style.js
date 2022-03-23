@@ -19,7 +19,7 @@ export const SheetBlock = styled.div`
 
 export const TitleStandard = styled.h3`
   margin: 30px;
-  @media (max-width: 540px) and (max-height: 720px) {
+  @media (max-width: 540px) and (max-height: 720px), screen and (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px) {
     margin: 10px;
   }
 `;
@@ -42,7 +42,7 @@ export const SheetContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   overflow: hidden;
 
   margin-top: 10px;
@@ -51,12 +51,15 @@ export const SheetContainer = styled.div`
 
   box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04),
   0 8px 16px rgba(96, 97, 112, 0.16);
+  z-index: 2;
   @media (max-width: 1280px) {
     width: fit-content;
-    height: ${({oneSheet}) => oneSheet ? 'fit-content' : '-webkit-fill-available'};
+    height: ${({oneSheet}) => oneSheet ? 'fit-content;overflow: revert !important' : '-webkit-fill-available;'};
     margin: 22px;
   }
-
+  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px) {
+    margin: 10px;
+  }
   @media (max-width: 540px) and (max-height: 720px) {
     margin: 10px 20px;
   }
@@ -70,11 +73,11 @@ export const TextContentStandard = styled.div`
   width: 454px;
   height: 626px;
 
-  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px){
-    width: 377px;
-    height: 520px;
+  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px) {
+    width: 290px;
+    height: 400px;
   }
-  
+
   @media (max-width: 540px) {
     width: 329px;
     height: 454px;
@@ -127,7 +130,7 @@ export const FrontSheetDiv = styled.div`
 
   box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04),
   0 16px 24px rgba(96, 97, 112, 0.16);
-  @media (max-width: 540px) {
+  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px), screen and (max-width: 540px) {
     width: 54px;
     height: 75px;
   }
@@ -139,7 +142,7 @@ export const FrontDblSheet = styled(FrontSheetDiv)`
   width: 204px;
   height: 144px;
 
-  @media (max-width: 540px) {
+  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px), screen and (max-width: 540px) {
     width: 109px;
     height: 75px;
   }
@@ -171,5 +174,8 @@ export const SheetDivFlex = styled(DivFlex)`
 
     overflow: auto hidden;
     width: 100vw;
+  }
+  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px) {
+    justify-content: center;
   }
 `;

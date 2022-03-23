@@ -4,30 +4,25 @@ export const ConfettiWrapperCannonColumn = styled.div`
   margin-top: 3%;
   display: flex;
   flex-direction: column;
-  
+
   width: 40vw;
   padding: 0 50px 0 40px;
 
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
-    //flex-direction: column-reverse;
-    //position: absolute;
-    //right: 0;
-    //padding: 0;
-    //margin: 0;
     width: 100%;
 
     position: static;
-    display: flex;
-    flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
-  
+  @media (max-height: 600px) and (max-width: 1300px) {
+    width: auto;
+  }
   @media (max-width: 540px) {
     right: 20px;
-  }  
-  
+  }
+
   @media (max-width: 400px) {
     margin-left: unset;
   }
@@ -42,9 +37,11 @@ export const BackgroundWrapperCannon = styled(ConfettiWrapperCannonColumn)`
 
 export const ConfettiBoxCannon = styled.div`
   overflow: auto;
+
   &::-webkit-scrollbar {
     height: 8px;
   }
+
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   height: auto;
@@ -61,11 +58,15 @@ export const ConfettiBoxCannon = styled.div`
 `;
 
 export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
+  @media (max-height: 600px) and (max-width: 1300px) {
+    display: grid;
+    width: fit-content !important;
+  }
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     justify-content: flex-start;
     width: 63%;
   }
-  
+
   @media (max-width: 540px) {
     width: 100%;
   }
@@ -108,7 +109,7 @@ export const TitleCannon = styled.div`
   span {
     font-weight: bold;
   }
-  
+
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 12px 0 0 0;
     &:last-child {
@@ -128,7 +129,7 @@ export const BackgroundItem = styled.div`
   height: 45px;
   margin: 7px;
   border-radius: 50%;
-  
+
   transition: 0.4s;
   background: transparent;
 

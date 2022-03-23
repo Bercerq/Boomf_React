@@ -55,18 +55,13 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
   const dispatch = useDispatch();
   return (
     <Draggable cancel="strong" {...dragHandlers}>
-      <div className="box"
-           onClick={handleSelectCard}
-           onTouchStart={handleSelectCard}
-           style={{zIndex: 2}}>
-        <div className='text-editor-form'
-             style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}>
+      <div className="box" onClick={handleSelectCard} onTouchStart={handleSelectCard} style={{zIndex: 2}}>
+        <div className='text-editor-form' style={{transform: `rotate(${activeId ? textEditorParams.rotateState : currentState.rotate}deg)`}}>
           <div className='no-cursor div-reboot-pos'>
             <strong>
               {currentState.focusState && (
                 <div onMouseDown={textEditorParams.initRotate}
-                     onTouchStart={textEditorParams.initRotate}
-                     style={{cursor: 'col-resize'}}>
+                     onTouchStart={textEditorParams.initRotate}>
                   <img src={Reboot} alt='Reboot' height={24} width={24}/>
                 </div>
               )}
@@ -90,10 +85,10 @@ const DraggableText = ({currentState, inputRef, activeId, textEditorParams, acti
                                  ref={activeId ? inputRef : null}
                                  placeholder={'Click To Type Or Edit Your Text'}/>
             </DivTextContent>
-            <div className='no-cursor text-editor-form'>
+            <div className='no-cursor image-resize'>
               <strong>
                 {currentState.focusState && activeSizeImage && (
-                  <div className='image-div-block div-size-icon'
+                  <div className='no-cursor image-div-block div-size-icon'
                        onMouseDown={textEditorParams.initResize}
                        onTouchStart={textEditorParams.initResize}>
                     <img src={LeftAndRightArrows} alt="LeftAndRightArrows" height={10} width={10}/>
