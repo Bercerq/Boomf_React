@@ -249,6 +249,9 @@ export const ColorItemPalete = styled.div`
   @media (max-width: 420px) {
     margin: 0px 4px;
   }
+  img {
+    width: 100%;
+  }
 `;
 
 export const ColourPalete = styled.div`

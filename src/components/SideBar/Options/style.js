@@ -3,8 +3,13 @@ export const MainWrapper = styled.div``;
 
 export const ActionsWrapper = styled.div`
   display: flex;
+  margin: 12px;
+
   @media (max-width: 1130px) {
-    width: 100%;
+    width: 100vw;
+  }
+  @media (max-width: 500px) {
+    width: 90vw;
   }
 `;
 export const UploadedImagesWrapper = styled.div`
@@ -67,7 +72,10 @@ export const CloseIconDiv = styled.div`
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer;
-  margin: 5px 5px auto auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 5px;
   transition: 0.3s;
 
   &:hover {
@@ -84,7 +92,7 @@ export const DivUploadImage = styled.div`
   display: flex;
   width: 150px;
   height: 150px;
-  margin: 6px;
+  margin: 12px;
   justify-content: center;
   align-items: center;
   transition: 0.3s;
@@ -116,14 +124,14 @@ export const ButtonsItem = styled.div``;
 
 export const InputFilterImage = styled.input`
   padding: 7px 8px 7px 27px;
-  width: 45%;
+  width: 53%;
   background: rgba(118, 118, 128, 0.12);
   border-radius: 10px;
   border-color: transparent;
 `;
 export const DivMicroIcon = styled.div`
   position: absolute;
-  left: 47%;
+  left: 54%;
   width: 16px;
   height: 16px;
 `;
@@ -131,11 +139,12 @@ export const DivSearchIcon = styled.div`
   width: 16px;
   height: 16px;
   position: absolute;
-  left: 10px;
+  left: 17px;
 `;
 export const DivContainerMicro = styled.div`
   display: flex;
   align-items: center;
+  margin: 12px;
 `;
 export const DivCollectionImage = styled.div`
   display: flex;
@@ -145,12 +154,17 @@ export const DivCollectionImage = styled.div`
     text-align: center;
   }
 `;
-export const TitleCollection = styled.h3`
+export const TitleCollection = styled.span`
   width: 150px;
   overflow-wrap: break-word;
-  margin: 0 auto;
+  margin: 0 auto 12px auto;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-family: "objectivity-regular-11", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: #222222;
 `;

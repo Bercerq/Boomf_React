@@ -122,7 +122,7 @@ export const handleClickAddToCart =
   (boombData, dispatch, confettiState, textData) => () => {
     let boxArr = [];
     boombData?.map((data) => boxArr.push(data));
-    dispatch(sendBoomb([...boxArr, textData, {confetti: confettiState.img}]));
+    dispatch(sendBoomb([...boxArr, textData, { confetti: confettiState.img }]));
     dispatch(
       setCurrentModal({
         title: "Add to cart",
@@ -131,23 +131,23 @@ export const handleClickAddToCart =
     );
   };
 
-export const findStaticText = (textData, textDataState, dispatch) => {
-  return textData.map(
-    ({textStyles, value, focusState, id}) =>
-      focusState && (
-        <StaticText
-          key={id}
-          textStyles={textStyles}
-          id="buttonClick"
-          onClick={openEditor(dispatch, "buttonClick")}
-        >
-          {!value && !textDataState.focusState
-            ? "Double Click to type your text"
-            : textDataState.currentEditor.state && value}
-        </StaticText>
-      )
-  );
-};
+// export const findStaticText = (textData, textDataState, dispatch) => {
+//   return textData.map(
+//     ({ textStyles, value, focusState, id }) =>
+//       focusState && (
+//         <StaticText
+//           key={id}
+//           textStyles={textStyles}
+//           id="buttonClick"
+//           onClick={openEditor(dispatch, "buttonClick")}
+//         >
+//           {!value && !textDataState.focusState
+//             ? "Double Click to type your text"
+//             : textDataState.currentEditor.state && value}
+//         </StaticText>
+//       )
+//   );
+// };
 
 export const findCurrentCrop = (boombData, curCubePosition) => {
   const curCrop = boombData.find(

@@ -1,17 +1,28 @@
 import { takeEvery, call, put } from "@redux-saga/core/effects";
 import { api } from "../../services/api_boomf";
+
 import { apiResizer } from "../../services/api_resizer";
+import { setUserImages } from "../actions/imageLibrary";
 import { setCategoriesImages, setImages } from "../actions/images";
+
 import {
   GET_BOOMF_LIBRARY_CATEGORIES,
   GET_BOOMF_LIBRARY_IMAGES,
+  GET_USER_IMAGES,
   UPLOAD_IMAGE,
 } from "../constants/images";
 
 function* uploadImageReq(data) {
   const { value } = data.payload;
   try {
-    yield call(apiResizer.post, "/user/images", value);
+    yield call(apiResizer.post, "/users/images", value);
+  } catch (error) {}
+}
+
+function* getUserImagesReq() {
+  try {
+    const { data } = yield call(apiResizer.get, "/users/images");
+    yield put(setUserImages(data));
   } catch (error) {}
 }
 
@@ -29,7 +40,6 @@ function* getBoomfLibraryCategories(data) {
 }
 function* getBoomfLibraryImages(data) {
   const { name, productType } = data.payload;
-  console.log(productType);
   try {
     const { data } = yield call(api.post, "/graphql", {
       operationName: "getDesignLibraryCategories",
@@ -45,4 +55,5 @@ export function* imageUploadWatcher() {
   yield takeEvery(UPLOAD_IMAGE, uploadImageReq);
   yield takeEvery(GET_BOOMF_LIBRARY_CATEGORIES, getBoomfLibraryCategories);
   yield takeEvery(GET_BOOMF_LIBRARY_IMAGES, getBoomfLibraryImages);
+  yield takeEvery(GET_USER_IMAGES, getUserImagesReq);
 }

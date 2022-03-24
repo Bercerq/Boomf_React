@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { editImage } from "../../../../redux/actions/boomb";
+import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
 
 import { setBoxPosition } from "../../../../utils/functions/boomb";
 
@@ -8,16 +9,14 @@ import CubeImage from "./CubeImage";
 
 import { CubeItem, CubeSide } from "./style";
 
-export const CubePosition = ({ boombData, curCubePosition, imageData }) => {
+export const CubePosition = ({ boombData, curCubePosition }) => {
   const { rotate, img, position, editCrop, defaultRotate } = boombData;
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(editImage(imageData));
-  // }, [imageData, dispatch]);
-
+  const openSideBar = () => {
+    dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
+  };
   return (
-    <CubeSide spinParam={rotate}>
+    <CubeSide onClick={openSideBar} spinParam={rotate}>
       <CubeItem
         position={position}
         curCubePosition={curCubePosition}

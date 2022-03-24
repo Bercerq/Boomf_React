@@ -1,4 +1,5 @@
 import {
+  FILTER_IMAGES,
   SET_IMAGES,
   SET_IMAGES_CATEGORIES,
   SET_PRODUCT_TYPE,
@@ -23,7 +24,11 @@ const boomfImagesReducer = (state = initialState, action) => {
         ...state,
         productType: action.payload,
       };
-
+    case FILTER_IMAGES:
+      return {
+        ...state,
+        searchedImage: action.payload,
+      };
     default:
       return {
         ...state,

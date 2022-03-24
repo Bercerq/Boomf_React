@@ -13,9 +13,10 @@ function CustomizerLayout({ title, editTextRef, children, productType }) {
   const dispatch = useDispatch();
 
   const { currentModal } = useSelector(({ modalReducer }) => modalReducer);
-
   useEffect(() => {
-    dispatch(getCurrentSession());
+    if (!localStorage.getItem("Boomf_accessToken")) {
+      dispatch(getCurrentSession());
+    }
     dispatch(setProductType(productType));
   }, []);
   return (

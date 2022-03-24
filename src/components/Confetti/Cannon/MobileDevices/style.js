@@ -1,4 +1,4 @@
-import styled, {keyframes, css} from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 const heightSelectOpen = keyframes`
   0% {height: 0}
@@ -10,7 +10,7 @@ const heightSelectClose = keyframes`
   100% {height: 0}
 `;
 
-const animationHeightSelect = ({selected}) => css`
+const animationHeightSelect = ({ selected }) => css`
   ${selected ? heightSelectOpen : heightSelectClose}
 `;
 
@@ -25,9 +25,10 @@ export const DeviceSelectImage = styled.div`
   border-radius: 32px 32px 0 0;
   z-index: 3;
 
-  background: #FFFFFF;
+  background: #ffffff;
   font-family: "objectivity-regular-11", sans-serif;
-  box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04), 0 16px 24px rgba(96, 97, 112, 0.16);
+  box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04),
+    0 16px 24px rgba(96, 97, 112, 0.16);
   animation: ${animationHeightSelect} 100ms linear forwards;
 `;
 
@@ -42,7 +43,7 @@ export const DeviceCloseWindow = styled.div`
   width: 37px;
   height: 5px;
   border-radius: 100px;
-  background: #D6D6D6;
+  background: #d6d6d6;
   cursor: pointer;
 `;
 
@@ -59,11 +60,12 @@ export const DeviceContent = styled.div`
 export const DeviceButtonClose = styled.button`
   width: 88%;
   height: 48px;
-
+  font-size: 16px;
   border-radius: 24px;
   background: #222222;
-  color: #FFFFFF;
-  box-shadow: 0 0 1px rgba(40, 41, 61, 0.08), 0 0.5px 2px rgba(96, 97, 112, 0.16);
+  color: #ffffff;
+  box-shadow: 0 0 1px rgba(40, 41, 61, 0.08),
+    0 0.5px 2px rgba(96, 97, 112, 0.16);
   cursor: pointer;
 `;
 

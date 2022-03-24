@@ -6,12 +6,11 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { setAddImageLibrary } from "../../../../redux/actions/imageLibrary";
 import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
 
-import { DivUploadImage, TitleCollection } from "../style";
+import { DivUploadImage } from "../style";
 
 function LibraryImages({ data }) {
   const dispatch = useDispatch();
   const addImage = (e) => {
-    console.log(e);
     dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
     dispatch(setAddImageLibrary({ img: e.file.url, alt: e.name }));
   };
@@ -25,7 +24,6 @@ function LibraryImages({ data }) {
           effect="blur"
         />
       </DivUploadImage>
-      <TitleCollection title={data.name}>{data.name}</TitleCollection>
     </div>
   );
 }

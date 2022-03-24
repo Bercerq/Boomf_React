@@ -9,9 +9,6 @@ function CubeSide({ textStyles, editTextRef }) {
   const { curCubePosition, curCubeRotate, boombData } = useSelector(
     ({ boombReducer }) => boombReducer
   );
-  const { imageData } = useSelector(
-    ({ imageLibraryReducer }) => imageLibraryReducer
-  );
   return (
     <CubeBox cubeRotateY={curCubeRotate}>
       <CubeTop textStyles={textStyles} editTextRef={editTextRef} />
@@ -20,7 +17,6 @@ function CubeSide({ textStyles, editTextRef }) {
           key={boombData.position}
           curCubePosition={curCubePosition}
           boombData={boombData}
-          imageData={imageData[0].size}
         />
       ))}
     </CubeBox>
