@@ -32,7 +32,7 @@ export const ModalTitle = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 8px;
+  padding-bottom: 30px;
 `;
 
 export const Title = styled.div`

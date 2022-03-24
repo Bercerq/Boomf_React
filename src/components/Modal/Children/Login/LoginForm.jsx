@@ -8,6 +8,7 @@ import ArrowRightIcon from "../../../../utils/assets/svg/ArrowRightIcon.svg";
 import PasswordEye from "../../../../utils/assets/svg/PasswordEye.svg";
 
 import { FormContainer } from "../../../FormField/style";
+import { loginValidator } from "../../../../utils/validators/auth/login";
 
 function LoginForm() {
   const onSubmit = (value) => {
@@ -32,6 +33,7 @@ function LoginForm() {
   return (
     <Form
       onSubmit={onSubmit}
+      validate={loginValidator}
       render={({ handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <FormContainer>

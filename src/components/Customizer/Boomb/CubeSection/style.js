@@ -37,7 +37,7 @@ export const CubeContainer = styled.div`
     left: unset;
   }
   @media (max-width: 570px) {
-    bottom: 180px;
+    bottom: 145px;
   }
 `;
 export const CubeWrapper = styled.div`
@@ -59,7 +59,7 @@ export const CubeWrapper = styled.div`
     padding: 170px 150px;
   }
   @media (max-width: 570px) {
-    background-size: auto;
+    background-size: 520px;
   }
   @media (max-width: 490px) {
     padding: 170px 119px;

@@ -1,7 +1,7 @@
-import {setCurrentSidebar} from "../../redux/actions/sideBar";
-import {setAddTextData} from "../../redux/actions/textData";
+import { setCurrentSidebar } from "../../redux/actions/sideBar";
+import { setAddTextData } from "../../redux/actions/textData";
 
-import {panelData} from "../constants/PanelData";
+import { panelData } from "../constants/PanelData";
 
 import AddTextOption from "../../components/SideBar/Options/AddTextOption";
 import AddPhotoOption from "../../components/SideBar/Options/AddPhotoOption";
@@ -19,56 +19,59 @@ import BackgroundDevice from "../../components/Confetti/Cannon/MobileDevices/Bac
 import React from "react";
 import ConfettiDevice from "../../components/Confetti/Cannon/MobileDevices/ConfettiDevice";
 
-export const drawOption = (title) => {
+export const drawOption = (title, setSubTitle) => {
   switch (title) {
     case "+ Add text":
-      return <AddTextOption/>;
+      return <AddTextOption />;
     case "+ Add photo":
-      return <AddPhotoOption/>;
+      return <AddPhotoOption />;
     case "+ Sticker":
-      return <StickerOption/>;
+      return <StickerOption />;
     case "Choose a message":
-      return <ChouseMessageOption/>;
+      return <ChouseMessageOption />;
     case "Boomf designs":
-      return <BoomfDesigns/>
+      return <BoomfDesigns setSubTitle={setSubTitle} />;
     default:
       break;
   }
 };
 
 export const findPanelOption = (dispatch) =>
-  panelData.map(({icon, text, flag}) => {
+  panelData.map(({ icon, text, flag }) => {
     return (
       <Option
-        onClick={() => text === '+ Add text' ? (
-          dispatch(setAddTextData())
-        ) : (
-          dispatch(setCurrentSidebar({state: true, flag: text}))
-        )}
+        onClick={() =>
+          text === "+ Add text"
+            ? dispatch(setAddTextData())
+            : dispatch(setCurrentSidebar({ state: true, flag: text }))
+        }
         key={flag}
       >
         <OptionIcon>
-          <Icon text={text} src={icon} alt={text}/>
+          <Icon text={text} src={icon} alt={text} />
         </OptionIcon>
         <OptionText>{text}</OptionText>
       </Option>
     );
   });
 
-export const findMobileDevice = ({selectedBackground, selectedConfetti}) => {
+export const findMobileDevice = ({ selectedBackground, selectedConfetti }) => {
   if (selectedBackground) {
-    return <BackgroundDevice/>
+    return <BackgroundDevice />;
   }
   if (selectedConfetti) {
-    return <ConfettiDevice justifyContent='space-evenly'/>
+    return <ConfettiDevice justifyContent="space-evenly" />;
   }
-}
+};
 
-export const findMobileDeviceTitle = ({selectedBackground, selectedConfetti}) => {
+export const findMobileDeviceTitle = ({
+  selectedBackground,
+  selectedConfetti,
+}) => {
   if (selectedBackground) {
-    return 'Background';
+    return "Background";
   }
   if (selectedConfetti) {
-    return 'Confetti';
+    return "Confetti";
   }
-}
+};

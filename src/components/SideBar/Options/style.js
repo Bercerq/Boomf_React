@@ -4,7 +4,10 @@ export const MainWrapper = styled.div``;
 export const ActionsWrapper = styled.div`
   display: flex;
   @media (max-width: 1130px) {
-    width: 100%;
+    width: 100vw;
+  }
+  @media (max-width: 500px) {
+    width: 90vw;
   }
 `;
 export const UploadedImagesWrapper = styled.div`
@@ -84,7 +87,7 @@ export const DivUploadImage = styled.div`
   display: flex;
   width: 150px;
   height: 150px;
-  margin: 6px;
+  margin: 12px;
   justify-content: center;
   align-items: center;
   transition: 0.3s;
@@ -145,12 +148,17 @@ export const DivCollectionImage = styled.div`
     text-align: center;
   }
 `;
-export const TitleCollection = styled.h3`
+export const TitleCollection = styled.span`
   width: 150px;
   overflow-wrap: break-word;
-  margin: 0 auto;
+  margin: 0 auto 12px auto;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-family: "objectivity-regular-11", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: #222222;
 `;

@@ -63,7 +63,6 @@ export const setUploadImage = (img, imageData, dispatch) => {
   const formData = new FormData();
 
   formData.append("image", img[0]);
-  console.log(formData);
   dispatch(fetchUploadImage({ value: formData }));
 };
 export const setBoxPosition = (dispatch, position, defaultRotate) => () => {
@@ -109,6 +108,14 @@ export const openEditor = (dispatch, buttonFlag) => () => {
   button.addEventListener("dblclick", () => {
     clearTimeout(timer);
     dispatch(setUpdateTextData({ key: "focusState", value: true }));
+    if (buttonFlag === "buttonClickTop") {
+      dispatch(
+        setCurrentModal({
+          title: "Text",
+          state: true,
+        })
+      );
+    }
   });
 
   button.addEventListener("touchend", () => {
@@ -133,23 +140,23 @@ export const handleClickAddToCart =
     );
   };
 
-export const findStaticText = (textData, textDataState, dispatch) => {
-  return textData.map(
-    ({ textStyles, value, focusState, id }) =>
-      focusState && (
-        <StaticText
-          key={id}
-          textStyles={textStyles}
-          id="buttonClick"
-          onClick={openEditor(dispatch, "buttonClick")}
-        >
-          {!value && !textDataState.focusState
-            ? "Double Click to type your text"
-            : textDataState.currentEditor.state && value}
-        </StaticText>
-      )
-  );
-};
+// export const findStaticText = (textData, textDataState, dispatch) => {
+//   return textData.map(
+//     ({ textStyles, value, focusState, id }) =>
+//       focusState && (
+//         <StaticText
+//           key={id}
+//           textStyles={textStyles}
+//           id="buttonClick"
+//           onClick={openEditor(dispatch, "buttonClick")}
+//         >
+//           {!value && !textDataState.focusState
+//             ? "Double Click to type your text"
+//             : textDataState.currentEditor.state && value}
+//         </StaticText>
+//       )
+//   );
+// };
 
 export const findCurrentCrop = (boombData, curCubePosition) => {
   const curCrop = boombData.find(
