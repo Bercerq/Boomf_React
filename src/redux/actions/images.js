@@ -1,4 +1,5 @@
 import {
+  FILTER_IMAGES,
   GET_BOOMF_LIBRARY_CATEGORIES,
   GET_BOOMF_LIBRARY_IMAGES,
   GET_USER_IMAGES,
@@ -42,5 +43,7 @@ export const getUserImages = (payload) => ({
   type: GET_USER_IMAGES,
   payload,
 });
-
-
+export const searchImage = (payload) => ({
+  type: FILTER_IMAGES,
+  payload,
+});

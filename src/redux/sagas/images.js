@@ -40,7 +40,6 @@ function* getBoomfLibraryCategories(data) {
 }
 function* getBoomfLibraryImages(data) {
   const { name, productType } = data.payload;
-  console.log(productType);
   try {
     const { data } = yield call(api.post, "/graphql", {
       operationName: "getDesignLibraryCategories",

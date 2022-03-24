@@ -3,6 +3,8 @@ export const MainWrapper = styled.div``;
 
 export const ActionsWrapper = styled.div`
   display: flex;
+  margin: 12px;
+
   @media (max-width: 1130px) {
     width: 100vw;
   }
@@ -122,14 +124,14 @@ export const ButtonsItem = styled.div``;
 
 export const InputFilterImage = styled.input`
   padding: 7px 8px 7px 27px;
-  width: 45%;
+  width: 53%;
   background: rgba(118, 118, 128, 0.12);
   border-radius: 10px;
   border-color: transparent;
 `;
 export const DivMicroIcon = styled.div`
   position: absolute;
-  left: 47%;
+  left: 54%;
   width: 16px;
   height: 16px;
 `;
@@ -137,11 +139,12 @@ export const DivSearchIcon = styled.div`
   width: 16px;
   height: 16px;
   position: absolute;
-  left: 10px;
+  left: 17px;
 `;
 export const DivContainerMicro = styled.div`
   display: flex;
   align-items: center;
+  margin: 12px;
 `;
 export const DivCollectionImage = styled.div`
   display: flex;

@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
 import { setUpdateTextData } from "../../../../redux/actions/textData";
 
 import { findBoxSide } from "../../../../utils/functions/boomb";
@@ -20,9 +19,7 @@ function CubeImage({ img, position, editCrop }) {
       })
     );
   };
-  const openSideBar = () => {
-    dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
-  };
+
   return img ? (
     <>
       <SideImage editCrop={editCrop} src={img} alt={findBoxSide(position)} />
@@ -31,7 +28,7 @@ function CubeImage({ img, position, editCrop }) {
       </EditButton>
     </>
   ) : (
-    <NoImage onClick={openSideBar}>+ Photo {findBoxSide(position)}</NoImage>
+    <NoImage>+ Photo {findBoxSide(position)}</NoImage>
   );
 }
 
