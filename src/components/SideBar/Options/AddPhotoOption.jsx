@@ -18,7 +18,6 @@ import {
   UploadedImagesWrapper,
   DivUploadImage,
   CloseIconDiv,
-  UploadedImg,
 } from "./style";
 import { getUserImages } from "../../../redux/actions/images";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -46,7 +45,7 @@ function AddPhotoOption() {
   };
 
   useEffect(() => {
-    if (!imageData[0].id) {
+    if (!imageData[0]?.id) {
       dispatch(getUserImages());
     }
   }, []);

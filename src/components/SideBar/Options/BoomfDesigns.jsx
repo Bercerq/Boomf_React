@@ -13,8 +13,7 @@ const BoomfDesigns = ({ setSubTitle }) => {
   const { searchedImage } = useSelector(
     ({ boomfImagesReducer }) => boomfImagesReducer
   );
-  const [filterdImages, setFilteredImages] = useState([]);
-
+  const [filterdImages, setFilteredImages] = useState();
   useEffect(() => {
     setFilteredImages(
       categories?.filter(({ name }) => name.includes(searchedImage))

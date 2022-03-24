@@ -22,25 +22,6 @@ export const UploadedImagesWrapper = styled.div`
   }
 `;
 
-export const UploadedImg = styled.img`
-  position: absolute;
-  border: ${({ id, activeId }) =>
-    activeId && activeId === id
-      ? `3px solid #2EDBE3;`
-      : "3px solid transparent"};
-  width: 150px;
-  height: 150px;
-  border-radius: 16px;
-  margin: 12px;
-  cursor: pointer;
-  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.08))
-    drop-shadow(0px 0.5px 2px rgba(96, 97, 112, 0.16));
-
-  @media (max-height: 605px) {
-    margin: 6px;
-  }
-  object-fit: cover;
-`;
 
 export const ImageCide = styled.label`
   display: flex;
