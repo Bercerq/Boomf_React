@@ -8,13 +8,9 @@ import CubeImage from "./CubeImage";
 
 import { CubeItem, CubeSide } from "./style";
 
-export const CubePosition = ({ boombData, curCubePosition, imageData }) => {
+export const CubePosition = ({ boombData, curCubePosition }) => {
   const { rotate, img, position, editCrop, defaultRotate } = boombData;
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(editImage(imageData));
-  // }, [imageData, dispatch]);
 
   return (
     <CubeSide spinParam={rotate}>
