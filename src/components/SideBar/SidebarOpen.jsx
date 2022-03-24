@@ -16,9 +16,9 @@ import {
   DivBackTitle,
   DivArrowLeft,
 } from "./style";
-import { getBoomfImages, setImages } from "../../redux/actions/images";
+import { setImages } from "../../redux/actions/images";
 
-function SidebarOpen({ children, currentSidebar }) {
+function SidebarOpen({ children, currentSidebar, subTitle, setSubTitle }) {
   const dispatch = useDispatch();
 
   const { images } = useSelector(
@@ -26,10 +26,13 @@ function SidebarOpen({ children, currentSidebar }) {
   );
   const closeSideBar = () => {
     dispatch(setCurrentSidebar({ flag: "", state: false }));
+    dispatch(setImages());
+    setSubTitle("");
   };
   const backSideBar = () => {
     if (images) {
       dispatch(setImages());
+      setSubTitle("");
       dispatch(setCurrentSidebar({ flag: "Boomf designs", state: true }));
     } else {
       dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
@@ -44,16 +47,16 @@ function SidebarOpen({ children, currentSidebar }) {
       >
         <SideBarTitle>
           {/*todo*/}
-          {currentSidebar.flag === "Boomf designs" ? (
-            <DivBackTitle>
+          <DivBackTitle>
+            {currentSidebar.flag === "Boomf designs" && (
               <DivArrowLeft onClick={backSideBar}>
                 <img src={ArrowLeftIcon} alt="ArrowLeftIcon" />
               </DivArrowLeft>
-              <Title>{currentSidebar.flag}</Title>
-            </DivBackTitle>
-          ) : (
-            <Title>{currentSidebar.flag}</Title>
-          )}
+            )}
+            <Title>
+              {currentSidebar.flag} {subTitle}
+            </Title>
+          </DivBackTitle>
 
           <Close onClick={closeSideBar}>
             <img src={CloseIcon} alt="close" />

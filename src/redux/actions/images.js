@@ -1,9 +1,11 @@
 import {
   GET_BOOMF_LIBRARY_CATEGORIES,
   GET_BOOMF_LIBRARY_IMAGES,
+  GET_USER_IMAGES,
   SET_IMAGES,
   SET_IMAGES_CATEGORIES,
   SET_PRODUCT_TYPE,
+  SET_USER_IMAGES,
   UPLOAD_IMAGE,
 } from "../constants/images";
 
@@ -35,3 +37,10 @@ export const setProductType = (payload) => ({
   type: SET_PRODUCT_TYPE,
   payload,
 });
+
+export const getUserImages = (payload) => ({
+  type: GET_USER_IMAGES,
+  payload,
+});
+
+

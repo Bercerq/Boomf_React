@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { drawOption, findPanelOption } from "../../utils/functions/Panel";
@@ -10,6 +10,7 @@ import Logo from "../../utils/assets/svg/Logo.svg";
 import { PanelContainer, LogoIcon } from "./style";
 
 function Sidebar() {
+  const [subTitle, setSubTitle] = useState("");
   const { currentSidebar } = useSelector(
     ({ sidebarReducer }) => sidebarReducer
   );
@@ -20,8 +21,12 @@ function Sidebar() {
         <LogoIcon src={Logo} alt="Logo" />
         {findPanelOption(dispatch)}
       </PanelContainer>
-      <SideBarOpen currentSidebar={currentSidebar}>
-        {drawOption(currentSidebar.flag)}
+      <SideBarOpen
+        subTitle={subTitle}
+        setSubTitle={setSubTitle}
+        currentSidebar={currentSidebar}
+      >
+        {drawOption(currentSidebar.flag, setSubTitle)}
       </SideBarOpen>
     </>
   );
