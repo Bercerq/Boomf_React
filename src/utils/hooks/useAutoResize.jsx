@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 
-export const useAutoResize = ({inputRef, valueText, currentValue}) => {
+export const  useAutoResize = ({inputRef, valueText, currentState}) => {
   function onInput() {
     this.style.height = "auto";
     this.style.height = (this.scrollHeight) + "px";
@@ -8,11 +8,11 @@ export const useAutoResize = ({inputRef, valueText, currentValue}) => {
   }
 
   useEffect(() => {
-    if (inputRef && inputRef.current && currentValue === valueText) {
+    if (inputRef && inputRef.current && currentState.value === valueText) {
       inputRef.current.setAttribute("style", "height:" + (inputRef.current.scrollHeight) + "px;overflow-y:hidden;");
       inputRef.current.addEventListener("input", onInput, false);
     }
-  }, [inputRef, valueText, currentValue]);
+  }, [inputRef, valueText, currentState.value, currentState.textStyles]);
 
   return null;
 };

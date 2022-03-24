@@ -95,7 +95,7 @@ export const addDataStateImage = (state, initialState, payload) => {
     type: 'image',
     image: payload,
     column: state.textDataState.column,
-    focusState: true,
+    focusState: false,
     id: uid()
   }
 

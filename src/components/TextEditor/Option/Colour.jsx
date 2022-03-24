@@ -11,7 +11,7 @@ import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
 import { useState } from "react";
 
-function Colour({ option, setOption }) {
+function Colour({ option, setOption, colourDevice }) {
   const [paleteState, setPaletestate] = useState(false);
   const [colorPalete, setColorPalete] = useColor();
   const handleSetFonts = (color) => () => {
@@ -26,7 +26,7 @@ function Colour({ option, setOption }) {
   };
 
   return (
-    <OptionWrapper>
+    <OptionWrapper colourDevice={colourDevice}>
       {background.map((color) => (
         <ColorItem
           key={color}

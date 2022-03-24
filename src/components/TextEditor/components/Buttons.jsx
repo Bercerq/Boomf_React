@@ -16,10 +16,8 @@ function Buttons({currentEditor, textStyles, option, setOption}) {
 
   const submitChanges = () => {
     if (currentEditor.flag === "Image") {
-      //todo cannon
       dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: false}}));
     } else {
-      //todo cannon
       dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
     }
   };
@@ -40,7 +38,7 @@ function Buttons({currentEditor, textStyles, option, setOption}) {
           {findButtonName(currentEditor.flag)}
         </WhiteButton>
       </div>
-      {option && currentEditor.flag !== "Alignment" && (
+      {option && currentEditor.flag && currentEditor.flag !== "Alignment" && (
         <div>
           <WhiteButton
             color="#FFFFFF"

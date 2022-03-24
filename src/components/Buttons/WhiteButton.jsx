@@ -6,12 +6,14 @@ function WhiteButton({
   children,
   background,
   color,
+  marginDesktop
 }) {
   return (
     <WhiteBtn
       color={color}
       background={background}
       onClick={handleButtonClick}
+      marginDesktop={marginDesktop}
     >
       {children}
     </WhiteBtn>

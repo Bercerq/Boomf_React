@@ -74,7 +74,7 @@ export const DivFlexCenter = styled.div`
 `;
 
 export const DeviceContentCard = styled(DivFlexCenter)`
-  z-index: 3;
+  z-index: 2;
 
   @media (max-width: 1130px) {
     position: absolute;

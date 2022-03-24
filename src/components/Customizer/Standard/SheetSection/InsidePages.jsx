@@ -10,10 +10,16 @@ import {
   SheetContainer,
   TextContentStandard
 } from "./style";
+import {useResizeDevice} from "../../../../utils/hooks/useResizeDevice";
+import {useSelector} from "react-redux";
 
 const InsidePages = ({editTextRef}) => {
+  const {mobileDevice} = useResizeDevice({maxWidth: 540});
+  const {textDataState} = useSelector(({textDataReducer}) => textDataReducer);
+  //todo style
   return (
-    <div id="buttonClickStandard" ref={ref => editTextRef.current[1] = ref}>
+    <div id="buttonClickStandard" ref={ref => editTextRef.current[1] = ref}
+         style={textDataState.focusState && mobileDevice ? {zIndex: 4} : {}}>
       <SheetDivFlex>
         <FontPageDiv>
           <SheetContainer>

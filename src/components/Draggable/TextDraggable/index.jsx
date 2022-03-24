@@ -14,13 +14,13 @@ const TextDraggable = ({buttonFlag, column, activeSizeImage}) => {
 
   useEffect(() => {
     openEditor(dispatch, buttonFlag)();
-  }, [dispatch, buttonFlag]);
+  }, []);
 
   useEffect(() => {
     if (textDataState.focusState) {
       setInputRef();
     }
-  }, [setInputRef, textDataState.focusState]);
+  }, [textDataState.focusState]);
 
   return textData.map((e, idx) => e.column === column && e.type === 'text' && (
     <React.Fragment key={'TextDraggablePos' + idx}>

@@ -21,7 +21,7 @@ const TextDraggablePos = ({currentState, inputRef, activeId, textEditorParams, a
   useAutoResize({
     inputRef: activeId ? inputRef : null,
     valueText: textState,
-    currentValue: currentState.value,
+    currentState
   });
 
   const handleSelectCard = () => {
@@ -77,7 +77,7 @@ const TextDraggablePos = ({currentState, inputRef, activeId, textEditorParams, a
                 )}
               </strong>
             </div>
-            <DivTextContent ref={activeId ? textEditorParams.refResize : null} activeState={currentState.focusState}>
+            <DivTextContent ref={activeId ? textEditorParams.refResize : null} activeState={currentState.focusState} activeSizeImage={activeSizeImage}>
               <TextareaDraggable
                 onChange={textEditorParams.setTextState}
                 value={activeId ? textEditorParams.textState : currentState.value}

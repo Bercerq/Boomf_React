@@ -19,6 +19,8 @@ export const SheetBlock = styled.div`
 
 export const TitleStandard = styled.h3`
   margin: 30px;
+  font-family: Objectivity, serif;
+  font-style: normal;
   @media (max-width: 540px) and (max-height: 720px), 
   screen and (max-height: 1024px) and (max-width: 800px), 
   screen and (max-width: 1280px) and (max-height: 800px) {
@@ -44,6 +46,7 @@ export const SheetContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #FFFFFF;
 
   overflow: hidden;
 
@@ -54,13 +57,15 @@ export const SheetContainer = styled.div`
   box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04),
   0 8px 16px rgba(96, 97, 112, 0.16);
   z-index: 2;
+  @media (min-width: 1440px) and (max-height: 920px) {
+    height: 480px;
+  }
   @media (max-width: 1280px) {
     width: fit-content;
     height: ${({oneSheet}) => oneSheet ? 'fit-content;overflow: revert !important' : '-webkit-fill-available;'};
     margin: 22px;
   }
-  @media (max-height: 1024px) 
-  and (max-width: 800px),
+  @media (max-height: 1024px) and (max-width: 800px),
   screen and (max-width: 1280px) and (max-height: 800px) {
     margin: 10px;
   }
@@ -77,6 +82,11 @@ export const TextContentStandard = styled.div`
   width: 454px;
   height: 626px;
 
+  @media (min-width: 1440px) and (max-height: 920px) {
+    width: 350px;
+    height: 480px;
+  }
+  
   @media (max-height: 1024px) and (max-width: 800px),
   screen and (max-width: 1280px) and (max-height: 800px) {
     width: 290px;
@@ -191,4 +201,10 @@ export const SheetDivFlex = styled(DivFlex)`
   @media (max-width: 920px) {
     justify-content: flex-start;
   }
+`;
+
+export const TitleNameSheet = styled.span`
+  font-family: Objectivity, serif;
+  margin: 18px 0;
+  font-style: normal;
 `;
