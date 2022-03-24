@@ -6,7 +6,7 @@ import LibraryImages from "./components/LibraryImages";
 import LibraryCategories from "./components/LibraryCategories";
 import Search from "./components/Search";
 
-const BoomfDesigns = () => {
+const BoomfDesigns = ({ setSubTitle }) => {
   const { categories, images } = useSelector(
     ({ boomfImagesReducer }) => boomfImagesReducer
   );
@@ -16,8 +16,16 @@ const BoomfDesigns = () => {
       <Search />
       <DivCollectionImage>
         {images
-          ? images?.map((data, idx) => <LibraryImages key={'LibraryImages' + idx} data={data} />)
-          : categories?.map((data, idx) => <LibraryCategories key={'LibraryCategories' + idx} data={data} />)}
+          ? images?.map((data, idx) => (
+              <LibraryImages key={"LibraryImages" + idx} data={data} />
+            ))
+          : categories?.map((data, idx) => (
+              <LibraryCategories
+                key={"LibraryCategories" + idx}
+                data={data}
+                setSubTitle={setSubTitle}
+              />
+            ))}
       </DivCollectionImage>
     </React.Fragment>
   );

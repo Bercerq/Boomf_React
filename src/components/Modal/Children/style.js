@@ -31,3 +31,20 @@ export const SocialWrapper = styled.div`
     }
   }
 `;
+
+export const TextArea = styled.textarea`
+  font-family: "objectivity-regular-11", sans-serif;
+  resize: none;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #d6d6d6;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  height: 108px;
+  &::placeholder {
+    color: #a3a3a3;
+  }
+`;
