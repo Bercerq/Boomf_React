@@ -1,12 +1,12 @@
 import React from "react";
 import { Slider, SliderContainer, CurrentValue } from "../style";
 
-function Size({ option, setOption }) {
+function Size({ option, setOption, sizeDevice }) {
   const setValue = (e) => {
     setOption(e.target.value);
   };
   return (
-    <SliderContainer>
+    <SliderContainer sizeDevice={sizeDevice}>
       <CurrentValue>{+option || 16}</CurrentValue>
       <Slider
         onChange={setValue}

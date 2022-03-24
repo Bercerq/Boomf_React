@@ -21,7 +21,7 @@ const initialTextState = {
   position: {x: 0, y: 0},
   rotate: 0,
   textStyles: {},
-  currentEditor: {state: false, flag: ''},
+  currentEditor: {state: true, flag: ''},
   focusState: false,
   column: 1,
   id: '1233221'

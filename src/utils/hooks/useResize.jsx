@@ -46,8 +46,8 @@ export const useResize = (ref, options) => {
         }
 
       if (axis === 'both') {
-        ref.current.style.width = width + 'px';
-        ref.current.style.height = height + 'px';
+        ref.current.style.width = (width + height) / 2 + 'px';
+        ref.current.style.height = (width + height) / 2 + 'px';
       }
       if (axis === 'horizontal') {
         ref.current.style.width = width + 'px';

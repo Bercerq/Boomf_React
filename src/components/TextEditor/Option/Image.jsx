@@ -35,7 +35,6 @@ function Image({ option, setOption }) {
 
   const deleteCurrentImage = () => {
     updateItem(curCubePosition, { img: "" }, boombData, dispatch);
-    //todo cannon
     dispatch(
       setUpdateTextData({
         key: "currentEditor",

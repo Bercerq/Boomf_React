@@ -3,13 +3,16 @@ import {useDispatch, useSelector} from "react-redux";
 
 import Buttons from "./components/Buttons";
 import useCreateEditorValue from "../../utils/hooks/useCreateEditorValue";
+
 import {
   closeSideBar,
   drawEditorContent,
 } from "../../utils/functions/textEditor";
-import {TextEditorContent, TextEditorWrapper} from "./style";
 
-const TextEditor = ({editTextRef}) => {
+import {TextEditorContent, TextEditorWrapper} from "./style";
+import useDebounce from "../../utils/hooks/useDebounce";
+
+const TextEditorDesktop = ({editTextRef}) => {
   const [option, setOption] = useState();
   const dispatch = useDispatch();
 
@@ -22,11 +25,13 @@ const TextEditor = ({editTextRef}) => {
     dispatch
   );
 
+  const debouncedSelect = useDebounce(textDataState.textStyles, 200);
+
   useEffect(() => {
-    setOption(
-      textDataState.textStyles[textDataState.currentEditor?.flag?.toLowerCase()]
-    );
-  }, [textDataState.textStyles]);
+    if(debouncedSelect) {
+      setOption(debouncedSelect[textDataState.currentEditor?.flag?.toLowerCase()]);
+    }
+  }, [debouncedSelect]);
 
 
   useEffect(() => {
@@ -36,20 +41,20 @@ const TextEditor = ({editTextRef}) => {
       }
     }
 
-    if (textDataState.currentEditor.state) {
+    if (textDataState.focusState) {
       window.addEventListener("click", handleClick, true);
     }
     return () => {
       window.removeEventListener("click", handleClick, true);
     }
-  }, [textDataState.currentEditor.state]);
+  }, [textDataState.focusState]);
 
   return (
     <TextEditorWrapper
       ref={(ref) => (editTextRef.current[0] = ref)}
-      currentEditor={textDataState.currentEditor.state}
+      currentEditor={textDataState.focusState}
     >
-      <TextEditorContent currentEditor={textDataState.currentEditor.state}>
+      <TextEditorContent currentEditor={textDataState.focusState}>
         {drawEditorContent(
           textDataState.currentEditor.flag,
           option,
@@ -67,4 +72,4 @@ const TextEditor = ({editTextRef}) => {
   );
 };
 
-export default TextEditor;
+export default TextEditorDesktop;
