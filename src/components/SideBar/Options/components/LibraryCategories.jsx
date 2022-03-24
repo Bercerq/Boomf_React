@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useDispatch } from "react-redux";
-import { getBoomfImages } from "../../../../redux/actions/images";
+import { getBoomfImages, searchImage } from "../../../../redux/actions/images";
 
 import { DivUploadImage, TitleCollection } from "../style";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -13,6 +13,10 @@ function LibraryCategories({ categories, setSubTitle }) {
     dispatch(getBoomfImages({ productType: "exploding_card", name: e.slug }));
     setSubTitle(e.name);
   };
+
+  useEffect(() => {
+    dispatch(searchImage(""));
+  }, []);
   return (
     <>
       {categories?.map((data) => (
