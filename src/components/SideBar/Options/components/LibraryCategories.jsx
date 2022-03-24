@@ -18,7 +18,6 @@ function LibraryCategories({ data, setSubTitle }) {
     <div>
       <DivUploadImage>
         <LazyLoadImage
-          activeId={0}
           id={data.id}
           onClick={handleSetCategories(data)}
           src={data.image}

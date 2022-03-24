@@ -70,7 +70,7 @@ export const CloseIconDiv = styled.div`
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer;
-  margin: 5px 5px auto auto;
+
   transition: 0.3s;
 
   &:hover {

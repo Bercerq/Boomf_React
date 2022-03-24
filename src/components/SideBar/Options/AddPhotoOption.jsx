@@ -21,6 +21,7 @@ import {
   UploadedImg,
 } from "./style";
 import { getUserImages } from "../../../redux/actions/images";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function AddPhotoOption() {
   const { imageData, imageState } = useSelector(
@@ -30,9 +31,6 @@ function AddPhotoOption() {
     ({ standardReducer }) => standardReducer
   );
 
-  const { user_images } = useSelector(
-    ({ boomfImagesReducer }) => boomfImagesReducer
-  );
   const dispatch = useDispatch();
   const setImage = (img) => () => {
     if (standardName) {
@@ -45,8 +43,10 @@ function AddPhotoOption() {
     dispatch(setDeleteImageLibrary(id));
   };
 
+  console.log(imageData);
+
   useEffect(() => {
-    if (!imageData[1]) {
+    if (!imageData[0].id) {
       dispatch(getUserImages());
     }
   }, []);
@@ -64,11 +64,11 @@ function AddPhotoOption() {
               <CloseIconDiv onClick={() => deleteImage(img.id)}>
                 <img src={CloseImage} alt="Close" />
               </CloseIconDiv>
-              <UploadedImg
-                activeId={imageState.id}
+              <LazyLoadImage
                 id={img.id}
                 onClick={setImage(img)}
                 src={img.img || img.url}
+                effect="blur"
               />
             </DivUploadImage>
           ) : null
