@@ -205,6 +205,7 @@ export const SideImage = styled.img`
   height: 100%;
   width: 100%;
   transform: translate(-50%, -50%) ${({ editCrop }) => `scale(${editCrop})`};
+  background-color: #f5f5f5;
 `;
 
 export const TopText = styled.textarea`

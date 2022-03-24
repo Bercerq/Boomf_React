@@ -46,7 +46,6 @@ function SidebarOpen({ children, currentSidebar, subTitle, setSubTitle }) {
         onClick={(e) => e.stopPropagation()}
       >
         <SideBarTitle>
-          {/*todo*/}
           <DivBackTitle>
             {currentSidebar.flag === "Boomf designs" && (
               <DivArrowLeft onClick={backSideBar}>
