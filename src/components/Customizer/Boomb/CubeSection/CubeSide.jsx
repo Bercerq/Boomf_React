@@ -9,7 +9,7 @@ function CubeSide({ textStyles, editTextRef }) {
   const { curCubePosition, curCubeRotate, boombData } = useSelector(
     ({ boombReducer }) => boombReducer
   );
-п  return (
+  return (
     <CubeBox cubeRotateY={curCubeRotate}>
       <CubeTop textStyles={textStyles} editTextRef={editTextRef} />
       {boombData?.map((boombData) => (
