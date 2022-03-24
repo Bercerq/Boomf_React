@@ -8,7 +8,7 @@ apiResizer.interceptors.request.use(
     const token = localStorage.getItem("Boomf_accessToken") || null;
     if (token) {
       config.headers = {
-        Authorization: token,
+        Authorization: "Bearer " +  token,
       };
     }
     return config;

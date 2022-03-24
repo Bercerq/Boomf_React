@@ -16,7 +16,6 @@ function Buttons() {
   const { categories, productType } = useSelector(
     ({ boomfImagesReducer }) => boomfImagesReducer
   );
-  console.log(productType);
   const facebook = () => {
     console.log("facebook");
   };

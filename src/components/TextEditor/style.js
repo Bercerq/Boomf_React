@@ -126,7 +126,7 @@ export const FontItem = styled.div`
 `;
 //Size
 export const SliderContainer = styled.div`
-  width: 30%;
+  width: 70%;
   margin: auto;
 `;
 export const CurrentValue = styled.div`
@@ -170,15 +170,6 @@ export const ColorItem = styled.div`
 `;
 
 export const ColorItemPalete = styled.div`
-  span {
-    font-size: 50px;
-    color: #2edbe3;
-    display: flex;
-    justify-content: center;
-    @media (max-width: 640px) {
-      font-size: 35px;
-    }
-  }
   cursor: pointer;
   width: 48px;
   height: 48px;
@@ -192,6 +183,9 @@ export const ColorItemPalete = styled.div`
   }
   @media (max-width: 420px) {
     margin: 0px 4px;
+  }
+  img {
+    width: 100%;
   }
 `;
 
