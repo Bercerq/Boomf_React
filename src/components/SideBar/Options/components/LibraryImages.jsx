@@ -6,7 +6,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { setAddImageLibrary } from "../../../../redux/actions/imageLibrary";
 import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
 
-import { DivUploadImage, TitleCollection } from "../style";
+import { DivUploadImage } from "../style";
 
 function LibraryImages({ data }) {
   const dispatch = useDispatch();
