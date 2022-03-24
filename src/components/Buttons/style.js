@@ -46,6 +46,7 @@ export const WhiteBtn = styled.button`
   font-size: 16px;
   font-weight: 400;
   font-family: "objectivity-regular-11", sans-serif;
+  ${({marginDesktop}) => marginDesktop && `margin-right: ${marginDesktop}; width: fit-content; padding: 14px 30px;`};
   @media (max-width: 415px) {
     padding: 14px 30px;
   }

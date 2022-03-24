@@ -22,9 +22,10 @@ import {
 } from "./style";
 import { getUserImages } from "../../../redux/actions/images";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { editImage } from "../../../redux/actions/boomb";
 
 function AddPhotoOption() {
-  const { imageData, imageState } = useSelector(
+  const { imageData } = useSelector(
     ({ imageLibraryReducer }) => imageLibraryReducer
   );
   const { standardName } = useSelector(
@@ -36,20 +37,20 @@ function AddPhotoOption() {
     if (standardName) {
       dispatch(setAddImageData({ ...img, key: standardName }));
     }
-    dispatch(selectUploadedImage(img.img));
+    dispatch(selectUploadedImage(img.img || img.url));
     dispatch(setCurrentSidebar({ flag: "", state: false }));
+    dispatch(editImage({ key: "size", value: "1" }));
   };
   const deleteImage = (id) => {
     dispatch(setDeleteImageLibrary(id));
   };
-
-  console.log(imageData);
 
   useEffect(() => {
     if (!imageData[0].id) {
       dispatch(getUserImages());
     }
   }, []);
+
   return (
     <MainWrapper>
       <ActionsWrapper>

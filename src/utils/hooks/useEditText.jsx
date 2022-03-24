@@ -15,7 +15,7 @@ export const useEditText = ({resizeOption, textDataState}) => {
   const refResize = useRef();
   const refRotate = useRef();
 
-  const {initResize, sizeState} = useResize(refResize, resizeOption || {step: 5, axis: 'horizontal'});
+  const {initResize, sizeState} = useResize(refResize, resizeOption || {step: 1, axis: 'horizontal'});
   const {initRotate, rotateState, setRotateState} = useRotate(refRotate, '', textDataState.rotate);
 
   const debouncedValue = useDebounce(textState, 500);

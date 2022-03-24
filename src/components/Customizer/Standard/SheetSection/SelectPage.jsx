@@ -1,5 +1,14 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
+
+import {setStandardName} from "../../../../redux/actions/standard";
+import {setCurrentModal} from "../../../../redux/actions/modal";
+
+import BlueButton from "../../../Buttons/BlueButton";
+
+import ArrowRightIcon from "../../../../utils/assets/svg/ArrowRightIcon.svg";
+
+import {PostcardButton} from "../../Cannon/PostcardSection/style";
 import {
   ActiveSheetDiv,
   ColumnActiveSheet,
@@ -7,13 +16,8 @@ import {
   DivSheetContent,
   FrontDblSheet,
   FrontSheetDiv,
-  LineDivStandard
+  LineDivStandard, TitleNameSheet
 } from "./style";
-import {setStandardName} from "../../../../redux/actions/standard";
-import {PostcardButton} from "../../Cannon/PostcardSection/style";
-import BlueButton from "../../../Buttons/BlueButton";
-import ArrowRightIcon from "../../../../utils/assets/svg/ArrowRightIcon.svg";
-import {setCurrentModal} from "../../../../redux/actions/modal";
 
 const SelectPage = () => {
   const dispatch = useDispatch();
@@ -42,7 +46,7 @@ const SelectPage = () => {
             activeSheet={standardName === 'Front'}
             onClick={() => handleSelect('Front')}
           />
-          <h3>Front</h3>
+          <TitleNameSheet>Front</TitleNameSheet>
         </DivSheetContent>
         <DivSheetContent>
           <DivFlex
@@ -53,7 +57,7 @@ const SelectPage = () => {
               <LineDivStandard zIndexPos={true}/>
             </FrontDblSheet>
           </DivFlex>
-          <h3>Inside pages</h3>
+          <TitleNameSheet>Inside pages</TitleNameSheet>
         </DivSheetContent>
       </ActiveSheetDiv>
 

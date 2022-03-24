@@ -21,7 +21,7 @@ export const FormTextContent = styled.div`
   overflow: hidden;
 
   word-break: break-word;
-  z-index: 1;
+  z-index: 3;
 `;
 
 export const DivThree = styled.div`
@@ -42,6 +42,8 @@ export const DivTextContent = styled.div`
   min-width: 195px;
   min-height: 18px;
   padding: 8px;
+  
+  ${({activeSizeImage}) => activeSizeImage && `width: 265px;`}
   ${({activeState}) =>
   `cursor: ${activeState ? 'all-scroll; border: 2px solid #0A74FF' : 'auto'}`};
 `;
