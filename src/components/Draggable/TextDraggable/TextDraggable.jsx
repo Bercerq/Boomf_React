@@ -22,7 +22,8 @@ const TextDraggablePos = ({currentState, inputRef, activeId, textEditorParams, a
   useAutoResize({
     inputRef: activeId ? inputRef : null,
     valueText: textState,
-    currentState
+    currentState,
+    textEditorParams
   });
 
   const handleSelectCard = () => {

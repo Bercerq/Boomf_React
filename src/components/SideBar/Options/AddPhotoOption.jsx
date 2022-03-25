@@ -9,7 +9,7 @@ import {
 import Buttons from "./components/Buttons";
 import ImageUploader from "./components/ImageUploader";
 import { setAddImageData } from "../../../redux/actions/textData";
-import { setDeleteImageLibrary } from "../../../redux/actions/imageLibrary";
+import {setDeleteImageLibrary, setImageLibrary} from "../../../redux/actions/imageLibrary";
 
 import CloseImage from "../../../utils/assets/svg/CloseImage.svg";
 import {
@@ -36,6 +36,7 @@ function AddPhotoOption() {
     if (standardName) {
       dispatch(setAddImageData({ ...img, key: standardName }));
     }
+    dispatch(setImageLibrary(img.id));
     dispatch(selectUploadedImage(img.img || img.url));
     dispatch(setCurrentSidebar({ flag: "", state: false }));
     dispatch(editImage({ key: "size", value: "1" }));

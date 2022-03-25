@@ -52,7 +52,7 @@ export const SheetContainer = styled.div`
 
   margin-top: 10px;
   width: fit-content;
-  height: 626px;
+  height: fit-content;
 
   box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04),
   0 8px 16px rgba(96, 97, 112, 0.16);
@@ -61,8 +61,6 @@ export const SheetContainer = styled.div`
     height: 480px;
   }
   @media (max-width: 1280px) {
-    width: fit-content;
-    height: ${({oneSheet}) => oneSheet ? 'fit-content;overflow: revert !important' : '-webkit-fill-available;'};
     margin: 22px;
   }
   @media (max-height: 1024px) and (max-width: 800px),
@@ -105,8 +103,9 @@ export const TextContentStandard = styled.div`
 `;
 
 export const LineDivStandard = styled.div`
-  z-index: ${({zIndexPos}) => zIndexPos ? 1 : 4};
   height: 100%;
+  //todo temporary solution
+  z-index: ${({zIndexPos}) => zIndexPos ? 1 : '4; height: 100vh; position: absolute;'};
   border: 1px solid #A3A3A3;
 `;
 
@@ -174,7 +173,7 @@ export const DivSheetContent = styled.div`
   margin: 0 12px;
   @media (max-width: 540px) {
     margin: 0 8px;
-    h3 {
+    span {
       display: none;
     }
   }

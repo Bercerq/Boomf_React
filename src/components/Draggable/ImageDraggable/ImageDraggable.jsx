@@ -71,7 +71,7 @@ const ImageDraggablePos = ({currentState, textEditorParams, activeId}) => {
               </strong>
             </div>
             <div className='max-image'>
-              <ImageBlock src={currentState.image.img}
+              <ImageBlock src={currentState.image.url || currentState.image.img}
                           alt={currentState.image.alt}
                           ref={activeId ? textEditorParams.refResize : null}/>
             </div>
