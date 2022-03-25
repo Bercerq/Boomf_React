@@ -26,7 +26,6 @@ const Cannon = () => {
   return (
     <CustomizerLayout
       productType={"greeting_card"}
-       
       editTextRef={editTextRef}
       title="Boomf cannon card"
     >

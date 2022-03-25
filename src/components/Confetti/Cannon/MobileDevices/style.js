@@ -91,6 +91,6 @@ export const DeviceContentCard = styled(DivFlexCenter)`
   @media (max-width: 540px) {
     width: auto;
     position: static;
-    margin: 0;
+    margin: 15px;
   }
 `;

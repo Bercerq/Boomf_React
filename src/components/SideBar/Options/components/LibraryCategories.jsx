@@ -23,7 +23,6 @@ function LibraryCategories({ categories, setSubTitle }) {
         <div key={data.id}>
           <DivUploadImage>
             <LazyLoadImage
-              id={data.id}
               onClick={handleSetCategories(data)}
               src={data.image}
               alt={data.name}

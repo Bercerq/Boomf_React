@@ -129,13 +129,14 @@ export const BackgroundItem = styled.div`
   height: 45px;
   margin: 7px;
   border-radius: 50%;
-
   transition: 0.4s;
-  background: transparent;
-
+  background: #ffffff;
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 0 10px 12px 10px;
   }
+  ${({mobileDevice}) => mobileDevice ? (
+    `filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16)); margin-bottom: 15px;`
+  ) : ('background: transparent;')};
 `;
 
 export const BackgroundImage = styled.img`
