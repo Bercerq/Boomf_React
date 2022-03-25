@@ -74,7 +74,6 @@ function AddPhotoOption() {
                   <img src={CloseImage} alt="Close" />
                 </CloseIconDiv>
                 <LazyLoadImage
-                  id={img.id}
                   onClick={setImage(img)}
                   src={img.img || img.url}
                   effect="blur"

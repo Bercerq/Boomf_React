@@ -16,7 +16,7 @@ function LibraryImages({ data }) {
   };
   return (
     <div>
-      <DivUploadImage activeId={0} id={data.id}>
+      <DivUploadImage>
         <LazyLoadImage
           onClick={() => addImage(data)}
           src={data.file.url}
