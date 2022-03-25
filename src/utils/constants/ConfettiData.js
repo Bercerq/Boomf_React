@@ -5,9 +5,6 @@ import TuttiFruitti from "../assets/png/confetti/Tutti-Fruitti.webp";
 import BlueCircles from "../assets/png/confetti/Blue-Circles.webp";
 import Stars from "../assets/png/confetti/Stars.webp";
 
-import Colorful from "../assets/jpg/background/colorful-2468874__340.jpg";
-import Nature from "../assets/jpg/background/nature-3082832__480.jpg";
-import Textile from "../assets/jpg/background/textile-2918844__340.jpg";
 
 // import BlueCircles from "../assets/png/confetti/Blue-Circles.png";
 // import Christmas from "../assets/png/confetti/Christmas.png";
@@ -25,6 +22,22 @@ import Textile from "../assets/jpg/background/textile-2918844__340.jpg";
 // import Hearts from "../assets/png/confetti/Hearts.png";
 // import Unicorn from "../assets/png/confetti/Unicorn.png";
 // import Watermelon from "../assets/png/confetti/Watermelon.png";
+
+import BlueConfetti from "../assets/png/background/blue-confetti.webp";
+import BlueRacingStripe from "../assets/png/background/blue-racing-stripe.webp";
+import Cn015 from "../assets/png/background/cn015.webp";
+import Cn016 from "../assets/png/background/cn016.webp";
+import Cn020 from "../assets/png/background/cn020.webp";
+import CoralHeart from "../assets/png/background/coral-heart.webp";
+import LightpinkHearts from "../assets/png/background/lightpink-hearts.webp";
+import MultiStar from "../assets/png/background/multi-star.webp";
+import OutOfThisWorldCn from "../assets/png/background/out-of-this-world-cn.webp";
+import PinkFlower from "../assets/png/background/pink-flower.webp";
+import PinkHeart from "../assets/png/background/pink-heart.webp";
+import PrideBlendedCn from "../assets/png/background/pride-blended-cn.webp";
+import PrideLinearCn from "../assets/png/background/pride-linear-cn.webp";
+import PurpleConfetti from "../assets/png/background/purple-confetti.webp";
+
 
 export const confettiDataBoomb = [
   // {
@@ -154,44 +167,18 @@ export const confettiDataCannon = [
 ];
 
 export const backgroundDataCannon = [
-  { name: "Colorful", img: Colorful },
-  { name: "Nature", img: Nature },
-  { name: "Textile", img: Textile },
-  { name: "Colorful", img: Colorful },
-  { name: "Nature", img: Nature },
-  { name: "Textile", img: Textile },
-  { name: "Colorful", img: Colorful },
-  { name: "Nature", img: Nature },
-  { name: "Textile", img: Textile },
-  { name: "Colorful", img: Colorful },
-  { name: "Nature", img: Nature },
-  { name: "Textile", img: Textile },
-  { name: "Colorful", img: Colorful },
-  { name: "Nature", img: Nature },
-];
-
-export const collectionData = [
-  { img: Colorful, alt: "Colorful", id: 0 },
-  { img: Nature, alt: "Nature", id: 1 },
-  { img: Textile, alt: "Textile", id: 2 },
-  { img: Summer1, alt: "Summer1", id: 3 },
-  { img: Blossom, alt: "Blossom", id: 4 },
-  // { img: BlossomGB, alt: "BlossomGB", id: 5 },
-  // { img: BCGold, alt: "BCGold", id: 6 },
-  // { img: BcGold1, alt: "BcGold1", id: 7 },
-  // { img: Unicorn, alt: "Unicorn", id: 8 },
-  // { img: Watermelon, alt: "Watermelon", id: 9 },
-];
-
-export const activeCollectionData = [
-  // { img: Unicorn, alt: "Unicorn", id: 8 },
-  // { img: Watermelon, alt: "Watermelon", id: 9 },
-  // { img: BCGold, alt: "BCGold", id: 6 },
-  // { img: BcGold1, alt: "BcGold1", id: 7 },
-  { img: Blossom, alt: "Blossom", id: 4 },
-  // { img: BlossomGB, alt: "BlossomGB", id: 5 },
-  { img: Textile, alt: "Textile", id: 2 },
-  { img: Summer1, alt: "Summer1", id: 3 },
-  { img: Colorful, alt: "Colorful", id: 0 },
-  { img: Nature, alt: "Nature", id: 1 },
+  { name: "BlueConfetti", img: BlueConfetti },
+  { name: "BlueRacingStripe", img: BlueRacingStripe },
+  { name: "Cn015", img: Cn015 },
+  { name: "Cn016", img: Cn016 },
+  { name: "Cn020", img: Cn020 },
+  { name: "CoralHeart", img: CoralHeart },
+  { name: "LightpinkHearts", img: LightpinkHearts },
+  { name: "MultiStar", img: MultiStar },
+  { name: "OutOfThisWorldCn", img: OutOfThisWorldCn },
+  { name: "PinkFlower", img: PinkFlower },
+  { name: "PinkHeart", img: PinkHeart },
+  { name: "PrideBlendedCn", img: PrideBlendedCn },
+  { name: "PrideLinearCn", img: PrideLinearCn },
+  { name: "PurpleConfetti", img: PurpleConfetti },
 ];

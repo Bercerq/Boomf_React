@@ -5,7 +5,6 @@ import {
   SET_UPDATE_IMAGE_LIBRARY,
   SET_DELETE_IMAGE_LIBRARY,
   SET_USER_IMAGES,
-  GET_LOAD_USER_IMAGES,
 } from "../constants/imageLibrary";
 
 export const setImageLibrary = (payload) => ({

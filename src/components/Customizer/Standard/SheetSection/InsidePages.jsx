@@ -1,4 +1,7 @@
 import React from 'react';
+import {useSelector} from "react-redux";
+
+import {useResizeDevice} from "../../../../utils/hooks/useResizeDevice";
 
 import TextDraggable from "../../../Draggable/TextDraggable";
 import ImageDraggable from "../../../Draggable/ImageDraggable";
@@ -10,8 +13,6 @@ import {
   SheetContainer,
   TextContentStandard
 } from "./style";
-import {useResizeDevice} from "../../../../utils/hooks/useResizeDevice";
-import {useSelector} from "react-redux";
 
 const InsidePages = ({editTextRef}) => {
   const {mobileDevice} = useResizeDevice({maxWidth: 540});

@@ -36,14 +36,13 @@ const PostcardImage = () => {
       setLineState(diagonalLine(ref.current.getBoundingClientRect()));
     }
   }, [ref]);
-
   return (
     <>
-      {imageState.img ? (
+      {imageState.url || imageState.img ? (
         <ImageDiv>
           <BackgroundImage
             increaseSize={imageState.size}
-            src={imageState.img}
+            src={imageState.url || imageState.img}
             alt={imageState.alt}
           />
           <PostcardEditButton onClick={openEditor}>
