@@ -1,14 +1,16 @@
-import {alignmentIcon, editOptions} from "../constants/TextEditData";
+import { alignmentIcon, editOptions } from "../constants/TextEditData";
 
-import {setUpdateTextData} from "../../redux/actions/textData";
+import { setUpdateTextData } from "../../redux/actions/textData";
 
 import Colour from "../../components/TextEditor/Option/Colour";
 import Font from "../../components/TextEditor/Option/Font";
 import Size from "../../components/TextEditor/Option/Size";
 
 import {
-  Option, OptionDevice,
-  OptionIcon, OptionIconDevice,
+  Option,
+  OptionDevice,
+  OptionIcon,
+  OptionIconDevice,
   OptionsWrapper,
   OptionText,
 } from "../../components/TextEditor/style";
@@ -25,7 +27,7 @@ export const drawEditorContent = (flag, option, setOption, dispatch) =>
 const selectOptions = (setOption, option, dispatch) => {
   return (
     <OptionsWrapper>
-      {editOptions.map(({icon, text}) => (
+      {editOptions.map(({ icon, text }) => (
         <Option
           onClick={selectEditorOption(text, setOption, option, dispatch)}
           key={text}
@@ -34,7 +36,7 @@ const selectOptions = (setOption, option, dispatch) => {
             {text === "Alignment" ? (
               findAlignmentImage(option)
             ) : (
-              <img src={icon} alt={text}/>
+              <img src={icon} alt={text} />
             )}
           </OptionIcon>
           <OptionText>{text}</OptionText>
@@ -51,12 +53,12 @@ const selectEditorOption = (text, setOption, option, dispatch) => () => {
   dispatch(
     setUpdateTextData({
       key: "currentEditor",
-      value: {flag: text, state: true},
+      value: { flag: text, state: true },
     })
   );
 };
 const findAlignmentImage = (option) => {
-  const image = alignmentIcon.find(({side}) => side === option);
+  const image = alignmentIcon.find(({ side }) => side === option);
   return (
     <img
       key="side"
@@ -82,13 +84,13 @@ const findAlignment = (option, setOption) => {
 const drawOption = (flag, option, setOption) => {
   switch (flag) {
     case "Font":
-      return <Font option={option} setOption={setOption}/>;
+      return <Font option={option} setOption={setOption} />;
     case "Size":
-      return <Size option={option} setOption={setOption}/>;
+      return <Size option={option} setOption={setOption} />;
     case "Colour":
-      return <Colour option={option} setOption={setOption}/>;
+      return <Colour option={option} setOption={setOption} />;
     case "Image":
-      return <Image option={option} setOption={setOption}/>;
+      return <Image option={option} setOption={setOption} />;
     default:
       break;
   }
@@ -96,17 +98,19 @@ const drawOption = (flag, option, setOption) => {
 export const drawOptionDevice = (flag, option, setOption) => {
   switch (flag) {
     case "Font":
-      return <FontDevice option={option} setOption={setOption}/>;
+      return <FontDevice option={option} setOption={setOption} />;
     case "Size":
-      return <Size option={option} setOption={setOption} sizeDevice={true}/>;
+      return <Size option={option} setOption={setOption} sizeDevice={true} />;
     case "Colour":
-      return <Colour option={option} setOption={setOption} colourDevice={true}/>;
+      return (
+        <Colour option={option} setOption={setOption} colourDevice={true} />
+      );
     case "Image":
-      return <Image option={option} setOption={setOption}/>;
+      return <Image option={option} setOption={setOption} />;
     default:
       break;
   }
-}
+};
 
 export const closeSideBar =
   (dispatch, currentEditor, textStyles, setOption) => () => {
@@ -118,17 +122,17 @@ export const closeSideBar =
       dispatch(
         setUpdateTextData({
           key: "currentEditor",
-          value: {flag: "", state: true},
+          value: { flag: "", state: true },
         })
       );
     } else {
       dispatch(
         setUpdateTextData({
           key: "currentEditor",
-          value: {flag: "", state: false},
+          value: { flag: "", state: false },
         })
       );
-      dispatch(setUpdateTextData({key: "focusState", value: false}));
+      dispatch(setUpdateTextData({ key: "focusState", value: false }));
     }
     setOption("");
 
@@ -140,14 +144,14 @@ const findSavedStyles = (dispatch, textStyles, flag) => {
     dispatch(
       setUpdateTextData({
         key: "textStyles",
-        value: {[flag]: textStyles[flag]},
+        value: { [flag]: textStyles[flag] },
       })
     );
   } else {
     dispatch(
       setUpdateTextData({
         key: "textStyles",
-        value: {[flag?.toLowerCase()]: ""},
+        value: { [flag?.toLowerCase()]: "" },
       })
     );
   }
@@ -165,31 +169,46 @@ export const findButtonName = (flag) => {
   }
 };
 
-export const selectOptionDevice = (flag, setOption, option, dispatch, currentEditor, textStyles) => {
+export const selectOptionDevice = (
+  flag,
+  setOption,
+  option,
+  dispatch,
+  currentEditor,
+  textStyles
+) => {
   return (
     <>
-      {editOptions.map(({icon, text}, idx) => (flag !== text || flag === 'Alignment') && (
-        <OptionDevice
-          onClick={selectEditorOption(text, setOption, option, dispatch)}
-          key={'Option' + idx}
-        >
-          <OptionIconDevice>
-            {text === "Alignment" ? (
-              findAlignmentImage(option)
-            ) : (
-              <img src={icon} alt={text}/>
-            )}
-          </OptionIconDevice>
-        </OptionDevice>
-      ))}
+      {editOptions.map(
+        ({ icon, text }, idx) =>
+          (flag !== text || flag === "Alignment") && (
+            <OptionDevice
+              onClick={selectEditorOption(text, setOption, option, dispatch)}
+              key={"Option" + idx}
+            >
+              <OptionIconDevice>
+                {text === "Alignment" ? (
+                  findAlignmentImage(option)
+                ) : (
+                  <img src={icon} alt={text} />
+                )}
+              </OptionIconDevice>
+            </OptionDevice>
+          )
+      )}
       <WhiteButton
         color={"#FFFFFF"}
         background={"#2EDBE3"}
-        marginDesktop={'10px'}
-        handleButtonClick={closeSideBar(dispatch, currentEditor, textStyles, setOption)}
+        marginDesktop={"10px"}
+        handleButtonClick={closeSideBar(
+          dispatch,
+          currentEditor,
+          textStyles,
+          setOption
+        )}
       >
         Done
       </WhiteButton>
     </>
-  )
-}
+  );
+};

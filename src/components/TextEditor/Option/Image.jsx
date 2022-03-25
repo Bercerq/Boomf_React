@@ -47,7 +47,6 @@ function Image({ option, setOption }) {
   const openSideBar = () => {
     dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
   };
-  console.log(findCurrentCrop(boombData, curCubePosition));
   return (
     <ImageWrapper>
       <EditActions>

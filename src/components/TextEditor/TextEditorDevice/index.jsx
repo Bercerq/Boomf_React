@@ -31,7 +31,7 @@ const TextEditorDevice = () => {
 
   return (
     <>
-      <DeviceTypesStyle currentEditor={textDataState.focusState}>
+      <DeviceTypesStyle currentEditor={textDataState.focusState && textDataState.type !== 'image'}>
         {textDataState.focusState && (
           selectOptionDevice(
             textDataState.currentEditor.flag,
@@ -43,15 +43,14 @@ const TextEditorDevice = () => {
           ))}
       </DeviceTypesStyle>
 
-      <DeviceDataType currentEditor={textDataState.focusState}>
-        {textDataState.focusState && (
-          drawOptionDevice(textDataState.currentEditor.flag, option, setOption)
-        )}
+      <DeviceDataType currentEditor={textDataState.focusState && textDataState.type !== 'image'}>
+        {drawOptionDevice(textDataState.currentEditor.flag, option, setOption)}
       </DeviceDataType>
 
       <TextEditorDeviceContainer
         // ref={(ref) => (editTextRef.current[0] = ref)}
-        currentEditor={textDataState.focusState}
+        //todo type image
+        currentEditor={textDataState.focusState && textDataState.type !== 'image'}
       />
     </>
   );

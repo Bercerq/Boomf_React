@@ -11,13 +11,15 @@ import { EditButton, EditIcon, NoImage, SideImage } from "./style";
 function CubeImage({ img, position, editCrop }) {
   const dispatch = useDispatch();
 
-  const openEditor = () => {
+  const openEditor = (e) => {
     dispatch(
       setUpdateTextData({
         key: "currentEditor",
         value: { flag: "Image", state: true },
       })
     );
+    dispatch(setUpdateTextData({ key: "focusState", value: true }));
+    e.stopPropagation();
   };
 
   return img ? (
