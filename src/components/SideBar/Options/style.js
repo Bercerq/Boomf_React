@@ -22,7 +22,6 @@ export const UploadedImagesWrapper = styled.div`
   }
 `;
 
-
 export const ImageCide = styled.label`
   display: flex;
   flex-direction: column;
@@ -104,15 +103,18 @@ export const ButtonsWrapper = styled.div``;
 export const ButtonsItem = styled.div``;
 
 export const InputFilterImage = styled.input`
-  padding: 7px 8px 7px 27px;
-  width: 53%;
+  padding: 10px 8px 10px 30px;
+  width: 56%;
   background: rgba(118, 118, 128, 0.12);
   border-radius: 10px;
   border-color: transparent;
+  font-size: 16px;
+  outline: none;
+  
 `;
 export const DivMicroIcon = styled.div`
   position: absolute;
-  left: 54%;
+  left: 58%;
   width: 16px;
   height: 16px;
 `;
@@ -120,7 +122,7 @@ export const DivSearchIcon = styled.div`
   width: 16px;
   height: 16px;
   position: absolute;
-  left: 17px;
+  left: 20px;
 `;
 export const DivContainerMicro = styled.div`
   display: flex;
