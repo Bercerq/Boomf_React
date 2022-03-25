@@ -11,19 +11,22 @@ import {
   LineDivStandard,
   SheetDivFlex,
   SheetContainer,
-  TextContentStandard
+  TextContentStandard, DivStandardInside
 } from "./style";
 
-const InsidePages = ({editTextRef}) => {
+const InsidePages = ({editTextRef, standardName}) => {
   const {mobileDevice} = useResizeDevice({maxWidth: 540});
   const {textDataState} = useSelector(({textDataReducer}) => textDataReducer);
-  //todo style
   return (
-    <div id="buttonClickStandard" ref={ref => editTextRef.current[1] = ref}
-         style={textDataState.focusState && mobileDevice ? {zIndex: 4} : {}}>
+    <DivStandardInside
+      id="buttonClickStandard"
+      ref={ref => editTextRef.current[1] = ref}
+      focusState={textDataState.focusState && mobileDevice}
+      standardName={standardName === 'Inside' ? '-40vw' : '100vw'}
+    >
       <SheetDivFlex>
         <FontPageDiv>
-          <SheetContainer>
+          <SheetContainer standardName={standardName === 'Inside' ? '-40vw' : '100vw'}>
             <TextContentStandard>
               <TextDraggable
                 buttonFlag='buttonClickStandard'
@@ -43,7 +46,7 @@ const InsidePages = ({editTextRef}) => {
           </SheetContainer>
         </FontPageDiv>
       </SheetDivFlex>
-    </div>
+    </DivStandardInside>
   );
 };
 

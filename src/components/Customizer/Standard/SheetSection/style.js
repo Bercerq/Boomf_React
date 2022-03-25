@@ -53,7 +53,7 @@ export const SheetContainer = styled.div`
   margin-top: 10px;
   width: fit-content;
   height: fit-content;
-
+  transform: translate(${({standardName}) => standardName}, 0);
   box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04),
   0 8px 16px rgba(96, 97, 112, 0.16);
   z-index: 2;
@@ -70,6 +70,15 @@ export const SheetContainer = styled.div`
   @media (max-width: 540px) and (max-height: 720px) {
     margin: 10px 20px;
   }
+`;
+
+export const DivStandardInside = styled.div`
+  position: relative;
+  display: flex;
+  width: 100vw;
+  overflow: auto;
+  transform: translate(${({standardName}) => standardName}, 0);
+  ${({focusState}) => focusState && `z-index: 4;`}
 `;
 
 export const TextContentStandard = styled.div`

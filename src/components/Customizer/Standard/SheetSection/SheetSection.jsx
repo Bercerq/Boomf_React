@@ -14,12 +14,17 @@ const SheetSection = ({editTextRef}) => {
 
   return (
     <SheetContentPage>
-      {standardName === 'Front' && (
-        <FontPage/>
-      )}
-      {standardName === 'Inside' && (
-        <InsidePages editTextRef={editTextRef}/>
-      )}
+      <div style={{display: 'flex'}}>
+        {/*{standardName === 'Front' && (*/}
+          <FontPage standardName={standardName}/>
+        {/*)}*/}
+        {/*{standardName === 'Inside' && (*/}
+          <InsidePages
+            editTextRef={editTextRef}
+            standardName={standardName}
+          />
+        {/*)} */}
+      </div>
       <SelectPage />
     </SheetContentPage>
   );
