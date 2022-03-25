@@ -108,10 +108,6 @@ export const DivUploadImage = styled.div`
   ${({ loadingState, loadedElement, images }) =>
     loadingState && loadedElement === images && `filter:blur(3px)`};
   img {
-    border: ${({ id, activeId }) =>
-      activeId && activeId === id
-        ? `3px solid #2EDBE3;`
-        : "3px solid transparent"};
     width: 150px;
     height: 150px;
     border-radius: 16px;
