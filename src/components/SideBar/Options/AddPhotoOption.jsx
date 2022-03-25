@@ -64,12 +64,11 @@ function AddPhotoOption() {
         {/**todo Route temporary solution*/}
         {imageData?.map((img, idx) =>
           img.id ? (
-            <ImageWrapper>
+            <ImageWrapper key={"DivUploadImage" + idx}>
               <DivUploadImage
                 images={img}
                 loadingState={loadingState}
                 loadedElement={imageData.slice(-1)[0]}
-                key={"DivUploadImage" + idx}
               >
                 <CloseIconDiv onClick={() => deleteImage(img.id)}>
                   <img src={CloseImage} alt="Close" />
