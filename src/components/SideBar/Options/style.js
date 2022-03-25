@@ -1,5 +1,8 @@
 import styled from "styled-components";
 export const MainWrapper = styled.div``;
+export const ImageWrapper = styled.div`
+  position: relative;
+`;
 
 export const ActionsWrapper = styled.div`
   display: flex;
@@ -67,6 +70,29 @@ export const CloseIconDiv = styled.div`
     margin: unset !important;
   }
 `;
+
+export const Loader = styled.div`
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50px;
+  left: 55px;
+  border-top: 5px solid white;
+  z-index: 1;
+  border-bottom: 5px solid white;
+  border-radius: 50px;
+  animation: LoaderRotate 2s infinite;
+  @keyframes LoaderRotate {
+    0% {
+      transform: rotateZ(0deg);
+    }
+
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+`;
+
 export const DivUploadImage = styled.div`
   position: relative;
   display: flex;
@@ -79,7 +105,8 @@ export const DivUploadImage = styled.div`
   &:hover {
     transform: scale(1.1);
   }
-
+  ${({ loadingState, loadedElement, images }) =>
+    loadingState && loadedElement === images && `filter:blur(3px)`};
   img {
     border: ${({ id, activeId }) =>
       activeId && activeId === id
@@ -110,7 +137,6 @@ export const InputFilterImage = styled.input`
   border-color: transparent;
   font-size: 16px;
   outline: none;
-  
 `;
 export const DivMicroIcon = styled.div`
   position: absolute;

@@ -14,10 +14,12 @@ import { setDeleteImageLibrary } from "../../../redux/actions/imageLibrary";
 import CloseImage from "../../../utils/assets/svg/CloseImage.svg";
 import {
   MainWrapper,
+  ImageWrapper,
   ActionsWrapper,
   UploadedImagesWrapper,
   DivUploadImage,
   CloseIconDiv,
+  Loader,
 } from "./style";
 import { getUserImages } from "../../../redux/actions/images";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -30,6 +32,7 @@ function AddPhotoOption() {
   const { standardName } = useSelector(
     ({ standardReducer }) => standardReducer
   );
+  const { loadingState } = useSelector(({ loadingReducer }) => loadingReducer);
 
   const dispatch = useDispatch();
   const setImage = (img) => () => {
@@ -60,17 +63,25 @@ function AddPhotoOption() {
         {/**todo Route temporary solution*/}
         {imageData?.map((img, idx) =>
           img.id ? (
-            <DivUploadImage key={"DivUploadImage" + idx}>
-              <CloseIconDiv onClick={() => deleteImage(img.id)}>
-                <img src={CloseImage} alt="Close" />
-              </CloseIconDiv>
-              <LazyLoadImage
-                id={img.id}
-                onClick={setImage(img)}
-                src={img.img || img.url}
-                effect="blur"
-              />
-            </DivUploadImage>
+            <ImageWrapper>
+              <DivUploadImage
+                images={img}
+                loadingState={loadingState}
+                loadedElement={imageData.slice(-1)[0]}
+                key={"DivUploadImage" + idx}
+              >
+                <CloseIconDiv onClick={() => deleteImage(img.id)}>
+                  <img src={CloseImage} alt="Close" />
+                </CloseIconDiv>
+                <LazyLoadImage
+                  id={img.id}
+                  onClick={setImage(img)}
+                  src={img.img || img.url}
+                  effect="blur"
+                />
+              </DivUploadImage>
+              {loadingState && imageData.slice(-1)[0] === img && <Loader />}
+            </ImageWrapper>
           ) : null
         )}
       </UploadedImagesWrapper>
