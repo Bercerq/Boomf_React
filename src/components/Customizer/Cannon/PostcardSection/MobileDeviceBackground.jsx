@@ -9,6 +9,7 @@ const MobileDeviceBackground = ({title, itemState, selectItem}) => {
       <BackgroundItem
         onClick={selectItem}
         name={itemState.name}
+        mobileDevice={true}
       >
         <BackgroundImage
           src={itemState.img}

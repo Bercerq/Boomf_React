@@ -137,7 +137,7 @@ export const BackgroundCard = styled.div`
   }
 
   @media (max-width: 540px) {
-    margin: 10px 0 0 0;
+    margin: 14px 10px 0 0;
     height: 413px;
     width: 248px;
   }
