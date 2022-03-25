@@ -6,7 +6,7 @@ import { BoxSide, BoxText, PickerItemText } from "./style";
 function SelectText() {
   const dispatch = useDispatch();
   const setFocusToTop = () => {
-    dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
+    dispatch(setUpdateTextData({ key: "focusState", value: true }));
   };
   return (
     <PickerItemText>
