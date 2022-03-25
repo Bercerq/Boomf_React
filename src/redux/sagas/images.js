@@ -4,6 +4,7 @@ import { api } from "../../services/api_boomf";
 import { apiResizer } from "../../services/api_resizer";
 import { setUserImages } from "../actions/imageLibrary";
 import { setCategoriesImages, setImages } from "../actions/images";
+import { setLoading } from "../actions/loader";
 
 import {
   GET_BOOMF_LIBRARY_CATEGORIES,
@@ -14,9 +15,11 @@ import {
 
 function* uploadImageReq(data) {
   const { value } = data.payload;
+  yield put(setLoading(true));
   try {
     yield call(apiResizer.post, "/users/images", value);
   } catch (error) {}
+  yield put(setLoading(false));
 }
 
 function* getUserImagesReq() {

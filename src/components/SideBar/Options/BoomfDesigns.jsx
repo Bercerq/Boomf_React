@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { DivCollectionImage } from "./style";
 import LibraryImages from "./components/LibraryImages";
@@ -13,6 +13,7 @@ const BoomfDesigns = ({ setSubTitle }) => {
   const { searchedImage } = useSelector(
     ({ boomfImagesReducer }) => boomfImagesReducer
   );
+
   const [filterdImages, setFilteredImages] = useState();
   useEffect(() => {
     setFilteredImages(

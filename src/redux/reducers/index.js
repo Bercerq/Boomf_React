@@ -8,7 +8,8 @@ import imageLibraryReducer from "./imageLibrary";
 import textDataReducer from "./textData";
 import standardReducer from "./standard";
 import sessionReducer from "./session";
-import boomfImagesReducer from './images';
+import boomfImagesReducer from "./images";
+import loadingReducer from "./loader";
 
 const rootReducer = combineReducers({
   boombReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   standardReducer,
   sessionReducer,
   boomfImagesReducer,
+  loadingReducer,
 });
 
 export default rootReducer;
