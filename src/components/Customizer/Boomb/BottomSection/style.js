@@ -61,7 +61,7 @@ export const BoxSide = styled.div`
   border: ${({ curCubePosition, position }) =>
     curCubePosition && curCubePosition === position
       ? `3px solid #2EDBE3;`
-      : "3px solid #f5f5f5"};
+      : "3px solid #d6d6d6"};
   height: 120px;
   width: 120px;
   ${({ img }) => !img && "background: #d6d6d6;"};
