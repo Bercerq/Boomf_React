@@ -1,5 +1,8 @@
 import styled from "styled-components";
 export const MainWrapper = styled.div``;
+export const ImageWrapper = styled.div`
+  position: relative;
+`;
 
 export const ActionsWrapper = styled.div`
   display: flex;
@@ -21,7 +24,6 @@ export const UploadedImagesWrapper = styled.div`
     margin-top: 10px;
   }
 `;
-
 
 export const ImageCide = styled.label`
   display: flex;
@@ -68,6 +70,29 @@ export const CloseIconDiv = styled.div`
     margin: unset !important;
   }
 `;
+
+export const Loader = styled.div`
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50px;
+  left: 55px;
+  border-top: 5px solid white;
+  z-index: 1;
+  border-bottom: 5px solid white;
+  border-radius: 50px;
+  animation: LoaderRotate 2s infinite;
+  @keyframes LoaderRotate {
+    0% {
+      transform: rotateZ(0deg);
+    }
+
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+`;
+
 export const DivUploadImage = styled.div`
   position: relative;
   display: flex;
@@ -80,7 +105,8 @@ export const DivUploadImage = styled.div`
   &:hover {
     transform: scale(1.1);
   }
-
+  ${({ loadingState, loadedElement, images }) =>
+    loadingState && loadedElement === images && `filter:blur(3px)`};
   img {
     border: ${({ id, activeId }) =>
       activeId && activeId === id
@@ -104,15 +130,17 @@ export const ButtonsWrapper = styled.div``;
 export const ButtonsItem = styled.div``;
 
 export const InputFilterImage = styled.input`
-  padding: 7px 8px 7px 27px;
-  width: 53%;
+  padding: 10px 8px 10px 30px;
+  width: 56%;
   background: rgba(118, 118, 128, 0.12);
   border-radius: 10px;
   border-color: transparent;
+  font-size: 16px;
+  outline: none;
 `;
 export const DivMicroIcon = styled.div`
   position: absolute;
-  left: 54%;
+  left: 58%;
   width: 16px;
   height: 16px;
 `;
@@ -120,7 +148,7 @@ export const DivSearchIcon = styled.div`
   width: 16px;
   height: 16px;
   position: absolute;
-  left: 17px;
+  left: 20px;
 `;
 export const DivContainerMicro = styled.div`
   display: flex;
