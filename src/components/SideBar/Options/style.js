@@ -12,7 +12,7 @@ export const ActionsWrapper = styled.div`
     width: 100vw;
   }
   @media (max-width: 500px) {
-    width: 90vw;
+    width: 83vw;
   }
 `;
 export const UploadedImagesWrapper = styled.div`
@@ -99,6 +99,9 @@ export const DivUploadImage = styled.div`
   width: 150px;
   height: 150px;
   margin: 12px;
+  @media (max-width: 380px) {
+    margin: 4px;
+  }
   justify-content: center;
   align-items: center;
   transition: 0.3s;
@@ -127,7 +130,7 @@ export const ButtonsItem = styled.div``;
 
 export const InputFilterImage = styled.input`
   padding: 10px 8px 10px 30px;
-  width: 56%;
+  width: 92%;
   background: rgba(118, 118, 128, 0.12);
   border-radius: 10px;
   border-color: transparent;
@@ -136,9 +139,12 @@ export const InputFilterImage = styled.input`
 `;
 export const DivMicroIcon = styled.div`
   position: absolute;
-  left: 58%;
+  left: 92%;
   width: 16px;
   height: 16px;
+  @media (max-width: 460px) {
+    left: 90%;
+  }
 `;
 export const DivSearchIcon = styled.div`
   width: 16px;
