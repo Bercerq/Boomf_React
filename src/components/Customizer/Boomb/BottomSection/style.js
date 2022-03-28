@@ -97,7 +97,7 @@ export const ButtonWrapper = styled.div`
   }
 
   @media (max-width: 625px) {
-    right: 30px;
+    right: 12px;
     width: 95vw;
   }
   @media (max-width: 520px) {

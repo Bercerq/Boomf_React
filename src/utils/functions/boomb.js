@@ -9,11 +9,11 @@ import {
   setUpdateTextData,
 } from "../../redux/actions/textData";
 
-import {setAddImageLibrary} from "../../redux/actions/imageLibrary";
-import {setCurrentModal} from "../../redux/actions/modal";
-import {StaticText} from "../../components/Customizer/Boomb/CubeSection/style";
-import {uid} from "./textData";
-import {fetchUploadImage} from "../../redux/actions/images";
+import { setAddImageLibrary } from "../../redux/actions/imageLibrary";
+import { setCurrentModal } from "../../redux/actions/modal";
+import { StaticText } from "../../components/Customizer/Boomb/CubeSection/style";
+import { uid } from "./textData";
+import { fetchUploadImage } from "../../redux/actions/images";
 
 export const changeCubeRotate = (
   operator,
@@ -64,7 +64,7 @@ export const setUploadImage = (img, imageData, dispatch) => {
 
   formData.append("image", img[0]);
   console.log(formData);
-  dispatch(fetchUploadImage({value: formData}));
+  dispatch(fetchUploadImage({ value: formData }));
 };
 export const setBoxPosition = (dispatch, position, defaultRotate) => () => {
   dispatch(setCurPosition(position));
@@ -96,21 +96,45 @@ export const openEditor = (dispatch, buttonFlag) => () => {
   button.addEventListener("click", (event) => {
     if (event.detail === 1) {
       timer = setTimeout(() => {
-        dispatch(setUpdateTextData({key: "currentEditor", value: {flag: "", state: true}}));
-        dispatch(setUpdateTextData({key: "focusState", value: true}));
+        dispatch(
+          setUpdateTextData({
+            key: "currentEditor",
+            value: { flag: "", state: true },
+          })
+        );
+        dispatch(setUpdateTextData({ key: "focusState", value: true }));
       }, 200);
     }
   });
   button.addEventListener("dblclick", () => {
     clearTimeout(timer);
-    dispatch(setUpdateTextData({key: "currentEditor", value: {flag: "", state: false}}));
-    dispatch(setUpdateTextData({key: "focusState", value: false}));
+    dispatch(
+      setUpdateTextData({
+        key: "currentEditor",
+        value: { flag: "", state: false },
+      })
+    );
+    dispatch(setUpdateTextData({ key: "focusState", value: false }));
+    if (buttonFlag === "buttonClickTop") {
+
+      dispatch(
+        setCurrentModal({
+          title: "Text",
+          state: true,
+        })
+      );
+    }
   });
 
   button.addEventListener("touchend", () => {
     clearTimeout(timer);
-    dispatch(setUpdateTextData({key: "focusState", value: true}));
-    dispatch(setUpdateTextData({key: "currentEditor", value: {flag: "", state: true}}));
+    dispatch(setUpdateTextData({ key: "focusState", value: true }));
+    dispatch(
+      setUpdateTextData({
+        key: "currentEditor",
+        value: { flag: "", state: true },
+      })
+    );
   });
 
   if (buttonFlag === "buttonClickTop") {
@@ -151,7 +175,7 @@ export const handleClickAddToCart =
 
 export const findCurrentCrop = (boombData, curCubePosition) => {
   const curCrop = boombData.find(
-    ({position}) => curCubePosition === position
+    ({ position }) => curCubePosition === position
   );
   return +curCrop.editCrop;
 };

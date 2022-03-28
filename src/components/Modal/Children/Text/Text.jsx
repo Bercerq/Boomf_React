@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { setCurrentModal } from "../../../../redux/actions/modal";
-import { useEditText } from "../../../../utils/hooks/useEditText";
-import BlueButton from "../../../Buttons/BlueButton";
-import { TextArea } from "../style";
 import { setUpdateTextData } from "./../../../../redux/actions/textData";
+
+import BlueButton from "../../../Buttons/BlueButton";
+
+import { TextArea } from "../style";
 
 function Text() {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
-
-  const { textData, textDataState } = useSelector(
+  const { textDataState } = useSelector(
     ({ textDataReducer }) => textDataReducer
   );
-
-  const data = textData.find(({ focusState }) => focusState);
-  console.log(data);
   const handleSaveChanges = () => {
     dispatch(setUpdateTextData({ key: "value", value }));
+    setValue("");
     dispatch(
       setCurrentModal({
         title: "Text",
@@ -28,10 +27,11 @@ function Text() {
   const handleSetValue = (e) => {
     setValue(e.target.value);
   };
+
   return (
     <div>
       <TextArea
-        defaultValue={data?.value}
+        value={textDataState.value || value}
         placeholder="Placeholder"
         onChange={handleSetValue}
       />
