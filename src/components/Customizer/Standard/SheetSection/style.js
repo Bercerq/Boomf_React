@@ -8,7 +8,6 @@ export const SheetContentPage = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
 export const SheetBlock = styled.div`
   width: 100%;
   height: 100%;
@@ -16,7 +15,6 @@ export const SheetBlock = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
 export const TitleStandard = styled.h3`
   margin: 30px;
   font-family: Objectivity, serif;
@@ -27,7 +25,6 @@ export const TitleStandard = styled.h3`
     margin: 10px;
   }
 `;
-
 export const FontPageDiv = styled.div`
   position: relative;
   display: flex;
@@ -39,7 +36,12 @@ export const FontPageDiv = styled.div`
     width: fit-content;
     height: auto;
   }
-`
+`;
+
+export const DivSheets = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export const SheetContainer = styled.div`
   position: relative;
@@ -49,27 +51,45 @@ export const SheetContainer = styled.div`
   background: #FFFFFF;
 
   overflow: hidden;
-
+  
+  z-index: 2;
   margin-top: 10px;
   width: fit-content;
   height: fit-content;
 
   box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04),
   0 8px 16px rgba(96, 97, 112, 0.16);
-  z-index: 2;
+
   @media (min-width: 1440px) and (max-height: 920px) {
     height: 480px;
   }
   @media (max-width: 1280px) {
     margin: 22px;
   }
-  @media (max-height: 1024px) and (max-width: 800px),
-  screen and (max-width: 1280px) and (max-height: 800px) {
-    margin: 10px;
-  }
   @media (max-width: 540px) and (max-height: 720px) {
     margin: 10px 20px;
   }
+`;
+
+export const SheetContainerFrontPage = styled(SheetContainer)`
+  transition-duration: ${({firstLoading}) => firstLoading ? '1s' : '0s'};
+  transform: translate(${({standardName}) => standardName ? 0 : '-150vw'}, 0);
+`;
+
+export const DivStandardInside = styled.div`
+  position: absolute;
+
+  display: flex;
+  overflow: hidden;
+
+  transition-duration: 1s;
+  transform: translate(${({standardName}) => standardName ? '0' : '150vw'}, 0);
+  
+  @media (max-width: 920px) {
+    transform: translate(${({standardName}) => standardName ? '0' : '150vw'}, 0);
+  }
+  
+  ${({focusState}) => focusState && `z-index: 4;`}
 `;
 
 export const TextContentStandard = styled.div`
@@ -84,8 +104,8 @@ export const TextContentStandard = styled.div`
     width: 350px;
     height: 480px;
   }
-  
-  @media (max-height: 1024px) and (max-width: 800px),
+
+  @media (max-height: 1024px) and (max-width: 800px), 
   screen and (max-width: 1280px) and (max-height: 800px) {
     width: 290px;
     height: 400px;
@@ -144,9 +164,7 @@ export const FrontSheetDiv = styled.div`
 
   box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04),
   0 16px 24px rgba(96, 97, 112, 0.16);
-  @media (max-height: 1024px) and (max-width: 800px),
-  screen and (max-width: 1280px) and (max-height: 800px),
-  screen and (max-width: 540px) {
+  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px), screen and (max-width: 540px) {
     width: 54px;
     height: 75px;
   }
@@ -158,9 +176,7 @@ export const FrontDblSheet = styled(FrontSheetDiv)`
   width: 204px;
   height: 144px;
 
-  @media (max-height: 1024px) and (max-width: 800px),
-  screen and (max-width: 1280px) and (max-height: 800px),
-  screen and (max-width: 540px) {
+  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px), screen and (max-width: 540px) {
     width: 109px;
     height: 75px;
   }
@@ -193,8 +209,7 @@ export const SheetDivFlex = styled(DivFlex)`
     overflow: auto hidden;
     width: 100vw;
   }
-  @media (max-height: 1024px) and (max-width: 800px),
-  screen and (max-width: 1280px) and (max-height: 800px) {
+  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px) {
     justify-content: center;
   }
   @media (max-width: 920px) {

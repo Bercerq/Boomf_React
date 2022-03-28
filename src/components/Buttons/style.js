@@ -13,7 +13,7 @@ export const BlueBtn = styled.button`
   outline: none;
   font-family: "objectivity-regular-11", sans-serif;
   font-weight: 400;
-
+  
   &:hover {
     background: #85ecf1;
   }
@@ -25,7 +25,6 @@ export const BlueBtn = styled.button`
   img {
     margin-left: 4px;
   }
-
 `;
 
 export const WhiteBtn = styled.button`

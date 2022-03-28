@@ -9,26 +9,14 @@ import BlueButton from "../../../Buttons/BlueButton";
 import ArrowRightIcon from "../../../../utils/assets/svg/ArrowRightIcon.svg";
 
 import {PostcardButton} from "../../Cannon/PostcardSection/style";
-import {
-  ActiveSheetDiv,
-  ColumnActiveSheet,
-  DivFlex,
-  DivSheetContent,
-  FrontDblSheet,
-  FrontSheetDiv,
-  LineDivStandard, TitleNameSheet
-} from "./style";
+import {ActiveSheetDiv, ColumnActiveSheet} from "./style";
 
-const SelectPage = () => {
+const SelectPage = ({children}) => {
   const dispatch = useDispatch();
 
   const {standardName} = useSelector(
     ({standardReducer}) => standardReducer
   );
-
-  const handleSelect = (name) => {
-    dispatch(setStandardName(name));
-  }
 
   const handleButtonClick = () => {
     if (standardName === 'Front') {
@@ -41,29 +29,10 @@ const SelectPage = () => {
   return (
     <ColumnActiveSheet>
       <ActiveSheetDiv>
-        <DivSheetContent>
-          <FrontSheetDiv
-            activeSheet={standardName === 'Front'}
-            onClick={() => handleSelect('Front')}
-          />
-          <TitleNameSheet>Front</TitleNameSheet>
-        </DivSheetContent>
-        <DivSheetContent>
-          <DivFlex
-            onClick={() => handleSelect('Inside')}
-            activeSheet={standardName === 'Inside'}
-          >
-            <FrontDblSheet>
-              <LineDivStandard zIndexPos={true}/>
-            </FrontDblSheet>
-          </DivFlex>
-          <TitleNameSheet>Inside pages</TitleNameSheet>
-        </DivSheetContent>
+        {children}
       </ActiveSheetDiv>
-
-
       <PostcardButton widthSheet={true}>
-        <BlueButton handleButtonClick={handleButtonClick}>
+        <BlueButton handleButtonClick={handleButtonClick} fontFamily={'normal none 400 16px 170% "Objectivity"'}>
           {standardName === 'Front' ? ('Inside pages') : ('Add to cart')} <img src={ArrowRightIcon} alt="add"/>
         </BlueButton>
       </PostcardButton>

@@ -1,56 +1,68 @@
-import {useEffect, useRef, useState} from 'react';
-import {useDispatch} from "react-redux";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 
-import {useResize} from "./useResize";
-import {useRotate} from "./useRotate";
+import { useResize } from "./useResize";
+import { useRotate } from "./useRotate";
 import useDebounce from "./useDebounce";
 
-import {setUpdateTextData} from "../../redux/actions/textData";
+import { setUpdateTextData } from "../../redux/actions/textData";
 
-export const useEditText = ({resizeOption, textDataState}) => {
+export const useEditText = ({ resizeOption, textDataState }) => {
   const [textState, setText] = useState("");
   const [positionState, setPosition] = useState(null);
-  const [autoResizeState, setAutoResize] = useState({width: 'auto', height: 'auto'});
+  const [autoResizeState, setAutoResize] = useState({
+    width: "auto",
+    height: "auto",
+  });
 
   const refResize = useRef();
   const refRotate = useRef();
 
-  const {initResize, sizeState} = useResize(refResize, resizeOption || {step: 1, axis: 'horizontal'});
-  const {initRotate, rotateState, setRotateState} = useRotate(refRotate, '', textDataState.rotate);
+  const { initResize, sizeState } = useResize(
+    refResize,
+    resizeOption || { step: 1, axis: "horizontal" }
+  );
+  const { initRotate, rotateState, setRotateState } = useRotate(
+    refRotate,
+    "",
+    textDataState.rotate
+  );
 
   const debouncedValue = useDebounce(textState, 500);
   const debouncedPosition = useDebounce(positionState, 100);
   const debouncedRotate = useDebounce(rotateState, 500);
   const debouncedSize = useDebounce(sizeState, 500);
-  const debouncedAuthSize = useDebounce(autoResizeState, 500)
+  const debouncedAuthSize = useDebounce(autoResizeState, 500);
 
   const setTextState = (event) => {
-    if(event) {
+    if (event) {
       setText(event.target.value);
     }
-  }
+  };
 
   const setAutoResizeState = (size) => {
-    if(size) {
-      setAutoResize(size)
+    if (size) {
+      setAutoResize(size);
     }
-  }
+  };
 
   useEffect(() => {
     if (rotateState) {
-      dispatch(setUpdateTextData({key: 'rotate', value: debouncedRotate}));
+      dispatch(setUpdateTextData({ key: "rotate", value: debouncedRotate }));
     }
   }, [debouncedRotate]);
 
   useEffect(() => {
     if (textDataState.focusState) {
-      dispatch(setUpdateTextData({key: 'value', value: debouncedValue}));
+      dispatch(setUpdateTextData({ key: "value", value: debouncedValue }));
     }
   }, [debouncedValue]);
 
   useEffect(() => {
     if (positionState) {
-      dispatch(setUpdateTextData({key: 'position', value: debouncedPosition}));
+      dispatch(
+        setUpdateTextData({ key: "position", value: debouncedPosition })
+      );
     }
   }, [debouncedPosition]);
 
@@ -68,7 +80,7 @@ export const useEditText = ({resizeOption, textDataState}) => {
       setPosition(textDataState.position);
       setRotateState(textDataState.rotate);
     }
-  }, [textDataState.id]);
+  }, [textDataState.id, textDataState.value]);
 
   const dispatch = useDispatch();
   return {
@@ -83,6 +95,6 @@ export const useEditText = ({resizeOption, textDataState}) => {
     initResize,
     initRotate,
     rotateState,
-    sizeState
-  }
+    sizeState,
+  };
 };

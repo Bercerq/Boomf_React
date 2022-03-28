@@ -7,7 +7,7 @@ export const PanelContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 4;
+  z-index: 5;
 
   @media (max-width: 1130px) {
     height: unset;
@@ -113,11 +113,26 @@ export const SideBarWindow = styled.div`
   opacity: 0;
   transition: 0.4s;
   pointer-events: none;
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #ababab #ffffff;
+  }
+
+  *::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ababab;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
   ${({ currentSidebar }) =>
     currentSidebar && "opacity:1; pointer-events: all;transition: 0.4s;"}
-  @media(max-width:1130px) {
-    width: unset;
-  }
 `;
 export const SideBarContent = styled.div`
   font-family: "objectivity-regular-11", sans-serif;
@@ -128,11 +143,18 @@ export const SideBarContent = styled.div`
     0px 16px 24px rgba(96, 97, 112, 0.16);
   width: 0vw;
   transition: 0.4s;
+  height: 100vh;
+  overflow-y: scroll;
+
   ${({ currentSidebar }) =>
     currentSidebar &&
-    "width: 46.5vw;transition: 0.4s;@media(max-width:1130px){width:100%};"};
-  height: 100vh;
-  overflow: auto;
+    `width: 715px;
+     transition: 0.4s;
+     overflow-x: hidden;
+     @media(max-width:750px){
+       width:525px;
+    };
+  `};
 `;
 
 export const SideContent = styled.div`
@@ -142,18 +164,18 @@ export const SideContent = styled.div`
 `;
 
 export const SideBarTitle = styled.div`
-  width: 40vw;
+  width: 670px;
   top: 0;
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 42px;
-  @media (max-width: 1130px) {
-    width: 90vw;
+  @media (max-width: 750px) {
+    width: 470px;
   }
-  @media (max-width: 580px) {
-    width: 80vw;
-  }
+  @media (max-width: 550px) {
+    width: 75vw;
+  } ;
 `;
 
 export const Title = styled.div`
