@@ -7,7 +7,7 @@ export const PanelContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 4;
+  z-index: 5;
 
   @media (max-width: 1130px) {
     height: unset;

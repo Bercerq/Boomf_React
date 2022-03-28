@@ -57,10 +57,10 @@ export const findPanelOption = (dispatch) =>
 
 export const findMobileDevice = ({ selectedBackground, selectedConfetti }) => {
   if (selectedBackground) {
-    return <BackgroundDevice />;
+    return <BackgroundDevice columnConfetti={7}/>;
   }
   if (selectedConfetti) {
-    return <ConfettiDevice justifyContent="space-evenly" />;
+    return <ConfettiDevice justifyContent="space-evenly" columnConfetti={7}/>;
   }
 };
 

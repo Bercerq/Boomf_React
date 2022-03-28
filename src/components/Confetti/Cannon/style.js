@@ -58,6 +58,8 @@ export const ConfettiBoxCannon = styled.div`
 `;
 
 export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
+  grid-template-columns: repeat(${({columnConfetti}) => columnConfetti}, 1fr);
+  justify-items: center;
   @media (max-height: 600px) and (max-width: 1300px) {
     display: grid;
     width: fit-content !important;

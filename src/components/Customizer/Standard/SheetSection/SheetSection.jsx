@@ -5,7 +5,8 @@ import FontPage from "./FontPage";
 import SelectPage from "./SelectPage";
 import InsidePages from "./InsidePages";
 
-import {SheetContentPage} from "./style";
+import {DivSheets, SheetContentPage} from "./style";
+import SheetPageStandard from "./SheetPageStandard";
 
 const SheetSection = ({editTextRef}) => {
   const {standardName} = useSelector(
@@ -14,18 +15,18 @@ const SheetSection = ({editTextRef}) => {
 
   return (
     <SheetContentPage>
-      <div style={{display: 'flex'}}>
-        {/*{standardName === 'Front' && (*/}
-          <FontPage standardName={standardName}/>
-        {/*)}*/}
-        {/*{standardName === 'Inside' && (*/}
-          <InsidePages
-            editTextRef={editTextRef}
-            standardName={standardName}
-          />
-        {/*)} */}
-      </div>
-      <SelectPage />
+      <DivSheets>
+        <FontPage
+          standardName={standardName}
+        />
+        <InsidePages
+          editTextRef={editTextRef}
+          standardName={standardName}
+        />
+      </DivSheets>
+      <SelectPage>
+        <SheetPageStandard/>
+      </SelectPage>
     </SheetContentPage>
   );
 };

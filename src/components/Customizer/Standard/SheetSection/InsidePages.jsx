@@ -17,16 +17,17 @@ import {
 const InsidePages = ({editTextRef, standardName}) => {
   const {mobileDevice} = useResizeDevice({maxWidth: 540});
   const {textDataState} = useSelector(({textDataReducer}) => textDataReducer);
+
   return (
     <DivStandardInside
       id="buttonClickStandard"
       ref={ref => editTextRef.current[1] = ref}
       focusState={textDataState.focusState && mobileDevice}
-      standardName={standardName === 'Inside' ? '-40vw' : '100vw'}
+      standardName={standardName === 'Inside'}
     >
       <SheetDivFlex>
         <FontPageDiv>
-          <SheetContainer standardName={standardName === 'Inside' ? '-40vw' : '100vw'}>
+          <SheetContainer>
             <TextContentStandard>
               <TextDraggable
                 buttonFlag='buttonClickStandard'
