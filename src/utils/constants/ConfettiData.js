@@ -38,20 +38,20 @@ import Background14 from '../assets/png/background/Background-14.webp'
 // import Unicorn from "../assets/png/confetti/Unicorn.png";
 // import Watermelon from "../assets/png/confetti/Watermelon.png";
 
-import BlueConfetti from "../assets/png/background-1/blue-confetti.webp";
-import BlueRacingStripe from "../assets/png/background-1/blue-racing-stripe.webp";
-import Cn015 from "../assets/png/background-1/cn015.webp";
-import Cn016 from "../assets/png/background-1/cn016.webp";
-import Cn020 from "../assets/png/background-1/cn020.webp";
-import CoralHeart from "../assets/png/background-1/coral-heart.webp";
-import LightpinkHearts from "../assets/png/background-1/lightpink-hearts.webp";
-import MultiStar from "../assets/png/background-1/multi-star.webp";
-import OutOfThisWorldCn from "../assets/png/background-1/out-of-this-world-cn.webp";
-import PinkFlower from "../assets/png/background-1/pink-flower.webp";
-import PinkHeart from "../assets/png/background-1/pink-heart.webp";
-import PrideBlendedCn from "../assets/png/background-1/pride-blended-cn.webp";
-import PrideLinearCn from "../assets/png/background-1/pride-linear-cn.webp";
-import PurpleConfetti from "../assets/png/background-1/purple-confetti.webp";
+// import BlueConfetti from "../assets/png/background-1/blue-confetti.webp";
+// import BlueRacingStripe from "../assets/png/background-1/blue-racing-stripe.webp";
+// import Cn015 from "../assets/png/background-1/cn015.webp";
+// import Cn016 from "../assets/png/background-1/cn016.webp";
+// import Cn020 from "../assets/png/background-1/cn020.webp";
+// import CoralHeart from "../assets/png/background-1/coral-heart.webp";
+// import LightpinkHearts from "../assets/png/background-1/lightpink-hearts.webp";
+// import MultiStar from "../assets/png/background-1/multi-star.webp";
+// import OutOfThisWorldCn from "../assets/png/background-1/out-of-this-world-cn.webp";
+// import PinkFlower from "../assets/png/background-1/pink-flower.webp";
+// import PinkHeart from "../assets/png/background-1/pink-heart.webp";
+// import PrideBlendedCn from "../assets/png/background-1/pride-blended-cn.webp";
+// import PrideLinearCn from "../assets/png/background-1/pride-linear-cn.webp";
+// import PurpleConfetti from "../assets/png/background-1/purple-confetti.webp";
 
 
 export const confettiDataBoomb = [
