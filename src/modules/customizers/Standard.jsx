@@ -1,19 +1,16 @@
-import React, { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import React, {useEffect, useRef} from "react";
+import {useDispatch} from "react-redux";
 
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
 import Sheet from "../../components/Customizer/Standard/Sheet";
-import { setConfettiData } from "../../redux/actions/confetti";
 
-import { confettiDataBoomb } from "../../utils/constants/ConfettiData";
-import { setStandardName } from "../../redux/actions/standard";
+import {setStandardName} from "../../redux/actions/standard";
 
 const Standard = () => {
   const dispatch = useDispatch();
   const editTextRef = useRef([]);
 
   useEffect(() => {
-    dispatch(setConfettiData(confettiDataBoomb));
     dispatch(setStandardName("Front"));
   }, [dispatch]);
 
@@ -23,7 +20,7 @@ const Standard = () => {
       editTextRef={editTextRef}
       title="Standard"
     >
-      <Sheet editTextRef={editTextRef} />
+      <Sheet editTextRef={editTextRef}/>
     </CustomizerLayout>
   );
 };

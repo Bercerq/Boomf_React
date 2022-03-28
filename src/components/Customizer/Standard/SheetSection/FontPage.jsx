@@ -1,13 +1,24 @@
-import React from 'react';
-import {SheetContainer, TextContentStandard} from "./style";
+import React, {useEffect, useState} from 'react';
+import {SheetContainerFrontPage, TextContentStandard} from "./style";
 
-const FontPage = () => {
+const FontPage = ({standardName}) => {
+  const [firstLoading, setFirstLoading] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setFirstLoading(true), 1000)
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, []);
+
   return (
-    <SheetContainer oneSheet={true}>
-      <TextContentStandard>
-
-      </TextContentStandard>
-    </SheetContainer>
+    <SheetContainerFrontPage
+      standardName={standardName === 'Front'}
+      firstLoading={firstLoading}
+    >
+      <TextContentStandard />
+    </SheetContainerFrontPage>
   );
 };
 

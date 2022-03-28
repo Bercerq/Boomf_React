@@ -236,7 +236,8 @@ export const PostcardButton = styled.div`
 
   @media (max-width: 540px) {
     button {
-      ${({widthSheet}) => widthSheet ? `padding: 8px 18px !important; height: 40px !important;margin: 0 0 0 8px !impor  tant;` : ''};
+      ${({widthSheet}) => widthSheet ? `
+        padding: 8px 18px !important; height: 40px !important;margin: 0 0 0 8px !important;` : ''};
     }
   }
 }

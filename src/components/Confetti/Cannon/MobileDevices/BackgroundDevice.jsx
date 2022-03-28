@@ -10,7 +10,7 @@ import {
   BackgroundItem
 } from "../style";
 
-const BackgroundDevice = () => {
+const BackgroundDevice = ({columnConfetti}) => {
   const {backgroundState, backgroundData} = useSelector(
     ({backgroundReducer}) => backgroundReducer
   );
@@ -21,7 +21,9 @@ const BackgroundDevice = () => {
 
   const dispatch = useDispatch();
   return (
-    <BackgroundBoxCannon>
+    <BackgroundBoxCannon
+      columnConfetti={columnConfetti}
+    >
       {backgroundData.map((background, idx) => (
         <BackgroundItem
           key={idx}

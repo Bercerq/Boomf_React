@@ -18,7 +18,7 @@ const Background = () => {
       <TitleCannon>
         Background: <span>{backgroundState.name}</span>
       </TitleCannon>
-      <BackgroundDevice />
+      <BackgroundDevice columnConfetti={7}/>
     </BackgroundWrapperCannon>
   );
 };

@@ -8,7 +8,7 @@ export const TextEditorWrapper = styled.div`
   left: 0;
   display: flex;
   align-items: end;
-  z-index: 3;
+  z-index: 4;
   opacity: 0;
   transition: 0.6s;
   pointer-events: none;
