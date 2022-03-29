@@ -1,26 +1,26 @@
-import React from 'react';
+import React from "react";
 
 import TextDraggable from "../../../Draggable/TextDraggable";
 import ImageDraggable from "../../../Draggable/ImageDraggable";
 
-import {LineDivStandard} from "../../Standard/SheetSection/style";
-import {TextContentTaDah} from "./style";
+import { LineDivStandard } from "../../Standard/SheetSection/style";
+import { TextContentTaDah } from "./style";
 
 const TextInsidePagesTaDah = () => {
   return (
     <>
-      <TextContentTaDah>
+      <TextContentTaDah id="buttonClickTaDah">
         <TextDraggable
-          buttonFlag='buttonClickTaDah'
+          buttonFlag="buttonClickTaDah"
           activeSizeImage={true}
           column={1}
         />
-        <ImageDraggable imageKey={'Inside'}/>
+        <ImageDraggable imageKey={"Inside"} />
       </TextContentTaDah>
-      <LineDivStandard/>
+      <LineDivStandard />
       <TextContentTaDah>
         <TextDraggable
-          buttonFlag='buttonClickTaDah'
+          buttonFlag="buttonClickTaDah"
           activeSizeImage={true}
           column={2}
         />
