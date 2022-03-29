@@ -12,9 +12,15 @@ import {
   ColourPalete,
   ColorItemPalete,
 } from "../style";
-function Colour({ option, setOption, colourDevice }) {
+import { useSelector } from "react-redux";
+function Colour({  setOption, colourDevice }) {
   const [paleteState, setPaletestate] = useState(false);
   const [colorPalete, setColorPalete] = useColor();
+
+  const { textDataState } = useSelector(
+    ({ textDataReducer }) => textDataReducer
+  );
+
   const handleSetFonts = (color) => () => {
     setOption(color);
   };
@@ -31,7 +37,7 @@ function Colour({ option, setOption, colourDevice }) {
       {background.map((color) => (
         <ColorItem
           key={color}
-          option={option}
+          option={textDataState.textStyles?.colour}
           onClick={handleSetFonts(color)}
           color={color}
         />

@@ -1,18 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { setConfettiData } from "../../redux/actions/confetti";
-import Cube from "../../components/Customizer/Boomb/Cube";
 import CustomizerLayout from "../../components/Layout/CustomizerLayout";
 import { confettiDataBoomb } from "../../utils/constants/ConfettiData";
-import Confetti from "../../components/Confetti/Confetti";
+import Mallow from "../../components/Customizer/MallowPops/Mallow";
 
-function Boomb() {
-  
+function MallowPops() {
   const dispatch = useDispatch();
-  const { confettiData } = useSelector(
-    ({ confettiReducer }) => confettiReducer
-  );
   const editTextRef = useRef([]);
 
   useEffect(() => {
@@ -21,14 +16,13 @@ function Boomb() {
 
   return (
     <CustomizerLayout
-      productType={"exploding_card"}
+      productType={"mallowpops"}
       editTextRef={editTextRef}
-      title="Boomb customizer"
+      title="Mallow Pops customizer"
     >
-      <Cube editTextRef={editTextRef} />
-      <Confetti textPosition="center" positionWrapper="absolute" />
+      <Mallow editTextRef={editTextRef} />
     </CustomizerLayout>
   );
 }
 
-export default Boomb;
+export default MallowPops;
