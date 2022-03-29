@@ -66,10 +66,13 @@ export const setUploadImage = (img, imageData, dispatch) => {
   console.log(formData);
   dispatch(fetchUploadImage({ value: formData }));
 };
-export const setBoxPosition = (dispatch, position, defaultRotate) => () => {
-  dispatch(setCurPosition(position));
-  dispatch(setCurRotate(defaultRotate));
-};
+export const setBoxPosition =
+  (dispatch, position, defaultRotate, textDataState) => () => {
+    if (!textDataState?.focusState) {
+      dispatch(setCurPosition(position));
+      dispatch(setCurRotate(defaultRotate));
+    }
+  };
 export const changeTopText = (setTopText, e) => {
   setTopText(e.target.value);
 };
@@ -116,7 +119,6 @@ export const openEditor = (dispatch, buttonFlag) => () => {
     );
     dispatch(setUpdateTextData({ key: "focusState", value: false }));
     if (buttonFlag === "buttonClickTop") {
-
       dispatch(
         setCurrentModal({
           title: "Text",
