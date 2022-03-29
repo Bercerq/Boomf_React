@@ -9,21 +9,32 @@ import CubeImage from "./CubeImage";
 
 import { CubeItem, CubeSide } from "./style";
 
-export const CubePosition = ({ boombData, curCubePosition }) => {
+export const CubePosition = ({ textDataState, boombData, curCubePosition }) => {
   const { rotate, img, position, editCrop, defaultRotate } = boombData;
   const dispatch = useDispatch();
   const openSideBar = () => {
-    dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
+    if (!textDataState.focusState)
+      dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
   };
   return (
     <CubeSide onClick={openSideBar} spinParam={rotate}>
       <CubeItem
         position={position}
         curCubePosition={curCubePosition}
-        onClick={setBoxPosition(dispatch, position, defaultRotate)}
+        onClick={setBoxPosition(
+          dispatch,
+          position,
+          defaultRotate,
+          textDataState
+        )}
         img={img}
       >
-        <CubeImage img={img} position={position} editCrop={editCrop} />
+        <CubeImage
+          textDataState={textDataState}
+          img={img}
+          position={position}
+          editCrop={editCrop}
+        />
       </CubeItem>
     </CubeSide>
   );

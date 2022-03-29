@@ -7,7 +7,6 @@ function useUpdateCube(
   curCubePosition,
   curCubeImage,
   boombData,
-  localBoombData,
   editCrop
 ) {
   const dispatch = useDispatch();

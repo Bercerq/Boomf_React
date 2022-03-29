@@ -49,8 +49,17 @@ export const CubeWrapper = styled.div`
   user-select: none;
   padding: 170px 200px;
   overflow: hidden;
+
   filter: drop-shadow(0px 2px 4px rgba(40, 41, 61, 0.04))
     drop-shadow(0px 8px 16px rgba(96, 97, 112, 0.16));
+
+  @media (max-width: 540px) {
+    ${({ textDataState }) =>
+      textDataState.focusState &&
+      textDataState.currentEditor.flag !== "Image" &&
+      "z-index:4;background: content-box;"};
+  }
+
   @media (max-width: 670px) {
     padding: 170px 170px;
     background-size: auto;
@@ -206,33 +215,14 @@ export const SideImage = styled.img`
   width: 100%;
   transform: translate(-50%, -50%) ${({ editCrop }) => `scale(${editCrop})`};
   background-color: #f5f5f5;
-`;
-
-export const TopText = styled.textarea`
-  font-family: ${({ textStyles }) =>
-    textStyles.font ? `${textStyles.font}` : "Objectivity"};
-  font-size: ${({ textStyles }) =>
-    textStyles.size ? `${textStyles.size}px` : "16px"};
-  color: ${({ textStyles }) =>
-    textStyles.colour ? `${textStyles.colour}` : "black"};
-  text-align: ${({ textStyles }) =>
-    textStyles.alignment ? `${textStyles.alignment}` : "center"};
-  position: absolute;
-  left: -140px;
-  width: 110px;
-  top: 113px;
-  transform-origin: left top;
-  height: 23vw;
-  transform: translateX(12vw) rotate(317deg);
-  line-height: 1.2;
-  overflow-wrap: break-word;
-  background: none;
-  border: none;
-  outline: none;
-  @media (max-width: 1060px) {
-    left: -40px;
+  @media (max-width: 540px) {
+    ${({ textDataState }) =>
+      textDataState.focusState &&
+      textDataState.currentEditor.flag !== "Image" &&
+      "filter: grayscale(0.9);"};
   }
 `;
+
 export const NoImage = styled.div`
   font-family: "objectivity-regular-11", sans-serif;
   position: absolute;
@@ -248,7 +238,12 @@ export const NoImage = styled.div`
   padding: 10px 20px 10px 25px;
   border-radius: 8px;
   font-size: 16px;
-
+  @media (max-width: 540px) {
+    ${({ textDataState }) =>
+      textDataState.focusState &&
+      textDataState.currentEditor.flag !== "Image" &&
+      "filter: brightness(0.8);"};
+  }
   @media (max-width: 1560px) {
     font-size: 13px;
     left: 23%;
