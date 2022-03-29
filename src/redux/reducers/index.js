@@ -13,6 +13,7 @@ import standardReducer from "./standard";
 import sessionReducer from "./session";
 import boomfImagesReducer from "./images";
 import loadingReducer from "./loader";
+import mallowPopsReducer from "./mallowPops";
 
 const persistConfig = {
   key: "boomb",
@@ -22,18 +23,33 @@ const rootPersistConfig = {
   key: "root",
   storage: storage,
 };
+
+const persistConfigMallow = {
+  key: "Mallow",
+  storage: storage,
+};
+const persistConfigText = {
+  key: "Text",
+  storage: storage,
+};
+
+const persistConfigImages = {
+  key: "ImageLibrary",
+  storage: storage,
+};
 const rootReducer = combineReducers({
   boombReducer: persistReducer(persistConfig, boombReducer),
   confettiReducer,
   sidebarReducer,
   modalReducer,
   backgroundReducer,
-  imageLibraryReducer,
+  imageLibraryReducer: persistReducer(persistConfigImages, imageLibraryReducer),
   textDataReducer,
   standardReducer,
   sessionReducer,
   boomfImagesReducer,
   loadingReducer,
+  mallowPopsReducer: persistReducer(persistConfigMallow, mallowPopsReducer),
 });
 
 export default persistReducer(rootPersistConfig, rootReducer);

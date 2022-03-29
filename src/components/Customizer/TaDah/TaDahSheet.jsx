@@ -1,22 +1,20 @@
 import React from 'react';
-import {SheetBlock, TitleStandard} from "../Standard/SheetSection/style";
-import {useSelector} from "react-redux";
+
 import TaDahSection from "./TaDahSection/TaDahSection";
 import BlueButton from "../../Buttons/BlueButton";
 import Modal from "../../Modal/Modal";
 
-const TaDahSheet = ({editTextRef}) => {
-  const {standardName} = useSelector(
-    ({standardReducer}) => standardReducer
-  );
+import {SheetBlock} from "../Standard/SheetSection/style";
+import {TitleTaDah} from "./TaDahSection/style";
 
+const TaDahSheet = ({editTextRef, standardName}) => {
   return (
     <>
       <SheetBlock>
-        <TitleStandard>
+        <TitleTaDah titleDevice='desktop'>
           {standardName} Page
-        </TitleStandard>
-        <TaDahSection/>
+        </TitleTaDah>
+        <TaDahSection editTextRef={editTextRef}/>
       </SheetBlock>
       <Modal>
         <h1 style={{textAling: "center"}}>

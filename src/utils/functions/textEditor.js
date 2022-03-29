@@ -21,7 +21,7 @@ import FontDevice from "../../components/TextEditor/Option/FontDevice";
 
 export const drawEditorContent = (flag, option, setOption, dispatch) =>
   flag && flag !== "Alignment"
-    ? drawOption(flag, option, setOption)
+    ? drawOption(flag, setOption)
     : selectOptions(setOption, option, dispatch);
 
 const selectOptions = (setOption, option, dispatch) => {
@@ -81,16 +81,16 @@ const findAlignment = (option, setOption) => {
   }
 };
 
-const drawOption = (flag, option, setOption) => {
+const drawOption = (flag, setOption) => {
   switch (flag) {
     case "Font":
-      return <Font option={option} setOption={setOption} />;
+      return <Font setOption={setOption} />;
     case "Size":
-      return <Size option={option} setOption={setOption} />;
+      return <Size setOption={setOption} />;
     case "Colour":
-      return <Colour option={option} setOption={setOption} />;
+      return <Colour setOption={setOption} />;
     case "Image":
-      return <Image option={option} setOption={setOption} />;
+      return <Image setOption={setOption} />;
     default:
       break;
   }

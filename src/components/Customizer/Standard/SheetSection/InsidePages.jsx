@@ -3,20 +3,18 @@ import {useSelector} from "react-redux";
 
 import {useResizeDevice} from "../../../../utils/hooks/useResizeDevice";
 
-import TextDraggable from "../../../Draggable/TextDraggable";
-import ImageDraggable from "../../../Draggable/ImageDraggable";
-
 import {
   FontPageDiv,
-  LineDivStandard,
   SheetDivFlex,
-  SheetContainer,
-  TextContentStandard, DivStandardInside
+  DivStandardInside,
+  SheetContainer
 } from "./style";
 
-const InsidePages = ({editTextRef, standardName}) => {
+const InsidePages = ({editTextRef, standardName, children}) => {
   const {mobileDevice} = useResizeDevice({maxWidth: 540});
-  const {textDataState} = useSelector(({textDataReducer}) => textDataReducer);
+  const {textDataState} = useSelector(
+    ({textDataReducer}) => textDataReducer
+  );
 
   return (
     <DivStandardInside
@@ -28,22 +26,7 @@ const InsidePages = ({editTextRef, standardName}) => {
       <SheetDivFlex>
         <FontPageDiv>
           <SheetContainer>
-            <TextContentStandard>
-              <TextDraggable
-                buttonFlag='buttonClickStandard'
-                activeSizeImage={true}
-                column={1}
-              />
-              <ImageDraggable imageKey={'Inside'}/>
-            </TextContentStandard>
-            <LineDivStandard/>
-            <TextContentStandard>
-              <TextDraggable
-                buttonFlag='buttonClickStandard'
-                activeSizeImage={true}
-                column={2}
-              />
-            </TextContentStandard>
+            {children}
           </SheetContainer>
         </FontPageDiv>
       </SheetDivFlex>

@@ -9,12 +9,11 @@ export const ConfettiWrapperCannonColumn = styled.div`
   padding: 0 50px 0 40px;
 
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
-    width: 100%;
-
     position: static;
     flex-wrap: nowrap;
     align-content: center;
     justify-content: flex-start;
+    width: 100%;
   }
   @media (max-height: 600px) and (max-width: 1300px) {
     width: auto;
@@ -22,7 +21,6 @@ export const ConfettiWrapperCannonColumn = styled.div`
   @media (max-width: 540px) {
     right: 20px;
   }
-
   @media (max-width: 400px) {
     margin-left: unset;
   }
@@ -68,7 +66,6 @@ export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
     justify-content: flex-start;
     width: 63%;
   }
-
   @media (max-width: 540px) {
     width: 100%;
   }
@@ -87,10 +84,6 @@ export const ConfettiItemCannon = styled.div`
           `border: 4px solid ${
                   selectConfetti ? "#2EDBE3" : "transparent"
           };  transition: 0.4s;`};
-  @media screen and (max-width: 1130px), screen and (max-height: 605px) {
-    width: 40px;
-    height: 35px;
-  }
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 0 10px 12px 10px;
     width: 45px;
@@ -137,7 +130,7 @@ export const BackgroundItem = styled.div`
     margin: 0 10px 12px 10px;
   }
   ${({mobileDevice}) => mobileDevice ? (
-    `filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16)); margin-bottom: 15px;`
+          `filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16)); margin-bottom: 15px;`
   ) : ('background: transparent;')};
 `;
 

@@ -20,7 +20,7 @@ import { setCurrentSidebar } from "../../../redux/actions/sideBar";
 import { setDeleteImageLibrary } from "../../../redux/actions/imageLibrary";
 import { setUpdateTextData } from "../../../redux/actions/textData";
 
-function Image({ option, setOption }) {
+function Image({ setOption }) {
   const dispatch = useDispatch();
   const { curCubePosition, boombData } = useSelector(
     ({ boombReducer }) => boombReducer

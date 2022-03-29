@@ -8,17 +8,14 @@ export const SheetContentPage = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export const SheetBlock = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const SheetBlock = styled(SheetContentPage)`
+  justify-content: start;
 `;
 export const TitleStandard = styled.h3`
   margin: 30px;
   font-family: Objectivity, serif;
   font-style: normal;
+  
   @media (max-width: 540px) and (max-height: 720px), 
   screen and (max-height: 1024px) and (max-width: 800px), 
   screen and (max-width: 1280px) and (max-height: 800px) {
@@ -130,17 +127,24 @@ export const LineDivStandard = styled.div`
 `;
 
 export const ColumnActiveSheet = styled.div`
+  position: absolute;
+  
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 1200px) {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  @media (max-width : 1200px) {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
     margin-bottom: 10px;
     width: 100%;
   }
-
+  @media (max-width: 1130px) {
+    position: static;
+  }
   @media (max-width: 540px) {
     align-items: flex-end;
     justify-content: center;
@@ -160,11 +164,13 @@ export const FrontSheetDiv = styled.div`
   height: 142px;
 
   background: #FFFFFF;
-  ${({activeSheet}) => activeSheet && 'border: 4px solid #0A74FF;'}
+  ${({activeSheet}) => activeSheet && 'border: 4px solid #0A74FF;'};
 
   box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04),
   0 16px 24px rgba(96, 97, 112, 0.16);
-  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px), screen and (max-width: 540px) {
+  @media (max-height: 1024px) and (max-width: 800px), 
+  screen and (max-width: 1280px) and (max-height: 800px),
+  screen and (max-width: 540px) {
     width: 54px;
     height: 75px;
   }
@@ -176,7 +182,9 @@ export const FrontDblSheet = styled(FrontSheetDiv)`
   width: 204px;
   height: 144px;
 
-  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px), screen and (max-width: 540px) {
+  @media (max-height: 1024px) and (max-width: 800px),
+  screen and (max-width: 1280px) and (max-height: 800px),
+  screen and (max-width: 540px) {
     width: 109px;
     height: 75px;
   }
@@ -197,6 +205,7 @@ export const DivSheetContent = styled.div`
 
 export const DivFlex = styled.div`
   display: flex;
+  z-index: 0;
   ${({activeSheet}) => activeSheet && 'border: 4px solid #0A74FF;'}
 `;
 
