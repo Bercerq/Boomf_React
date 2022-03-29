@@ -19,7 +19,7 @@ const TaDah = () => {
 
   useEffect(() => {
     dispatch(setStandardName("Front"));
-    dispatch(setConfettiData([...confettiDataCannon]));
+    dispatch(setConfettiData([...confettiDataCannon, ...confettiDataCannon, ...confettiDataCannon]));
   }, [dispatch]);
 
   return (

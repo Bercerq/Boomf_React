@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setCurrentModal } from "../../../../redux/actions/modal";
-import { setUpdateTextData } from "./../../../../redux/actions/textData";
+import { setUpdateTextData } from "../../../../redux/actions/textData";
 
 import BlueButton from "../../../Buttons/BlueButton";
 
