@@ -1,9 +1,10 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
+
 import {setConfetti} from "../../../redux/actions/confetti";
 
-import {BackgroundBoxCannon, ConfettiItemCannon} from "../Cannon/style";
-import {ConfettiImage} from "../style";
+import {ConfettiItemCannon} from "../Cannon/style";
+import {ConfettiBoxTaDah, ConfettiItemTaDahImage} from "./style";
 
 const ConfettiTaDahComponent = () => {
   const {confettiState, confettiData} = useSelector(
@@ -16,7 +17,7 @@ const ConfettiTaDahComponent = () => {
 
   const dispatch = useDispatch();
   return (
-    <BackgroundBoxCannon
+    <ConfettiBoxTaDah
       columnConfetti={2}
     >
       {confettiData.map((confetti, idx) => (
@@ -26,10 +27,10 @@ const ConfettiTaDahComponent = () => {
           name={confetti.name}
           onClick={handleSelectConfetti(confetti)}
         >
-          <ConfettiImage src={confetti.img} alt={confetti.name}/>
+          <ConfettiItemTaDahImage src={confetti.img} alt={confetti.name}/>
         </ConfettiItemCannon>
       ))}
-    </BackgroundBoxCannon>
+    </ConfettiBoxTaDah>
   );
 };
 

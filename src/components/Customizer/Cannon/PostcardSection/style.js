@@ -54,6 +54,7 @@ export const PostcardTest = styled.div`
 
   @media (max-width: 540px) {
     display: grid;
+    align-content: space-between;
     align-items: start;
     height: 100%;
   }
