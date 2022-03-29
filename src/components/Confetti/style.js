@@ -34,6 +34,7 @@ export const ConfettiWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   @media (max-width: 1130px) {
     display: flex;
     align-items: ${({alignItem}) => alignItem ? `${alignItem};` : 'center'};
@@ -42,6 +43,7 @@ export const ConfettiWrapper = styled.div`
                     `position: absolute; right: 0; width: 20vw; flex-direction: column-reverse;` : `width: 100%;`}
     padding: 0;
     margin: 0;
+    width: 100vw;
   }
   @media (max-width: 400px) {
     margin-left: unset;

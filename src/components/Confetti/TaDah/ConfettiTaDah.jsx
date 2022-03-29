@@ -3,8 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {setConfetti} from "../../../redux/actions/confetti";
 
-import {ConfettiItemCannon} from "../Cannon/style";
 import {ConfettiBoxTaDah, ConfettiItemTaDahImage} from "./style";
+import {ConfettiItemCannon} from "../Cannon/style";
 
 const ConfettiTaDahComponent = () => {
   const {confettiState, confettiData} = useSelector(

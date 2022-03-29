@@ -32,7 +32,7 @@ const SelectPage = ({children}) => {
         {children}
       </ActiveSheetDiv>
       <PostcardButton widthSheet={true}>
-        <BlueButton handleButtonClick={handleButtonClick} fontFamily={'normal none 400 16px 170% "Objectivity"'}>
+        <BlueButton handleButtonClick={handleButtonClick}>
           {standardName === 'Front' ? ('Inside pages') : ('Add to cart')} <img src={ArrowRightIcon} alt="add"/>
         </BlueButton>
       </PostcardButton>
