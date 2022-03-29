@@ -20,45 +20,8 @@ import Background12 from '../assets/png/background/Background-12.webp'
 import Background13 from '../assets/png/background/Background-13.webp'
 import Background14 from '../assets/png/background/Background-14.webp'
 
-
-// import BlueCircles from "../assets/png/confetti/Blue-Circles.png";
-// import Christmas from "../assets/png/confetti/Christmas.png";
-// import Flamingo from "../assets/png/confetti/Flamingo.png";
-// import GoldBlush from "../assets/png/confetti/Gold-Blush.png";
-// import HotLove from "../assets/png/confetti/Hot-Love.png";
-// import ILoveYou from "../assets/png/confetti/I-Love-You.png";
-// import PinkCircles from "../assets/png/confetti/Pink-circles.png";
-// import Rainbow from "../assets/png/confetti/Rainbow.png";
-// import BcGoldStars1 from "../assets/png/confetti/Stars.png";
-// import Summer from "../assets/png/confetti/Summer.png";
-// import BcGold1 from "../assets/png/confetti/BCGold-1.png";
-// import BCGold from "../assets/png/confetti/BCGold.png";
-// import BlossomGB from "../assets/png/confetti/Blossom-GB.png";
-// import Hearts from "../assets/png/confetti/Hearts.png";
-// import Unicorn from "../assets/png/confetti/Unicorn.png";
-// import Watermelon from "../assets/png/confetti/Watermelon.png";
-
-// import BlueConfetti from "../assets/png/background-1/blue-confetti.webp";
-// import BlueRacingStripe from "../assets/png/background-1/blue-racing-stripe.webp";
-// import Cn015 from "../assets/png/background-1/cn015.webp";
-// import Cn016 from "../assets/png/background-1/cn016.webp";
-// import Cn020 from "../assets/png/background-1/cn020.webp";
-// import CoralHeart from "../assets/png/background-1/coral-heart.webp";
-// import LightpinkHearts from "../assets/png/background-1/lightpink-hearts.webp";
-// import MultiStar from "../assets/png/background-1/multi-star.webp";
-// import OutOfThisWorldCn from "../assets/png/background-1/out-of-this-world-cn.webp";
-// import PinkFlower from "../assets/png/background-1/pink-flower.webp";
-// import PinkHeart from "../assets/png/background-1/pink-heart.webp";
-// import PrideBlendedCn from "../assets/png/background-1/pride-blended-cn.webp";
-// import PrideLinearCn from "../assets/png/background-1/pride-linear-cn.webp";
-// import PurpleConfetti from "../assets/png/background-1/purple-confetti.webp";
-
-
 export const confettiDataBoomb = [
-  // {
-  //   name: "Hearts",
-  //   img: Hearts,
-  // },
+
   {
     name: "Stars",
     img: Stars,
@@ -79,86 +42,10 @@ export const confettiDataBoomb = [
     name: "Blue Circles",
     img: BlueCircles,
   },
-  // {
-  //   name: "I Love You",
-  //   img: ILoveYou,
-  // },
-
-  // {
-  //   name: "Gold",
-  //   img: BcGold1,
-  // },
-  // {
-  //   name: "BC Gold",
-  //   img: BCGold,
-  // },
-  // {
-  //   name: "Blossom GB",
-  //   img: BlossomGB,
-  // },
-
-  // {
-  //   name: "Christmas",
-  //   img: Christmas,
-  // },
-  // {
-  //   name: "Flamingo",
-  //   img: Flamingo,
-  // },
-  // {
-  //   name: "Gold Blush",
-  //   img: GoldBlush,
-  // },
-
-  // {
-  //   name: "Hot Love",
-  //   img: HotLove,
-  // },
-
-  // {
-  //   name: "Pink Circles",
-  //   img: PinkCircles,
-  // },
-  // {
-  //   name: "Rainbow",
-  //   img: Rainbow,
-  // },
-  // {
-  //   name: "Bc Gold Stars",
-  //   img: BcGoldStars1,
-  // },
-  // {
-  //   name: "Summer 1",
-  //   img: Summer1,
-  // },
-  // {
-  //   name: "Summer",
-  //   img: Summer,
-  // },
-
-  // {
-  //   name: "Unicorn",
-  //   img: Unicorn,
-  // },
-  // {
-  //   name: "Watermelon",
-  //   img: Watermelon,
-  // },
 ];
 
 export const confettiDataCannon = [
-  // {
-  //   name: "Gold",
-  //   img: BcGold1,
-  // },
-  // {
-  //   name: "BC Gold",
-  //   img: BCGold,
-  // },
-  // {
-  //   name: "Blossom GB",
-  //   img: BlossomGB,
-  // },
+
   {
     name: "Stars",
     img: Stars,

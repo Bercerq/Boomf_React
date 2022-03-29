@@ -5,7 +5,7 @@ import { CubePosition } from "./CubePosition";
 import { CubeTop } from "./CubeTop";
 import { CubeBox } from "./style";
 
-function CubeSide({ textStyles, editTextRef }) {
+function CubeSide({ textDataState, textStyles, editTextRef }) {
   const { curCubePosition, curCubeRotate, boombData } = useSelector(
     ({ boombReducer }) => boombReducer
   );
@@ -14,6 +14,7 @@ function CubeSide({ textStyles, editTextRef }) {
       <CubeTop textStyles={textStyles} editTextRef={editTextRef} />
       {boombData?.map((boombData) => (
         <CubePosition
+          textDataState={textDataState}
           key={boombData.position}
           curCubePosition={curCubePosition}
           boombData={boombData}

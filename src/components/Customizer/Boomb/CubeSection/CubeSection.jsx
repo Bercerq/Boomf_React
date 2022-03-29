@@ -1,22 +1,20 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
 
 import RotateButtons from "./RotateButtons";
 import CubeSide from "./CubeSide";
 
 import { CubeContainer, CubeWrapper } from "./style";
 
-function CubeSection({ confettiState, editTextRef }) {
-  const { textData, textDataState } = useSelector(
-    ({ textDataReducer }) => textDataReducer
-  );
-  const dispatch = useDispatch();
-
+function CubeSection({ textDataState, textData, confettiState, editTextRef }) {
   return (
     <CubeContainer>
-      <CubeWrapper confettiState={confettiState.img}>
+      <CubeWrapper
+        textDataState={textDataState}
+        confettiState={confettiState.img}
+      >
         <CubeSide
+          textDataState={textDataState}
           textStyles={textData[0].textStyles}
           editTextRef={editTextRef}
         />

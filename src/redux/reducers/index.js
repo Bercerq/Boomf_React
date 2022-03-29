@@ -1,4 +1,7 @@
 import { combineReducers } from "redux";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
 import boombReducer from "./boomb";
 import confettiReducer from "./confetti";
 import sidebarReducer from "./sideBar";
@@ -11,8 +14,16 @@ import sessionReducer from "./session";
 import boomfImagesReducer from "./images";
 import loadingReducer from "./loader";
 
+const persistConfig = {
+  key: "boomb",
+  storage: storage,
+};
+const rootPersistConfig = {
+  key: "root",
+  storage: storage,
+};
 const rootReducer = combineReducers({
-  boombReducer,
+  boombReducer: persistReducer(persistConfig, boombReducer),
   confettiReducer,
   sidebarReducer,
   modalReducer,
@@ -25,4 +36,4 @@ const rootReducer = combineReducers({
   loadingReducer,
 });
 
-export default rootReducer;
+export default persistReducer(rootPersistConfig, rootReducer);
