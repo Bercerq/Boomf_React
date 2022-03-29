@@ -44,7 +44,7 @@ const rootReducer = combineReducers({
   modalReducer,
   backgroundReducer,
   imageLibraryReducer: persistReducer(persistConfigImages, imageLibraryReducer),
-  textDataReducer: persistReducer(persistConfigText, textDataReducer),
+  textDataReducer,
   standardReducer,
   sessionReducer,
   boomfImagesReducer,
