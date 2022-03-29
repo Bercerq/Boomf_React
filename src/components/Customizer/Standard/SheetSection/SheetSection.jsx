@@ -7,6 +7,7 @@ import InsidePages from "./InsidePages";
 
 import {DivSheets, SheetContentPage} from "./style";
 import SheetPageStandard from "./SheetPageStandard";
+import TextContentInsidePages from "./TextContentInsidePages";
 
 const SheetSection = ({editTextRef}) => {
   const {standardName} = useSelector(
@@ -22,7 +23,9 @@ const SheetSection = ({editTextRef}) => {
         <InsidePages
           editTextRef={editTextRef}
           standardName={standardName}
-        />
+        >
+          <TextContentInsidePages/>
+        </InsidePages>
       </DivSheets>
       <SelectPage>
         <SheetPageStandard/>

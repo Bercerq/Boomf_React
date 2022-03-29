@@ -8,6 +8,7 @@ export const Title = styled.div`
   font-family: "objectivity-regular-11", sans-serif;
   width: 200px;
   @media (max-width: 1130px) {
+    text-align: ${({deviceTextPosition}) => deviceTextPosition && deviceTextPosition};
     width: 100%;
     margin: 0;
     &:last-child {
@@ -35,6 +36,7 @@ export const ConfettiWrapper = styled.div`
   align-items: center;
   @media (max-width: 1130px) {
     display: flex;
+    align-items: ${({alignItem}) => alignItem ? `${alignItem};` : 'center'};
     ${({positionWrapper}) =>
             positionWrapper === 'absolute' ?
                     `position: absolute; right: 0; width: 20vw; flex-direction: column-reverse;` : `width: 100%;`}
@@ -53,17 +55,21 @@ export const ConfetiBox = styled.div`
     scrollbar-width: auto;
     scrollbar-color: #666666 #ffffff;
   }
+
   &::-webkit-scrollbar {
     width: 8px;
   }
+
   &::-webkit-scrollbar-track {
     background: #f5f5f5;
   }
+
   &::-webkit-scrollbar-thumb {
     background-color: #666666;
     border-radius: 10px;
     border: 3px solid #ffffff;
   }
+
   padding-right: 5px;
   height: 350px;
   display: flex;
