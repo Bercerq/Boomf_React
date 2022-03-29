@@ -14,7 +14,7 @@ import {
   ConfetiBox,
 } from "./style";
 
-function Confetti({ children, textPosition, lastChild, positionWrapper }) {
+function Confetti({ children, textPosition, lastChild, positionWrapper, alignItem, deviceTextPosition }) {
   const dispatch = useDispatch();
   const { mobileDevice } = useResizeDevice({ maxWidth: 1130 });
 
@@ -32,8 +32,8 @@ function Confetti({ children, textPosition, lastChild, positionWrapper }) {
 
   return (
     <>
-      <ConfettiWrapper positionWrapper={positionWrapper}>
-        <Title textPosition={textPosition} lastChild={lastChild}>
+      <ConfettiWrapper positionWrapper={positionWrapper} alignItem={alignItem}>
+        <Title deviceTextPosition={deviceTextPosition} textPosition={textPosition} lastChild={lastChild}>
           Confetti<span>: {confettiState.name}</span>
         </Title>
         {children ? (
@@ -57,7 +57,7 @@ function Confetti({ children, textPosition, lastChild, positionWrapper }) {
             ))}
           </ConfetiBox>
         )}
-        <Title textPosition={textPosition} lastChild={lastChild}>
+        <Title deviceTextPosition={deviceTextPosition} textPosition={textPosition} lastChild={lastChild}>
           Confetti launches out of card
         </Title>
       </ConfettiWrapper>
