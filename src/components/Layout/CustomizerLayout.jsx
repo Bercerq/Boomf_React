@@ -8,7 +8,6 @@ import { getCurrentSession } from "../../redux/actions/session";
 import Modal from "../Modal/Modal";
 import { findModalChildren } from "../../utils/functions/modal";
 import { setProductType } from "../../redux/actions/images";
-import {setAddImageLibrary} from "../../redux/actions/imageLibrary";
 
 function CustomizerLayout({ title, editTextRef, children, productType }) {
   const dispatch = useDispatch();

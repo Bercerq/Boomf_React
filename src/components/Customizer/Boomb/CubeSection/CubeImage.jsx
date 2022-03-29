@@ -2,18 +2,17 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUpdateTextData } from "../../../../redux/actions/textData";
 
-import { findBoxSide } from "../../../../utils/functions/boomb";
+import { findBoxSide, setBoxPosition } from "../../../../utils/functions/boomb";
 
 import EditPencil from ".././../../../utils/assets/svg/EditPencil.svg";
 
 import { EditButton, EditIcon, NoImage, SideImage } from "./style";
 
-function CubeImage({ textDataState, img, position, editCrop }) {
+function CubeImage({ defaultRotate, textDataState, img, position, editCrop }) {
   const dispatch = useDispatch();
 
   const openEditor = (e) => {
     if (!textDataState.focusState) {
-      console.log(123);
       dispatch(
         setUpdateTextData({
           key: "currentEditor",
@@ -21,8 +20,8 @@ function CubeImage({ textDataState, img, position, editCrop }) {
         })
       );
       dispatch(setUpdateTextData({ key: "focusState", value: true }));
-      e.stopPropagation();
     }
+    e.stopPropagation();
   };
 
   return img ? (

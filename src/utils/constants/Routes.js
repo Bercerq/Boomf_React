@@ -1,5 +1,6 @@
 import Boomb from "../../modules/customizers/Boomb";
-import Cannon from "../../modules/customizers/Cannon"
+import Cannon from "../../modules/customizers/Cannon";
+import MallowPops from "../../modules/customizers/MallowPops";
 import Standard from "../../modules/customizers/Standard";
 import TaDah from "../../modules/customizers/TaDah";
 
@@ -10,18 +11,23 @@ export const routes = [
     component: Boomb,
   },
   {
-    path: '/cannon',
+    path: "/cannon",
     exact: true,
-    component: Cannon
+    component: Cannon,
   },
   {
-    path: '/standard',
+    path: "/standard",
     exact: true,
-    component: Standard
+    component: Standard,
   },
   {
-    path: '/ta-dah',
+    path: "/ta-dah",
     exact: true,
-    component: TaDah
-  }
+    component: TaDah,
+  },
+  {
+    path: "/Mallow-pops",
+    exact: true,
+    component: MallowPops,
+  },
 ];

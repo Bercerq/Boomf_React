@@ -17,7 +17,6 @@ function Modal({ children }) {
   return (
     <ModalWindow openSideBar={currentModal.state} onClick={closeSideBar}>
       <ModalContent
-        openSideBar={currentModal.state}
         onClick={(e) => e.stopPropagation()}
       >
         <ModalTitle>

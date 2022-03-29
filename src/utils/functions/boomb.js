@@ -63,7 +63,6 @@ export const setUploadImage = (img, imageData, dispatch) => {
   const formData = new FormData();
 
   formData.append("image", img[0]);
-  console.log(formData);
   dispatch(fetchUploadImage({ value: formData }));
 };
 export const setBoxPosition =
@@ -156,24 +155,6 @@ export const handleClickAddToCart =
       })
     );
   };
-
-// export const findStaticText = (textData, textDataState, dispatch) => {
-//   return textData.map(
-//     ({ textStyles, value, focusState, id }) =>
-//       focusState && (
-//         <StaticText
-//           key={id}
-//           textStyles={textStyles}
-//           id="buttonClick"
-//           onClick={openEditor(dispatch, "buttonClick")}
-//         >
-//           {!value && !textDataState.focusState
-//             ? "Double Click to type your text"
-//             : textDataState.currentEditor.state && value}
-//         </StaticText>
-//       )
-//   );
-// };
 
 export const findCurrentCrop = (boombData, curCubePosition) => {
   const curCrop = boombData.find(

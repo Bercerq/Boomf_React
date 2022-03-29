@@ -30,6 +30,7 @@ export const CubePosition = ({ textDataState, boombData, curCubePosition }) => {
         img={img}
       >
         <CubeImage
+          defaultRotate={defaultRotate}
           textDataState={textDataState}
           img={img}
           position={position}
