@@ -15,10 +15,10 @@ export const TitleStandard = styled.h3`
   margin: 30px;
   font-family: Objectivity, serif;
   font-style: normal;
-  
-  @media (max-width: 540px) and (max-height: 720px), 
-  screen and (max-height: 1024px) and (max-width: 800px), 
-  screen and (max-width: 1280px) and (max-height: 800px) {
+
+  @media (max-width: 540px) and (max-height: 720px),
+    screen and (max-height: 1024px) and (max-width: 800px),
+    screen and (max-width: 1280px) and (max-height: 800px) {
     margin: 10px;
   }
 `;
@@ -45,17 +45,21 @@ export const SheetContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< Updated upstream
   background: ${({type}) => type === 'Flutter' ? '#D6D6D6' : '#FFFFFF'};
+=======
+  background: #ffffff;
+>>>>>>> Stashed changes
 
   overflow: hidden;
-  
+
   z-index: 2;
   margin-top: 10px;
   width: fit-content;
   height: fit-content;
 
   box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04),
-  0 8px 16px rgba(96, 97, 112, 0.16);
+    0 8px 16px rgba(96, 97, 112, 0.16);
 
   @media (min-width: 1440px) and (max-height: 920px) {
     height: 480px;
@@ -69,9 +73,17 @@ export const SheetContainer = styled.div`
 `;
 
 export const SheetContainerFrontPage = styled(SheetContainer)`
+<<<<<<< Updated upstream
   background: ${({type}) => type === 'Flutter' ? '#D6D6D6' : '#FFFFFF'};
   transition-duration: ${({firstLoading}) => firstLoading ? '1s' : '0s'};
   transform: translate(${({standardName}) => standardName ? 0 : '-150vw'}, 0);
+=======
+  transition-duration: ${({ firstLoading }) => (firstLoading ? "1s" : "0s")};
+  transform: translate(
+    ${({ standardName }) => (standardName ? 0 : "-150vw")},
+    0
+  );
+>>>>>>> Stashed changes
 `;
 
 export const DivStandardInside = styled.div`
@@ -81,13 +93,19 @@ export const DivStandardInside = styled.div`
   overflow: hidden;
 
   transition-duration: 1s;
-  transform: translate(${({standardName}) => standardName ? '0' : '150vw'}, 0);
-  
+  transform: translate(
+    ${({ standardName }) => (standardName ? "0" : "150vw")},
+    0
+  );
+
   @media (max-width: 920px) {
-    transform: translate(${({standardName}) => standardName ? '0' : '150vw'}, 0);
+    transform: translate(
+      ${({ standardName }) => (standardName ? "0" : "150vw")},
+      0
+    );
   }
-  
-  ${({focusState}) => focusState && `z-index: 4;`}
+
+  ${({ focusState }) => focusState && `z-index: 4;`}
 `;
 
 export const TextContentStandard = styled.div`
@@ -104,7 +122,11 @@ export const TextContentStandard = styled.div`
   }
 
   @media (max-height: 1024px) and (max-width: 800px),
+<<<<<<< Updated upstream
   screen and (max-width: 1280px) and (max-height: 800px) {
+=======
+    screen and (max-width: 1280px) and (max-height: 800px) {
+>>>>>>> Stashed changes
     width: 290px;
     height: 400px;
   }
@@ -125,20 +147,21 @@ export const TextContentStandard = styled.div`
 export const LineDivStandard = styled.div`
   height: 100%;
   //todo temporary solution
-  z-index: ${({zIndexPos}) => zIndexPos ? 1 : '4; height: 100vh; position: absolute;'};
-  border: 1px solid #A3A3A3;
+  z-index: ${({ zIndexPos }) =>
+    zIndexPos ? 1 : "4; height: 100vh; position: absolute;"};
+  border: 1px solid #a3a3a3;
 `;
 
 export const ColumnActiveSheet = styled.div`
   position: absolute;
-  
+
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   bottom: 0;
   left: 0;
   width: 100%;
-  @media (max-width : 1200px) {
+  @media (max-width: 1200px) {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
@@ -166,14 +189,14 @@ export const FrontSheetDiv = styled.div`
   width: 102px;
   height: 142px;
 
-  background: #FFFFFF;
-  ${({activeSheet}) => activeSheet && 'border: 4px solid #0A74FF;'};
+  background: #ffffff;
+  ${({ activeSheet }) => activeSheet && "border: 4px solid #0A74FF;"};
 
   box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04),
-  0 16px 24px rgba(96, 97, 112, 0.16);
-  @media (max-height: 1024px) and (max-width: 800px), 
-  screen and (max-width: 1280px) and (max-height: 800px),
-  screen and (max-width: 540px) {
+    0 16px 24px rgba(96, 97, 112, 0.16);
+  @media (max-height: 1024px) and (max-width: 800px),
+    screen and (max-width: 1280px) and (max-height: 800px),
+    screen and (max-width: 540px) {
     width: 54px;
     height: 75px;
   }
@@ -186,8 +209,8 @@ export const FrontDblSheet = styled(FrontSheetDiv)`
   height: 144px;
 
   @media (max-height: 1024px) and (max-width: 800px),
-  screen and (max-width: 1280px) and (max-height: 800px),
-  screen and (max-width: 540px) {
+    screen and (max-width: 1280px) and (max-height: 800px),
+    screen and (max-width: 540px) {
     width: 109px;
     height: 75px;
   }
@@ -204,12 +227,15 @@ export const DivSheetContent = styled.div`
       display: none;
     }
   }
+  @media (min-width: 1130px) {
+    display: none;
+  }
 `;
 
 export const DivFlex = styled.div`
   display: flex;
   z-index: 0;
-  ${({activeSheet}) => activeSheet && 'border: 4px solid #0A74FF;'}
+  ${({ activeSheet }) => activeSheet && "border: 4px solid #0A74FF;"}
 `;
 
 export const SheetDivFlex = styled(DivFlex)`
@@ -221,7 +247,8 @@ export const SheetDivFlex = styled(DivFlex)`
     overflow: auto hidden;
     width: 100vw;
   }
-  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px) {
+  @media (max-height: 1024px) and (max-width: 800px),
+    screen and (max-width: 1280px) and (max-height: 800px) {
     justify-content: center;
   }
   @media (max-width: 920px) {
