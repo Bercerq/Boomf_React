@@ -3,7 +3,7 @@ import {SheetContainerFrontPage} from "../../Standard/SheetSection/style";
 import {ConfettiTaDahImg, TextContentTaDah} from "./style";
 import {useSelector} from "react-redux";
 
-const FontPageTaDah = ({standardName}) => {
+const FontPageTaDah = ({standardName, type}) => {
   const [firstLoading, setFirstLoading] = useState(false)
 
   const {confettiState} = useSelector(
@@ -19,14 +19,17 @@ const FontPageTaDah = ({standardName}) => {
   }, []);
   return (
     <>
-      <ConfettiTaDahImg
-        src={confettiState.img}
-        alt={confettiState.alt}
-        displayOpacity={standardName}
-      />
+      {type === 'TaDah' && (
+        <ConfettiTaDahImg
+          src={confettiState.img}
+          alt={confettiState.alt}
+          displayOpacity={standardName}
+        />
+      )}
       <SheetContainerFrontPage
         standardName={standardName === 'Front'}
         firstLoading={firstLoading}
+        type={type}
       >
         <TextContentTaDah/>
       </SheetContainerFrontPage>

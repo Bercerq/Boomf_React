@@ -6,7 +6,7 @@ import {setStandardName} from "../../../../redux/actions/standard";
 import {DivFlex, DivSheetContent, LineDivStandard, TitleNameSheet} from "../../Standard/SheetSection/style";
 import {FrontDblSheetTaDah, FrontSheetTaDah} from "./style";
 
-const SheetPageTaDah = () => {
+const SheetPageTaDah = ({type}) => {
   const dispatch = useDispatch();
 
   const {standardName} = useSelector(
@@ -23,6 +23,7 @@ const SheetPageTaDah = () => {
         onClick={() => handleSelect('Front')}
       >
         <FrontSheetTaDah
+          type={type}
           activeSheet={standardName === 'Front'}
         />
         <TitleNameSheet>Front</TitleNameSheet>
@@ -32,7 +33,7 @@ const SheetPageTaDah = () => {
           onClick={() => handleSelect('Inside')}
           activeSheet={standardName === 'Inside'}
         >
-          <FrontDblSheetTaDah>
+          <FrontDblSheetTaDah type={type}>
             <LineDivStandard zIndexPos={true}/>
           </FrontDblSheetTaDah>
         </DivFlex>

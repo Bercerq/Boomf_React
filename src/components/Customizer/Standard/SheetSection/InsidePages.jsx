@@ -10,22 +10,21 @@ import {
   SheetContainer
 } from "./style";
 
-const InsidePages = ({editTextRef, standardName, children}) => {
+const InsidePages = ({editTextRef, standardName, buttonFlag, children, type}) => {
   const {mobileDevice} = useResizeDevice({maxWidth: 540});
   const {textDataState} = useSelector(
     ({textDataReducer}) => textDataReducer
   );
-
   return (
     <DivStandardInside
-      id="buttonClickStandard"
+      id={buttonFlag}
       ref={ref => editTextRef.current[1] = ref}
       focusState={textDataState.focusState && mobileDevice}
       standardName={standardName === 'Inside'}
     >
       <SheetDivFlex>
         <FontPageDiv>
-          <SheetContainer>
+          <SheetContainer type={type}>
             {children}
           </SheetContainer>
         </FontPageDiv>
@@ -35,4 +34,3 @@ const InsidePages = ({editTextRef, standardName, children}) => {
 };
 
 export default InsidePages;
-

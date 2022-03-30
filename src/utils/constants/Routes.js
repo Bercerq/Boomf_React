@@ -3,6 +3,7 @@ import Cannon from "../../modules/customizers/Cannon";
 import MallowPops from "../../modules/customizers/MallowPops";
 import Standard from "../../modules/customizers/Standard";
 import TaDah from "../../modules/customizers/TaDah";
+import Flutter from "../../modules/customizers/Flutter";
 
 export const routes = [
   {
@@ -30,4 +31,9 @@ export const routes = [
     exact: true,
     component: MallowPops,
   },
+  {
+    path: "/flutter",
+    exact: true,
+    component: Flutter
+  }
 ];

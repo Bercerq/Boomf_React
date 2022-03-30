@@ -6,14 +6,20 @@ import ConfettiTaDahComponent from "./ConfettiTaDah";
 
 import {ConfettiWrapperTaDahColumn} from "./style";
 
-const ConfettiTaDah = () => {
+const ConfettiTaDah = ({title}) => {
   const {standardName} = useSelector(
     ({standardReducer}) => standardReducer
   );
 
   return (
     <ConfettiWrapperTaDahColumn displayOpacity={standardName}>
-      <Confetti deviceTextPosition='start' textPosition='center' lastChild={true} alignItem='flex-start'>
+      <Confetti
+        deviceTextPosition='start'
+        textPosition='center'
+        alignItem='flex-start'
+        title={title}
+        lastChild={true}
+      >
         <ConfettiTaDahComponent justifyContent='flex-start'/>
       </Confetti>
     </ConfettiWrapperTaDahColumn>

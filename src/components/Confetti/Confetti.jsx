@@ -1,8 +1,8 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
-import { useResizeDevice } from "../../utils/hooks/useResizeDevice";
-import { setConfetti, setSelectedConfetti } from "../../redux/actions/confetti";
+import {useResizeDevice} from "../../utils/hooks/useResizeDevice";
+import {setConfetti, setSelectedConfetti} from "../../redux/actions/confetti";
 
 import MobileDevices from "./Cannon/MobileDevices";
 
@@ -14,12 +14,12 @@ import {
   ConfetiBox,
 } from "./style";
 
-function Confetti({ children, textPosition, lastChild, positionWrapper, alignItem, deviceTextPosition }) {
+function Confetti({children, textPosition, lastChild, positionWrapper, alignItem, deviceTextPosition, title}) {
   const dispatch = useDispatch();
-  const { mobileDevice } = useResizeDevice({ maxWidth: 1130 });
+  const {mobileDevice} = useResizeDevice({maxWidth: 1130});
 
-  const { confettiState, confettiData } = useSelector(
-    ({ confettiReducer }) => confettiReducer
+  const {confettiState, confettiData} = useSelector(
+    ({confettiReducer}) => confettiReducer
   );
 
   const handleSelectConfetti = (confetti) => () => {
@@ -34,7 +34,7 @@ function Confetti({ children, textPosition, lastChild, positionWrapper, alignIte
     <>
       <ConfettiWrapper positionWrapper={positionWrapper} alignItem={alignItem}>
         <Title deviceTextPosition={deviceTextPosition} textPosition={textPosition} lastChild={lastChild}>
-          Confetti<span>: {confettiState.name}</span>
+          {title ? title : 'Confetti'}<span>: {confettiState.name}</span>
         </Title>
         {children ? (
           children
@@ -52,17 +52,17 @@ function Confetti({ children, textPosition, lastChild, positionWrapper, alignIte
                     : handleSelectConfetti(confetti)
                 }
               >
-                <ConfettiImage src={confetti.img} alt={confetti.name} />
+                <ConfettiImage src={confetti.img} alt={confetti.name}/>
               </ConfettiItem>
             ))}
           </ConfetiBox>
         )}
         <Title deviceTextPosition={deviceTextPosition} textPosition={textPosition} lastChild={lastChild}>
-          Confetti launches out of card
+          {title ? 'Butterfly toy flies out of the card' : 'Confetti launches out of card'}
         </Title>
       </ConfettiWrapper>
 
-      {mobileDevice && <MobileDevices />}
+      {mobileDevice && <MobileDevices/>}
     </>
   );
 }

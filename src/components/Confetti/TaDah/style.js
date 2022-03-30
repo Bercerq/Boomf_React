@@ -15,13 +15,17 @@ export const ConfettiItemTaDahImage = styled.img`
 
 export const ConfettiBoxTaDah = styled(BackgroundBoxCannon)`
   height: 60%;
-
+  overflow: auto;
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     display: flex;
     justify-content: flex-start;
     padding-bottom: 10px;
     height: auto;
     width: 100%;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 1130px), screen and (min-height: 605px) {
+    flex-wrap: nowrap;
   }
 `;
 
