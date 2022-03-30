@@ -1,9 +1,27 @@
 import styled from "styled-components";
 export const CardContainer = styled.div`
-  background-color: #c4c4c4;
+  background-color: #d6d6d6;
   height: 435px;
+  box-shadow: 0px 2px 4px rgba(40, 41, 61, 0.04),
+    0px 8px 16px rgba(96, 97, 112, 0.16);
+  @media (max-height: 610px) {
+    height: 328px;
+    width: 218px;
+  }
+  @media (max-width: 1130px) {
+    width: 327px;
+    height: 327px;
+  }
 `;
-
+export const CardBox = styled.div`
+  height: 280px;
+  @media (max-height: 610px) {
+    height: 160px;
+  }
+  @media (max-width: 1130px) {
+    height: 160px;
+  }
+`;
 export const SpaceForText = styled.div`
   position: relative;
   display: flex;
@@ -23,4 +41,23 @@ export const SpaceForText = styled.div`
   margin: auto;
   word-break: break-word;
   z-index: 3;
+
+  @media (max-height: 610px) {
+    width: 180px;
+    height: 100px;
+  }
+  @media (max-width: 1130px) {
+    width: 292px;
+    height: 133px;
+  }
+
+  #buttonClickMallowpops {
+    left: 35px;
+    top: 38px;
+    position: absolute;
+    @media (max-height: 610px) {
+      left: -15px;
+      top: 25px;
+    }
+  }
 `;

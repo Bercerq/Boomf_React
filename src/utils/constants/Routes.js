@@ -2,8 +2,8 @@ import Boomb from "../../modules/customizers/Boomb";
 import Cannon from "../../modules/customizers/Cannon";
 import MallowPops from "../../modules/customizers/MallowPops";
 import Standard from "../../modules/customizers/Standard";
-import TaDah from "../../modules/customizers/TaDah";
 import Flutter from "../../modules/customizers/Flutter";
+import TaDah from "../../modules/customizers/TaDah/TaDah";
 
 export const routes = [
   {

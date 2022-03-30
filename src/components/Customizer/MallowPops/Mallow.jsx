@@ -1,37 +1,24 @@
 import React from "react";
 
-import BlueButton from "../../Buttons/BlueButton";
 import MallowCard from "./MallowCard/MallowCard";
+
+import { MallowWrapper, MainWrapper } from "./style";
+
+import BottomSection from "./BottomSection/BottomSection";
 import MallowColums from "./MallowColums/MallowColums";
+import { useSelector } from "react-redux";
 
-import ArrowRightIcon from "../../../utils/assets/svg/ArrowRightIcon.svg";
-
-import { MallowWrapper, MainWrapper, ButtonWrapper } from "./style";
-
-import { useDispatch } from "react-redux";
-import { setCurrentModal } from "../../../redux/actions/modal";
 function MallowPops({ editTextRef }) {
-  const dispatch = useDispatch();
-  const handleButtonClick = () => {
-    dispatch(
-      setCurrentModal({
-        title: "Add to cart",
-        state: true,
-      })
-    );
-  };
-
+  const { standardName } = useSelector(
+    ({ standardReducer }) => standardReducer
+  );
   return (
     <MainWrapper>
       <MallowWrapper>
-        <MallowColums />
-        <MallowCard editTextRef={editTextRef} />
+        <MallowColums editTextRef={editTextRef} standardName={standardName} />
+        <MallowCard standardName={standardName} editTextRef={editTextRef} />
       </MallowWrapper>
-      <ButtonWrapper>
-        <BlueButton handleButtonClick={handleButtonClick}>
-          Add to basket <img src={ArrowRightIcon} alt="add" />
-        </BlueButton>
-      </ButtonWrapper>
+      <BottomSection />
     </MainWrapper>
   );
 }
