@@ -35,7 +35,6 @@ export const ConfettiWrapperTaDahColumn = styled(ConfettiWrapperCannonColumn)`
   padding: 0;
   width: fit-content;
   height: 60%;
-  ${({displayOpacity}) => displayOpacity === 'Front' ? 'opacity: 1;' : 'opacity: 0;'};
   transition: 1s;
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     position: static;

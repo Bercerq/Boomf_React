@@ -34,49 +34,19 @@ import Ellipse640 from '../assets/png/butterflies/Ellipse 64.png';
 import Ellipse641 from '../assets/png/butterflies/Ellipse 64 (1).png';
 
 export const confettiDataBoomb = [
-  {
-    name: "Stars",
-    img: Stars,
-  },
-  {
-    name: "Ocean Blue",
-    img: OceanBlue,
-  },
-  {
-    name: "Blossom",
-    img: Blossom,
-  },
-  {
-    name: "Tutti Fruitti",
-    img: TuttiFruitti,
-  },
-  {
-    name: "Blue Circles",
-    img: BlueCircles,
-  },
+  {name: "Stars", img: Stars},
+  {name: "Ocean Blue", img: OceanBlue},
+  {name: "Blossom", img: Blossom},
+  {name: "Tutti Fruitti", img: TuttiFruitti},
+  {name: "Blue Circles", img: BlueCircles},
 ];
 
 export const confettiDataCannon = [
-  {
-    name: "Stars",
-    img: Stars,
-  },
-  {
-    name: "Ocean Blue",
-    img: OceanBlue,
-  },
-  {
-    name: "Blossom",
-    img: Blossom,
-  },
-  {
-    name: "Tutti Fruitti",
-    img: TuttiFruitti,
-  },
-  {
-    name: "Blue Circles",
-    img: BlueCircles,
-  },
+  {name: "Stars", img: Stars},
+  {name: "Ocean Blue", img: OceanBlue},
+  {name: "Blossom", img: Blossom},
+  {name: "Tutti Fruitti", img: TuttiFruitti},
+  {name: "Blue Circles", img: BlueCircles},
 ];
 
 // export const backgroundDataCannon = [
