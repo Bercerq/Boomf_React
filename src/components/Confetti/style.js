@@ -3,16 +3,17 @@ import styled from "styled-components";
 export const Title = styled.div`
   color: #717171;
   font-size: 16px;
-  text-align: ${({textPosition}) =>
-          textPosition === 'start' ? `start; width: 100% !important;` : textPosition};
+  text-align: ${({ textPosition }) =>
+    textPosition === "start" ? `start; width: 100% !important;` : textPosition};
   font-family: "objectivity-regular-11", sans-serif;
   width: 200px;
   @media (max-width: 1130px) {
-    text-align: ${({deviceTextPosition}) => deviceTextPosition && deviceTextPosition};
+    text-align: ${({ deviceTextPosition }) =>
+      deviceTextPosition && deviceTextPosition};
     width: 100%;
     margin: 0;
     &:last-child {
-      display: ${({lastChild}) => lastChild ? 'block' : 'none'};
+      display: ${({ lastChild }) => (lastChild ? "block" : "none")};
     }
   }
   @media (max-height: 680px) {
@@ -24,7 +25,7 @@ export const Title = styled.div`
   span {
     font-weight: bold;
     @media (max-width: 1130px) {
-      display: ${({lastChild}) => lastChild ? 'contents' : 'none'};
+      display: ${({ lastChild }) => (lastChild ? "contents" : "none")};
     }
   }
 `;
@@ -37,13 +38,13 @@ export const ConfettiWrapper = styled.div`
 
   @media (max-width: 1130px) {
     display: flex;
-    align-items: ${({alignItem}) => alignItem ? `${alignItem};` : 'center'};
-    ${({positionWrapper}) =>
-            positionWrapper === 'absolute' ?
-                    `position: absolute; right: 0; width: 20vw; flex-direction: column-reverse;` : `width: 100%;`}
+    align-items: ${({ alignItem }) => (alignItem ? `${alignItem};` : "center")};
+    ${({ positionWrapper }) =>
+      positionWrapper === "absolute"
+        ? `position: absolute; right: 0; width: 20vw; flex-direction: column-reverse;`
+        : `width: 100%;`}
     padding: 0;
     margin: 0;
-    width: 100vw;
   }
   @media (max-width: 400px) {
     margin-left: unset;
@@ -97,10 +98,10 @@ export const ConfettiItem = styled.div`
   padding: 4px;
   background-color: white;
 
-  ${({selectConfetti, name, mobileDevice}) =>
-          `border: 4px solid ${
-                  !mobileDevice && selectConfetti.id === name ? "#2EDBE3" : "transparent"
-          };transition: 0.4s;
+  ${({ selectConfetti, name, mobileDevice }) =>
+    `border: 4px solid ${
+      !mobileDevice && selectConfetti.id === name ? "#2EDBE3" : "transparent"
+    };transition: 0.4s;
     ${mobileDevice && selectConfetti.id !== name && "display:none;"}`}
 
   filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16));

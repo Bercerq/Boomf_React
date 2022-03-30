@@ -1,26 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TextDraggable from "../../../Draggable/TextDraggable";
-import { Title, BoxWrapper } from "../style";
-import { CardContainer, SpaceForText } from "./style";
+import { Title, BoxWrapperCard } from "../style";
+import { CardBox, CardContainer, SpaceForText } from "./style";
 
-function MallowCard({ editTextRef }) {
+function MallowCard({ standardName, editTextRef }) {
+  const [firstLoading, setFirstLoading] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setFirstLoading(true), 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
-    <BoxWrapper>
+    <BoxWrapperCard
+      firstLoading={firstLoading}
+      standardName={standardName === "Card"}
+    >
       <Title>Card</Title>
       <CardContainer>
-        <div style={{ height: "280px" }}></div>
+        <CardBox></CardBox>
 
         <SpaceForText>
           <div
-            style={{ left: "35px", top: "38px", position: "absolute" }}
-            id="buttonClickCannon"
+            id="buttonClickMallowpops"
             ref={(ref) => (editTextRef.current[1] = ref)}
           >
-            <TextDraggable buttonFlag="buttonClickCannon" column={1} />
+            <TextDraggable buttonFlag="buttonClickMallowpops" column={1} />
           </div>
         </SpaceForText>
       </CardContainer>
-    </BoxWrapper>
+    </BoxWrapperCard>
   );
 }
 

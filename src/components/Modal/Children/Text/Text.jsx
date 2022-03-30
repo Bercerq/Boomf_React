@@ -32,7 +32,7 @@ function Text() {
     <div>
       <TextArea
         defaultValue={textDataState.value || value}
-        placeholder="Placeholder"
+        placeholder="Type your text here"
         onChange={handleSetValue}
       />
 

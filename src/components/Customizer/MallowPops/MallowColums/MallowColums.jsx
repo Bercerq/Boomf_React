@@ -9,8 +9,9 @@ import { ColorItemPalete } from "../../../TextEditor/style";
 import { Title, BoxWrapper } from "../style";
 import { BoxImage, MallowBox, MallowBoxWrapper, StickImage } from "./style";
 import useUpdateMallowPops from "../../../../utils/hooks/useUpdateMallowPops";
+import { useResizeDevice } from "../../../../utils/hooks/useResizeDevice";
 
-function MallowColums() {
+function MallowColums({ editTextRef, standardName }) {
   const dispatch = useDispatch();
   const [boxId, setBoxId] = useState();
   const { imageState } = useSelector(
@@ -19,6 +20,12 @@ function MallowColums() {
   const { mallowpops } = useSelector(
     ({ mallowPopsReducer }) => mallowPopsReducer
   );
+
+  const { mobileDevice } = useResizeDevice({ maxWidth: 1130 });
+  const { textDataState } = useSelector(
+    ({ textDataReducer }) => textDataReducer
+  );
+
   const selectBox = (id) => () => {
     setBoxId(id);
     dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
@@ -27,7 +34,12 @@ function MallowColums() {
   useUpdateMallowPops(imageState?.url || imageState?.img, mallowpops, boxId);
 
   return (
-    <BoxWrapper>
+    <BoxWrapper
+      id="buttonClickStandard"
+      ref={(ref) => (editTextRef.current[1] = ref)}
+      focusState={textDataState.focusState && mobileDevice}
+      standardName={standardName === "AddCart"}
+    >
       <Title>Mallowpops</Title>
 
       <MallowBoxWrapper>
