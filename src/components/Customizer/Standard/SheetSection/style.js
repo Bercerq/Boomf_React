@@ -215,9 +215,6 @@ export const DivSheetContent = styled.div`
       display: none;
     }
   }
-  @media (min-width: 1130px) {
-    display: none;
-  }
 `;
 
 export const DivFlex = styled.div`

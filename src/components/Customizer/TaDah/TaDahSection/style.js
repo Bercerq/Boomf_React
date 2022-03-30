@@ -86,7 +86,6 @@ export const ConfettiTaDahImg = styled.img`
   height: 80%;
   z-index: -2;
   transition: 1s;
-  ${({displayOpacity}) => displayOpacity && displayOpacity === 'Front' ? 'opacity: 1;' : 'opacity: 0;'};
 
   @media (max-width: 1130px) {
     bottom: 0;
