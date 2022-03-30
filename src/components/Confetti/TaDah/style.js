@@ -42,7 +42,7 @@ export const ConfettiWrapperTaDahColumn = styled(ConfettiWrapperCannonColumn)`
     display: flex;
     height: fit-content;
     order: -1;
-    margin: 0;
+    margin: 0 0 0 20px;
   }
   @media (min-width: 1130px) and (max-height: 605px) {
     order: 0;
