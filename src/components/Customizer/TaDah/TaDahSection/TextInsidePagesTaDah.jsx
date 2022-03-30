@@ -6,12 +6,12 @@ import ImageDraggable from "../../../Draggable/ImageDraggable";
 import {LineDivStandard} from "../../Standard/SheetSection/style";
 import {TextContentTaDah} from "./style";
 
-const TextInsidePagesTaDah = () => {
+const TextInsidePagesTaDah = ({buttonFlag, type}) => {
   return (
     <>
-      <TextContentTaDah id="buttonClickTaDah">
+      <TextContentTaDah>
         <TextDraggable
-          buttonFlag="buttonClickTaDah"
+          buttonFlag={buttonFlag}
           activeSizeImage={true}
           column={1}
         />
@@ -20,7 +20,7 @@ const TextInsidePagesTaDah = () => {
       <LineDivStandard/>
       <TextContentTaDah>
         <TextDraggable
-          buttonFlag="buttonClickTaDah"
+          buttonFlag={buttonFlag}
           activeSizeImage={true}
           column={2}
         />
