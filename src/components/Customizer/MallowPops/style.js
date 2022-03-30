@@ -11,6 +11,9 @@ export const MainWrapper = styled.div`
 export const MallowWrapper = styled.div`
   display: flex;
   justify-content: center;
+  @media (max-width: 1130px) {
+    flex-direction: row-reverse;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -35,6 +38,9 @@ export const Title = styled.h1`
   @media (max-height: 830px) {
     margin-bottom: 30px;
   }
+  @media (max-height: 700px) {
+    margin-bottom: unset;
+  }
 `;
 
 export const BoxWrapper = styled.div`
@@ -52,17 +58,20 @@ export const BoxWrapper = styled.div`
     margin-right: unset;
     align-items: center;
     transform: translate(
-      ${({ standardName }) => (standardName ? "0" : "150vw")},
+      ${({ standardName }) => (standardName ? "0" : "-100vw")},
       0
     );
   }
   @media (max-width: 500px) {
     width: 350px;
   }
+  @media (max-height: 700px) {
+    top: 20px;
+  }
 
   @media (max-width: 920px) {
     transform: translate(
-      ${({ standardName }) => (standardName ? "0" : "150vw")},
+      ${({ standardName }) => (standardName ? "0" : "-100vw")},
       0
     );
   }
@@ -85,8 +94,11 @@ export const BoxWrapperCard = styled.div`
     align-items: center;
     transition-duration: ${({ firstLoading }) => (firstLoading ? "1s" : "0s")};
     transform: translate(
-      ${({ standardName }) => (standardName ? 0 : "-100vw")},
+      ${({ standardName }) => (standardName ? 0 : "150vw")},
       0
     );
+  }
+  @media (max-height: 700px) {
+    top: 20px;
   }
 `;
