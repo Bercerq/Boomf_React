@@ -3,7 +3,7 @@ import Cannon from "../../modules/customizers/Cannon";
 import MallowPops from "../../modules/customizers/MallowPops";
 import Standard from "../../modules/customizers/Standard";
 import Flutter from "../../modules/customizers/Flutter";
-import TaDah from "../../modules/customizers/TaDah/TaDah";
+import TaDah from "../../modules/customizers/TaDah";
 
 export const routes = [
   {

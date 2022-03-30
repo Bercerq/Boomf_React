@@ -23,7 +23,6 @@ const FontPageTaDah = ({standardName, type}) => {
         <ConfettiTaDahImg
           src={confettiState.img}
           alt={confettiState.alt}
-          displayOpacity={standardName}
         />
       )}
       <SheetContainerFrontPage
