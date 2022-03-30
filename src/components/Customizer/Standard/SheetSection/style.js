@@ -45,11 +45,8 @@ export const SheetContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< Updated upstream
-  background: ${({type}) => type === 'Flutter' ? '#D6D6D6' : '#FFFFFF'};
-=======
-  background: #ffffff;
->>>>>>> Stashed changes
+
+  background: ${({ type }) => (type === "Flutter" ? "#D6D6D6" : "#FFFFFF")};
 
   overflow: hidden;
 
@@ -73,17 +70,12 @@ export const SheetContainer = styled.div`
 `;
 
 export const SheetContainerFrontPage = styled(SheetContainer)`
-<<<<<<< Updated upstream
-  background: ${({type}) => type === 'Flutter' ? '#D6D6D6' : '#FFFFFF'};
-  transition-duration: ${({firstLoading}) => firstLoading ? '1s' : '0s'};
-  transform: translate(${({standardName}) => standardName ? 0 : '-150vw'}, 0);
-=======
+  background: ${({ type }) => (type === "Flutter" ? "#D6D6D6" : "#FFFFFF")};
   transition-duration: ${({ firstLoading }) => (firstLoading ? "1s" : "0s")};
   transform: translate(
     ${({ standardName }) => (standardName ? 0 : "-150vw")},
     0
   );
->>>>>>> Stashed changes
 `;
 
 export const DivStandardInside = styled.div`
@@ -122,23 +114,19 @@ export const TextContentStandard = styled.div`
   }
 
   @media (max-height: 1024px) and (max-width: 800px),
-<<<<<<< Updated upstream
-  screen and (max-width: 1280px) and (max-height: 800px) {
-=======
     screen and (max-width: 1280px) and (max-height: 800px) {
->>>>>>> Stashed changes
     width: 290px;
     height: 400px;
   }
-  
+
   @media (max-width: 540px) {
     width: 329px;
     height: 454px;
   }
-  
+
   @media screen and (max-width: 1130px),
-  screen and (max-height: 605px),
-  screen and (max-width: 540px) and (max-height: 720px) {
+    screen and (max-height: 605px),
+    screen and (max-width: 540px) and (max-height: 720px) {
     width: 257px;
     height: 365px;
   }
