@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
-export const MainWrapper = styled.div``;
+export const MainWrapper = styled.div`
+  width: 100%;
+`;
 
 export const MallowWrapper = styled.div`
   display: flex;
-  margin: 126px auto;
+  margin: 126px 0;
+  justify-content: center;
 `;
 
 export const ButtonWrapper = styled.div`
