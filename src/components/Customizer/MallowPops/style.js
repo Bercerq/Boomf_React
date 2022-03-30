@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 export const MainWrapper = styled.div`
   width: 100%;
+  margin: 126px 0;
+  @media (max-height: 830px) {
+    margin: 30px 0;
+  }
 `;
 
 export const MallowWrapper = styled.div`
   display: flex;
-  margin: 126px 0;
   justify-content: center;
 `;
 
@@ -22,6 +25,9 @@ export const Title = styled.h1`
   text-align: center;
   color: #222222;
   margin-bottom: 50px;
+  @media (max-height: 830px) {
+    margin-bottom: 30px;
+  }
 `;
 
 export const BoxWrapper = styled.div`
