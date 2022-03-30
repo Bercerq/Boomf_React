@@ -7,7 +7,7 @@ import SheetPage from "./SheetPage";
 function BottomSection() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setStandardName("Card"));
+    dispatch(setStandardName("AddCart"));
   }, []);
 
   return (
