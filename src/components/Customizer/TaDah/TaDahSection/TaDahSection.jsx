@@ -4,12 +4,12 @@ import {useSelector} from "react-redux";
 import SelectPage from "../../Standard/SheetSection/SelectPage";
 import SheetPageTaDah from "./SheetPageTaDah";
 import FontPageTaDah from "./FontPageTaDah";
-import InsidePagesTaDah from "./InsidePagesTaDah";
 import TextInsidePagesTaDah from "./TextInsidePagesTaDah";
 
 import {DivSheets, SheetContentPage} from "../../Standard/SheetSection/style";
+import InsidePages from "../../Standard/SheetSection/InsidePages";
 
-const TaDahSection = ({editTextRef}) => {
+const TaDahSection = ({editTextRef, type}) => {
   const {standardName} = useSelector(
     ({standardReducer}) => standardReducer
   );
@@ -19,16 +19,22 @@ const TaDahSection = ({editTextRef}) => {
       <DivSheets>
         <FontPageTaDah
           standardName={standardName}
+          type={type}
         />
-        <InsidePagesTaDah
-          standardName={standardName}
+        <InsidePages
+          type={type}
           editTextRef={editTextRef}
+          standardName={standardName}
+          buttonFlag='buttonClickTaDah'
         >
-          <TextInsidePagesTaDah />
-        </InsidePagesTaDah>
+          <TextInsidePagesTaDah
+            buttonFlag='buttonClickTaDah'
+            type={type}
+          />
+        </InsidePages>
       </DivSheets>
       <SelectPage>
-        <SheetPageTaDah />
+        <SheetPageTaDah type={type}/>
       </SelectPage>
     </SheetContentPage>
   );

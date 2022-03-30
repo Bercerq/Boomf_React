@@ -23,8 +23,9 @@ const SheetSection = ({editTextRef}) => {
         <InsidePages
           editTextRef={editTextRef}
           standardName={standardName}
+          buttonFlag='buttonClickCannon'
         >
-          <TextContentInsidePages/>
+          <TextContentInsidePages buttonFlag='buttonClickCannon'/>
         </InsidePages>
       </DivSheets>
       <SelectPage>

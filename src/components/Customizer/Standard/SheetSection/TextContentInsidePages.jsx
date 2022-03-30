@@ -4,12 +4,12 @@ import TextDraggable from "../../../Draggable/TextDraggable";
 import ImageDraggable from "../../../Draggable/ImageDraggable";
 import {LineDivStandard, TextContentStandard} from "./style";
 
-const TextContentInsidePages = () => {
+const TextContentInsidePages = ({buttonFlag}) => {
   return (
     <>
       <TextContentStandard>
         <TextDraggable
-          buttonFlag='buttonClickStandard'
+          buttonFlag={buttonFlag}
           activeSizeImage={true}
           column={1}
         />
@@ -18,7 +18,7 @@ const TextContentInsidePages = () => {
       <LineDivStandard/>
       <TextContentStandard>
         <TextDraggable
-          buttonFlag='buttonClickStandard'
+          buttonFlag={buttonFlag}
           activeSizeImage={true}
           column={2}
         />
