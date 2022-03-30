@@ -47,18 +47,18 @@ export const BoxWrapper = styled.div`
 
   @media (max-width: 1130px) {
     position: fixed;
-    top: 15px;
+    top: 50px;
     margin-left: unset;
     margin-right: unset;
+    align-items: center;
+    transform: translate(
+      ${({ standardName }) => (standardName ? "0" : "150vw")},
+      0
+    );
   }
   @media (max-width: 500px) {
     width: 350px;
   }
-
-  transform: translate(
-    ${({ standardName }) => (standardName ? "0" : "150vw")},
-    0
-  );
 
   @media (max-width: 920px) {
     transform: translate(
@@ -81,7 +81,8 @@ export const BoxWrapperCard = styled.div`
     margin-left: unset;
     margin-right: unset;
     position: fixed;
-    top: 15px;
+    top: 50px;
+    align-items: center;
     transition-duration: ${({ firstLoading }) => (firstLoading ? "1s" : "0s")};
     transform: translate(
       ${({ standardName }) => (standardName ? 0 : "-100vw")},
