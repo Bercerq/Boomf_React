@@ -8,6 +8,7 @@ const TaDah = () => {
     <TaDahComponent
       imageData={[...confettiDataCannon, ...confettiDataCannon, ...confettiDataCannon]}
       type='TaDah'
+      title='Ta Dah'
     />
   )
 };
