@@ -37,6 +37,7 @@ export const ConfettiWrapperTaDahColumn = styled(ConfettiWrapperCannonColumn)`
   width: fit-content;
   height: 60%;
   transition: 1s;
+  z-index: -1;
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     position: static;
     display: flex;

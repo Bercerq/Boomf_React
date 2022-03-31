@@ -34,7 +34,7 @@ function Confetti({children, textPosition, lastChild, positionWrapper, alignItem
     <>
       <ConfettiWrapper positionWrapper={positionWrapper} alignItem={alignItem}>
         <Title deviceTextPosition={deviceTextPosition} textPosition={textPosition} lastChild={lastChild}>
-          {title ? title : 'Confetti'}<span>: {confettiState.name}</span>
+          {title === 'Flutter' ? title : 'Confetti'}<span>: {confettiState.name}</span>
         </Title>
         {children ? (
           children
@@ -58,7 +58,7 @@ function Confetti({children, textPosition, lastChild, positionWrapper, alignItem
           </ConfetiBox>
         )}
         <Title deviceTextPosition={deviceTextPosition} textPosition={textPosition} lastChild={lastChild}>
-          {title ? 'Butterfly toy flies out of the card' : 'Confetti launches out of card'}
+          {title === 'Flutter' ? 'Butterfly toy flies out of the card' : 'Confetti launches out of card'}
         </Title>
       </ConfettiWrapper>
 
