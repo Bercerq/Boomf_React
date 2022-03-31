@@ -7,14 +7,12 @@ import {TitleTaDah} from "./TaDahSection/style";
 
 const TaDahSheet = ({editTextRef, standardName, type}) => {
   return (
-    <>
-      <SheetBlock>
-        <TitleTaDah titleDevice='desktop'>
-          {standardName} Page
-        </TitleTaDah>
-        <TaDahSection editTextRef={editTextRef} type={type}/>
-      </SheetBlock>
-    </>
+    <SheetBlock>
+      <TitleTaDah titleDevice='desktop'>
+        {standardName} Page
+      </TitleTaDah>
+      <TaDahSection editTextRef={editTextRef} type={type}/>
+    </SheetBlock>
   );
 };
 

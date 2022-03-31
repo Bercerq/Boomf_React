@@ -6,7 +6,7 @@ import ImageDraggable from "../../../Draggable/ImageDraggable";
 import {LineDivStandard} from "../../Standard/SheetSection/style";
 import {TextContentTaDah} from "./style";
 
-const TextInsidePagesTaDah = ({buttonFlag, type}) => {
+const TextInsidePagesTaDah = ({buttonFlag}) => {
   return (
     <>
       <TextContentTaDah>
