@@ -6,7 +6,7 @@ import {
   SET_IMAGES,
   SET_IMAGES_CATEGORIES,
   SET_PRODUCT_TYPE,
-  SET_USER_IMAGES,
+
   UPLOAD_IMAGE,
 } from "../constants/images";
 

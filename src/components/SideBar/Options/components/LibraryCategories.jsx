@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getBoomfImages, searchImage } from "../../../../redux/actions/images";
 
 import { DivUploadImage, TitleCollection } from "../style";
@@ -9,8 +9,13 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 function LibraryCategories({ categories, setSubTitle }) {
   const dispatch = useDispatch();
+
+  const { productType } = useSelector(
+    ({ boomfImagesReducer }) => boomfImagesReducer
+  );
+
   const handleSetCategories = (e) => () => {
-    dispatch(getBoomfImages({ productType: "exploding_card", name: e.slug }));
+    dispatch(getBoomfImages({ productType: productType, name: e.slug }));
     setSubTitle(e.name);
   };
 
