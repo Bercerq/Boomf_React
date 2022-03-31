@@ -4,17 +4,17 @@ import {ConfettiTaDahImg, TextContentTaDah} from "./style";
 import {useSelector} from "react-redux";
 
 const FontPageTaDah = ({standardName, type}) => {
-  const [firstLoading, setFirstLoading] = useState(false)
+  const [firstLoading, setFirstLoading] = useState(false);
 
   const {confettiState} = useSelector(
     ({confettiReducer}) => confettiReducer
   );
 
   useEffect(() => {
-    const timer = setTimeout(() => setFirstLoading(true), 1000)
+    const timer = setTimeout(() => setFirstLoading(true), 1000);
 
     return () => {
-      clearTimeout(timer)
+      clearTimeout(timer);
     }
   }, []);
   return (

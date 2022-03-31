@@ -30,6 +30,7 @@ export const ConfettiBoxTaDah = styled(BackgroundBoxCannon)`
 `;
 
 export const ConfettiWrapperTaDahColumn = styled(ConfettiWrapperCannonColumn)`
+  ${({displayOpacity}) => displayOpacity ? 'opacity: 1;' : 'opacity: 0;'};
   position: absolute;
   right: 0;
   padding: 0;
@@ -42,8 +43,10 @@ export const ConfettiWrapperTaDahColumn = styled(ConfettiWrapperCannonColumn)`
     height: fit-content;
     order: -1;
     margin: 0 0 0 20px;
+    opacity: 1;
   }
   @media (min-width: 1130px) and (max-height: 605px) {
     order: 0;
+    opacity: 1;
   }
 `;

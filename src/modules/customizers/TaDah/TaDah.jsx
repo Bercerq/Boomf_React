@@ -19,8 +19,8 @@ const TaDahComponent = ({imageData, title, type}) => {
   );
 
   useEffect(() => {
-    dispatch(setStandardName("Front"));
     if(imageData) {
+      dispatch(setStandardName("Front"));
       dispatch(setConfettiData(imageData));
     }
   }, [dispatch, imageData]);
@@ -41,6 +41,7 @@ const TaDahComponent = ({imageData, title, type}) => {
       />
       <ConfettiTaDah
         title={title}
+        standardName={standardName}
       />
     </CustomizerLayout>
   );

@@ -5,9 +5,9 @@ import ConfettiTaDahComponent from "./ConfettiTaDah";
 
 import {ConfettiWrapperTaDahColumn} from "./style";
 
-const ConfettiTaDah = ({title}) => {
+const ConfettiTaDah = ({title, standardName}) => {
   return (
-    <ConfettiWrapperTaDahColumn>
+    <ConfettiWrapperTaDahColumn displayOpacity={standardName === 'Front'}>
       <Confetti
         deviceTextPosition='start'
         textPosition='center'
