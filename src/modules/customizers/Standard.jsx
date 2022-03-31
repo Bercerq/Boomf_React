@@ -16,7 +16,7 @@ const Standard = () => {
 
   return (
     <CustomizerLayout
-      productType={"greeting_card"}
+      productType="greeting_card"
       editTextRef={editTextRef}
       title="Standard"
     >

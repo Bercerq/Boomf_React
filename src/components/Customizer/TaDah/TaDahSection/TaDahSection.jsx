@@ -5,9 +5,9 @@ import SelectPage from "../../Standard/SheetSection/SelectPage";
 import SheetPageTaDah from "./SheetPageTaDah";
 import FontPageTaDah from "./FontPageTaDah";
 import TextInsidePagesTaDah from "./TextInsidePagesTaDah";
+import InsidePages from "../../Standard/SheetSection/InsidePages";
 
 import {DivSheets, SheetContentPage} from "../../Standard/SheetSection/style";
-import InsidePages from "../../Standard/SheetSection/InsidePages";
 
 const TaDahSection = ({editTextRef, type}) => {
   const {standardName} = useSelector(
@@ -22,15 +22,12 @@ const TaDahSection = ({editTextRef, type}) => {
           type={type}
         />
         <InsidePages
-          type={type}
+          buttonFlag='buttonClickTaDah'
           editTextRef={editTextRef}
           standardName={standardName}
-          buttonFlag='buttonClickTaDah'
+          type={type}
         >
-          <TextInsidePagesTaDah
-            buttonFlag='buttonClickTaDah'
-            type={type}
-          />
+          <TextInsidePagesTaDah buttonFlag='buttonClickTaDah'/>
         </InsidePages>
       </DivSheets>
       <SelectPage>
