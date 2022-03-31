@@ -5,9 +5,8 @@ import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
 import Plus from "../../../../utils/assets/svg/Plus.svg";
 import Stick from "../../../../utils/assets/svg/MallowStick.svg";
 
-import { ColorItemPalete } from "../../../TextEditor/style";
 import { Title, BoxWrapper } from "../style";
-import { BoxImage, MallowBox, MallowBoxWrapper, StickImage } from "./style";
+import { AddImage, BoxImage, MallowBox, MallowBoxWrapper, StickImage } from "./style";
 import useUpdateMallowPops from "../../../../utils/hooks/useUpdateMallowPops";
 import { useResizeDevice } from "../../../../utils/hooks/useResizeDevice";
 
@@ -47,9 +46,9 @@ function MallowColums({ editTextRef, standardName }) {
           <div key={id} style={{ position: "relative" }}>
             <MallowBox onClick={selectBox(id)}>
               {!image ? (
-                <ColorItemPalete>
+                <AddImage>
                   <img src={Plus} alt="Plus" />
-                </ColorItemPalete>
+                </AddImage>
               ) : (
                 <BoxImage src={image} />
               )}

@@ -7,7 +7,7 @@ import TaDah from "../../modules/customizers/TaDah";
 
 export const routes = [
   {
-    path: "/",
+    path: "/boomb",
     exact: true,
     component: Boomb,
   },

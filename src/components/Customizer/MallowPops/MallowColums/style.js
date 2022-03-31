@@ -35,3 +35,29 @@ export const StickImage = styled.img`
   position: absolute;
   top: 115px;
 `;
+
+export const AddImage = styled.div`
+  span {
+    font-size: 50px;
+    color: #2edbe3;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 640px) {
+      font-size: 35px;
+    }
+  }
+
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+
+  margin: 0px 12px;
+
+  img {
+    background-color: white;
+    border-radius: 50%;
+    width: 100%;
+    box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04),
+      0px 2px 4px rgba(96, 97, 112, 0.16);
+  }
+`;
