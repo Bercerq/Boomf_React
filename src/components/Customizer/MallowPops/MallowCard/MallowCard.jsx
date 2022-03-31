@@ -17,7 +17,7 @@ function MallowCard({ standardName, editTextRef }) {
   return (
     <BoxWrapperCard
       firstLoading={firstLoading}
-      standardName={standardName === "Card"}
+      standardName={standardName === "AddCart"}
     >
       <Title>Card</Title>
       <CardContainer>

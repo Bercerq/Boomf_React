@@ -10,7 +10,7 @@ function BottomSection() {
   const { mobileDevice } = useResizeDevice({ maxWidth: 1130 });
 
   useEffect(() => {
-    dispatch(setStandardName("AddCart"));
+    dispatch(setStandardName("Card"));
   }, []);
 
   return (

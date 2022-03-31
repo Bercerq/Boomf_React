@@ -38,7 +38,7 @@ function MallowColums({ editTextRef, standardName }) {
       id="buttonClickStandard"
       ref={(ref) => (editTextRef.current[1] = ref)}
       focusState={textDataState.focusState && mobileDevice}
-      standardName={standardName === "AddCart"}
+      standardName={standardName === "Card"}
     >
       <Title>Mallowpops</Title>
 
