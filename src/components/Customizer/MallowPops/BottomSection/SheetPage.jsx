@@ -19,14 +19,14 @@ const SheetPage = () => {
     <>
       <DivSheetContent>
         <FrontSheetDiv
-          activeSheet={standardName === "AddCart"}
-          onClick={() => handleSelect("AddCart")}
+          activeSheet={standardName === "Card"}
+          onClick={() => handleSelect("Card")}
         />
       </DivSheetContent>
       <DivSheetContent>
         <FrontSheetDiv
-          onClick={() => handleSelect("Card")}
-          activeSheet={standardName === "Card"}
+          onClick={() => handleSelect("AddCart")}
+          activeSheet={standardName === "AddCart"}
         />
       </DivSheetContent>
     </>
