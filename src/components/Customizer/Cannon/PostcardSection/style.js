@@ -38,7 +38,7 @@ export const PostcardEditButton = styled.div`
   }
 `;
 
-export const PostcardTest = styled.div`
+export const PostcardCard = styled.div`
   position: static;
   display: flex;
   flex-direction: column;
@@ -116,6 +116,11 @@ export const BackgroundCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-height: 920px) and (min-width: 1440px) {
+    height: 492px;
+    width: 295px;
+  }
 
   @media (max-height: 600px) and (max-width: 1300px) {
     height: 328px;
