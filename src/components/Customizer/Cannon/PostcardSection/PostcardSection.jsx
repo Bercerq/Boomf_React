@@ -13,13 +13,13 @@ import {
   PostcardButton,
   PostcardContainer,
   PostcardWrapper,
-  PostcardTest,
+  PostcardCard,
 } from "./style";
 
 const PostcardSection = ({editTextRef}) => {
   const [sizeCard, setSize] = useState({
-    height: window.innerWidth / 100 * 40,
-    width: window.innerWidth / 100 * 40 / 1.5
+    height: Math.round(window.innerWidth / 100 * 40),
+    width: Math.round(window.innerWidth / 100 * 40 / 1.5)
   });
 
   const {confettiState} = useSelector(({confettiReducer}) => confettiReducer);
@@ -32,14 +32,14 @@ const PostcardSection = ({editTextRef}) => {
   useEffect(() => {
     window.addEventListener('resize', () => {
       setSize((e) => ({
-        height: window.innerWidth / 100 * 40,
-        width: window.innerWidth / 100 * 40 / 1.5
+        height: Math.round(window.innerWidth / 100 * 40),
+        width: Math.round(window.innerWidth / 100 * 40 / 1.5)
       }));
     });
   }, []);
 
   return (
-    <PostcardTest>
+    <PostcardCard>
       <PostcardContainer>
         <PostcardWrapper
           src={confettiState.img}
@@ -57,7 +57,7 @@ const PostcardSection = ({editTextRef}) => {
           Add to cart <img src={ArrowRightIcon} alt="add"/>
         </PostcardBlueButton>
       </PostcardButton>
-    </PostcardTest>
+    </PostcardCard>
   );
 };
 

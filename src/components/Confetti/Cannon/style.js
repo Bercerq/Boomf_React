@@ -34,17 +34,13 @@ export const BackgroundWrapperCannon = styled(ConfettiWrapperCannonColumn)`
 `;
 
 export const ConfettiBoxCannon = styled.div`
-  overflow: auto;
-
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  height: auto;
+  height: auto; 
+  overflow: auto;
   width: 100%;
   padding-right: 20px;
+  
   @media (min-width: 1440px) {
     overflow: hidden;
   }
@@ -53,9 +49,14 @@ export const ConfettiBoxCannon = styled.div`
     justify-content: ${({justifyContent}) => justifyContent};
     padding: 0;
   }
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
 `;
 
 export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
+  width: fit-content;
   grid-template-columns: repeat(${({columnConfetti}) => columnConfetti}, 1fr);
   justify-items: center;
 
@@ -75,8 +76,8 @@ export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
 
 export const ConfettiItemCannon = styled.div`
   cursor: pointer;
-  width: 78px;
-  height: 78px;
+  width: ${({sizeConfetti}) => sizeConfetti ? `${sizeConfetti}px` : '78px'};
+  height: ${({sizeConfetti}) => sizeConfetti ? `${sizeConfetti}px` : '78px'};
   margin: 10px;
   border-radius: 50%;
   transition: 0.4s;
@@ -128,12 +129,12 @@ export const BackgroundItem = styled.div`
   border-radius: 50%;
   transition: 0.4s;
   background: #ffffff;
+  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16));
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     margin: 0 10px 12px 10px;
   }
-  ${({mobileDevice}) => mobileDevice ? (
-          `filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16)); margin-bottom: 15px;`
-  ) : ('background: transparent;')};
+  ${({mobileDevice}) => mobileDevice ? 'margin-bottom: 15px;' : 'margin: 7px 13px;'};
+
 `;
 
 export const BackgroundImage = styled.img`
@@ -141,6 +142,7 @@ export const BackgroundImage = styled.img`
   height: 45px;
   margin: 0;
   border-radius: 50%;
+  filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16));
 `;
 
 export const ActiveBackground = styled.div`
@@ -149,7 +151,7 @@ export const ActiveBackground = styled.div`
   height: 100%;
   border-radius: 50%;
   ${({selectConfetti}) =>
-          `border: 6px solid ${
-                  selectConfetti ? "#FFFFFF; transform: scale(0.75);" : "transparent"
+          `border: 7px solid ${
+                  selectConfetti ? "#FFFFFF; transform: scale(0.70);" : "transparent"
           }; transition: 0.4s;`};
 `;
