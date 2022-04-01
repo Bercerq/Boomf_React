@@ -30,14 +30,13 @@ export const ConfettiBoxTaDah = styled(BackgroundBoxCannon)`
 `;
 
 export const ConfettiWrapperTaDahColumn = styled(ConfettiWrapperCannonColumn)`
-  ${({displayOpacity}) => displayOpacity ? 'opacity: 1;' : 'opacity: 0;'};
+  ${({displayOpacity}) => displayOpacity ? 'opacity: 1; z-index: 0;' : 'opacity: 0; z-index: -1;'};
   position: absolute;
   right: 0;
   padding: 0;
   width: fit-content;
   height: 60%;
   transition: 1s;
-  z-index: -1;
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     position: static;
     display: flex;
