@@ -27,7 +27,7 @@ const TaDahComponent = ({imageData, title, type}) => {
 
   return (
     <CustomizerLayout
-      productType=""
+      productType="greeting_card"
       editTextRef={editTextRef}
       title={title}
     >
