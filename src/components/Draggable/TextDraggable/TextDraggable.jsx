@@ -27,7 +27,8 @@ const TextDraggablePos = ({
   textEditorParams,
   activeSizeImage,
   textState,
-  buttonFlag
+  buttonFlag,
+  activeRebootImage
 }) => {
   useAutoResize({
     inputRef: activeId ? inputRef : null,
@@ -92,7 +93,7 @@ const TextDraggablePos = ({
         >
           <div className="div-reboot-pos">
             <strong className="no-cursor">
-              {currentState.focusState && (
+              {currentState.focusState && activeRebootImage && (
                 <div
                   onMouseDown={textEditorParams.initRotate}
                   onTouchStart={textEditorParams.initRotate}
