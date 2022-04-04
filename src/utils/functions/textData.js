@@ -25,10 +25,10 @@ export const textPosition = (parentBlock, childrenBlock, data, childWidth) => {
 const positionX = (parentBlock, childrenBlock, childWidth, data) => {
   if (childWidth > 1) {
     if (parentBlock.left > childrenBlock.left) {
-      return -parentBlock.width / 2 + childrenBlock.width / childWidth;
+      return -parentBlock.width / 2 + childrenBlock.width / childWidth + 10;
     }
     if (parentBlock.right < childrenBlock.right) {
-      return parentBlock.width / 2 - childrenBlock.width / childWidth;
+      return parentBlock.width / 2 - childrenBlock.width / childWidth - 10;
     }
   }
 

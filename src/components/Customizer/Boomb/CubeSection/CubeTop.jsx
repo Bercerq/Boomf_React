@@ -21,7 +21,11 @@ export const CubeTop = ({ topText, editTextRef }) => {
           id="buttonClickCannon"
           ref={(ref) => (editTextRef.current[1] = ref)}
         >
-          <TextDraggable buttonFlag="buttonClickCannon" column={1} />
+          <TextDraggable
+            buttonFlag="buttonClickCannon"
+            activeRebootImage={true}
+            column={1}
+          />
         </div>
       </CubeItem>
     </CubeSide>
