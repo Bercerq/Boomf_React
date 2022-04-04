@@ -51,13 +51,4 @@ export const SpaceForText = styled.div`
     height: 133px;
   }
 
-  #buttonClickMallowpops {
-    left: 35px;
-    top: 38px;
-    position: absolute;
-    @media (max-height: 610px) {
-      left: -15px;
-      top: 25px;
-    }
-  }
 `;

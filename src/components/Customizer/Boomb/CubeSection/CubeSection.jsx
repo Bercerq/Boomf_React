@@ -1,5 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 
 import RotateButtons from "./RotateButtons";
 import CubeSide from "./CubeSide";

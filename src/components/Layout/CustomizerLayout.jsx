@@ -27,7 +27,9 @@ function CustomizerLayout({ title, editTextRef, children, productType }) {
         <TextEditor editTextRef={editTextRef} />
         {children}
       </MainWrapper>
-      <Modal>{findModalChildren(currentModal.title)}</Modal>
+      {currentModal.title && (
+        <Modal>{findModalChildren(currentModal.title)}</Modal>
+      )}
     </>
   );
 }

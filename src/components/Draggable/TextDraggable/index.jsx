@@ -6,7 +6,7 @@ import {useEditText} from "../../../utils/hooks/useEditText";
 import {openEditor} from "../../../utils/functions/boomb";
 import TextDraggablePos from "./TextDraggable";
 
-const TextDraggable = ({buttonFlag, column, activeSizeImage}) => {
+const TextDraggable = ({buttonFlag, column, activeSizeImage, activeRebootImage}) => {
   const [inputRef, setInputRef] = useFocus();
   const {textData, textDataState} = useSelector(
     ({textDataReducer}) => textDataReducer
@@ -34,8 +34,9 @@ const TextDraggable = ({buttonFlag, column, activeSizeImage}) => {
             currentState={e}
             textEditorParams={textEditorParams}
             inputRef={inputRef}
-            activeSizeImage={activeSizeImage}
 
+            activeSizeImage={activeSizeImage}
+            activeRebootImage={activeRebootImage}
             buttonFlag={buttonFlag}
 
             textState={
