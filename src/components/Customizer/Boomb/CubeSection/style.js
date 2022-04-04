@@ -176,7 +176,7 @@ export const CubeSide = styled.div`
   }
 `;
 
-export const CubeItem = styled.label`
+export const CubeItem = styled.div`
   ${({ curCubePosition, position }) =>
     curCubePosition &&
     curCubePosition === position &&
@@ -203,6 +203,19 @@ export const CubeItem = styled.label`
     transition: 0.4s;
   }
   transition: 0.4s;
+`;
+export const TextEditorWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
 `;
 
 export const SideImage = styled.img`

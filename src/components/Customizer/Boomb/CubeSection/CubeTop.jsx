@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { openEditor } from "../../../../utils/functions/boomb";
 import TextDraggable from "../../../Draggable/TextDraggable";
 
-import { CubeItem, CubeSide } from "./style";
+import { CubeItem, CubeSide, TextEditorWrapper } from "./style";
 
 export const CubeTop = ({ topText, editTextRef }) => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export const CubeTop = ({ topText, editTextRef }) => {
       ref={(ref) => (editTextRef.current[1] = ref)}
     >
       <CubeItem ref={editTextRef} topText={topText}>
-        <div
+        <TextEditorWrapper
           id="buttonClickCannon"
           ref={(ref) => (editTextRef.current[1] = ref)}
         >
@@ -26,7 +26,7 @@ export const CubeTop = ({ topText, editTextRef }) => {
             activeRebootImage={true}
             column={1}
           />
-        </div>
+        </TextEditorWrapper>
       </CubeItem>
     </CubeSide>
   );

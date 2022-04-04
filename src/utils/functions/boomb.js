@@ -144,11 +144,20 @@ export const openEditor = (dispatch, buttonFlag) => () => {
   }
 };
 
-export const handleClickAddToCart =
-  (boombData, dispatch, confettiState, textData) => () => {
-    let boxArr = [];
-    boombData?.map((data) => boxArr.push(data));
-    dispatch(sendBoomb([...boxArr, textData, { confetti: confettiState.img }]));
+export const addBoombToCart =
+  (boombData, dispatch, confettiState, textData, curCubeRotate) => () => {
+    let cubeSides = [];
+    boombData?.map(({ img, position }) =>
+      cubeSides.push({ image: { url: img }, position })
+    );
+    let sendingProduct = {
+      card: cubeSides,
+      giftMessage: textData,
+      confetti: confettiState.img,
+      angle: curCubeRotate,
+    };
+    console.log(sendingProduct);
+    dispatch(sendBoomb(sendingProduct));
     dispatch(
       setCurrentModal({
         title: "Add to cart",
