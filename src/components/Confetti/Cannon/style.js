@@ -39,7 +39,6 @@ export const ConfettiBoxCannon = styled.div`
   height: auto; 
   overflow: auto;
   width: 100%;
-  padding-right: 20px;
   
   @media (min-width: 1440px) {
     overflow: hidden;

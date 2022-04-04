@@ -1,37 +1,34 @@
 export const uid = () => {
-  const array = new Uint32Array(8)
-  window.crypto.getRandomValues(array)
+  const array = new Uint32Array(8);
+  window.crypto.getRandomValues(array);
   let str = '';
   for (let i = 0; i < array.length; i++) {
-    str += (i < 2 || i > 5 ? '' : '-') + array[i].toString(16).slice(-4)
+    str += (i < 2 || i > 5 ? '' : '-') + array[i].toString(16).slice(-4);
   }
-  return str
+  return str;
 }
 
-export const textPosition = (data, wrapperH, wrapperW) => {
-  const center = {
-    x: data.x + (data.node.clientWidth / 2),
-    y: data.y + (data.node.clientHeight / 2)
+export const textPosition = (parentBlock, childrenBlock, data, childWidth) => {
+  const position = {x: data.lastX, y: data.lastY};
+
+  if (parentBlock.top > childrenBlock.top) {
+    position.y = -parentBlock.height / 2 + childrenBlock.height;
+  }
+  if (parentBlock.bottom < childrenBlock.bottom) {
+    position.y = parentBlock.height / 2 - childrenBlock.height;
+  }
+  if (parentBlock.left > childrenBlock.left) {
+    position.x = -parentBlock.width / 2 + childrenBlock.width / childWidth;
+  }
+  if (parentBlock.right < childrenBlock.right) {
+    position.x = parentBlock.width / 2 - childrenBlock.width / childWidth;
+  }
+  if(childrenBlock.height > parentBlock.height || childrenBlock.width > parentBlock.width) {
+    position.x = 0;
+    position.y = 0;
   }
 
-  const margin = {
-    top: center.y - 0,
-    left: center.x - 0,
-    bottom: wrapperH - center.y,
-    right: wrapperW - center.x
-  }
-
-  const position = {
-    top: {y: 0, x: data.x},
-    left: {y: data.y, x: 0},
-    bottom: {y: (wrapperH - data.node.clientHeight), x: data.x},
-    right: {y: data.y, x: (wrapperW - data.node.clientWidth)}
-  }
-
-  const sorted = Object.keys(margin).sort((a, b) => margin[a] - margin[b])
-  const nearestSide = sorted[0];
-
-  return position[nearestSide];
+  return position;
 }
 
 export const getCenterBox = (box, scroll) => {
@@ -44,7 +41,7 @@ export const getCenterBox = (box, scroll) => {
 }
 
 export const rotateDegree = (event, boxCenter) => {
-  return Math.atan2(event.pageX - boxCenter.x, -(event.pageY - boxCenter.y)) * (180 / Math.PI)
+  return Math.atan2(event.pageX - boxCenter.x, -(event.pageY - boxCenter.y)) * (180 / Math.PI);
 }
 
 export const setDataStateText = (state, initialState, id) => {
@@ -72,7 +69,7 @@ export const addDataStateText = (state, initialState) => {
       if (key.type === 'text') {
         const newStateData = {...data[data.indexOf(key)], focusState: true};
 
-        data[data.indexOf(key)] = newStateData
+        data[data.indexOf(key)] = newStateData;
         return {
           ...state,
           textData: [...data],

@@ -95,6 +95,7 @@ export const findBoxSide = (position) => {
 export const openEditor = (dispatch, buttonFlag) => () => {
   const button = document.getElementById(buttonFlag);
   let timer;
+
   button.addEventListener("click", (event) => {
     if (event.detail === 1) {
       timer = setTimeout(() => {
