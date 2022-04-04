@@ -130,10 +130,10 @@ export const BackgroundItem = styled.div`
   background: #ffffff;
   filter: drop-shadow(0px 0px 1px rgba(40, 41, 61, 0.04)) drop-shadow(0px 2px 4px rgba(96, 97, 112, 0.16));
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
-    margin: 0 10px 12px 10px;
+    margin: 12px 10px;
   }
+  
   ${({mobileDevice}) => mobileDevice ? 'margin-bottom: 15px;' : 'margin: 7px 13px;'};
-
 `;
 
 export const BackgroundImage = styled.img`
