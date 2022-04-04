@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import TextDraggable from "../../../Draggable/TextDraggable";
 import {Title, BoxWrapperCard} from "../style";
 import {CardBox, CardContainer, SpaceForText} from "./style";
+import { TextEditorWrapper } from './../../Boomb/CubeSection/style';
 
 function MallowCard({standardName, editTextRef}) {
   const [firstLoading, setFirstLoading] = useState(false);
@@ -24,7 +25,7 @@ function MallowCard({standardName, editTextRef}) {
         <CardBox></CardBox>
 
         <SpaceForText>
-          <div
+          <TextEditorWrapper
             id="buttonClickMallowpops"
             ref={(ref) => (editTextRef.current[1] = ref)}
           >
@@ -33,7 +34,7 @@ function MallowCard({standardName, editTextRef}) {
               activeRebootImage={true}
               column={1}
             />
-          </div>
+          </TextEditorWrapper>
         </SpaceForText>
       </CardContainer>
     </BoxWrapperCard>
