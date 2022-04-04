@@ -11,24 +11,39 @@ export const uid = () => {
 export const textPosition = (parentBlock, childrenBlock, data, childWidth) => {
   const position = {x: data.lastX, y: data.lastY};
 
-  if (parentBlock.top > childrenBlock.top) {
-    position.y = -parentBlock.height / 2 + childrenBlock.height;
-  }
-  if (parentBlock.bottom < childrenBlock.bottom) {
-    position.y = parentBlock.height / 2 - childrenBlock.height;
-  }
-  if (parentBlock.left > childrenBlock.left) {
-    position.x = -parentBlock.width / 2 + childrenBlock.width / childWidth;
-  }
-  if (parentBlock.right < childrenBlock.right) {
-    position.x = parentBlock.width / 2 - childrenBlock.width / childWidth;
-  }
-  if(childrenBlock.height > parentBlock.height || childrenBlock.width > parentBlock.width) {
+  position.x = positionX(parentBlock, childrenBlock, childWidth, data);
+  position.y = positionY(parentBlock, childrenBlock, data);
+
+  if (childrenBlock.height > parentBlock.height || childrenBlock.width > parentBlock.width) {
     position.x = 0;
     position.y = 0;
   }
 
   return position;
+}
+
+const positionX = (parentBlock, childrenBlock, childWidth, data) => {
+  if (childWidth > 1) {
+    if (parentBlock.left > childrenBlock.left) {
+      return -parentBlock.width / 2 + childrenBlock.width / childWidth;
+    }
+    if (parentBlock.right < childrenBlock.right) {
+      return parentBlock.width / 2 - childrenBlock.width / childWidth;
+    }
+  }
+
+  return data.lastX;
+}
+
+const positionY = (parentBlock, childrenBlock, data) => {
+  if (parentBlock.top > childrenBlock.top) {
+    return -parentBlock.height / 2 + childrenBlock.height;
+  }
+  if (parentBlock.bottom < childrenBlock.bottom) {
+    return parentBlock.height / 2 - childrenBlock.height;
+  }
+
+  return data.lastY;
 }
 
 export const getCenterBox = (box, scroll) => {
