@@ -11,6 +11,7 @@ const TextContentInsidePages = ({buttonFlag}) => {
         <TextDraggable
           buttonFlag={buttonFlag}
           activeSizeImage={true}
+          activeRebootImage={true}
           column={1}
         />
         <ImageDraggable imageKey={'Inside'}/>
@@ -20,6 +21,7 @@ const TextContentInsidePages = ({buttonFlag}) => {
         <TextDraggable
           buttonFlag={buttonFlag}
           activeSizeImage={true}
+          activeRebootImage={true}
           column={2}
         />
       </TextContentStandard>
