@@ -2,6 +2,7 @@ import React from "react";
 import Draggable from "react-draggable";
 import {useDispatch} from "react-redux";
 
+import {textPosition} from "../../../utils/functions/textData";
 import {useAutoResize} from "../../../utils/hooks/useAutoResize";
 
 import {setActionTextData, setDeleteTextData} from "../../../redux/actions/textData";
@@ -18,7 +19,6 @@ import {
   TextEditorForm,
 } from "./style.js";
 import "./style.css";
-import {textPosition} from "../../../utils/functions/textData";
 
 const TextDraggablePos = ({
   currentState,
@@ -44,7 +44,7 @@ const TextDraggablePos = ({
     dispatch(setDeleteTextData(currentState.id));
   };
 
-  const onStart = (e) => {
+  const onStart = () => {
     if (!currentState.focusState) {
       return false;
     }
@@ -54,7 +54,13 @@ const TextDraggablePos = ({
     const parentBlock = document.getElementById(buttonFlag).getBoundingClientRect();
     const childrenBlock = inputRef.current.getBoundingClientRect();
 
-    textEditorParams.setPosition(textPosition(parentBlock, childrenBlock, data, activeSizeImage ? 1 : 2));
+    textEditorParams.setPosition(
+      textPosition(
+        parentBlock,
+        childrenBlock,
+        data,
+        activeSizeImage ? 1 : 2,
+      ));
   };
 
   const dragHandlers = {
