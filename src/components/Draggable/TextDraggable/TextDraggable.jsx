@@ -1,17 +1,15 @@
 import React from "react";
 import Draggable from "react-draggable";
-import { useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 
-import { useAutoResize } from "../../../utils/hooks/useAutoResize";
-import {
-  setActionTextData,
-  setDeleteTextData,
-} from "../../../redux/actions/textData";
+import {useAutoResize} from "../../../utils/hooks/useAutoResize";
+
+import {setActionTextData, setDeleteTextData} from "../../../redux/actions/textData";
+import {setCurRotate} from "../../../redux/actions/boomb";
 
 import Reboot from "../../../utils/assets/svg/Reboot.svg";
 import Trash from "../../../utils/assets/svg/Trash.svg";
 import LeftAndRightArrows from "../../../utils/assets/svg/LeftAndRightArrows.svg";
-import { setCurRotate } from "../../../redux/actions/boomb";
 
 import {
   CenterRotate,
@@ -20,6 +18,7 @@ import {
   TextEditorForm,
 } from "./style.js";
 import "./style.css";
+import {textPosition} from "../../../utils/functions/textData";
 
 const TextDraggablePos = ({
   currentState,
@@ -28,6 +27,7 @@ const TextDraggablePos = ({
   textEditorParams,
   activeSizeImage,
   textState,
+  buttonFlag
 }) => {
   useAutoResize({
     inputRef: activeId ? inputRef : null,
@@ -51,7 +51,10 @@ const TextDraggablePos = ({
   };
 
   const onStop = (e, data) => {
-    textEditorParams.setPosition({ x: data.lastX, y: data.lastY });
+    const parentBlock = document.getElementById(buttonFlag).getBoundingClientRect();
+    const childrenBlock = inputRef.current.getBoundingClientRect();
+
+    textEditorParams.setPosition(textPosition(parentBlock, childrenBlock, data, activeSizeImage ? 1 : 2));
   };
 
   const dragHandlers = {
@@ -62,7 +65,7 @@ const TextDraggablePos = ({
     axis: "both",
     scale: 1,
     grid: [1, 1],
-    position: activeId ? textEditorParams.position : currentState.position,
+    position: activeId ? textEditorParams.positionState : currentState.position,
   };
 
   const dispatch = useDispatch();
@@ -72,7 +75,7 @@ const TextDraggablePos = ({
         className="box"
         onClick={handleSelectCard}
         onTouchStart={handleSelectCard}
-        style={{ zIndex: 2 }}
+        style={{zIndex: 2}}
       >
         <TextEditorForm
           style={{
@@ -88,7 +91,7 @@ const TextDraggablePos = ({
                   onMouseDown={textEditorParams.initRotate}
                   onTouchStart={textEditorParams.initRotate}
                 >
-                  <img src={Reboot} alt="Reboot" height={24} width={24} />
+                  <img src={Reboot} alt="Reboot" height={24} width={24}/>
                 </div>
               )}
             </strong>
@@ -98,7 +101,7 @@ const TextDraggablePos = ({
               <strong className="no-cursor">
                 {currentState.focusState && (
                   <div className="image-div-block" onClick={deleteText}>
-                    <img src={Trash} alt="TrashCan" height={10} width={10} />
+                    <img src={Trash} alt="TrashCan" height={10} width={10}/>
                   </div>
                 )}
               </strong>
@@ -138,7 +141,7 @@ const TextDraggablePos = ({
             </div>
           </div>
         </TextEditorForm>
-        <CenterRotate ref={activeId ? textEditorParams.refRotate : null} />
+        <CenterRotate ref={activeId ? textEditorParams.refRotate : null}/>
       </div>
     </Draggable>
   );
