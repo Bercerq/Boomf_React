@@ -12,9 +12,9 @@ export const textPosition = (parentBlock, childrenBlock, data, childWidth) => {
   const position = {x: data.lastX, y: data.lastY};
 
   position.x = positionX(parentBlock, childrenBlock, childWidth, data);
-  position.y = positionY(parentBlock, childrenBlock, data);
+  position.y = positionY(parentBlock, childrenBlock, childWidth, data);
 
-  if (childrenBlock.height > parentBlock.height || childrenBlock.width > parentBlock.width) {
+  if (childrenBlock.height + 20 > parentBlock.height || childrenBlock.width + 20 > parentBlock.width) {
     position.x = 0;
     position.y = 0;
   }
@@ -23,24 +23,22 @@ export const textPosition = (parentBlock, childrenBlock, data, childWidth) => {
 }
 
 const positionX = (parentBlock, childrenBlock, childWidth, data) => {
-  if (childWidth > 1) {
-    if (parentBlock.left > childrenBlock.left) {
-      return -parentBlock.width / 2 + childrenBlock.width / childWidth + 10;
-    }
-    if (parentBlock.right < childrenBlock.right) {
-      return parentBlock.width / 2 - childrenBlock.width / childWidth - 10;
-    }
+  if (parentBlock.left > childrenBlock.left - (childWidth > 1 ? 10 : 20)) {
+    return -parentBlock.width / (childWidth > 1 ? 2 : 4) + childrenBlock.width / 2 + (childWidth > 1 ? 10 : 25);
+  }
+  if (parentBlock.right < childrenBlock.right + (childWidth > 1 ? 10 : 20)) {
+    return parentBlock.width / (childWidth > 1 ? 2 : 4) - childrenBlock.width / 2 - (childWidth > 1 ? 10 : 25);
   }
 
   return data.lastX;
 }
 
-const positionY = (parentBlock, childrenBlock, data) => {
-  if (parentBlock.top > childrenBlock.top) {
-    return -parentBlock.height / 2 + childrenBlock.height;
+const positionY = (parentBlock, childrenBlock, childWidth, data) => {
+  if (parentBlock.top > childrenBlock.top - (childWidth > 1 ? 10 : 50)) {
+    return -parentBlock.height / 2 + childrenBlock.height / 2 - (childWidth > 1 ? -10 : -50);
   }
-  if (parentBlock.bottom < childrenBlock.bottom) {
-    return parentBlock.height / 2 - childrenBlock.height;
+  if (parentBlock.bottom < childrenBlock.bottom + (childWidth > 1 ? 20 : 15)) {
+    return parentBlock.height / 2 - childrenBlock.height / 2 + (childWidth > 1 ? -10 : -20);
   }
 
   return data.lastY;
