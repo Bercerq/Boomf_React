@@ -1,5 +1,7 @@
 import styled from "styled-components";
 export const CardContainer = styled.div`
+  position: relative;
+  overflow: hidden;
   background-color: #d6d6d6;
   height: 435px;
   box-shadow: 0px 2px 4px rgba(40, 41, 61, 0.04),
@@ -23,7 +25,6 @@ export const CardBox = styled.div`
   }
 `;
 export const SpaceForText = styled.div`
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,5 +51,4 @@ export const SpaceForText = styled.div`
     width: 292px;
     height: 133px;
   }
-
 `;

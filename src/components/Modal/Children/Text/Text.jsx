@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setCurrentModal } from "../../../../redux/actions/modal";
@@ -15,7 +15,9 @@ function Text() {
     ({ textDataReducer }) => textDataReducer
   );
   const handleSaveChanges = () => {
-    dispatch(setUpdateTextData({ key: "value", value }));
+    if (value) {
+      dispatch(setUpdateTextData({ key: "value", value }));
+    }
     setValue("");
     dispatch(
       setCurrentModal({
@@ -27,11 +29,13 @@ function Text() {
   const handleSetValue = (e) => {
     setValue(e.target.value);
   };
-
+  useEffect(() => {
+    setValue(textDataState.value);
+  }, [textDataState.value]);
   return (
     <div>
       <TextArea
-        defaultValue={textDataState.value || value}
+        value={value}
         placeholder="Type your text here"
         onChange={handleSetValue}
       />

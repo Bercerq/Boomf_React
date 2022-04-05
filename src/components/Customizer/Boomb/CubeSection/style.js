@@ -206,7 +206,7 @@ export const CubeItem = styled.div`
 `;
 export const TextEditorWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: ${({ height }) => `${height}`};
   position: absolute;
   display: flex;
   align-items: center;
@@ -216,6 +216,10 @@ export const TextEditorWrapper = styled.div`
   left: auto;
   right: auto;
   bottom: auto;
+  textarea {
+    font-size: ${({ textStyles }) =>
+      textStyles?.size ? `${textStyles.size}px` : "16px"};
+  }
 `;
 
 export const SideImage = styled.img`
