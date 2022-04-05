@@ -19,16 +19,16 @@ const PostcardImage = () => {
   const [{widthLine, rotateLine}, setLineState] = useState({widthLine: 0, rotateLine: 0});
 
   const ref = useRef(null);
-  const dispatch = useDispatch();
-
-  const {imageState} = useSelector(({imageLibraryReducer}) => imageLibraryReducer);
+  const {imageState} = useSelector(
+    ({imageLibraryReducer}) => imageLibraryReducer
+  );
 
   const openEditor = () => {
-    dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "Image", state: true}}))
+    dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "Image", state: true}}));
   };
 
   const imageContent = () => {
-    dispatch(setCurrentSidebar({flag: "+ Add photo", state: true}))
+    dispatch(setCurrentSidebar({flag: "+ Add photo", state: true}));
   }
 
   useEffect(() => {
@@ -36,37 +36,35 @@ const PostcardImage = () => {
       setLineState(diagonalLine(ref.current.getBoundingClientRect()));
     }
   }, [ref]);
-  return (
-    <>
-      {imageState.url || imageState.img ? (
-        <ImageDiv>
-          <BackgroundImage
-            increaseSize={imageState.size}
-            src={imageState.url || imageState.img}
-            alt={imageState.alt}
-          />
-          <PostcardEditButton onClick={openEditor}>
-            <img src={EditPencilCan} width={48} height={48} alt="edit"/>
-          </PostcardEditButton>
-        </ImageDiv>
-      ) : (
-        <ImageNotContent ref={ref}>
-          <AddButton onClick={imageContent}>
-            + Add Image
-          </AddButton>
-          <DiagonalLineOne
-            widthLine={widthLine}
-            rotateLine={rotateLine}
-            originLine={true}
-          />
-          <DiagonalLineOne
-            widthLine={widthLine}
-            rotateLine={-rotateLine}
-            originLine={false}
-          />
-        </ImageNotContent>
-      )}
-    </>
+
+  const dispatch = useDispatch();
+  return imageState.url || imageState.img ? (
+    <ImageDiv>
+      <BackgroundImage
+        increaseSize={imageState.size}
+        src={imageState.url || imageState.img}
+        alt={imageState.alt}
+      />
+      <PostcardEditButton onClick={openEditor}>
+        <img src={EditPencilCan} width={48} height={48} alt="edit"/>
+      </PostcardEditButton>
+    </ImageDiv>
+  ) : (
+    <ImageNotContent ref={ref}>
+      <AddButton onClick={imageContent}>
+        + Add Image
+      </AddButton>
+      <DiagonalLineOne
+        widthLine={widthLine}
+        rotateLine={rotateLine}
+        originLine={true}
+      />
+      <DiagonalLineOne
+        widthLine={widthLine}
+        rotateLine={-rotateLine}
+        originLine={false}
+      />
+    </ImageNotContent>
   );
 };
 

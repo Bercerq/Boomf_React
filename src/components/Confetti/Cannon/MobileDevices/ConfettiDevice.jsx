@@ -9,7 +9,7 @@ import {
 } from "../style";
 import {ConfettiImage} from "../../style";
 
-const ConfettiDevice = ({justifyContent, sizeConfetti}) => {
+const ConfettiDevice = ({justifyContent, sizeConfetti, displayBlock}) => {
   const {confettiState, confettiData} = useSelector(
     ({confettiReducer}) => confettiReducer
   );
@@ -22,6 +22,7 @@ const ConfettiDevice = ({justifyContent, sizeConfetti}) => {
   return (
     <ConfettiBoxCannon
       justifyContent={justifyContent}
+      displayBlock={displayBlock}
     >
       {confettiData.map((confetti, idx) => (
         <ConfettiItemCannon
@@ -31,7 +32,10 @@ const ConfettiDevice = ({justifyContent, sizeConfetti}) => {
           selectConfetti={confetti.id === confettiState.id}
           onClick={handleSelectConfetti(confetti)}
         >
-          <ConfettiImage src={confetti.img} alt={confetti.name}/>
+          <ConfettiImage
+            src={confetti.img}
+            alt={confetti.name}
+          />
         </ConfettiItemCannon>
       ))}
     </ConfettiBoxCannon>
