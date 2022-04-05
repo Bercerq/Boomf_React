@@ -17,11 +17,7 @@ import {
 } from "./style";
 
 const PostcardSection = ({editTextRef}) => {
-  const [sizeCard, setSize] = useState({
-    height: Math.round(window.innerWidth / 100 * 40),
-    width: Math.round(window.innerWidth / 100 * 40 / 1.5)
-  });
-
+  const [sizeCard, setSize] = useState({height: 0, width: 0});
   const {confettiState} = useSelector(({confettiReducer}) => confettiReducer);
 
   const dispatch = useDispatch();
@@ -30,11 +26,18 @@ const PostcardSection = ({editTextRef}) => {
   };
 
   useEffect(() => {
+    setSize((e) => ({
+      height: Math.round((window.innerWidth > 1920 ? 1920 : window.innerWidth) / 100 * 40),
+      width: Math.round((window.innerWidth > 1920 ? 1920 : window.innerWidth) / 100 * 40 / 1.5)
+    }));
+
     window.addEventListener('resize', () => {
-      setSize((e) => ({
-        height: Math.round(window.innerWidth / 100 * 40),
-        width: Math.round(window.innerWidth / 100 * 40 / 1.5)
-      }));
+      if(window.innerWidth < 1921) {
+        setSize((e) => ({
+          height: Math.round(window.innerWidth / 100 * 40),
+          width: Math.round(window.innerWidth / 100 * 40 / 1.5)
+        }));
+      }
     });
   }, []);
 

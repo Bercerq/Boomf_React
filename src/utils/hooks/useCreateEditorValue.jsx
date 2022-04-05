@@ -8,6 +8,7 @@ function useCreateEditorValue(flag, debouncedValue, dispatch) {
   useEffect(() => {
     if (flag === "Image") {
       dispatch(editImage({ key: "size", value: debouncedValue }));
+      dispatch(setUpdateImageLibrary({key: 'size', value: debouncedValue}));
     } else {
       dispatch(
         setUpdateTextData({

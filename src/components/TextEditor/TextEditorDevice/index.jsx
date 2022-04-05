@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 import {drawOptionDevice, selectOptionDevice} from "../../../utils/functions/textEditor";
 import useCreateEditorValue from "../../../utils/hooks/useCreateEditorValue";
 
 import {DeviceDataType, DeviceTypesStyle, TextEditorDeviceContainer} from "./style";
-import useDebounce from "../../../utils/hooks/useDebounce";
 
 const TextEditorDevice = () => {
   const [option, setOption] = useState();
@@ -21,17 +20,9 @@ const TextEditorDevice = () => {
     dispatch
   );
 
-  const debouncedSelect = useDebounce(textDataState.textStyles, 200);
-
-  useEffect(() => {
-    if(debouncedSelect) {
-      setOption(debouncedSelect[textDataState.currentEditor?.flag?.toLowerCase()]);
-    }
-  }, [debouncedSelect]);
-
   return (
     <>
-      <DeviceTypesStyle currentEditor={textDataState.focusState && textDataState.type !== 'image'}>
+      <DeviceTypesStyle currentEditor={textDataState.currentEditor.state && textDataState.type !== 'image'}>
         {textDataState.focusState && (
           selectOptionDevice(
             textDataState.currentEditor.flag,
@@ -43,14 +34,14 @@ const TextEditorDevice = () => {
           ))}
       </DeviceTypesStyle>
 
-      <DeviceDataType currentEditor={textDataState.focusState && textDataState.type !== 'image'}>
+      <DeviceDataType currentEditor={textDataState.currentEditor.state && textDataState.type !== 'image'}>
         {drawOptionDevice(textDataState.currentEditor.flag, option, setOption)}
       </DeviceDataType>
 
       <TextEditorDeviceContainer
         // ref={(ref) => (editTextRef.current[0] = ref)}
         //todo type image
-        currentEditor={textDataState.focusState && textDataState.type !== 'image'}
+        currentEditor={textDataState.currentEditor.state && textDataState.type !== 'image'}
       />
     </>
   );

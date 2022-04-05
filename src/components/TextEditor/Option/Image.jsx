@@ -1,4 +1,10 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setCurrentSidebar } from "../../../redux/actions/sideBar";
+import { setDeleteImageLibrary } from "../../../redux/actions/imageLibrary";
+import { setUpdateTextData } from "../../../redux/actions/textData";
+import { updateItem } from "../../../utils/functions/boomb";
 
 import TrashCan from "../../../utils/assets/svg/TrashCan.svg";
 import ImageIcon from "../../../utils/assets/svg/ImageIcon.svg";
@@ -14,13 +20,8 @@ import {
   ImageItem,
   Text,
 } from "../style";
-import { findCurrentCrop, updateItem } from "../../../utils/functions/boomb";
-import { useDispatch, useSelector } from "react-redux";
-import { setCurrentSidebar } from "../../../redux/actions/sideBar";
-import { setDeleteImageLibrary } from "../../../redux/actions/imageLibrary";
-import { setUpdateTextData } from "../../../redux/actions/textData";
 
-function Image({ setOption }) {
+function Image({ setOption, option }) {
   const dispatch = useDispatch();
   const { curCubePosition, boombData } = useSelector(
     ({ boombReducer }) => boombReducer
@@ -65,7 +66,7 @@ function Image({ setOption }) {
       </EditActions>
       <SliderContainerImage>
         <CurrentValue>
-          {findCurrentCrop(boombData, curCubePosition) || 1}x
+          {option || 1}x
         </CurrentValue>
         <Slider
           onChange={setValue}
@@ -73,7 +74,7 @@ function Image({ setOption }) {
           min="1"
           max="3"
           step="0.1"
-          value={findCurrentCrop(boombData, curCubePosition) || 1}
+          value={option || 1}
         />
       </SliderContainerImage>
     </ImageWrapper>

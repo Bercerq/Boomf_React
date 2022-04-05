@@ -16,7 +16,11 @@ const CannonRightColumn = () => {
     <ConfettiWrapperCannonColumn>
       <Background/>
       <Confetti textPosition='start' lastChild={true}>
-        <ConfettiDevice justifyContent='flex-start' sizeConfetti={48}/>
+        <ConfettiDevice
+          displayBlock='flex'
+          justifyContent='flex-start'
+          sizeConfetti={48}
+        />
       </Confetti>
     </ConfettiWrapperCannonColumn>
   )
