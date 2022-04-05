@@ -5,7 +5,7 @@ import {setUpdateTextData} from "../../../../redux/actions/textData";
 import {setCurrentSidebar} from "../../../../redux/actions/sideBar";
 import {diagonalLine} from "../../../../utils/functions/imageLibrary";
 
-import EditPencilCan from "../../../../utils/assets/svg/EditPencilCan.svg";
+import EditPencilCan from "../../../../utils/assets/svgReact/EditPencilCan";
 import {DiagonalLineOne} from "../../../TextEditor/style";
 import {
   AddButton,
@@ -17,8 +17,8 @@ import {
 
 const PostcardImage = () => {
   const [{widthLine, rotateLine}, setLineState] = useState({widthLine: 0, rotateLine: 0});
-
   const ref = useRef(null);
+
   const {imageState} = useSelector(
     ({imageLibraryReducer}) => imageLibraryReducer
   );
@@ -46,7 +46,7 @@ const PostcardImage = () => {
         alt={imageState.alt}
       />
       <PostcardEditButton onClick={openEditor}>
-        <img src={EditPencilCan} width={48} height={48} alt="edit"/>
+        <EditPencilCan/>
       </PostcardEditButton>
     </ImageDiv>
   ) : (
