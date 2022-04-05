@@ -18,6 +18,7 @@ export const CubeTop = ({ topText, editTextRef }) => {
     >
       <CubeItem ref={editTextRef} topText={topText}>
         <TextEditorWrapper
+          height={"100%"}
           id="buttonClickCannon"
           ref={(ref) => (editTextRef.current[1] = ref)}
         >
