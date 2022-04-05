@@ -1,15 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import TextDraggable from "../../../Draggable/TextDraggable";
-import {Title, BoxWrapperCard} from "../style";
-import {CardBox, CardContainer, SpaceForText} from "./style";
-import { TextEditorWrapper } from './../../Boomb/CubeSection/style';
+import { Title, BoxWrapperCard } from "../style";
+import { CardBox, CardContainer, SpaceForText } from "./style";
+import { TextEditorWrapper } from "./../../Boomb/CubeSection/style";
+import { useSelector } from "react-redux";
 
-function MallowCard({standardName, editTextRef}) {
+function MallowCard({ standardName, editTextRef }) {
   const [firstLoading, setFirstLoading] = useState(false);
 
+  const { textDataState } = useSelector(
+    ({ textDataReducer }) => textDataReducer
+  );
+  console.log(textDataState);
   useEffect(() => {
     const timer = setTimeout(() => setFirstLoading(true), 1000);
-
     return () => {
       clearTimeout(timer);
     };
@@ -26,6 +30,8 @@ function MallowCard({standardName, editTextRef}) {
 
         <SpaceForText>
           <TextEditorWrapper
+            textStyles={textDataState.textStyles}
+            height={"40%"}
             id="buttonClickMallowpops"
             ref={(ref) => (editTextRef.current[1] = ref)}
           >

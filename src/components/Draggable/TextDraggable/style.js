@@ -50,7 +50,6 @@ export const DivTextContent = styled.div`
 `;
 
 export const TextareaDraggable = styled.textarea`
-  display: block;
   resize: none;
   cursor: unset !important;
   padding: 0;
