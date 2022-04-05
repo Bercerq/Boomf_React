@@ -52,9 +52,9 @@ const TextEditorDesktop = ({editTextRef}) => {
   return (
     <TextEditorWrapper
       ref={(ref) => (editTextRef.current[0] = ref)}
-      currentEditor={textDataState.focusState && textDataState.type !== 'image'}
+      currentEditor={textDataState.currentEditor.state && textDataState.type !== 'image'}
     >
-      <TextEditorContent currentEditor={textDataState.focusState}>
+      <TextEditorContent currentEditor={textDataState.currentEditor.state}>
         {drawEditorContent(
           textDataState.currentEditor.flag,
           option,

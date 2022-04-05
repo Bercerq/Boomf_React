@@ -20,8 +20,8 @@ const initialTextState = {
   value: '',
   position: {x: 0, y: 0},
   rotate: 0,
-  textStyles: {},
-  currentEditor: {state: true, flag: ''},
+  textStyles: {colour: "#222222"},
+  currentEditor: {state: false, flag: ''},
   focusState: false,
   column: 1,
   id: '1233221'

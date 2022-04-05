@@ -34,15 +34,12 @@ export const BackgroundWrapperCannon = styled(ConfettiWrapperCannonColumn)`
 `;
 
 export const ConfettiBoxCannon = styled.div`
-  display: grid;
+  display: ${({displayBlock}) => displayBlock};
   grid-template-columns: repeat(7, 1fr);
-  height: auto; 
+  height: auto;
   overflow: auto;
   width: 100%;
   
-  @media (min-width: 1440px) {
-    overflow: hidden;
-  }
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
     display: flex;
     justify-content: ${({justifyContent}) => justifyContent};
@@ -55,11 +52,13 @@ export const ConfettiBoxCannon = styled.div`
 `;
 
 export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
+  display: grid;
   width: fit-content;
   grid-template-columns: repeat(${({columnConfetti}) => columnConfetti}, 1fr);
   justify-items: center;
 
   @media screen and (max-width: 1130px), screen and (max-height: 605px) {
+    display: flex;
     justify-content: flex-start;
     width: 63%;
   }
@@ -67,7 +66,7 @@ export const BackgroundBoxCannon = styled(ConfettiBoxCannon)`
     display: grid;
     width: fit-content;
   }
-  
+
   @media (max-width: 540px) {
     width: 100%;
   }

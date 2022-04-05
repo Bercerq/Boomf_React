@@ -52,7 +52,11 @@ function Confetti({children, textPosition, lastChild, positionWrapper, alignItem
                     : handleSelectConfetti(confetti)
                 }
               >
-                <ConfettiImage src={confetti.img} alt={confetti.name}/>
+                <ConfettiImage
+                  src={confetti.img}
+                  alt={confetti.name}
+                  sizeConfetti={32}
+                />
               </ConfettiItem>
             ))}
           </ConfetiBox>

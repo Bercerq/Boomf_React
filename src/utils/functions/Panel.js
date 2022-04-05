@@ -60,7 +60,13 @@ export const findMobileDevice = ({ selectedBackground, selectedConfetti }) => {
     return <BackgroundDevice columnConfetti={7}/>;
   }
   if (selectedConfetti) {
-    return <ConfettiDevice justifyContent="space-evenly" columnConfetti={7}/>;
+    return (
+      <ConfettiDevice
+        justifyContent="space-evenly"
+        displayBlock='grid'
+        columnConfetti={7}
+      />
+    );
   }
 };
 

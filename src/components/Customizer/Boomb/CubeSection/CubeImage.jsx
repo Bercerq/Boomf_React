@@ -20,7 +20,6 @@ function CubeImage({ textDataState, img, position, editCrop }) {
           value: { flag: "Image", state: true },
         })
       );
-      dispatch(setUpdateTextData({ key: "focusState", value: true }));
     }
   };
   const openSideBar = () => {

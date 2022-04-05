@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { ColorPicker, useColor } from "react-color-palette";
-import "react-color-palette/lib/css/styles.css";
 
 import { background } from "../../../utils/constants/TextEditData";
 
@@ -12,7 +12,8 @@ import {
   ColourPalete,
   ColorItemPalete,
 } from "../style";
-import { useSelector } from "react-redux";
+import "react-color-palette/lib/css/styles.css";
+
 function Colour({  setOption, colourDevice }) {
   const [paleteState, setPaletestate] = useState(false);
   const [colorPalete, setColorPalete] = useColor();
