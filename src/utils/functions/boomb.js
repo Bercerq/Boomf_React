@@ -4,12 +4,12 @@ import {
   setCurPosition,
   setCurRotate,
 } from "../../redux/actions/boomb";
-import { setUpdateTextData } from "../../redux/actions/textData";
+import {setUpdateTextData} from "../../redux/actions/textData";
 
-import { setAddImageLibrary } from "../../redux/actions/imageLibrary";
-import { setCurrentModal } from "../../redux/actions/modal";
-import { uid } from "./textData";
-import { fetchUploadImage } from "../../redux/actions/images";
+import {setAddImageLibrary} from "../../redux/actions/imageLibrary";
+import {setCurrentModal} from "../../redux/actions/modal";
+import {uid} from "./textData";
+import {fetchUploadImage} from "../../redux/actions/images";
 
 export const changeCubeRotate = (
   operator,
@@ -60,7 +60,7 @@ export const setUploadImage = (img, imageData, dispatch) => {
   const formData = new FormData();
 
   formData.append("image", img[0]);
-  dispatch(fetchUploadImage({ value: formData }));
+  dispatch(fetchUploadImage({value: formData}));
 };
 export const setBoxPosition =
   (dispatch, position, defaultRotate, textDataState) => () => {
@@ -172,7 +172,7 @@ export const addBoombToCart =
 
 export const findCurrentCrop = (boombData, curCubePosition) => {
   const curCrop = boombData.find(
-    ({ position }) => curCubePosition === position
+    ({position}) => curCubePosition === position
   );
   return +curCrop.editCrop;
 };

@@ -1,4 +1,4 @@
-import { alignmentIcon, editOptions } from "../constants/TextEditData";
+import {alignmentIcon, editOptionDevice, editOptions} from "../constants/TextEditData";
 
 import { setUpdateTextData } from "../../redux/actions/textData";
 
@@ -18,6 +18,7 @@ import Image from "../../components/TextEditor/Option/Image";
 import WhiteButton from "../../components/Buttons/WhiteButton";
 import React from "react";
 import FontDevice from "../../components/TextEditor/Option/FontDevice";
+import SizeDevice from "../../components/TextEditor/Option/SizeDevice";
 
 export const drawEditorContent = (flag, option, setOption, dispatch) =>
   flag && flag !== "Alignment"
@@ -99,8 +100,6 @@ export const drawOptionDevice = (flag, option, setOption) => {
   switch (flag) {
     case "Font":
       return <FontDevice option={option} setOption={setOption} />;
-    case "Size":
-      return <Size option={option} setOption={setOption} sizeDevice={true} />;
     case "Colour":
       return <Colour option={option} setOption={setOption} colourDevice={true} />;
     case "Image":
@@ -177,7 +176,7 @@ export const selectOptionDevice = (
 ) => {
   return (
     <>
-      {editOptions.map(
+      {editOptionDevice.map(
         ({ icon, text }, idx) =>
           (flag !== text || flag === "Alignment") && (
             <OptionDevice
@@ -195,9 +194,9 @@ export const selectOptionDevice = (
           )
       )}
       <WhiteButton
-        color={"#FFFFFF"}
-        background={"#2EDBE3"}
-        marginDesktop={"10px"}
+        color="#FFFFFF"
+        background="#2EDBE3"
+        marginDesktop="16px; margin-left: 16px;"
         handleButtonClick={closeSideBar(
           dispatch,
           currentEditor,
