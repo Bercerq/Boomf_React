@@ -36,14 +36,18 @@ export const DeviceTypesStyle = styled(DeviceDataTypeStyle)`
   margin-top: 40px;
   overflow: auto;
   
-  @media (max-width: 375px) {
-    justify-content: flex-start
-  }
+  justify-content: flex-end;
+
   &::-webkit-scrollbar {
     display: none;
   }
 `;
 
 export const DeviceDataType = styled(DeviceDataTypeStyle)`
+  height: 100%;
   bottom: 0;
+  z-index: 4;
+  align-items: flex-end;
+
+  ${({currentEditor}) => !currentEditor && "height: 0;"}
 `;

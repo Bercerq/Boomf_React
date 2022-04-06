@@ -12,6 +12,12 @@ export const editOptions = [
   { icon: AlignmentCenter, text: "Alignment"},
 ];
 
+export const editOptionDevice = [
+  { icon: FontIcon, text: "Font"},
+  { icon: Colour, text: "Colour" },
+  { icon: AlignmentCenter, text: "Alignment"},
+]
+
 export const font = [
   { family: "Abril Fatface" },
   { family: "Futura" },

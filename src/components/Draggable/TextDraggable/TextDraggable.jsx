@@ -125,13 +125,13 @@ const TextDraggablePos = ({
             >
               <TextareaDraggable
                 onChange={textEditorParams.setTextState}
+                // disabled={!currentState.currentEditor.state && !currentState.focusState}
                 value={
                   activeId ? textEditorParams.textState : currentState.value
                 }
                 textStyles={currentState.textStyles}
-                disabled={!activeId}
                 ref={activeId ? inputRef : null}
-                placeholder={"Click To Type Or Edit Your Text"}
+                placeholder="Click To Type Or Edit Your Text"
               />
             </DivTextContent>
             <div className="image-resize">
@@ -142,12 +142,7 @@ const TextDraggablePos = ({
                     onMouseDown={textEditorParams.initResize}
                     onTouchStart={textEditorParams.initResize}
                   >
-                    <img
-                      src={LeftAndRightArrows}
-                      alt="LeftAndRightArrows"
-                      height={10}
-                      width={10}
-                    />
+                    <img src={LeftAndRightArrows} alt="LeftAndRightArrows" height={10} width={10}/>
                   </div>
                 )}
               </strong>
