@@ -13,6 +13,7 @@ export const addStateImage = (state, image) => {
   }
 }
 
+
 export const updateStateImage = (state, {key, value}) => {
   const imageState = {
     ...state.imageState,

@@ -66,14 +66,6 @@ export const useEditText = ({ resizeOption, textDataState }) => {
     }
   }, [debouncedPosition]);
 
-  // useEffect(() => {
-  //   console.log(debouncedSize, 'debouncedSize')
-  // }, [debouncedSize])
-
-  // useEffect(() => {
-  //   console.log(debouncedAuthSize, 'debouncedAuthSize')
-  // }, [debouncedAuthSize])
-
   useEffect(() => {
     if (textDataState.id) {
       setText(textDataState.value);
