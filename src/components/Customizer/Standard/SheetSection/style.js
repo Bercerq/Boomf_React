@@ -46,7 +46,7 @@ export const SheetContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  background: ${({ type }) => (type === "Flutter" ? "#D6D6D6" : "#FFFFFF")};
+  background: ${({ type }) => (type === "Flutter" ? "#D6D6D6" : "")};
 
   overflow: hidden;
 

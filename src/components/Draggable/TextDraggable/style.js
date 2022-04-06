@@ -19,7 +19,7 @@ export const FormTextContent = styled.div`
   border-radius: 8px;
 
   word-break: break-word;
-  z-index: 3;
+  z-index: 4;
 `;
 
 export const DivThree = styled.div`
@@ -44,7 +44,7 @@ export const DivTextContent = styled.div`
   ${({activeState}) =>
           `cursor: ${activeState ? 'all-scroll; border: 2px solid #0A74FF' : 'auto'}`};
 
-  @media(max-width: 560px), screen and (max-height: 600px) and (max-width: 1300px) {
+  @media (max-width: 560px), screen and (max-height: 600px) and (max-width: 1300px) {
     min-width: 180px;
   }
 `;
@@ -61,11 +61,11 @@ export const TextareaDraggable = styled.textarea`
   z-index: 4;
   letter-spacing: 0.02em;
   font-style: normal;
-  
+
   overflow: hidden;
   background: transparent;
   border-color: transparent;
-  
+
   &:focus {
     outline: none !important;
     border-color: transparent;
@@ -74,8 +74,7 @@ export const TextareaDraggable = styled.textarea`
   &::placeholder {
     color: unset;
   }
-  ${({activeState}) =>
-          `cursor: ${activeState ? 'all-scroll; border: 2px solid #0A74FF' : 'auto;'}`};
+
   font-family: ${({textStyles}) =>
           textStyles.font ? `${textStyles.font}` : "Objectivity"};
   font-size: ${({textStyles}) =>

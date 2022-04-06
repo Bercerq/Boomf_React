@@ -21,7 +21,10 @@ const initialTextState = {
   value: '',
   position: {x: 0, y: 0},
   rotate: 0,
-  textStyles: {colour: "#222222"},
+  textStyles: {
+    colour: "#222222",
+    font: "Futura"
+  },
   currentEditor: {state: false, flag: ''},
   focusState: false,
   column: 1,
