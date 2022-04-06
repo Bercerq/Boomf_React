@@ -15,11 +15,11 @@ const SelectImage = () => {
     <React.Fragment key={position}>
       <PickerItem onClick={setBoxPosition(dispatch, position, defaultRotate)}>
         <BoxSide
-          img={img}
+          img={img.img || img.url}
           curCubePosition={curCubePosition}
           position={position}
         >
-          <BoxImage src={img} alt={`image ${position}`} />
+          <BoxImage src={img.img || img.url} alt={`image ${position}`} />
         </BoxSide>
         <BoxText>Image - {findBoxSide(position)}</BoxText>
       </PickerItem>

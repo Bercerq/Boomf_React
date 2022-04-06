@@ -12,7 +12,16 @@ function LibraryImages({ data }) {
   const dispatch = useDispatch();
   const addImage = (e) => {
     dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
-    dispatch(setAddImageLibrary({ img: e.file.url, alt: e.name }));
+    dispatch(
+      setAddImageLibrary({
+        img: e.file.url,
+        alt: e.name,
+        source: "designs",
+        height: e.file.height,
+        width: e.file.width,
+        __typename: e.file.__typename,
+      })
+    );
   };
   return (
     <div>

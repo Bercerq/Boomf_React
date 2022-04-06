@@ -4,14 +4,10 @@ import {
   setCurPosition,
   setCurRotate,
 } from "../../redux/actions/boomb";
-import {
-  setAddImageData,
-  setUpdateTextData,
-} from "../../redux/actions/textData";
+import { setUpdateTextData } from "../../redux/actions/textData";
 
 import { setAddImageLibrary } from "../../redux/actions/imageLibrary";
 import { setCurrentModal } from "../../redux/actions/modal";
-import { StaticText } from "../../components/Customizer/Boomb/CubeSection/style";
 import { uid } from "./textData";
 import { fetchUploadImage } from "../../redux/actions/images";
 
@@ -52,6 +48,7 @@ export const setUploadImage = (img, imageData, dispatch) => {
     img: URL.createObjectURL(img[0]),
     alt: img[0].name,
     id: uid(),
+    source: "upload",
   };
   const arr = [];
   imageData.map((data) => arr.push(data, uploadImage));
@@ -147,8 +144,16 @@ export const openEditor = (dispatch, buttonFlag) => () => {
 export const addBoombToCart =
   (boombData, dispatch, confettiState, textData, curCubeRotate) => () => {
     let cubeSides = [];
-    boombData?.map(({ img, position }) =>
-      cubeSides.push({ image: { url: img }, position })
+    boombData?.map((data) =>
+      cubeSides.push({
+        image: {
+          url: data.img.img || data.img.url,
+          height: data.img.height,
+          weight: data.img.width,
+        },
+        position: data.position,
+        source: data.img.source || "upload",
+      })
     );
     let sendingProduct = {
       card: cubeSides,
@@ -156,7 +161,6 @@ export const addBoombToCart =
       confetti: confettiState.img,
       angle: curCubeRotate,
     };
-    console.log(sendingProduct);
     dispatch(sendBoomb(sendingProduct));
     dispatch(
       setCurrentModal({

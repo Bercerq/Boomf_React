@@ -13,7 +13,7 @@ export const CubePosition = ({ textDataState, boombData, curCubePosition }) => {
   const dispatch = useDispatch();
 
   return (
-    <CubeSide  spinParam={rotate}>
+    <CubeSide spinParam={rotate}>
       <CubeItem
         position={position}
         curCubePosition={curCubePosition}
@@ -23,11 +23,11 @@ export const CubePosition = ({ textDataState, boombData, curCubePosition }) => {
           defaultRotate,
           textDataState
         )}
-        img={img}
+        img={img.img || img.url}
       >
         <CubeImage
           textDataState={textDataState}
-          img={img}
+          img={img.img || img.url}
           position={position}
           editCrop={editCrop}
         />

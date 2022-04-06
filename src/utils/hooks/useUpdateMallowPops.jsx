@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setImageLibrary } from "../../redux/actions/imageLibrary";
 import { setMallowPops } from "../../redux/actions/mallowPops";
 import { selectUploadedImage } from "../../redux/actions/sideBar";
 
@@ -19,7 +18,7 @@ function useUpdateMallowPops(img, mallowpops, id) {
         );
       }
     }
-    dispatch(setImageLibrary(""));
+    dispatch(selectUploadedImage(""));
   }, [img, dispatch]);
 }
 
