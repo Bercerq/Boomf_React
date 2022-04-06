@@ -5,6 +5,7 @@ import {drawOptionDevice, selectOptionDevice} from "../../../utils/functions/tex
 import useCreateEditorValue from "../../../utils/hooks/useCreateEditorValue";
 
 import {DeviceDataType, DeviceTypesStyle, TextEditorDeviceContainer} from "./style";
+import SizeDevice from "../Option/SizeDevice";
 
 const TextEditorDevice = () => {
   const [option, setOption] = useState();
@@ -25,7 +26,7 @@ const TextEditorDevice = () => {
       <DeviceTypesStyle currentEditor={textDataState.currentEditor.state && textDataState.type !== 'image'}>
         {textDataState.focusState && (
           selectOptionDevice(
-            textDataState.currentEditor.flag,
+            textDataState.currentEditor.flag || 'Font',
             setOption,
             option,
             dispatch,
@@ -35,9 +36,15 @@ const TextEditorDevice = () => {
       </DeviceTypesStyle>
 
       <DeviceDataType currentEditor={textDataState.currentEditor.state && textDataState.type !== 'image'}>
-        {drawOptionDevice(textDataState.currentEditor.flag, option, setOption)}
+        {drawOptionDevice(textDataState.currentEditor.flag || 'Font', option, setOption)}
       </DeviceDataType>
 
+      {textDataState.currentEditor.state && textDataState.type !== 'image' && (
+        <SizeDevice
+          option={option}
+          setOption={setOption}
+        />
+      )}
       <TextEditorDeviceContainer
         // ref={(ref) => (editTextRef.current[0] = ref)}
         //todo type image

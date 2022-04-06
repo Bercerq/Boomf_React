@@ -1,20 +1,20 @@
 import React from "react";
-import { useResizeDevice } from "../../utils/hooks/useResizeDevice";
+import {useResizeDevice} from "../../utils/hooks/useResizeDevice";
 import TextEditorDevice from "./TextEditorDevice";
 import TextEditorDesktop from "./TextEditor";
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 
-const TextEditor = ({ editTextRef }) => {
-  const { mobileDevice } = useResizeDevice({ maxWidth: 540 });
+const TextEditor = ({editTextRef}) => {
+  const {mobileDevice} = useResizeDevice({maxWidth: 540});
 
-  const { textDataState } = useSelector(
-    ({ textDataReducer }) => textDataReducer
+  const {textDataState} = useSelector(
+    ({textDataReducer}) => textDataReducer
   );
 
   return mobileDevice && textDataState.currentEditor.flag !== "Image" ? (
-    <TextEditorDevice />
+    <TextEditorDevice editTextRef={editTextRef}/>
   ) : (
-    <TextEditorDesktop editTextRef={editTextRef} />
+    <TextEditorDesktop editTextRef={editTextRef}/>
   );
 };
 
