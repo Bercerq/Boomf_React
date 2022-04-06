@@ -4,37 +4,43 @@ import {useDispatch} from "react-redux";
 
 import {textPosition} from "../../../utils/functions/textData";
 import {useAutoResize} from "../../../utils/hooks/useAutoResize";
+import {useTextHidden} from "../../../utils/hooks/useTextHidden";
 
-import {setActionTextData, setDeleteTextData} from "../../../redux/actions/textData";
 import {setCurRotate} from "../../../redux/actions/boomb";
+import {setActionTextData, setDeleteTextData} from "../../../redux/actions/textData";
 
+import LeftAndRightArrows from "../../../utils/assets/svg/LeftAndRightArrows.svg";
 import Reboot from "../../../utils/assets/svg/Reboot.svg";
 import Trash from "../../../utils/assets/svg/Trash.svg";
-import LeftAndRightArrows from "../../../utils/assets/svg/LeftAndRightArrows.svg";
 
 import {
   CenterRotate,
   DivTextContent,
-  TextareaDraggable,
   TextEditorForm,
+  TextareaDraggable,
 } from "./style.js";
 import "./style.css";
 
 const TextDraggablePos = ({
-  currentState,
   inputRef,
-  activeId,
+  currentState,
   textEditorParams,
-  activeSizeImage,
   textState,
   buttonFlag,
-  activeRebootImage
+  activeId,
+  activeRebootImage,
+  activeSizeImage,
 }) => {
   useAutoResize({
     inputRef: activeId ? inputRef : null,
     valueText: textState,
     currentState,
     textEditorParams,
+  });
+  useTextHidden({
+    buttonFlag,
+    currentState,
+    activeHooks: !activeRebootImage
   });
   const handleSelectCard = () => {
     dispatch(setActionTextData(currentState.id));
@@ -52,12 +58,12 @@ const TextDraggablePos = ({
   };
 
   const onStop = (e, data) => {
-    const parentBlock = document.getElementById(buttonFlag).getBoundingClientRect();
+    const parentBlock = document.getElementById(buttonFlag);
     const childrenBlock = inputRef.current.getBoundingClientRect();
 
     textEditorParams.setPosition(
       textPosition(
-        parentBlock,
+        parentBlock.getBoundingClientRect(),
         childrenBlock,
         data,
         activeSizeImage ? 1 : 2,

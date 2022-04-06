@@ -5,6 +5,7 @@ import {
   SET_UPDATE_TEXT_DATA,
   SET_DELETE_TEXT_DATA,
   SET_ADD_IMAGE_DATA,
+  SET_MAX_LENGTH_TEXT
 } from "../constants/textData";
 
 import {
@@ -30,6 +31,7 @@ const initialTextState = {
 const initialState = {
   textData: [initialTextState, {...initialTextState, column: 2, id: '3221123'}],
   textDataState: initialTextState,
+  maxLengthText: 6,
 };
 
 const textDataReducer = (state = initialState, action) => {
@@ -55,6 +57,12 @@ const textDataReducer = (state = initialState, action) => {
     }
     case SET_DELETE_TEXT_DATA: {
       return deleteDataStateText(state, initialState);
+    }
+    case SET_MAX_LENGTH_TEXT: {
+      return {
+        ...state,
+        maxLengthText: action.payload
+      }
     }
     default:
       return {
