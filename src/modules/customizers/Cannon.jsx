@@ -12,6 +12,7 @@ import {
   confettiDataCannon,
   backgroundDataCannon,
 } from "../../utils/constants/ConfettiData";
+import {setMaxLengthTextData} from "../../redux/actions/textData";
 
 const Cannon = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Cannon = () => {
   useEffect(() => {
     dispatch(setConfettiData(confettiDataCannon));
     dispatch(setBackgroundData(backgroundDataCannon));
+    dispatch(setMaxLengthTextData(1));
   }, [dispatch]);
 
   return (

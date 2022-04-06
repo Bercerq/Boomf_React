@@ -77,7 +77,7 @@ export const addDataStateText = (state, initialState) => {
     id: uid()
   }
   const dataText = data.filter(e => e.type === 'text');
-  if (dataText.length > 10) {
+  if (dataText.length > state.maxLengthText) {
     for (let key of data) {
       if (key.type === 'text') {
         const newStateData = {...data[data.indexOf(key)], focusState: true};
