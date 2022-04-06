@@ -5,6 +5,8 @@ export const BoombData = [
     img: "",
     defaultRotate: 760,
     editCrop: "1",
+    height: 0,
+    width: 0,
   },
   {
     position: 1,
@@ -12,6 +14,8 @@ export const BoombData = [
     img: "",
     defaultRotate: 670,
     editCrop: "1",
+    height: 0,
+    width: 0,
   },
   {
     position: 4,
@@ -19,6 +23,8 @@ export const BoombData = [
     img: "",
     defaultRotate: 580,
     editCrop: "1",
+    height: 0,
+    width: 0,
   },
   {
     position: 3,
@@ -26,5 +32,7 @@ export const BoombData = [
     img: "",
     defaultRotate: 490,
     editCrop: "1",
+    height: 0,
+    width: 0,
   },
 ];

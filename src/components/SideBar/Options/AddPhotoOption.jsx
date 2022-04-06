@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -9,7 +9,10 @@ import {
 import Buttons from "./components/Buttons";
 import ImageUploader from "./components/ImageUploader";
 import { setAddImageData } from "../../../redux/actions/textData";
-import {setDeleteImageLibrary, setImageLibrary} from "../../../redux/actions/imageLibrary";
+import {
+  setDeleteImageLibrary,
+  setImageLibrary,
+} from "../../../redux/actions/imageLibrary";
 
 import CloseImage from "../../../utils/assets/svg/CloseImage.svg";
 import {
@@ -24,9 +27,10 @@ import {
 import { getUserImages } from "../../../redux/actions/images";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { editImage } from "../../../redux/actions/boomb";
+import { setUploadImage } from "../../../utils/functions/boomb";
 
 function AddPhotoOption() {
-  const { imageData } = useSelector(
+  const { imageData, imageState } = useSelector(
     ({ imageLibraryReducer }) => imageLibraryReducer
   );
   const { standardName } = useSelector(
@@ -40,22 +44,42 @@ function AddPhotoOption() {
       dispatch(setAddImageData({ ...img, key: standardName }));
     }
     dispatch(setImageLibrary(img.id));
-    dispatch(selectUploadedImage(img.img || img.url));
+    dispatch(selectUploadedImage(img));
     dispatch(setCurrentSidebar({ flag: "", state: false }));
     dispatch(editImage({ key: "size", value: "1" }));
   };
   const deleteImage = (id) => {
     dispatch(setDeleteImageLibrary(id));
   };
-
   useEffect(() => {
-    if (!imageData[0]?.id) {
+    if (!imageState.source) {
       dispatch(getUserImages());
     }
-  }, []);
+  }, [imageState.source, dispatch]);
 
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setUploadImage(e.dataTransfer.files, imageData, dispatch);
+  };
   return (
-    <MainWrapper>
+    <MainWrapper
+      onDrop={(e) => handleDrop(e)}
+      onDragOver={(e) => handleDragOver(e)}
+      onDragEnter={(e) => handleDragEnter(e)}
+      onDragLeave={(e) => handleDragLeave(e)}
+    >
       <ActionsWrapper>
         <ImageUploader imageData={imageData} />
         <Buttons />

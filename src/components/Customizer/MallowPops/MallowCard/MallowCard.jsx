@@ -11,7 +11,6 @@ function MallowCard({ standardName, editTextRef }) {
   const { textDataState } = useSelector(
     ({ textDataReducer }) => textDataReducer
   );
-  console.log(textDataState);
   useEffect(() => {
     const timer = setTimeout(() => setFirstLoading(true), 1000);
     return () => {

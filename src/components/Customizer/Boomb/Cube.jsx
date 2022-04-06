@@ -1,10 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  addBoombToCart,
-  handleClickAddToCart,
-} from "../../../utils/functions/boomb";
+import { addBoombToCart } from "../../../utils/functions/boomb";
 
 import BottomSection from "./BottomSection/BottomSection";
 import CubeSection from "./CubeSection/CubeSection";
