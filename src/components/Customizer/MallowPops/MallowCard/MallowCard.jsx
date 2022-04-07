@@ -17,7 +17,7 @@ function MallowCard({ standardName, editTextRef }) {
       clearTimeout(timer);
     };
   }, []);
-
+  console.log(textDataState);
   return (
     <BoxWrapperCard
       firstLoading={firstLoading}
@@ -29,8 +29,9 @@ function MallowCard({ standardName, editTextRef }) {
 
         <SpaceForText>
           <TextEditorWrapper
-            textStyles={textDataState.textStyles}
-            height={"40%"}
+            textDataState={textDataState}
+            height={"30%"}
+            width={"75%"}
             id="buttonClickMallowpops"
             ref={(ref) => (editTextRef.current[1] = ref)}
           >
