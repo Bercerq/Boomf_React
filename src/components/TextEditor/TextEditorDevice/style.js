@@ -9,13 +9,13 @@ export const TextEditorDeviceContainer = styled.div`
   width: 100vw;
   height: 100vh;
 
-  z-index: 3;
+  z-index: 0;
   opacity: 0;
   transition: 0.6s;
   pointer-events: none;
 
   ${({currentEditor}) =>
-          currentEditor && "background: #222222; opacity:0.5; pointer-events: all;transition: 0.6s;"}
+          currentEditor && "background: #222222; opacity:0.5; pointer-events: all;transition: 0.6s; z-index: 3;"}
 `;
 
 export const DeviceDataTypeStyle = styled.div`
@@ -49,5 +49,5 @@ export const DeviceDataType = styled(DeviceDataTypeStyle)`
   z-index: 4;
   align-items: flex-end;
 
-  ${({currentEditor}) => !currentEditor && "height: 0;"}
+  ${({currentEditor}) => !currentEditor && "height: 0; display: none;"}
 `;
