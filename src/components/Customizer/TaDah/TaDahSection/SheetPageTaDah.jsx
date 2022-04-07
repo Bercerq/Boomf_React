@@ -3,8 +3,13 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {setStandardName} from "../../../../redux/actions/standard";
 
-import {DivFlex, DivSheetContent, LineDivStandard, TitleNameSheet} from "../../Standard/SheetSection/style";
 import {FrontDblSheetTaDah, FrontSheetTaDah} from "./style";
+import {
+  DivFlex,
+  DivSheetContent,
+  LineDivStandard,
+  TitleNameSheet
+} from "../../Standard/SheetSection/style";
 
 const SheetPageTaDah = ({type}) => {
   const dispatch = useDispatch();

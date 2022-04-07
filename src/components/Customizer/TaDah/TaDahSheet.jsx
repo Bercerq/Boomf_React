@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TaDahSection from "./TaDahSection/TaDahSection";
+import SheetSection from "../Standard/SheetSection/SheetSection";
 
 import {SheetBlock} from "../Standard/SheetSection/style";
 import {TitleTaDah} from "./TaDahSection/style";
@@ -11,7 +11,7 @@ const TaDahSheet = ({editTextRef, standardName, type}) => {
       <TitleTaDah titleDevice='desktop'>
         {standardName} Page
       </TitleTaDah>
-      <TaDahSection editTextRef={editTextRef} type={type}/>
+      <SheetSection editTextRef={editTextRef} type={type}/>
     </SheetBlock>
   );
 };
