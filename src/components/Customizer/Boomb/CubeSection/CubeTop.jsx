@@ -11,7 +11,9 @@ export const CubeTop = ({ topText, textStyles, editTextRef }) => {
   const dispatch = useDispatch();
   const { mobileDevice } = useResizeDevice({ maxWidth: 1130 });
 
-  const currentId = mobileDevice ? "buttonClickTopMobile" : "buttonClickDesktop";
+  const currentId = mobileDevice
+    ? "buttonClickTopMobile"
+    : "buttonClickDesktop";
   return (
     <CubeSide
       id={currentId}
@@ -23,6 +25,7 @@ export const CubeTop = ({ topText, textStyles, editTextRef }) => {
         <TextEditorWrapper
           textStyles={textStyles}
           height={"100%"}
+          width={"100%"}
           id={currentId}
           ref={(ref) => (editTextRef.current[1] = ref)}
         >

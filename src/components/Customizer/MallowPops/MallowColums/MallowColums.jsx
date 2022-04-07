@@ -6,16 +6,21 @@ import Plus from "../../../../utils/assets/svg/Plus.svg";
 import Stick from "../../../../utils/assets/svg/MallowStick.svg";
 
 import { Title, BoxWrapper } from "../style";
-import { AddImage, BoxImage, MallowBox, MallowBoxWrapper, StickImage } from "./style";
+import {
+  AddImage,
+  BoxImage,
+  MallowBox,
+  MallowBoxWrapper,
+  StickImage,
+} from "./style";
 import useUpdateMallowPops from "../../../../utils/hooks/useUpdateMallowPops";
 import { useResizeDevice } from "../../../../utils/hooks/useResizeDevice";
 
 function MallowColums({ editTextRef, standardName }) {
   const dispatch = useDispatch();
   const [boxId, setBoxId] = useState();
-  const { imageState } = useSelector(
-    ({ imageLibraryReducer }) => imageLibraryReducer
-  );
+  const { curCubeImage } = useSelector(({ sidebarReducer }) => sidebarReducer);
+
   const { mallowpops } = useSelector(
     ({ mallowPopsReducer }) => mallowPopsReducer
   );
@@ -29,8 +34,7 @@ function MallowColums({ editTextRef, standardName }) {
     setBoxId(id);
     dispatch(setCurrentSidebar({ flag: "+ Add photo", state: true }));
   };
-
-  useUpdateMallowPops(imageState?.url || imageState?.img, mallowpops, boxId);
+  useUpdateMallowPops(curCubeImage?.url || curCubeImage?.img, mallowpops, boxId);
 
   return (
     <BoxWrapper

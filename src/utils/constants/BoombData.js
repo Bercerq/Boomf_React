@@ -1,7 +1,7 @@
 export const BoombData = [
   {
-    position: 2,
-    rotate: "rotateY(-90deg)",
+    position: 1,
+    rotate: "rotateY(0deg)",
     img: "",
     defaultRotate: 760,
     editCrop: "1",
@@ -9,8 +9,8 @@ export const BoombData = [
     width: 0,
   },
   {
-    position: 1,
-    rotate: "rotateY(0deg)",
+    position: 2,
+    rotate: "rotateY(-90deg)",
     img: "",
     defaultRotate: 670,
     editCrop: "1",
@@ -18,8 +18,8 @@ export const BoombData = [
     width: 0,
   },
   {
-    position: 4,
-    rotate: "rotateY(90deg)",
+    position: 3,
+    rotate: "rotateY(180deg)",
     img: "",
     defaultRotate: 580,
     editCrop: "1",
@@ -27,8 +27,8 @@ export const BoombData = [
     width: 0,
   },
   {
-    position: 3,
-    rotate: "rotateY(180deg)",
+    position: 4,
+    rotate: "rotateY(90deg)",
     img: "",
     defaultRotate: 490,
     editCrop: "1",
