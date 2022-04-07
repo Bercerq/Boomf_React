@@ -14,10 +14,11 @@ export const TitleTaDah = styled(TitleStandard)`
 export const FrontSheetsTaDah = styled.div`
   position: relative;
   overflow: hidden;
-  background: #FFFFFF;
   box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04),
   0 16px 24px rgba(96, 97, 112, 0.16);
+  
   ${({activeSheet}) => activeSheet && 'border: 4px solid #0A74FF;'};
+  background: ${({type}) => type === 'Flutter' ? '#D6D6D6' : '#FFFFFF'};
 `;
 
 export const FrontDblSheetTaDah = styled(FrontSheetsTaDah)`
@@ -25,7 +26,6 @@ export const FrontDblSheetTaDah = styled(FrontSheetsTaDah)`
   justify-content: center;
   width: 284px;
   height: 142px;
-  background: ${({type}) => type === 'Flutter' ? '#D6D6D6' : '#FFFFFF'};
   
   @media (max-height: 1024px) and (max-width: 800px),
   screen and (max-width: 1280px) and (max-height: 800px),
@@ -38,9 +38,6 @@ export const FrontDblSheetTaDah = styled(FrontSheetsTaDah)`
 export const FrontSheetTaDah = styled(FrontSheetsTaDah)`
   width: 142px;
   height: 143px;
-  
-  background: ${({type}) => type === 'Flutter' ? '#D6D6D6' : '#FFFFFF'};
-  ${({activeSheet}) => activeSheet && 'border: 4px solid #0A74FF;'};
   
   @media (max-height: 1024px) and (max-width: 800px),
   screen and (max-width: 1280px) and (max-height: 800px),

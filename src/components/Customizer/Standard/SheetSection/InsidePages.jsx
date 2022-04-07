@@ -9,6 +9,7 @@ import {
   DivStandardInside,
   SheetContainer
 } from "./style";
+import TextContentInsidePages from "./TextContentInsidePages";
 
 const InsidePages = ({editTextRef, standardName, buttonFlag, children, type}) => {
   const {mobileDevice} = useResizeDevice({maxWidth: 540});
@@ -24,8 +25,8 @@ const InsidePages = ({editTextRef, standardName, buttonFlag, children, type}) =>
     >
       <SheetDivFlex>
         <FontPageDiv>
-          <SheetContainer type={type}>
-            {children}
+          <SheetContainer type={type} focusState={textDataState.focusState}>
+           <TextContentInsidePages buttonFlag={buttonFlag}/>
           </SheetContainer>
         </FontPageDiv>
       </SheetDivFlex>

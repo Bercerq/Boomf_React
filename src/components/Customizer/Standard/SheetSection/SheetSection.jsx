@@ -1,15 +1,13 @@
 import React from 'react';
 import {useSelector} from "react-redux";
 
-import FontPage from "./FontPage";
-import SelectPage from "./SelectPage";
 import InsidePages from "./InsidePages";
+import SelectPage from "./SelectPage";
+import FrontPage from "./FrontPage";
 
 import {DivSheets, SheetContentPage} from "./style";
-import SheetPageStandard from "./SheetPageStandard";
-import TextContentInsidePages from "./TextContentInsidePages";
 
-const SheetSection = ({editTextRef}) => {
+const SheetSection = ({editTextRef, type}) => {
   const {standardName} = useSelector(
     ({standardReducer}) => standardReducer
   );
@@ -17,20 +15,18 @@ const SheetSection = ({editTextRef}) => {
   return (
     <SheetContentPage>
       <DivSheets>
-        <FontPage
+        <FrontPage
           standardName={standardName}
+          type={type}
         />
         <InsidePages
+          buttonFlag='buttonClickTaDah'
           editTextRef={editTextRef}
           standardName={standardName}
-          buttonFlag='buttonClickCannon'
-        >
-          <TextContentInsidePages buttonFlag='buttonClickCannon'/>
-        </InsidePages>
+          type={type}
+        />
       </DivSheets>
-      <SelectPage>
-        <SheetPageStandard/>
-      </SelectPage>
+      <SelectPage type={type}/>
     </SheetContentPage>
   );
 };
