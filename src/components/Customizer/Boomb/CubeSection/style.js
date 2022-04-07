@@ -52,12 +52,11 @@ export const CubeWrapper = styled.div`
 
   filter: drop-shadow(0px 2px 4px rgba(40, 41, 61, 0.04))
     drop-shadow(0px 8px 16px rgba(96, 97, 112, 0.16));
-
   @media (max-width: 540px) {
     ${({ textDataState }) =>
       textDataState.focusState &&
       textDataState.currentEditor.flag !== "Image" &&
-      "z-index:4;background: content-box;"};
+      "z-index:4;"};
   }
 
   @media (max-width: 670px) {
