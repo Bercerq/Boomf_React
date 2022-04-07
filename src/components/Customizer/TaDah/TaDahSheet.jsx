@@ -9,7 +9,7 @@ const TaDahSheet = ({editTextRef, standardName, type}) => {
   return (
     <SheetBlock>
       <TitleTaDah titleDevice='desktop'>
-        {standardName} Page
+        {standardName === "Inside" ? standardName + ' pages' : standardName + ' page'}
       </TitleTaDah>
       <SheetSection editTextRef={editTextRef} type={type}/>
     </SheetBlock>

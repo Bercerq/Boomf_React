@@ -13,7 +13,7 @@ const Sheet = ({editTextRef}) => {
   return (
     <SheetBlock>
       <TitleStandard>
-        {standardName} Page
+        {standardName === "Inside" ? standardName + ' pages' : standardName + ' page'}
       </TitleStandard>
       <SheetSection editTextRef={editTextRef}/>
     </SheetBlock>

@@ -32,7 +32,7 @@ const TaDahComponent = ({imageData, title, type}) => {
       title={title}
     >
       <TitleTaDah>
-        {standardName} Page
+        {standardName === "Inside" ? standardName + ' pages' : standardName + ' page'}
       </TitleTaDah>
       <TaDahSheet
         editTextRef={editTextRef}
