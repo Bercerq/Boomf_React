@@ -28,7 +28,6 @@ const TextEditorDevice = () => {
           selectOptionDevice(
             textDataState.currentEditor.flag || 'Font',
             setOption,
-            option,
             dispatch,
             textDataState,
             textDataState.textStyles

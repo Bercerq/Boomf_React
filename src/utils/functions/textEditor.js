@@ -1,10 +1,14 @@
+import React from "react";
+
 import {alignmentIcon, editOptionDevice, editOptions} from "../constants/TextEditData";
 
 import { setUpdateTextData } from "../../redux/actions/textData";
-
-import Colour from "../../components/TextEditor/Option/Colour";
 import Font from "../../components/TextEditor/Option/Font";
 import Size from "../../components/TextEditor/Option/Size";
+import Image from "../../components/TextEditor/Option/Image";
+import Colour from "../../components/TextEditor/Option/Colour";
+import WhiteButton from "../../components/Buttons/WhiteButton";
+import FontDevice from "../../components/TextEditor/Option/FontDevice";
 
 import {
   Option,
@@ -14,28 +18,23 @@ import {
   OptionsWrapper,
   OptionText,
 } from "../../components/TextEditor/style";
-import Image from "../../components/TextEditor/Option/Image";
-import WhiteButton from "../../components/Buttons/WhiteButton";
-import React from "react";
-import FontDevice from "../../components/TextEditor/Option/FontDevice";
-import SizeDevice from "../../components/TextEditor/Option/SizeDevice";
 
-export const drawEditorContent = (flag, option, setOption, dispatch) =>
+export const drawEditorContent = (flag, textStyles, option, setOption, dispatch) =>
   flag && flag !== "Alignment"
     ? drawOption(flag, setOption, option)
-    : selectOptions(setOption, option, dispatch);
+    : selectOptions(setOption, dispatch, textStyles);
 
-const selectOptions = (setOption, option, dispatch) => {
+const selectOptions = (setOption, dispatch, textStyles) => {
   return (
     <OptionsWrapper>
       {editOptions.map(({ icon, text }) => (
         <Option
-          onClick={selectEditorOption(text, setOption, option, dispatch)}
+          onClick={selectEditorOption(text, setOption, dispatch, textStyles)}
           key={text}
         >
           <OptionIcon>
             {text === "Alignment" ? (
-              findAlignmentImage(option)
+              findAlignmentImage(textStyles.alignment)
             ) : (
               <img src={icon} alt={text} />
             )}
@@ -47,9 +46,9 @@ const selectOptions = (setOption, option, dispatch) => {
   );
 };
 
-const selectEditorOption = (text, setOption, option, dispatch) => () => {
+const selectEditorOption = (text, setOption, dispatch, textStyles) => () => {
   if (text === "Alignment") {
-    findAlignment(option, setOption);
+    findAlignment(textStyles.alignment, setOption);
   }
   dispatch(
     setUpdateTextData({
@@ -60,6 +59,7 @@ const selectEditorOption = (text, setOption, option, dispatch) => () => {
 };
 const findAlignmentImage = (option) => {
   const image = alignmentIcon.find(({ side }) => side === option);
+
   return (
     <img
       key="side"
@@ -169,7 +169,6 @@ export const findButtonName = (flag) => {
 export const selectOptionDevice = (
   flag,
   setOption,
-  option,
   dispatch,
   currentEditor,
   textStyles
@@ -180,12 +179,12 @@ export const selectOptionDevice = (
         ({ icon, text }, idx) =>
           (flag !== text || flag === "Alignment") && (
             <OptionDevice
-              onClick={selectEditorOption(text, setOption, option, dispatch)}
+              onClick={selectEditorOption(text, setOption, dispatch, textStyles)}
               key={"Option" + idx}
             >
               <OptionIconDevice>
                 {text === "Alignment" ? (
-                  findAlignmentImage(option)
+                  findAlignmentImage(textStyles.alignment)
                 ) : (
                   <img src={icon} alt={text} />
                 )}
