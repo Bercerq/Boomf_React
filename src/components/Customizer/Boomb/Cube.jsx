@@ -26,6 +26,7 @@ function Cube({ editTextRef }) {
   );
 
   useUpdateCube(curCubePosition, curCubeImage, boombData, editCrop);
+  
   return (
     <>
       <SideContent>

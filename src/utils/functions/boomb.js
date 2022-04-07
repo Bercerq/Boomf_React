@@ -94,6 +94,7 @@ export const openEditor = (dispatch, buttonFlag) => () => {
   let timer;
 
   const openTextModal = () => {
+    dispatch(setCurRotate(760));
     dispatch(
       setCurrentModal({
         title: "Text",
@@ -139,12 +140,6 @@ export const openEditor = (dispatch, buttonFlag) => () => {
     buttonFlag === "buttonClickTopMobile" && openTextModal();
   });
 
-  if (
-    buttonFlag === "buttonClickDesktop" ||
-    buttonFlag === "buttonClickTopMobile"
-  ) {
-    dispatch(setCurRotate(760));
-  }
 };
 
 export const addBoombToCart =

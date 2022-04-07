@@ -17,7 +17,6 @@ function CubeSection({ textDataState, textData, confettiState, editTextRef }) {
           textStyles={textData[0].textStyles}
           editTextRef={editTextRef}
         />
-        {/* {findStaticText(textData, textDataState, dispatch)} */}
       </CubeWrapper>
       <RotateButtons />
     </CubeContainer>
