@@ -26,7 +26,7 @@ export const TitleStandard = styled.h3`
     font-size: 16px;
     line-height: 170%;
     letter-spacing: 0.02em;
-    margin: 38px 0 22px 0;
+    margin: ${({marginDevice}) => marginDevice ? '38px 0 0 0' : '38px 0 22px 0'};
   }
 `;
 export const FontPageDiv = styled.div`
