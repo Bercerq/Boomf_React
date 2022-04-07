@@ -75,15 +75,14 @@ export const changeTopText = (setTopText, e) => {
 // Show side name based position
 export const findBoxSide = (position) => {
   switch (position) {
-    case 2:
-      return "Front";
     case 1:
+      return "Front ";
+    case 2:
       return "Right";
-    case 4:
-      return "Back";
     case 3:
+      return "Back";
+    case 4:
       return "Left";
-
     default:
       break;
   }
@@ -115,6 +114,7 @@ export const openEditor = (dispatch, buttonFlag) => () => {
         dispatch(setUpdateTextData({ key: "focusState", value: true }));
       }, 200);
     }
+    dispatch(setCurPosition(1));
     buttonFlag === "buttonClickTopMobile" && openTextModal();
   });
   button.addEventListener("dblclick", () => {
@@ -138,8 +138,9 @@ export const openEditor = (dispatch, buttonFlag) => () => {
       })
     );
     buttonFlag === "buttonClickTopMobile" && openTextModal();
-  });
+    dispatch(setCurPosition(1));
 
+  });
 };
 
 export const addBoombToCart =

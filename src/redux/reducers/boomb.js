@@ -12,7 +12,7 @@ const initialState = {
   boombData: BoombData,
   editCrop: "1",
   cubeImabeLibrary: [],
-  curCubePosition: 2,
+  curCubePosition: 1,
   curCubeRotate: 760,
 };
 
