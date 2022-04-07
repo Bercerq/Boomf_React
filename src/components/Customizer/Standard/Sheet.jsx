@@ -12,7 +12,7 @@ const Sheet = ({editTextRef}) => {
 
   return (
     <SheetBlock>
-      <TitleStandard>
+      <TitleStandard marginDevice={true}>
         {standardName === "Inside" ? standardName + ' pages' : standardName + ' page'}
       </TitleStandard>
       <SheetSection editTextRef={editTextRef}/>
