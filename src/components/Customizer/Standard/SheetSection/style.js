@@ -13,11 +13,20 @@ export const SheetBlock = styled(SheetContentPage)`
 `;
 export const TitleStandard = styled.h3`
   margin: 30px;
-  font-family: Objectivity, serif;
+  font-family: Objectivity, system-ui;
   font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  text-align: center;
 
+  font-size: 20px;
   @media (max-width: 540px) and (max-height: 720px), screen and (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px) {
-    margin: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 170%;
+    letter-spacing: 0.02em;
+    margin: 38px 0 22px 0;
   }
 `;
 export const FontPageDiv = styled.div`
