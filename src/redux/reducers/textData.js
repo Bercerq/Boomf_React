@@ -23,7 +23,8 @@ const initialTextState = {
   rotate: 0,
   textStyles: {
     colour: "#222222",
-    font: "Futura"
+    font: "Futura",
+    alignment: "center"
   },
   currentEditor: {state: false, flag: ''},
   focusState: false,

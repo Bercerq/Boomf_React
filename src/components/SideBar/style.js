@@ -7,7 +7,7 @@ export const PanelContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 5;
+  z-index: 6;
 
   @media (max-width: 1130px) {
     height: unset;
@@ -109,7 +109,7 @@ export const SideBarWindow = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
-  z-index: 5;
+  z-index: 6;
   opacity: 0;
   transition: 0.4s;
   pointer-events: none;

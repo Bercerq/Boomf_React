@@ -8,15 +8,12 @@ export const TextEditorWrapper = styled.div`
   left: 0;
   display: flex;
   align-items: end;
-  z-index: 4;
+  z-index: 5;
   opacity: 0;
   transition: 0.6s;
   pointer-events: none;
   ${({currentEditor}) =>
           currentEditor && "opacity:1; pointer-events: all;transition: 0.6s;"};
-  @media (max-width: 1130px) {
-    z-index: 5;
-  }
 `;
 export const TextEditorContent = styled.div`
   z-index: 3;

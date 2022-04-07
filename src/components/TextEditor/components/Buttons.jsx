@@ -18,6 +18,9 @@ function Buttons({ currentEditor, textStyles, option, setOption }) {
     setOption("");
     if (currentEditor.flag === "Image") {
       dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: false}}));
+    } else if(currentEditor.flag === "Alignment") {
+      dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: false}}));
+      dispatch(setUpdateTextData({key: 'focusState', value: {flag: "", state: false}}));
     } else {
       dispatch(setUpdateTextData({key: 'currentEditor', value: {flag: "", state: true}}));
     }
@@ -39,7 +42,7 @@ function Buttons({ currentEditor, textStyles, option, setOption }) {
           {findButtonName(currentEditor.flag)}
         </WhiteButton>
       </div>
-      {option && currentEditor.flag && currentEditor.flag !== "Alignment" && (
+      {option && currentEditor.flag && (
         <div>
           <WhiteButton
             color="#FFFFFF"

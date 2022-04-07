@@ -67,6 +67,7 @@ const TextEditorDesktop = ({ editTextRef }) => {
       <TextEditorContent currentEditor={textDataState.currentEditor.state}>
         {drawEditorContent(
           textDataState.currentEditor.flag,
+          textDataState.textStyles,
           option,
           setOption,
           dispatch
