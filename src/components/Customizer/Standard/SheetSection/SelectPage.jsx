@@ -10,8 +10,9 @@ import ArrowRightIcon from "../../../../utils/assets/svg/ArrowRightIcon.svg";
 
 import {PostcardButton} from "../../Cannon/PostcardSection/style";
 import {ActiveSheetDiv, ColumnActiveSheet} from "./style";
+import SheetPageTaDah from "../../TaDah/TaDahSection/SheetPageTaDah";
 
-const SelectPage = ({children}) => {
+const SelectPage = ({type}) => {
   const dispatch = useDispatch();
 
   const {standardName} = useSelector(
@@ -29,7 +30,7 @@ const SelectPage = ({children}) => {
   return (
     <ColumnActiveSheet>
       <ActiveSheetDiv>
-        {children}
+        <SheetPageTaDah type={type}/>
       </ActiveSheetDiv>
       <PostcardButton widthSheet={true}>
         <BlueButton handleButtonClick={handleButtonClick}>

@@ -16,9 +16,7 @@ export const TitleStandard = styled.h3`
   font-family: Objectivity, serif;
   font-style: normal;
 
-  @media (max-width: 540px) and (max-height: 720px),
-    screen and (max-height: 1024px) and (max-width: 800px),
-    screen and (max-width: 1280px) and (max-height: 800px) {
+  @media (max-width: 540px) and (max-height: 720px), screen and (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px) {
     margin: 10px;
   }
 `;
@@ -46,17 +44,17 @@ export const SheetContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  background: ${({ type }) => (type === "Flutter" ? "#D6D6D6" : "")};
+  background: ${({type}) => (type === "Flutter" ? "#D6D6D6" : '#FFFFFF')};
 
   overflow: hidden;
 
   z-index: 2;
-  margin-top: 10px;
+  margin: 22px;
   width: fit-content;
   height: fit-content;
 
   box-shadow: 0 2px 4px rgba(40, 41, 61, 0.04),
-    0 8px 16px rgba(96, 97, 112, 0.16);
+  0 8px 16px rgba(96, 97, 112, 0.16);
 
   @media (min-width: 1440px) and (max-height: 920px) {
     height: 480px;
@@ -67,15 +65,9 @@ export const SheetContainer = styled.div`
   @media (max-width: 540px) and (max-height: 720px) {
     margin: 10px 20px;
   }
-`;
-
-export const SheetContainerFrontPage = styled(SheetContainer)`
-  background: ${({ type }) => (type === "Flutter" ? "#D6D6D6" : "#FFFFFF")};
-  transition-duration: ${({ firstLoading }) => (firstLoading ? "1s" : "0s")};
-  transform: translate(
-    ${({ standardName }) => (standardName ? 0 : "-150vw")},
-    0
-  );
+  @media (max-width: 540px) {
+    background: ${({focusState}) => focusState ? 'transparent' : ''};
+  }
 `;
 
 export const DivStandardInside = styled.div`
@@ -85,58 +77,21 @@ export const DivStandardInside = styled.div`
   overflow: hidden;
 
   transition-duration: 1s;
-  transform: translate(
-    ${({ standardName }) => (standardName ? "0" : "150vw")},
-    0
-  );
-
-  @media (max-width: 920px) {
-    transform: translate(
-      ${({ standardName }) => (standardName ? "0" : "150vw")},
-      0
-    );
-  }
-
-  ${({ focusState }) => focusState && `z-index: 4;`}
+  transform: translate(${({standardName}) => (standardName ? "0" : "150vw")}, 0);
+  ${({focusState}) => focusState && `z-index: 4;`};
 `;
 
-export const TextContentStandard = styled.div`
-  position: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 454px;
-  height: 626px;
-
-  @media (min-width: 1440px) and (max-height: 920px) {
-    width: 350px;
-    height: 480px;
-  }
-
-  @media (max-height: 1024px) and (max-width: 800px),
-    screen and (max-width: 1280px) and (max-height: 800px) {
-    width: 290px;
-    height: 400px;
-  }
-
-  @media (max-width: 540px) {
-    width: 329px;
-    height: 454px;
-  }
-
-  @media screen and (max-width: 1130px),
-    screen and (max-height: 605px),
-    screen and (max-width: 540px) and (max-height: 720px) {
-    width: 257px;
-    height: 365px;
-  }
+export const SheetContainerFrontPage = styled(SheetContainer)`
+  background: ${({type}) => (type === "Flutter" ? "#D6D6D6" : "")};
+  transition-duration: ${({firstLoading}) => (firstLoading ? "1s" : "0s")};
+  transform: translate(${({standardName}) => (standardName ? 0 : "-150vw")},
+  0);
 `;
 
 export const LineDivStandard = styled.div`
   height: 100%;
-  //todo temporary solution
-  z-index: ${({ zIndexPos }) =>
-    zIndexPos ? 1 : "4; height: 100vh; position: absolute;"};
+  z-index: ${({zIndexPos}) =>
+          zIndexPos ? 1 : "4; height: 100vh; position: absolute;"};
   border: 1px solid #a3a3a3;
 `;
 
@@ -171,39 +126,6 @@ export const ActiveSheetDiv = styled.div`
   align-items: flex-end;
 `;
 
-export const FrontSheetDiv = styled.div`
-  position: relative;
-  overflow: hidden;
-  width: 102px;
-  height: 142px;
-
-  background: #ffffff;
-  ${({ activeSheet }) => activeSheet && "border: 4px solid #0A74FF;"};
-
-  box-shadow: 0 2px 8px rgba(40, 41, 61, 0.04),
-    0 16px 24px rgba(96, 97, 112, 0.16);
-  @media (max-height: 1024px) and (max-width: 800px),
-    screen and (max-width: 1280px) and (max-height: 800px),
-    screen and (max-width: 540px) {
-    width: 54px;
-    height: 75px;
-  }
-`;
-
-export const FrontDblSheet = styled(FrontSheetDiv)`
-  display: flex;
-  justify-content: center;
-  width: 204px;
-  height: 144px;
-
-  @media (max-height: 1024px) and (max-width: 800px),
-    screen and (max-width: 1280px) and (max-height: 800px),
-    screen and (max-width: 540px) {
-    width: 109px;
-    height: 75px;
-  }
-`;
-
 export const DivSheetContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -220,7 +142,7 @@ export const DivSheetContent = styled.div`
 export const DivFlex = styled.div`
   display: flex;
   z-index: 0;
-  ${({ activeSheet }) => activeSheet && "border: 4px solid #0A74FF;"}
+  ${({activeSheet}) => activeSheet && "border: 4px solid #0A74FF;"}
 `;
 
 export const SheetDivFlex = styled(DivFlex)`
@@ -232,8 +154,7 @@ export const SheetDivFlex = styled(DivFlex)`
     overflow: auto hidden;
     width: 100vw;
   }
-  @media (max-height: 1024px) and (max-width: 800px),
-    screen and (max-width: 1280px) and (max-height: 800px) {
+  @media (max-height: 1024px) and (max-width: 800px), screen and (max-width: 1280px) and (max-height: 800px) {
     justify-content: center;
   }
   @media (max-width: 920px) {

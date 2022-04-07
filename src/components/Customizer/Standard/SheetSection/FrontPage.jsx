@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {SheetContainerFrontPage} from "../../Standard/SheetSection/style";
-import {ConfettiTaDahImg, TextContentTaDah} from "./style";
 import {useSelector} from "react-redux";
 
-const FontPageTaDah = ({standardName, type}) => {
+import {ConfettiTaDahImg, TextContentTaDah} from "../../TaDah/TaDahSection/style";
+import {SheetContainerFrontPage} from "./style";
+
+const FrontPage = ({standardName, type}) => {
   const [firstLoading, setFirstLoading] = useState(false);
 
   const {confettiState} = useSelector(
@@ -36,4 +37,4 @@ const FontPageTaDah = ({standardName, type}) => {
   );
 };
 
-export default FontPageTaDah;
+export default FrontPage;
