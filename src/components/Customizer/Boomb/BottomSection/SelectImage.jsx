@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { findBoxSide, setBoxPosition } from "../../../../utils/functions/boomb";
+import { setBoxPosition } from "../../../../utils/functions/boomb";
 
 import { BoxImage, BoxSide, BoxText, PickerItem } from "./style";
 
@@ -11,7 +11,7 @@ const SelectImage = () => {
     ({ boombReducer }) => boombReducer
   );
 
-  return boombData?.map(({ position, img, defaultRotate }) => (
+  return boombData?.map(({ position, img, defaultRotate, sideName }) => (
     <React.Fragment key={position}>
       <PickerItem onClick={setBoxPosition(dispatch, position, defaultRotate)}>
         <BoxSide
@@ -21,7 +21,7 @@ const SelectImage = () => {
         >
           <BoxImage src={img.img || img.url} alt={`image ${position}`} />
         </BoxSide>
-        <BoxText>Image - {findBoxSide(position)}</BoxText>
+        <BoxText>Image - {sideName}</BoxText>
       </PickerItem>
     </React.Fragment>
   ));

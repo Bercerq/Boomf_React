@@ -3,13 +3,11 @@ import { useDispatch } from "react-redux";
 import { setCurrentSidebar } from "../../../../redux/actions/sideBar";
 import { setUpdateTextData } from "../../../../redux/actions/textData";
 
-import { findBoxSide } from "../../../../utils/functions/boomb";
-
 import EditPencil from ".././../../../utils/assets/svg/EditPencil.svg";
 
 import { EditButton, EditIcon, NoImage, SideImage } from "./style";
 
-function CubeImage({ textDataState, img, position, editCrop }) {
+function CubeImage({ textDataState, img, position, editCrop, sideName }) {
   const dispatch = useDispatch();
 
   const openEditor = () => {
@@ -32,7 +30,7 @@ function CubeImage({ textDataState, img, position, editCrop }) {
         textDataState={textDataState}
         editCrop={editCrop}
         src={img}
-        alt={findBoxSide(position)}
+        alt={sideName}
         onClick={openSideBar}
       />
       <EditButton onClick={openEditor}>
@@ -41,7 +39,7 @@ function CubeImage({ textDataState, img, position, editCrop }) {
     </>
   ) : (
     <NoImage onClick={openSideBar} textDataState={textDataState}>
-      + Photo {findBoxSide(position)}
+      + Photo {sideName}
     </NoImage>
   );
 }

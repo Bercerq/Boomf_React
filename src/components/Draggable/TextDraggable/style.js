@@ -14,7 +14,7 @@ export const FormTextContent = styled.div`
   width: 76%;
   height: 23%;
   margin-bottom: 45px;
-  border: 1px dashed #F5F5F5;
+  border: 1px dashed #f5f5f5;
   box-sizing: border-box;
   border-radius: 8px;
 
@@ -40,11 +40,14 @@ export const DivTextContent = styled.div`
   min-width: 220px;
   min-height: 18px;
   padding: 8px;
+  max-width: 315px;
+  ${({ activeState }) =>
+    `cursor: ${
+      activeState ? "all-scroll; border: 2px solid #0A74FF" : "auto"
+    }`};
 
-  ${({activeState}) =>
-          `cursor: ${activeState ? 'all-scroll; border: 2px solid #0A74FF' : 'auto'}`};
-
-  @media (max-width: 560px), screen and (max-height: 600px) and (max-width: 1300px) {
+  @media (max-width: 560px),
+    screen and (max-height: 600px) and (max-width: 1300px) {
     min-width: 180px;
   }
 `;
@@ -75,14 +78,14 @@ export const TextareaDraggable = styled.textarea`
     color: unset;
   }
 
-  font-family: ${({textStyles}) =>
-          textStyles.font ? `${textStyles.font}` : "Objectivity"};
-  font-size: ${({textStyles}) =>
-          textStyles.size ? `${textStyles.size}px` : "16px"};
-  color: ${({textStyles}) =>
-          textStyles.colour ? `${textStyles.colour}` : "#222222"};
-  text-align: ${({textStyles}) =>
-          textStyles.alignment ? `${textStyles.alignment}` : "center"};
+  font-family: ${({ textStyles }) =>
+    textStyles.font ? `${textStyles.font}` : "Objectivity"};
+  font-size: ${({ textStyles }) =>
+    textStyles.size ? `${textStyles.size}px` : "16px"};
+  color: ${({ textStyles }) =>
+    textStyles.colour ? `${textStyles.colour}` : "#222222"};
+  text-align: ${({ textStyles }) =>
+    textStyles.alignment ? `${textStyles.alignment}` : "center"};
 `;
 
 export const TextEditorForm = styled.div`
