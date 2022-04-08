@@ -206,9 +206,9 @@ export const CubeItem = styled.div`
 export const TextEditorWrapper = styled.div`
   overflow: hidden;
   width: ${({ width, textDataState }) =>
-    textDataState.focusState ? "100%" : `${width}`};
+    textDataState?.focusState ? "100%" : `${width}`};
   height: ${({ height, textDataState }) =>
-    textDataState.focusState ? "100%" : `${height}`};
+    textDataState?.focusState ? "40%" : `${height}`};
   position: absolute;
   display: flex;
   align-items: center;
@@ -220,7 +220,7 @@ export const TextEditorWrapper = styled.div`
   bottom: auto;
   textarea {
     font-size: ${({ textDataState }) =>
-      textDataState.textStyles?.size
+      textDataState?.textStyles?.size
         ? `${textDataState.textStyles.size}px`
         : "16px"};
   }
