@@ -9,7 +9,8 @@ import CubeImage from "./CubeImage";
 import { CubeItem, CubeSide } from "./style";
 
 export const CubePosition = ({ textDataState, boombData, curCubePosition }) => {
-  const { rotate, img, position, editCrop, defaultRotate } = boombData;
+  const { rotate, img, position, editCrop, defaultRotate, sideName } =
+    boombData;
   const dispatch = useDispatch();
 
   return (
@@ -30,6 +31,7 @@ export const CubePosition = ({ textDataState, boombData, curCubePosition }) => {
           img={img.img || img.url}
           position={position}
           editCrop={editCrop}
+          sideName={sideName}
         />
       </CubeItem>
     </CubeSide>

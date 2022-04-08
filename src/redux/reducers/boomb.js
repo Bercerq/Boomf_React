@@ -13,7 +13,7 @@ const initialState = {
   editCrop: "1",
   cubeImabeLibrary: [],
   curCubePosition: 1,
-  curCubeRotate: 760,
+  curCubeRotate: 670,
 };
 
 const boombReducer = (state = initialState, action) => {
