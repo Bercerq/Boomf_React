@@ -72,21 +72,7 @@ export const setBoxPosition =
 export const changeTopText = (setTopText, e) => {
   setTopText(e.target.value);
 };
-// Show side name based position
-export const findBoxSide = (position) => {
-  switch (position) {
-    case 1:
-      return "Front ";
-    case 2:
-      return "Right";
-    case 3:
-      return "Back";
-    case 4:
-      return "Left";
-    default:
-      break;
-  }
-};
+
 //check one or double click
 export const openEditor = (dispatch, buttonFlag) => () => {
   const button = document.getElementById(buttonFlag);
@@ -139,7 +125,6 @@ export const openEditor = (dispatch, buttonFlag) => () => {
     );
     buttonFlag === "buttonClickTopMobile" && openTextModal();
     dispatch(setCurPosition(1));
-
   });
 };
 

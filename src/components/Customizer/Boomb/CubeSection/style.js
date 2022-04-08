@@ -204,11 +204,10 @@ export const CubeItem = styled.div`
   transition: 0.4s;
 `;
 export const TextEditorWrapper = styled.div`
-  overflow: hidden;
-  width: ${({ width, textDataState }) =>
-    textDataState?.focusState ? "100%" : `${width}`};
-  height: ${({ height, textDataState }) =>
-    textDataState?.focusState ? "40%" : `${height}`};
+  overflow: ${({ textDataState }) =>
+    textDataState?.focusState ? `initial` : "hidden"};
+  width: ${({ width }) => `${width}`};
+  height: ${({ height }) => `${height}`};
   position: absolute;
   display: flex;
   align-items: center;
@@ -218,12 +217,7 @@ export const TextEditorWrapper = styled.div`
   left: auto;
   right: auto;
   bottom: auto;
-  textarea {
-    font-size: ${({ textDataState }) =>
-      textDataState?.textStyles?.size
-        ? `${textDataState.textStyles.size}px`
-        : "16px"};
-  }
+  max-width: 360px;
 `;
 
 export const SideImage = styled.img`
